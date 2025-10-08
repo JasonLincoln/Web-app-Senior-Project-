@@ -1,4 +1,6 @@
-#signup_block {
+/* Signup Page CSS */
+#signup_block
+{
     border-style: solid;
     border-radius: 50px;
     border-color: black;
@@ -8,21 +10,12 @@
     height: 50%;
     padding: 0px 40px 25px 40px;
     background-color: #f6f6f6;
-    margin: auto;
     margin-top: 150px;
 }
-button{
-    background-color: #7ed957;
-}
 
-#parent
+button
 {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    border-style: solid;
-    border-width: 10px;
+    background-color: #7ed957;
 }
 
 #signup-to-login-link
@@ -35,9 +28,32 @@ h1
     color:#7ed957
 }
 
-body {
+#signup-body {
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
+}
+
+/* Login Page CSS */
+#login-body
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#login_block
+{
+    border-style: solid;
+    border-radius: 50px;
+    border-color: black;
+    padding: 5px;
+    text-align: center;
+    width: max-content;
+    height: 50%;
+    padding: 0px 40px 25px 40px;
+    background-color: #f6f6f6;
+    margin-top: 250px;
 }
