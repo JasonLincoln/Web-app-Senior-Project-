@@ -14,14 +14,14 @@
     width: 84%;
     height: 350px;
     margin: 0px auto;
+    overflow: hidden;
     border: 1px dashed green 
 }
 
 .post-slider .post-wrapper .post {
     width: 100px;
     height: 350px;
-    margin: 0px 10px;
-    overflow: hidden;
+    margin: 0px 10px 0px 10px;
     display: inline-block;
     background-color: lightblue;
 }
