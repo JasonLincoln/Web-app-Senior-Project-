@@ -1,18 +1,7 @@
 /* CSS file for all css common amonst each html page */
-
-/* Navbar CSS */
-
 body 
 {
     margin: 0;
+    padding: 0;
     background-color: #d9d9d9;
 }
-
-#div1 
-{
-    padding: 50px;
-}
-
-/* Body CSS */
-
-/* Footer CSS */

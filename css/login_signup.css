@@ -6,8 +6,10 @@
     text-align: center;
     width: max-content;
     height: 50%;
-    padding: 25px 40px 80px 40px;
+    padding: 0px 40px 25px 40px;
     background-color: #f6f6f6;
+    margin: auto;
+    margin-top: 150px;
 }
 button{
     background-color: #7ed957;
@@ -15,8 +17,27 @@ button{
 
 #parent
 {
-    display: grid;
-    place-items: center;
-    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border-style: solid;
+    border-width: 10px;
 }
 
+#signup-to-login-link
+{
+    text-decoration: none;
+}
+
+h1
+{
+    color:#7ed957
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
