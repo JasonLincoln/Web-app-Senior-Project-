@@ -1,15 +1,42 @@
-.main-page-carousel
-{
+.main-page-carousel {
     display: flex;
     justify-content: center;
 
 }
 
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Candal', serif;
+}
+
 /* Post Slider */
-.post-slider
-{
+.post-slider {
+    position: relative;
     border: 1px green
 }
+
+.post-slider .slider-title {
+    text-align: center;
+    margin: 30px auto;
+}
+
+.post-slider .prev {
+    position: absolute;
+    top: 50%;
+    left: 30px;
+    font-size: 2em;
+    color: black;
+    cursor: pointer;
+}
+
+.post-slider .next {
+    position: absolute;
+    top: 50%;
+    right: 30px;
+    font-size: 2em;
+    color: black;
+    cursor: pointer;
+}
+
 .post-slider .post-wrapper {
     width: 84%;
     height: 350px;
