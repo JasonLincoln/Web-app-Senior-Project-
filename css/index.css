@@ -1,27 +1,110 @@
-.main-page-carousel
-{
-    display: flex;
-    justify-content: center;
-
+/* Overall */
+body {
+    background-color: white;
 }
 
-/* Post Slider */
-.post-slider
-{
+h1, h2, h3, h4, h5, h6, p {
+    font-family: 'Candal', serif;
+    text-align: center;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.page-wrapper a:hover {
+    color: rgb(160, 218, 160);
+}
+
+/* Carousel CSS */
+.post-slider {
+    position: relative;
     border: 1px green
 }
+
+.post-slider .slider-title {
+    text-align: center;
+    margin: 30px auto;
+}
+
+.post-slider .prev {
+    position: absolute;
+    top: 50%;
+    left: 200px; /* fix arrows cutting off */
+    font-size: 2em;
+    color: black;
+    cursor: pointer;
+}
+
+.post-slider .next {
+    position: absolute;
+    top: 50%;
+    right: 200px; /* fix arrows cutting off */
+    font-size: 2em;
+    color: black;
+    cursor: pointer;
+}
+
 .post-slider .post-wrapper {
-    width: 84%;
+    width: 70%;
     height: 350px;
     margin: 0px auto;
-    border: 1px dashed green 
+    overflow: hidden;
+    padding: 10px 0px 10px 0px;
 }
 
 .post-slider .post-wrapper .post {
-    width: 100px;
-    height: 350px;
-    margin: 0px 10px;
-    overflow: hidden;
+    width: 300px;
+    height: 330px;
+    margin: 0px 10px 0px 10px;
     display: inline-block;
-    background-color: lightblue;
+    background-color: rgb(225,225,225);
+    border-radius: 10px;
+    /* box-shadow: 1rem 1rem 1rem -1rem white; */
 }
+
+.post-slider .post-wrapper .post .post-info {
+    height: 130px;
+    padding: 0px 10px;
+    text-align: center;
+}
+
+
+.post-slider .post-wrapper .post .slider-image {
+    width: 100%;
+    height: 200px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+/* About Skillswap Flexbox */
+
+.about-skillswap {
+    display: grid;
+    justify-content: space-evenly;
+    grid-template-areas:
+        "image1 image2 image3"
+        "header1 header2 header3"
+        "desc1 desc2 desc3";
+    background-color: rgb(240,240,240);
+    margin-top: 100px;
+    height: 500px;
+}
+
+.image1 { grid-area: image1; margin-top: 25px; }
+.image2 { grid-area: image2; margin-top: 25px; }
+.image3 { grid-area: image3; margin-top: 25px; }
+
+.about-ss-image {
+    border-radius: 50%; 
+    border: 2px solid black;
+}
+
+.header1 { grid-area: header1; }
+.header2 { grid-area: header2; }
+.header3 { grid-area: header3; }
+
+.desc1 { grid-area: desc1; }
+.desc2 { grid-area: desc2; }
+.desc3 { grid-area: desc3; }
