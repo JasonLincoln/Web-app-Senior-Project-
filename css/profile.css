@@ -1,1 +1,105 @@
 /* Specific CSS for the profile page */
+
+/* Profile Section */
+#complete-profile
+{
+    background-color: #596b51;
+    display: flex;
+    margin: 20px;
+    padding: 20px;
+}
+
+#main-profile
+{
+    display: flex;
+    flex-direction: column;
+    background-color: #919191;
+    border-style: solid;
+    border-width: 1px;
+    border-color: black;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+#pfp
+{
+    border-radius: 50px;
+}
+
+#name-pronouns
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#about-me
+{
+    margin-left: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#about-me-text
+{
+    border-radius: 50px;
+    border-style: none;
+}
+
+/* All Sections */
+
+#All-Sections
+{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+#Skills-and-Offerings,
+#Availability-and-Session-Info,
+#Achievements,
+#Ratings-and-Comments
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #919191;
+    border-radius: 50px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: black;
+    padding: 5px;
+    width: 48%;
+    height: 400px;
+}
+/* Skills and Availability Section */
+#Skills-and-Availability
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-bottom: 10px;
+    margin-left: 10px;
+}
+
+/* Skills & Offerings Section */
+
+
+/* Availability and Session Info Section */
+
+/* Achievements and Ratings Section */
+#Achievements-and-Ratings
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-top: auto;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+/* Achievements Section */
+
+
+/* Rating System/Comments Section */
