@@ -1,1 +1,21 @@
 /* Specific CSS for the profile page */
+#complete-profile
+{
+    background-color: #596b51;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+}
+
+#main-profile
+{
+    display: flex;
+    flex-direction: column;
+    background-color: #919191;
+    padding: 20px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: black;
+    border-radius: 50px;
+}
