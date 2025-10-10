@@ -4,6 +4,7 @@
     border-style: solid;
     border-radius: 50px;
     border-color: black;
+    border-width: 1px;
     padding: 5px;
     text-align: center;
     width: max-content;
@@ -49,6 +50,7 @@ h1
     border-style: solid;
     border-radius: 50px;
     border-color: black;
+    border-width: 1px;
     padding: 5px;
     text-align: center;
     width: max-content;
