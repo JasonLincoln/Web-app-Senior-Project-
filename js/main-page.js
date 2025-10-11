@@ -2,7 +2,7 @@
 
 $('.post-wrapper').slick({
     slidesToShow: 3,
-    slidesToScroll: 1,
+    slidesToScroll: 2,
     autoplay: true,
     autoplaySpeed: 2000,
     nextArrow: $('.next'),
@@ -10,7 +10,7 @@ $('.post-wrapper').slick({
 
     responsive: [
     {
-      breakpoint: 1024,
+      breakpoint: 1200,
       settings: {
         slidesToShow: 3,
         slidesToScroll: 1,
@@ -19,14 +19,14 @@ $('.post-wrapper').slick({
       }
     },
     {
-      breakpoint: 600,
+      breakpoint: 1080,
       settings: {
         slidesToShow: 2,
         slidesToScroll: 1
       }
     },
     {
-      breakpoint: 480,
+      breakpoint: 720,
       settings: {
         slidesToShow: 1,
         slidesToScroll: 1

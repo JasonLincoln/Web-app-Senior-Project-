@@ -1,8 +1,4 @@
 /* Overall */
-body {
-    background-color: white;
-}
-
 h1, h2, h3, h4, h5, h6, p {
     font-family: 'Candal', serif;
     text-align: center;
@@ -20,7 +16,7 @@ a {
 /* Carousel CSS */
 .post-slider {
     position: relative;
-    border: 1px green
+    margin-top: 50px;
 }
 
 .post-slider .slider-title {
@@ -31,7 +27,7 @@ a {
 .post-slider .prev {
     position: absolute;
     top: 50%;
-    left: 200px; /* fix arrows cutting off */
+    left: 8%; /* fix arrows cutting off */
     font-size: 2em;
     color: black;
     cursor: pointer;
@@ -40,7 +36,7 @@ a {
 .post-slider .next {
     position: absolute;
     top: 50%;
-    right: 200px; /* fix arrows cutting off */
+    right: 8%; /* fix arrows cutting off */
     font-size: 2em;
     color: black;
     cursor: pointer;
@@ -78,18 +74,25 @@ a {
     border-top-right-radius: 10px;
 }
 
-/* About Skillswap Flexbox */
+/* About Skillswap Grid */
+
+.skillswap-title {
+    margin-top: 100px;
+}
 
 .about-skillswap {
     display: grid;
-    justify-content: space-evenly;
+    justify-items: center;
+    grid-template-columns: repeat(3, 1fr); /*fr = fractional unit*/
     grid-template-areas:
         "image1 image2 image3"
         "header1 header2 header3"
+        "desc1 desc2 desc3"
         "desc1 desc2 desc3";
     background-color: rgb(240,240,240);
-    margin-top: 100px;
+    padding: 0px 20px 0px 20px;
     height: 500px;
+    column-gap: 20px;
 }
 
 .image1 { grid-area: image1; margin-top: 25px; }
@@ -99,6 +102,9 @@ a {
 .about-ss-image {
     border-radius: 50%; 
     border: 2px solid black;
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
 }
 
 .header1 { grid-area: header1; }
