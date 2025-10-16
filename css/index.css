@@ -114,3 +114,9 @@ a {
 .desc1 { grid-area: desc1; }
 .desc2 { grid-area: desc2; }
 .desc3 { grid-area: desc3; }
+
+/* Categories */
+
+.skill-categories {
+    margin: 40px 0px;
+}
