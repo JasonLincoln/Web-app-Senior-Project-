@@ -36,13 +36,19 @@ $('.post-wrapper').slick({
     ]
 });
 
-// Hover JS
+// Hover & Animation JS
 
 let example = $(".skill-categories");
 let exampleText = $("#hiddenText1")
 
 example.mouseover(function() {
+    exampleText.css("background-color", "rgb(120, 255, 120)");
     exampleText.css("display", "block");
+
+    let id = 0;
+    let pos = 0;
+
+    
 });
 
 example.mouseout(function() {
