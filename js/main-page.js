@@ -38,19 +38,25 @@ $('.post-wrapper').slick({
 
 // Hover & Animation JS
 
-let example = $(".skill-categories");
-let exampleText = $("#hiddenText1")
+function hoverEffects(elementID, elementSubtopicsID)
+{
+    let element = $(elementID);
+    let elementSubtopics = $(elementSubtopicsID);
 
-example.mouseover(function() {
-    exampleText.css("background-color", "rgb(120, 255, 120)");
-    exampleText.css("display", "block");
+    element.mouseover(function() {
+        elementSubtopics.css("display", "block");
+    })
 
-    let id = 0;
-    let pos = 0;
+    element.mouseout(function() {
+        elementSubtopics.css("display", "none");
+    })
+}
 
-    
-});
-
-example.mouseout(function() {
-    exampleText.css("display", "none");
-})
+hoverEffects("#prog-lang-header", "#hidden-prog-lang"); // programming languages
+hoverEffects("#computers-header", "#hidden-computers"); // computers and info tech
+hoverEffects("#math-header", "#hidden-math"); // math
+hoverEffects("#science-header", "#hidden-science"); // science
+hoverEffects("#social-studies-header", "#hidden-social-studies"); // social studies
+hoverEffects("#business-header", "#hidden-business"); // business
+hoverEffects("#life-skills-header", "#hidden-life-skills"); // life skills
+hoverEffects("#foreign-lang-header", "#hidden-foreign-lang"); // foreign languages

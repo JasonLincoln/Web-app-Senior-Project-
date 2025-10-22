@@ -92,7 +92,6 @@ a {
     background-color: rgb(240,240,240);
     padding: 0px 20px 0px 20px;
     height: 500px;
-    column-gap: 20px;
 }
 
 .image1 { grid-area: image1; margin-top: 25px; }
@@ -117,6 +116,47 @@ a {
 
 /* Categories */
 
-.skill-categories {
-    margin: 40px 0px;
+.card {
+    padding: 2em;
+    border: 1px solid rgb(100, 100, 100);
+    border-radius: 10px;
+    background-color: rgb(150, 150, 150);
 }
+
+.skill-categories {
+    display: grid;
+    margin: 50px;
+    border: 1px solid red;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 15px;
+    justify-content: center;
+}
+
+#programming-languages {
+
+}
+
+#computers {
+
+}
+
+#math {
+
+}
+
+#science {
+
+}
+
+#social-studies {
+
+}
+
+#business {
+
+}
+
+#life-skills {
+
+}
+
