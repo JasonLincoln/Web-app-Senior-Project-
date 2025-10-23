@@ -38,25 +38,28 @@ $('.post-wrapper').slick({
 
 // Hover & Animation JS
 
-function hoverEffects(elementID, elementSubtopicsID)
+function hoverEffects(cardID, elementID, elementSubtopicsID)
 {
+    let card = $(cardID);
     let element = $(elementID);
     let elementSubtopics = $(elementSubtopicsID);
 
-    element.mouseover(function() {
-        elementSubtopics.css("display", "block");
+    card.mouseover(function() {
+        elementSubtopics.css("visibility", "visible");
+        element.css("visibility", "hidden");
     })
 
-    element.mouseout(function() {
-        elementSubtopics.css("display", "none");
+    card.mouseout(function() {
+        elementSubtopics.css("visibility", "hidden");
+        element.css("visibility", "visible");
     })
 }
 
-hoverEffects("#prog-lang-header", "#hidden-prog-lang"); // programming languages
-hoverEffects("#computers-header", "#hidden-computers"); // computers and info tech
-hoverEffects("#math-header", "#hidden-math"); // math
-hoverEffects("#science-header", "#hidden-science"); // science
-hoverEffects("#social-studies-header", "#hidden-social-studies"); // social studies
-hoverEffects("#business-header", "#hidden-business"); // business
-hoverEffects("#life-skills-header", "#hidden-life-skills"); // life skills
-hoverEffects("#foreign-lang-header", "#hidden-foreign-lang"); // foreign languages
+hoverEffects("#programming-languages", "#prog-lang-header", "#hidden-prog-lang"); // programming languages
+hoverEffects("#computers", "#computers-header", "#hidden-computers"); // computers and info tech
+hoverEffects("#math", "#math-header", "#hidden-math"); // math
+hoverEffects("#science", "#science-header", "#hidden-science"); // science
+hoverEffects("#social-studies", "#social-studies-header", "#hidden-social-studies"); // social studies
+hoverEffects("#business", "#business-header", "#hidden-business"); // business
+hoverEffects("#life-skills", "#life-skills-header", "#hidden-life-skills"); // life skills
+hoverEffects("#foreign-languages", "#foreign-lang-header", "#hidden-foreign-lang"); // foreign languages
