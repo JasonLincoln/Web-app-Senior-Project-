@@ -1,3 +1,8 @@
+
+*
+{
+    font-family: Arial, Helvetica, sans-serif
+}
 /* Signup Page CSS */
 #signup_block
 {
@@ -5,6 +10,7 @@
     border-radius: 50px;
     border-color: black;
     border-width: 1px;
+    box-shadow: 5px 10px 10px black;
     padding: 5px;
     text-align: center;
     width: max-content;
@@ -17,6 +23,8 @@
 button
 {
     background-color: #7ed957;
+    font-size: 20px;
+    padding: 5% 30% 5% 30%;
 }
 
 #signup-to-login-link
@@ -26,7 +34,7 @@ button
 
 h1
 {
-    color:#7ed957
+    color:#7ed957;
 }
 
 #signup-body {
@@ -36,6 +44,10 @@ h1
     flex-direction: column;
 }
 
+#extra-information {
+    display: flex;
+    justify-content: center;
+}
 /* Login Page CSS */
 #login-body
 {
