@@ -1,0 +1,148 @@
+#sessions-page
+{
+    display: flex;
+    border-width: 4px;
+    border-color: black;
+    border-style:solid;
+    width: 90%;
+    margin: 10px auto;
+}
+
+#upcoming-and-requested-sessions
+{
+    border-style: solid;
+    border-width: 5px;
+    margin:10px;
+    width: 48%;
+}
+
+#upcoming-sessions,
+#requested-sessions{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 400px;
+    background-color: #596b51;
+    margin:10px;
+}
+ 
+#upcoming-sessions
+{
+    border-radius: 40px 40px 0 0;
+}
+
+#requested-sessions{
+    margin-top: auto;
+    border-radius: 0 0 40px 40px;
+}
+
+#scheduled-session{
+    width: 90%;
+    display: flex;
+    align-content: center;
+    background-color: lightgray;
+}
+
+/* button css */
+
+button{
+    border: none;
+    margin: 10px;
+}
+
+button:active {
+    transform: translateY(7px);
+
+}
+
+#start-now-button,
+#accept-button,
+#request-button{
+    background-color: #7ed957;
+    box-shadow: 0px 5px 5px #355e3b;
+}
+
+#start-now-button:active,
+#accept-button:active,
+#request-button:active{
+    box-shadow: 0px 3px 3px #355e3b;
+}
+
+#deny-button,
+#clear-button{
+    background-color: red;
+}
+
+#start-now-button,
+#accept-button,
+#deny-button{
+    border-radius: 100px;
+}
+
+#request-button,
+#clear-button{
+    border-radius: 25px;
+}
+#skill-dropdown-button{
+    background-color: white;
+}
+
+#view-past-sessions{
+    margin-top:auto;
+    margin-top: 20px;
+    width: 100%;
+    border-radius: 10px;
+    background-color:darkgrey;
+}
+
+#scheduled-session > * {
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+#rnvp-sessions{
+    /* border-style: solid; */
+    width: 48%;
+}
+#requested-session
+{
+    width: 90%;
+    display: flex;
+    align-content: center;
+    background-color: gray;
+}
+
+#requested-session > *{
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+#request-a-session{
+    display: flex;
+    flex-direction: column;
+    background-color: gray;
+    width: 100%;
+    border-radius: 35px;
+    justify-content: center;
+}
+
+
+
+/* #skill-dropdown{
+    position: relative;
+}
+
+#skill-dropdown-content{
+    display: none;
+    position: absolute;
+    background-color: white;
+    min-width: 130px;
+    border-color: black;
+    border-style: solid;
+    border-width: 1px;
+}
+
+#skill-dropdown:hover #skill-dropdown-content{
+    display: block;
+    margin:0;
+} */
