@@ -9,11 +9,14 @@ a {
     color: inherit;
 }
 
+/* Carousel CSS */
+/* Carousel CSS */
+/* Carousel CSS */
+
 .page-wrapper a:hover {
     color: rgb(160, 218, 160);
 }
 
-/* Carousel CSS */
 .post-slider {
     position: relative;
     margin-top: 50px;
@@ -75,6 +78,8 @@ a {
 }
 
 /* About Skillswap Grid */
+/* About Skillswap Grid */
+/* About Skillswap Grid */
 
 .skillswap-title {
     margin-top: 100px;
@@ -115,28 +120,67 @@ a {
 .desc2 { grid-area: desc2; }
 .desc3 { grid-area: desc3; }
 
-/* Categories */
-
-.card {
-    height: 200px;
-    border: 1px solid rgb(100, 100, 100);
-    background-color: rgb(150, 150, 150);
-
-    /* transition-property: width;
-    transition-duration: 5000ms;
-    transition-timing-function: linear;
-    transition-delay: 0s; */
+@media only screen and (max-width: 720px) {
+    /* Add responsiveness to the grid here */
 }
 
-[id$="-header"] {
-    vertical-align: bottom;
-}
+/* Categories Cards */
+/* Categories Cards */
+/* Categories Cards */
 
+/*  */
 .skill-categories {
     display: grid;
-    margin: 50px;
-    border: 1px solid red;
+    margin: 100px 50px;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 15px;
     justify-content: center;
+    overflow: hidden;
+}
+
+/* For All Cards */
+.card {
+    height: 200px; 
+    background-color: rgb(92, 146, 92);
+    background-size: cover;
+    color: white;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+}
+
+/* Card Image Properties */
+.card img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 200ms ease-in-out transform,
+                200ms ease-in-out filter;
+}
+
+.card:hover img {
+    transform: scale(1.2);
+    filter: blur(1px);
+}
+
+[id^="hidden-"] { /* Hidden Text Content */
+    margin: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 100%;
+    transform: translate(0, 100%);
+    background-color: rgba(160, 218, 160, 0.5);
+    transition: 200ms ease-in-out transform;
+}
+
+
+[id$="-header"] { /* Card Headers */
+    position: absolute;
+    background-color: rgba(160, 218, 160, 0.5);
+    margin: 0;
+    width: 100%;
+    padding: 10px 0px;
+    bottom: 0;
 }

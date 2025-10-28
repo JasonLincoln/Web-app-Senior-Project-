@@ -41,16 +41,16 @@ $('.post-wrapper').slick({
 function hoverEffects(cardID, elementID, elementSubtopicsID)
 {
     let card = $(cardID);
-    let element = $(elementID);
-    let elementSubtopics = $(elementSubtopicsID);
+    let element = $(elementID); // card header
+    let elementSubtopics = $(elementSubtopicsID); // hidden text context
 
     card.mouseover(function() {
-        elementSubtopics.css("visibility", "visible");
+        elementSubtopics.css("transform", "translate(0%, -100%)");
         element.css("visibility", "hidden");
     })
 
     card.mouseout(function() {
-        elementSubtopics.css("visibility", "hidden");
+        elementSubtopics.css("transform", "translate(0%, 100%)");
         element.css("visibility", "visible");
     })
 }
