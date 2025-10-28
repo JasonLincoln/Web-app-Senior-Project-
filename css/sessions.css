@@ -1,17 +1,12 @@
 #sessions-page
 {
     display: flex;
-    border-width: 4px;
-    border-color: black;
-    border-style:solid;
     width: 90%;
     margin: 10px auto;
 }
 
 #upcoming-and-requested-sessions
 {
-    border-style: solid;
-    border-width: 5px;
     margin:10px;
     width: 48%;
 }
@@ -71,6 +66,12 @@ button:active {
 #deny-button,
 #clear-button{
     background-color: red;
+    box-shadow: 0px 5px 5px #7b0323;
+}
+
+#deny-button:active,
+#clear-button:active{
+    box-shadow: 0px 3px 3px #7b0323;
 }
 
 #start-now-button,
@@ -87,13 +88,28 @@ button:active {
     background-color: white;
 }
 
+#request-and-clear-buttons{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#request-button,
+#clear-button{
+    font-size: 20px;
+    padding: 10px 20px;
+}
+
 #view-past-sessions{
     margin-top:auto;
-    margin-top: 20px;
-    width: 100%;
+    margin: 10px;
     border-radius: 10px;
     background-color:darkgrey;
+    font-size: 30px;
+    padding: 20px 30px;
 }
+
+/* end of button css */
 
 #scheduled-session > * {
     margin-left: 5px;
@@ -101,7 +117,9 @@ button:active {
 }
 
 #rnvp-sessions{
-    /* border-style: solid; */
+    display: flex;
+    flex-direction: column;
+    margin:10px;
     width: 48%;
 }
 #requested-session
@@ -121,15 +139,15 @@ button:active {
     display: flex;
     flex-direction: column;
     background-color: gray;
-    width: 100%;
+    height: 400px;
     border-radius: 35px;
     justify-content: center;
+    align-items: center;
+    margin: 10px;
 }
 
-
-
-/* #skill-dropdown{
-    position: relative;
+#skill-dropdown{
+    display: inline;
 }
 
 #skill-dropdown-content{
@@ -137,12 +155,9 @@ button:active {
     position: absolute;
     background-color: white;
     min-width: 130px;
-    border-color: black;
-    border-style: solid;
-    border-width: 1px;
 }
 
 #skill-dropdown:hover #skill-dropdown-content{
     display: block;
     margin:0;
-} */
+}
