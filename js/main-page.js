@@ -27,7 +27,7 @@ $('.post-wrapper').slick({
         }
     },
     {
-        breakpoint: 720,
+        breakpoint: 840,
         settings: {
             slidesToShow: 1,
             slidesToScroll: 1
