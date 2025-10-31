@@ -6,7 +6,7 @@
 /* Signup Page CSS */
 /* Signup Page CSS */
 /* Signup Page CSS */
-#signup_block
+#signup_form
 {
     border-style: solid;
     border-radius: 50px;
@@ -14,12 +14,11 @@
     border-width: 1px;
     box-shadow: 5px 10px 10px black;
     padding: 5px;
-    text-align: center;
     width: max-content;
     height: 50%;
     padding: 0px 40px 25px 40px;
     background-color: #f6f6f6;
-    margin-top: 150px;
+    margin-top: 50px;
 }
 
 #submit
@@ -36,7 +35,9 @@
 
 #username, #email, #password 
 {
-    padding: 10px 20px;
+    width: 300px;
+    height: 20px;
+    padding: 8px;
 }
 
 h1
