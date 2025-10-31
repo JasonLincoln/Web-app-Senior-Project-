@@ -6,19 +6,27 @@
 /* Signup Page CSS */
 /* Signup Page CSS */
 /* Signup Page CSS */
+
+body 
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url(../images/background.png);
+    background-repeat: no-repeat
+}
+
 #signup_form
 {
+    display: flex;
     border-style: solid;
     border-radius: 50px;
     border-color: black;
     border-width: 1px;
     box-shadow: 5px 10px 10px black;
-    padding: 5px;
-    width: max-content;
-    height: 50%;
+    width: 360px;
     padding: 0px 40px 25px 40px;
     background-color: #f6f6f6;
-    margin-top: 50px;
 }
 
 #submit
@@ -33,9 +41,9 @@
     text-decoration: none;
 }
 
-#username, #email, #password 
+#username, #password, #email
 {
-    width: 300px;
+    width: 100%;
     height: 20px;
     padding: 8px;
 }
@@ -50,17 +58,11 @@ span
     color: red;
 }
 
-body {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-}
-
 #extra-information {
     display: flex;
     justify-content: center;
 }
+
 
 /* Login Page CSS */
 /* Login Page CSS */

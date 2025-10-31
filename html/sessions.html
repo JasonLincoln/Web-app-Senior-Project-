@@ -31,7 +31,7 @@
                     <p>GizzLeeBear2002</p>
                     <p>5/15/20026</p>
                     <p>3:30 PM</p>
-                    <p><a id="edit" href="">Edit</a></p>
+                    <p><a id="edit1" href="">Edit</a></p>
                     <button id="accept-button">Accept</button>
                     <button id="deny-button">Deny</button>
                 </div>
@@ -41,36 +41,41 @@
         <div id="rnvp-sessions">
             <div id="request-a-session">
                 <h1 id="request-a-session-title">Request A Session</h1>
-                <p>With:  
+                <p id="tutor-input-box">
+                    With:  
                     <span>
-                        <input id="tutor-input"type="text" placeholder="Type tutor here">
+                        <input id="tutor-input" type="text" placeholder="Type tutor here">
                     </span>
                 </p>
 
-                <p>When: 
+                <p id="date-and-time-box">
+                    When: 
                     <span><input id="date-input" type="text" placeholder="Select Date">
                     <input id="time-input" type="text" placeholder="Select Time">
                     </span>
                 </p>
 
-                <p>Over: 
-                    <span>
-                        <div class="dropdown">
-                        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Dropdown button
-                        </button>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Action</a></li>
-                            <li><a class="dropdown-item" href="#">Another action</a></li>
-                            <li><a class="dropdown-item" href="#">Something else here</a></li>
-                        </ul>
+                <div id="skill-dropdown-and-input">
+                    Over: 
+                    <div>
+                        <input type="text" id="skill-dropdown-textbox" placeholder="Select Skill" readonly>
+                        <div id="skill-dropdown">
+                            <!-- Include the ability to when hover over dropdown button, display the skill-dropdown-content -->
+                            <button id="dropdown-button">
+                                ▼
+                            </button>
+                            <ul id="skill-dropdown-content">
+                                <li><a class="dropdown-item" href="#">Math</a></li>
+                                <li><a class="dropdown-item" href="#">Science</a></li>
+                                <li><a class="dropdown-item" href="#">History</a></li>
+                            </ul>
                         </div>
-                    </span>
-                </p>
-
-                <button id="request-button"> Request </button> 
-                <button id="clear-button"> Clear </button>
-
+                    </div>
+                </div>
+                <div id="request-and-clear-buttons">
+                    <button id="request-button"> Request </button> 
+                    <button id="clear-button"> Clear </button>
+                </div>
             </div>
 
             <button id="view-past-sessions">View Past Sessions</button>

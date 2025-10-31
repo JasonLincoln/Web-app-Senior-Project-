@@ -7,3 +7,26 @@ body
     width: 100%;
     background-color: #fafafa;
 }
+
+/* Navbar CSS */
+
+.navbar-body {
+    display: flex;
+    height: 75px;
+    background-color: #c8e8ba; /* For browsers that do not support gradients */
+    background-image: linear-gradient(to right, #bfd8b4, #c8e8ba);
+    border-style: solid;
+}
+
+.navbar-title{
+    justify-content: flex-start;
+}
+
+.navbar-signup-button{
+    justify-content: flex-end;
+}
+
+.profile-picture{
+    justify-content: flex-end;
+}
+/* Footer CSS */
