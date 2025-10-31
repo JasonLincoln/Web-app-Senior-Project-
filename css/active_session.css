@@ -1,7 +1,9 @@
+/* Overall Page CSS */
 body{
     background-color: black;
 }
 
+/* Link CSS */
 h2 a{
     color: greenyellow;
 }
@@ -10,6 +12,7 @@ h2 a:hover{
     color: green;
 }
 
+/* Button CSS */
 button{
     position:relative;
     margin-top:44.5%;

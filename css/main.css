@@ -9,7 +9,6 @@ body
 }
 
 /* Navbar CSS */
-
 .navbar-body {
     display: flex;
     height: 75px;
@@ -33,8 +32,8 @@ body
 .profile-picture{
     justify-content: flex-end;
 }
-/* Footer CSS */
 
+/* Footer CSS */
 footer
 {
     text-align: center;

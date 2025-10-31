@@ -1,3 +1,4 @@
+/* Container CSS */
 #sessions-page
 {
     display: flex;
@@ -5,6 +6,7 @@
     margin: 10px auto;
 }
 
+/* Upcoming and Requested Session CSS */
 #upcoming-and-requested-sessions
 {
     margin:10px;
@@ -38,8 +40,7 @@
     background-color: lightgray;
 }
 
-/* button css */
-
+/* Button CSS */
 button{
     border: none;
     margin: 10px;
@@ -110,8 +111,7 @@ button:active {
     padding: 20px 30px;
 }
 
-/* end of button css */
-
+/* Session Info CSS */
 #scheduled-session > * {
     margin-left: 5px;
     margin-right: 5px;
@@ -123,6 +123,7 @@ button:active {
     margin:10px;
     width: 48%;
 }
+
 #requested-session
 {
     width: 90%;
@@ -147,6 +148,7 @@ button:active {
     margin: 10px;
 }
 
+/* Dropdown CSS */
 #skill-dropdown{
     display: inline;
 }
