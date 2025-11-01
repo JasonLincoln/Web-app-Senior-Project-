@@ -3,8 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Website CSS -->
     <link rel="stylesheet" href="../css/signup.css">
     <link rel="stylesheet" href="../css/main.css">
+    <!-- Google Fonts CSS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
     <title>Sign Up Page</title>
 </head>
 <body id="signup-body">
@@ -13,24 +18,34 @@
             <h1>Sign Up For SkillSwap</h1>
 
             <div class="input-box">
-                <input type="text" placeholder="Username" required>
+                <input type="text" placeholder="Username" id="username" required>
                 <i class="fa-solid fa-user"></i>
             </div>
 
             <div class="input-box">
-                <input type="text" placeholder="Email" required>
+                <input type="text" placeholder="Email" id="email" required>
                 <i class="fa-solid fa-envelope"></i>
             </div>
 
             <div class="input-box">
-                <input type="password" placeholder="Password" required>
+                <input type="password" placeholder="Password" id="password" required>
                 <i class="fa-solid fa-lock"></i>
             </div>
 
             <div class="requirements">
-                <ul class="requirement-list">
-                    <li>Must contain atleast 8 characters</li>
-                    <li>Must contain a number or special character</li>
+                <ul>
+                    <li id="eightChars">
+                        <i class="fa-solid fa-xmark"></i>
+                        <div>Contain at least 8 characters</div>
+                    </li>
+                    <li id="uppercaseChar">
+                        <i class="fa-solid fa-xmark"></i>
+                        <div>Contain an uppercase character</div>
+                    </li>
+                    <li id="numSpecial">
+                        <i class="fa-solid fa-xmark"></i>
+                        <div>Contain a number or special character</div>
+                    </li>
                 </ul>
             </div>
 
@@ -47,7 +62,7 @@
 
             <div class="login-link">
                 <p>
-                    Already have an account? <a href="../html/signup.html">Login</a>
+                    Already have an account? <a href="../html/login.html">Login</a>
                 </p>
             </div>
         </form>

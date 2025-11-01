@@ -6,7 +6,6 @@
     color: black;
     font-family: "Inter", sans-serif;
     font-optical-sizing: auto;
-    font-weight: weight;
     font-style: normal;
 }
 
@@ -104,7 +103,7 @@
 }
 
 .extra-information p {
-    margin-top: 20px;
+    margin: 20px 0px -10px;
 }
 
 .extra-information label input {
@@ -114,10 +113,12 @@
 
 .extra-information a {
     text-decoration: none;
+    color: #4daf23;
 }
 
 .extra-information a:hover {
     text-decoration: underline;
+    color: #7ed957;
 }
 
 .login-link {
@@ -134,4 +135,21 @@
 
 .login-link p a:hover {
     text-decoration: underline;
+}
+
+.requirements ul {
+    list-style-type: none;
+}
+
+.requirements ul li {
+    display: flex;
+    margin: 10px 0px;
+}
+
+.fa-xmark {
+    color: red;
+}
+
+.fa-check {
+    color: green;
 }
