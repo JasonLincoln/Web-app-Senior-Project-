@@ -3,3 +3,39 @@
     margin: 0;
     padding: 0;
 }
+
+footer
+{
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(160, 218, 160);
+}
+
+.sub-grid-header
+{
+    
+}
+
+#skillswap-header
+{
+    padding: 0px 20px;
+}
+
+#grid-container
+{
+    display: grid;
+    padding: 0px 20px;
+    grid-template-areas: 
+    "skills links more contact"
+    "skills links more contact";
+}
+
+#grid-container ul
+{
+    list-style-type: none;
+}
+
+#copyright-and-media
+{
+    background-color: rgb(120, 165, 120);
+}
