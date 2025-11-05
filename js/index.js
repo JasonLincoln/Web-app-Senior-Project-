@@ -62,4 +62,4 @@ hoverEffects("#science", "#science-header", "#hidden-science"); // science
 hoverEffects("#social-studies", "#social-studies-header", "#hidden-social-studies"); // social studies
 hoverEffects("#business", "#business-header", "#hidden-business"); // business
 hoverEffects("#life-skills", "#life-skills-header", "#hidden-life-skills"); // life skills
-hoverEffects("#foreign-languages", "#foreign-lang-header", "#hidden-foreign-lang"); // foreign languages
+hoverEffects("#languages", "#lang-header", "#hidden-lang"); // foreign languages
