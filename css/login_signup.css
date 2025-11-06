@@ -1,0 +1,74 @@
+*
+{
+    font-family: Arial, Helvetica, sans-serif
+}
+
+/* Signup Page CSS */
+#signup_block
+{
+    border-style: solid;
+    border-radius: 50px;
+    border-color: black;
+    border-width: 1px;
+    box-shadow: 5px 10px 10px black;
+    padding: 5px;
+    text-align: center;
+    width: max-content;
+    height: 50%;
+    padding: 0px 40px 25px 40px;
+    background-color: #f6f6f6;
+    margin-top: 150px;
+}
+
+button
+{
+    background-color: #7ed957;
+    font-size: 20px;
+    padding: 5% 30% 5% 30%;
+}
+
+#signup-to-login-link
+{
+    text-decoration: none;
+}
+
+h1
+{
+    color:#7ed957;
+}
+
+#signup-body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#extra-information {
+    display: flex;
+    justify-content: center;
+}
+
+/* Login Page CSS */
+#login-body
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#login_block
+{
+    border-style: solid;
+    border-radius: 50px;
+    border-color: black;
+    border-width: 1px;
+    padding: 5px;
+    text-align: center;
+    width: max-content;
+    height: 50%;
+    padding: 0px 40px 25px 40px;
+    background-color: #f6f6f6;
+    margin-top: 250px;
+}
