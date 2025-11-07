@@ -39,8 +39,7 @@
 {
     display: inline-block;
     margin: 10px 0px;
-    /* Temporary, just for checking background color */
-    background-color: rgb(230, 230, 230);
+    height: 60%;
 }
 
 /* Card Creator */
@@ -65,13 +64,13 @@
 /* Card Description */
 .card-desc
 {
-    margin-bottom: 20px;
+    margin-bottom: 30px;
 }
 
 /* Card Tags */
 .card-tags
 {
-    margin-bottom: 20px;
+    margin-bottom: 30px;
 }
 
 /* Ratings */
