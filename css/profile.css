@@ -48,7 +48,6 @@
 }
 
 /* All Sections */
-
 #All-Sections
 {
     display: flex;
@@ -73,6 +72,7 @@
     width: 48%;
     height: 400px;
 }
+
 /* Skills and Availability Section */
 #Skills-and-Availability
 {
