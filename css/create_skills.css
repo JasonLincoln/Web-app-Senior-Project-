@@ -1,7 +1,6 @@
 /* Overall */
 h1, h2, h3, h4, h5, h6, p {
     font-family: 'Candal', serif;
-    text-align: center;
 }
 
 a {
@@ -9,71 +8,33 @@ a {
     color: inherit;
 }
 
-/* Carousel CSS */
-/* Carousel CSS */
-/* Carousel CSS */
-
-.page-wrapper a:hover {
-    color: rgb(160, 218, 160);
-}
-
-.post-slider {
-    position: relative;
-    margin-top: 50px;
-}
-
-.post-slider .slider-title {
-    text-align: center;
-    margin: 30px auto;
-}
-
-.post-slider .prev {
-    position: absolute;
-    top: 50%;
-    left: 8%; /* fix arrows cutting off */
-    font-size: 2em;
-    color: black;
-    cursor: pointer;
-}
-
-.post-slider .next {
-    position: absolute;
-    top: 50%;
-    right: 8%; /* fix arrows cutting off */
-    font-size: 2em;
-    color: black;
-    cursor: pointer;
-}
-
-.post-slider .post-wrapper {
-    width: 70%;
-    height: 350px;
-    margin: 0px auto;
-    overflow: hidden;
-    padding: 10px 0px 10px 0px;
-}
-
-.post-slider .post-wrapper .post {
-    width: 300px;
-    height: 330px;
-    margin: 0px 10px 0px 10px;
+#select-category-wrapper {
     display: inline-block;
-    background-color: rgb(225,225,225);
-    border-radius: 10px;
-    /* box-shadow: 1rem 1rem 1rem -1rem white; */
+    padding: 10px;
+    background-color: rgb(240, 240, 240);
 }
 
-.post-slider .post-wrapper .post .post-info {
-    height: 130px;
-    padding: 0px 10px;
-    text-align: center;
+input[type="radio"] {
+    padding: 10px, 0px;
 }
 
+input[type="text"] {
+    padding: 5px;
+    margin: 10px;
+}
 
-.slider-image {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
+.gallery-image {
+    cursor: pointer;
+    margin: 10px;
+    width: 200px;
+    height: auto;
+}
+
+.gallery-image:hover {
+    outline: 2px solid rgb(0, 220, 0);
+}
+
+#image-collection {
+    display: inline-block;
+    background-color: rgb(240, 240, 240);
 }
