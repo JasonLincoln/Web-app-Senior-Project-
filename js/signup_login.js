@@ -61,7 +61,7 @@ function returnPassStatus()
     const numbersAndSpecials = /[0-9!@#$%^&*()_\+\-=\[\]{};':"\\|,.<>\/?`~]/g;
 
     // Triggers everytime a letter is typed or deleted.
-    $("#password").on("input", event => {
+    $("#password").on("input", () => {
 
         // Validate Length
         if ($("#password").val().length >= 8) {

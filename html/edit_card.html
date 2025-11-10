@@ -6,13 +6,13 @@
     <title>Document</title>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.css">
-    <link rel="stylesheet" href="../css/create_skills.css">
+    <link rel="stylesheet" href="../css/edit_card.css">
     <link rel="stylesheet" href="../css/cards.css">
 </head>
 <body>
     <div id="select-category-wrapper">
         <form id="select-category">
-            <h3>What are you teaching?</h3>
+            <h3>What is the main subject you're going to teach?</h3>
             <input type="radio" id="prog_lang" name="which_category" value="prog_lang">
             <label for="prog_lang">Programming Languages</label><br>
 
@@ -36,18 +36,22 @@
 
             <input type="radio" id="languages" name="which_category" value="languages">
             <label for="languages">Language Arts</label><br>
+            
+            <h3>Description</h3>
+            <textarea class="textarea" name="c-desc" id="c-desc" placeholder="Enter Description Here" maxlength="150"></textarea>
 
-            <input type="text" name="c-title" id="c-title" placeholder="Enter Title Here">
-            <button>Save Title</button>
+            <p>Your description must be 150 characters or less!</p>
+            <div id="characters-left">Characters Left: 150</div>
             <br>
-            <input type="text" name="c-desc" id="c-desc" placeholder="Enter Description Here">
-            <button>Save Description</button>
+            <input type="button" value="Save" id="submit">
         </form>
     </div>
 
     <div id="image-collection"></div>
 
-    <h4>Customize what your card will look like!</h4>
+    <div>
+        <h4>Customize what your card will look like!</h4>
+    </div>
     <div class="card">
         <div class="card-image">
             <img src="../images/placeholder.png" alt="" id="selected-image">
@@ -57,9 +61,6 @@
             <div class="creator">
                 <i class="fa-solid fa-user"></i>
                 <h3>Profile User</h3>
-            </div>
-            <div class="card-title">
-                <h2>Card Title</h2>
             </div>
             <div class="card-desc">
                 <p>This is a user card description. If the user exceeds a certain amount of characters, the text must be cut off.</p>
@@ -76,6 +77,6 @@
 
     <script src="https://kit.fontawesome.com/16ce6dc272.js" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-    <script src="../js/create_skills.js"></script>
+    <script src="../js/edit_card.js"></script>
 </body>
 </html>

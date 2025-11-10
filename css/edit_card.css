@@ -11,16 +11,27 @@ a {
 #select-category-wrapper {
     display: inline-block;
     padding: 10px;
-    background-color: rgb(240, 240, 240);
+    margin: 20px 100px;
 }
 
 input[type="radio"] {
     padding: 10px, 0px;
 }
 
-input[type="text"] {
-    padding: 5px;
-    margin: 10px;
+.textarea {
+    background-color: #dddddd;
+    color: #666666;
+    padding: 1em;
+    border-radius: 10px;
+    border: 2px solid transparent;
+    outline: none;
+    font-family: 'Heebo', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.4;
+    width: 500px;
+    height: 100px;
+    resize: none;
 }
 
 .gallery-image {
@@ -37,4 +48,8 @@ input[type="text"] {
 #image-collection {
     display: inline-block;
     background-color: rgb(240, 240, 240);
+}
+
+.card {
+    margin: 20px 100px;
 }

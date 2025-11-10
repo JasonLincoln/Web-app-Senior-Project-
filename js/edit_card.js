@@ -3,7 +3,8 @@ let runPickImageFnct = false;
 let intervalID = null;
 
 $(document).ready( () => {
-    checkRadio();
+    checkRadio(); // for the user to pick the image
+    saveUserInput(); // for the user to type the desc
 })
 
 const runContinuously = () => {
@@ -83,10 +84,22 @@ const pickImage = () => {
             }
             // set current selected image to be outlined
             $(image).css("outline", "5px solid rgba(0, 255, 0, 0.5)");
-            console.log(image.src);
             document.getElementById("selected-image").src = image.src;
         })
     })
 
 }
 
+const saveUserInput = () => {
+
+    $("#c-desc").on("input", () => {
+        let descLength = $("#c-desc").val().length;
+        $("#characters-left").html(`Characters Left: ${150 - descLength}`);
+    })
+
+    $("#submit").on("click", () => {
+        let desc = $("#c-desc").val();
+        $(".card-desc").text(desc);
+    })
+    
+}
