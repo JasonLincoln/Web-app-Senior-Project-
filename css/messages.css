@@ -18,6 +18,7 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
+    background-color: rgb(241 245 249);
 }
 .chat-container {
     max-width: 1360px;
@@ -25,6 +26,7 @@ body{
     height: 720px;
     box-shadow: 0 8px 24px -4px rgba(0, 0, 0, .1);
     background-color: white;
+    position: relative;
 }
 /* end: Chat */
 
@@ -35,7 +37,9 @@ body{
     height: 100%;
     display: flex;
     flex-direction: column;
-
+    position: absolute;
+    left: 0;
+    top: 0;
 }
 .chat-sidebar-logo{
     font-size: 28px;
@@ -149,6 +153,200 @@ body{
 
 }
 /* end: Sidebar */
+
+
+
+/* start: Content side */
+
+.chat-content {
+    padding-left: 64px;
+    height: 100%;
+    position: relative;
+}
+.content-sidebar{
+    width: 256px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 64px;
+}
+.content-sidebar-title{
+    font-size: 20px;
+    font-weight: 600;
+    padding: 16px;
+}
+.content-sidebar-form{
+    position: relative;
+    padding: 0 16px;
+}
+.content-sidebar-input{
+    padding: 8px 16px;
+    background-color: rgb(241, 245, 249);
+    border: 1px solid rgb(148, 163, 184);
+    outline: none;
+    width: 100%;
+    border-radius: 4px;
+    padding-right: 32px;
+    font-size: 14px;
+}
+.content-sidebar-input:focus {
+    border-color: rgb(100, 116, 139);
+}
+.content-sidebar-submit{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 16px;
+    color: rgb(148, 163, 184);
+    background-color: transparent;
+    outline: transparent;
+    border: none;
+    cursor: pointer;
+    transition: color .15s ease-in-out;
+}
+.content-sidebar-submit:hover {
+    color: rgb(71 85 105);
+}
+.content-messages{
+    list-style-type: none;
+    padding: 8px 0;
+}
+.content-messages-list{
+    list-style-type: none;
+    padding: 16px;
+}
+.content-messages-list > * > a{
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: rgb(51 65 85);
+    padding: 6px 16px;
+}
+.content-messages-list > * > a:hover {
+    background-color: rgb(248 250 252);
+}
+.content-messages-list > .active > a {
+    background-color: rgb(241 245 249);
+}
+.content-message-title {
+    margin-left: 16px;
+    margin-right: 16px;
+    color: rgb(148 163 184);
+    font-size: 13px;
+    font-weight: 500;
+    margin-bottom: 2px;
+    position: relative;
+    text-transform: uppercase;
+}
+.content-message-title > * {
+    position: relative;
+    z-index: 1;
+    padding: 0 4px 0 0;
+    background-color: white;
+}
+.content-message-title::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0;
+    width: 100%;
+    border-bottom: 1px solid rgb(148 163 184);
+    height: 0;
+
+    z-index: 0;
+}
+.content-message-image{
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+    margin-right: 12px;
+}
+.content-message-info{
+    display: grid;
+    margin-right: 17px;
+}
+.content-message-name {
+    display: block;
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 2px;
+}
+.content-message-text{
+    font-size: 13px;
+    color: rgb(100, 116, 139);
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.content-message-more{
+    text-align: right;
+}
+.content-message-unread{
+    font-size: 13px;
+    font-weight: 500;
+    color: white;
+    background-color: rgb(16 185 129);
+    padding: 2px 4px;
+    border-radius: 4px;
+}
+.content-message-time {
+    font-size: 12px;
+    color: rgb(148 163 184);
+    font-weight: 500;
+}
+/* end: Content side */
+
+
+/* start: Conversation */
+.conversation{
+    background-color: rgb(209, 250, 229);
+    height: 100%;
+    padding-left: 256px;
+}
+.conversation-top{
+    padding: 16px;
+    background-color: rgba(255, 255, 255, .5);
+    display: flex;
+    align-items: center;
+}
+.conversation-user{
+    display: flex;
+    align-items: center;
+}
+.conversation-user-image {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+.conversation-user-name{
+    font-weight: 500;
+    font-size: 17;
+}
+.conversation-user-status{
+    color: rgb(148 163 184);
+    font-size: 13px;
+}
+.conversation-user-status::before{
+    content: '';
+    width: 10px;
+    height: 10px;
+    background-color: rgb(203 213 225);
+    border-radius: 50%;
+    vertical-align: middle;
+    display: inline-block;
+    margin-right: 4px;
+}
+.conversation-user-status.online::before {
+    background-color: rgb(16 185 129);
+}
+/* end: Conversation */
 
 /* start: Breakpoint */
 @media screen and (max-width: 1600px) {

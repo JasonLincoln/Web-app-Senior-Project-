@@ -5,8 +5,8 @@ document.querySelector('.chat-sidebar-profile-toggle').addEventListener('click',
 })
 
 document.addEventListener('click', function(e) {
-    if(!e.matches('.chat-sidebar-profile, .chat-sidebar-profile *')) {
-        
+    if(!e.target.matches('.chat-sidebar-profile, .chat-sidebar-profile *')) {
+        document.querySelector('.chat-sidebar-profile').classList.remove('active')
     }
 })
 // end: Sidebar
