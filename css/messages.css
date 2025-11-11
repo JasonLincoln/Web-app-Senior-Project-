@@ -40,6 +40,7 @@ body{
     position: absolute;
     left: 0;
     top: 0;
+    z-index: 50;
 }
 .chat-sidebar-logo{
     font-size: 28px;
@@ -48,7 +49,6 @@ body{
     text-align: center;
     padding: 12px 8px;
     text-decoration: none;
-
 }
 .chat-sidebar-menu{
     list-style-type: none;
@@ -146,6 +146,9 @@ body{
 .chat-sidebar-profile-dropdown a:hover {
     background-color: rgb(241, 245, 249);
     color: rgb(71, 85, 105);
+}
+.chat-sidebar-profile-dropdown a:active {
+    background-color: rgb(226 232 240);
 }
 .chat-sidebar-profile-dropdown a i{
     margin-right: 12px;
@@ -308,12 +311,36 @@ body{
     background-color: rgb(209, 250, 229);
     height: 100%;
     padding-left: 256px;
+    display: flex;
+    flex-direction: column;
 }
 .conversation-top{
-    padding: 16px;
-    background-color: rgba(255, 255, 255, .5);
+    padding: 8px 16px;
+    background-color: white;
     display: flex;
     align-items: center;
+}
+.conversation-back{
+    background-color: transparent;
+    border: none;
+    outline: none;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    cursor: pointer;
+    border-radius: 50%;
+    color: rgb(148 163 184);
+    margin-right: 12px;
+}
+.conversation-back:hover {
+    background-color: rgb(241 245 249);
+    color: rgb(71 85 105);
+}
+.conversation-back:active {
+    background-color: rgb(226 232 240);
 }
 .conversation-user{
     display: flex;
@@ -324,10 +351,11 @@ body{
     height: 40px;
     border-radius: 50%;
     object-fit: cover;
+    margin-right: 8px;
 }
 .conversation-user-name{
     font-weight: 500;
-    font-size: 17;
+    font-size: 17px;
 }
 .conversation-user-status{
     color: rgb(148 163 184);
@@ -345,6 +373,146 @@ body{
 }
 .conversation-user-status.online::before {
     background-color: rgb(16 185 129);
+}
+.conversation-buttons {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+}
+.conversation-buttons > * {
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    font-size: 20px;
+    background-color: transparent;
+    border: none;
+    outline: transparent;
+    cursor: pointer;
+    color: rgb(71 85 105);
+    margin-left: 4px;
+}
+.conversation-buttons > :hover {
+    background-color: rgb(241 245 249);
+    color: rgb(51 65 85);
+}
+.conversation-buttons > :active {
+    background-color: rgb(226 232 240);
+}
+
+.conversation-main {
+    overflow-y: auto;
+    height: 100%;
+    padding: 16px;
+}
+.conversation-wrapper {
+    list-style-type: none;
+}
+.conversation-item {
+    display: flex;
+    align-items: flex-end;
+}
+.conversation-item-side {
+    margin-right: 8px;
+}
+.conversation-item-image {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+.conversation-item-content {
+    width: 100%;
+}
+.conversation-item-box {
+    max-width: 540px;
+    position: relative;
+
+}
+.conversation-item-box:not(:last-child) {
+    margin-bottom: 8px;
+}
+.conversation-item-text {
+    padding: 12px 16px 8px;
+    background-color: rgb(16 185 129);
+    box-shadow: 0 2px 12px -2px rgb(16 185 129);
+    color: rgba(255, 255, 255, .8);
+    font-size: 14px;
+    border-radius: 6px;
+    line-height: 1.5;
+}
+.conversation-item-time {
+    font-size: 10px;
+    color: rgba(255, 255, 255, .7);
+    display: block;
+    text-align: right;
+    margin-top: 4px;
+    line-height: 1;
+}
+.conversation-item-dropdown {
+    position: absolute;
+    top: 0;
+    left: calc(100% + 8px);
+}
+.conversation-item-dropdown-toggle {
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    background-color: white;
+    outline: transparent;
+    border: 1px solid rgb(226 232 240);;
+    cursor: pointer;
+    transition: all .15s ease-in-out;
+}
+.conversation-item-dropdown-toggle:hover {
+    background-color: rgb(16 185 129);
+    color: white;
+    box-shadow: 0 2px 12px -2px rgb(16 185 129);
+
+}
+.conversation-item-dropdown-toggle:active {
+    background-color: rgb(5 150 105);
+}
+.conversation-item-dropdown-list {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: white;
+    z-index: 10;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, .1);
+    border-radius: 4px;
+    padding: 4px 0;
+    list-style-type: none;
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(.9);
+    transform-origin: left top;
+    transition: all .15s ease-in-out;
+}
+.conversation-item-dropdown-list a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: rgb(148 163 184);
+    font-size: 13px;
+    padding: 6px 12px;
+}
+.conversation-item-dropdown-list a:hover {
+    background-color: rgb(241 245 249);
+    color: rgb(71 85 105);
+}
+.conversation-item-dropdown-list a i {
+    font-size: 16px;
+    margin-right: 8px;
+}
+.conversation-item-dropdown-list a:active {
+    background-color: rgb(226 232 240);
+
 }
 /* end: Conversation */
 
