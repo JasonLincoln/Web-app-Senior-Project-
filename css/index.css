@@ -188,24 +188,7 @@ a {
 
 /*Small Mobile Devices*/
 @media only screen and (max-width: 320px) {
-    [id$="-header"] { /* Card Headers */
-        position: absolute;
-        background-color: rgba(160, 218, 160, 0.5);
-        margin: 0;
-        width: 100%;
-        padding: 10px 0px;
-        bottom: 0;
-    }
-    [id^="hidden-"] { /* Hidden Text Content */
-        margin: 0;
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        top: 100%;
-        transform: translate(0, 100%);
-        background-color: rgba(160, 218, 160, 0.5);
-        transition: 300ms ease-in-out transform;
-    }
+    /* Add responsiveness to the grid here */
 }
 
 /*Large Mobile Devices and Low-Res Tablets*/
@@ -228,7 +211,6 @@ a {
     /* Add responsiveness to the grid here */
 }
 
-@media only screen and (min-width: 1440px)
-{
-
+@media only screen and (min-width: 1440px) {
+    /* Add responsiveness to the grid here */
 }
