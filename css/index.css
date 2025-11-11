@@ -121,10 +121,6 @@ a {
 .desc2 { grid-area: desc2; }
 .desc3 { grid-area: desc3; }
 
-@media only screen and (max-width: 720px) {
-    /* Add responsiveness to the grid here */
-}
-
 /* Categories Cards */
 /* Categories Cards */
 /* Categories Cards */
@@ -184,4 +180,50 @@ a {
     width: 100%;
     padding: 10px 0px;
     bottom: 0;
+}
+
+/* Media Queries */
+/* Media Queries */
+/* Media Queries */
+
+/*Small Mobile Devices*/
+@media only screen and (max-width: 480px) {
+    [id$="-header"] { /* Card Headers */
+        position: absolute;
+        background-color: rgba(160, 218, 160, 0.5);
+        margin: 0;
+        width: 100%;
+        padding: 10px 0px;
+        bottom: 0;
+    }
+    [id^="hidden-"] { /* Hidden Text Content */
+        margin: 0;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 100%;
+        transform: translate(0, 100%);
+        background-color: rgba(160, 218, 160, 0.5);
+        transition: 300ms ease-in-out transform;
+    }
+}
+
+/*Large Mobile Devices and Low-Res Tablets*/
+@media only screen and (min-width: 481px) and (max-width:767px) {
+    /* Add responsiveness to the grid here */
+}
+
+/*Tablets in Portrait and Landscape Orientation*/
+@media only screen and (min-width: 768px) and (max-width:1024px) {
+    /* Add responsiveness to the grid here */
+}
+
+/*Laptops and Small Desktops*/
+@media only screen and (min-width: 1025px) and (max-width:1200px) {
+    /* Add responsiveness to the grid here */
+}
+
+/*Large Desktops*/
+@media only screen and (min-width: 1201px) {
+    /* Add responsiveness to the grid here */
 }
