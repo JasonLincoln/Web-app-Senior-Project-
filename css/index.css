@@ -121,10 +121,6 @@ a {
 .desc2 { grid-area: desc2; }
 .desc3 { grid-area: desc3; }
 
-@media only screen and (max-width: 720px) {
-    /* Add responsiveness to the grid here */
-}
-
 /* Categories Cards */
 /* Categories Cards */
 /* Categories Cards */
@@ -184,4 +180,37 @@ a {
     width: 100%;
     padding: 10px 0px;
     bottom: 0;
+}
+
+/* Media Queries */
+/* Media Queries */
+/* Media Queries */
+
+/*Small Mobile Devices*/
+@media only screen and (max-width: 320px) {
+    /* Add responsiveness to the grid here */
+}
+
+/*Large Mobile Devices and Low-Res Tablets*/
+@media only screen and (min-width: 375px) and (max-width:424px) {
+    /* Add responsiveness to the grid here */
+}
+
+/*Tablets in Portrait and Landscape Orientation*/
+@media only screen and (min-width: 425px) and (max-width:767px) {
+    /* Add responsiveness to the grid here */
+}
+
+/*Laptops and Small Desktops*/
+@media only screen and (min-width: 768px) and (max-width:1023px) {
+    /* Add responsiveness to the grid here */
+}
+
+/*Large Desktops*/
+@media only screen and (min-width: 1024px) and (max-width: 1439px) {
+    /* Add responsiveness to the grid here */
+}
+
+@media only screen and (min-width: 1440px) {
+    /* Add responsiveness to the grid here */
 }
