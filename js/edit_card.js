@@ -94,7 +94,7 @@ const saveUserInput = () => {
 
     $("#c-desc").on("input", () => {
         let descLength = $("#c-desc").val().length;
-        $("#characters-left").html(`Characters Left: ${150 - descLength}`);
+        $("#characters-left").html(`Characters Left: ${180 - descLength}`);
     })
 
     $("#submit").on("click", () => {

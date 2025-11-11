@@ -1,17 +1,38 @@
 /* Overall */
-h1, h2, h3, h4, h5, h6, p {
-    font-family: 'Candal', serif;
+
+html, body {
+    margin: 0;
+    padding: 0;
 }
 
-a {
-    text-decoration: none;
-    color: inherit;
+#popup {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
 }
 
 #select-category-wrapper {
-    display: inline-block;
-    padding: 10px;
-    margin: 20px 100px;
+    display: grid;
+    grid-template-areas:
+    "form card"
+    "images card";
+    place-items: center;
+    position: relative;
+    background-color: rgb(230, 230, 230);
+    width: 85vw;
+    height: 85vh;
+}
+
+#select-category-wrapper .fa-xmark {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-top: 5px;
+    margin-right: 5px;
+    cursor: pointer;
+    color: rgb(255, 0, 0);
 }
 
 input[type="radio"] {
@@ -19,7 +40,7 @@ input[type="radio"] {
 }
 
 .textarea {
-    background-color: #dddddd;
+    background-color: rgb(220, 220, 220);
     color: #666666;
     padding: 1em;
     border-radius: 10px;
@@ -47,9 +68,14 @@ input[type="radio"] {
 
 #image-collection {
     display: inline-block;
-    background-color: rgb(240, 240, 240);
+    grid-area: images;
+    background-color: rgb(220, 220, 220);
 }
 
 .card {
-    margin: 20px 100px;
+    grid-area: card;
+}
+
+#select-category {
+    grid-area: form;
 }
