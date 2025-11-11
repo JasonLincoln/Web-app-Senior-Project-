@@ -40,46 +40,16 @@
                 <input type="radio" id="languages" name="which_category" value="languages">
                 <label for="languages">Language Arts</label><br>
                 
-                <h3>Description</h3>
-                <textarea class="textarea" name="c-desc" id="c-desc" placeholder="Enter Description Here" maxlength="180"></textarea>
-
-                <p>Your description must be 180 characters or less!</p>
-                <div id="characters-left">Characters Left: 180</div>
+                <h3>About You</h3>
+                <div class="text-group">
+                    <textarea class="textarea" name="c-desc" id="c-desc" placeholder="Enter Description Here" maxlength="150"></textarea>
+                    <div id="characters-left">150</div>
+                </div>
                 <br>
                 <input type="button" value="Save" id="submit">
             </form>
 
-            <div id="image-collection">
-                <div class="page-wrapper">
-                    <div class="post-slider">
-                        <i class="fa-solid fa-chevron-left prev"></i>
-                        <i class="fa-solid fa-chevron-right next"></i>
-                        
-                        <div class="post-wrapper">
-                            <div class="post">
-                                <img src="../images/index_images/Placeholder.png" alt="" class="slider-image">
-                                <div class="post-info">
-                                    <h3><a href="#">Placeholder One</a></h3>
-                                    <p>Placeholder Description</p>
-                                </div>
-                            </div> <!-- end post -->
-                            <div class="post">
-                                <img src="../images/index_images/Placeholder2.png" alt="" class="slider-image">
-                                <div class="post-info">
-                                    <h3><a href="#">Placeholder Two</a></h3>
-                                    <p>Placeholder Description</p>
-                                </div>
-                            </div> <!-- end post -->
-                            <div class="post">
-                                <img src="../images/index_images/Placeholder3.png" alt="" class="slider-image">
-                                <div class="post-info">
-                                    <h3><a href="#">Placeholder Three</a></h3>
-                                    <p>Placeholder Description</p>
-                                </div>
-                            </div> <!-- end post -->
-                        </div> <!-- end post wrapper -->
-                    </div> <!-- end post slider -->
-                </div> <!-- end page wrapper -->                
+            <div id="image-collection">            
             </div> <!-- end image collection -->
 
             <div class="card">
@@ -107,9 +77,19 @@
         </div> <!-- End Wrapper -->
     </div> <!-- Popup -->
 
+    <div class="page-wrapper">
+        <div class="post-slider">
+            <i class="fa-solid fa-chevron-left prev"></i>
+            <i class="fa-solid fa-chevron-right next"></i>
+            
+            <div class="post-wrapper">
+                
+            </div> <!-- radio generates the image gallery here -->
+        </div> <!-- end post slider -->
+    </div> <!-- end page wrapper -->    
+
     <script src="https://kit.fontawesome.com/16ce6dc272.js" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     <script src="../js/edit_card.js"></script>
 </body>
 </html>

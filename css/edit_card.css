@@ -51,7 +51,7 @@ input[type="radio"] {
     font-size: 16px;
     line-height: 1.4;
     width: 500px;
-    height: 100px;
+    height: 150px;
     resize: none;
 }
 
@@ -60,6 +60,7 @@ input[type="radio"] {
     margin: 10px;
     width: 200px;
     height: auto;
+    object-fit: cover;
 }
 
 .gallery-image:hover {
@@ -69,7 +70,8 @@ input[type="radio"] {
 #image-collection {
     display: inline-block;
     grid-area: images;
-    background-color: rgb(220, 220, 220);
+    width: 100%;
+    background-color: rgb(180, 180, 180);
 }
 
 .card {
@@ -78,4 +80,54 @@ input[type="radio"] {
 
 #select-category {
     grid-area: form;
+}
+
+.text-group {
+    position: relative;
+}
+
+#characters-left {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    opacity: 0.25;
+}
+
+/* Carousel CSS */
+/* Carousel CSS */
+/* Carousel CSS */
+.post-slider {
+    position: relative;
+    margin-top: 50px;
+}
+
+.post-slider .prev {
+    position: absolute;
+    top: 50%;
+    left: 8%;
+    font-size: 2em;
+    color: black;
+    cursor: pointer;
+}
+
+.post-slider .next {
+    position: absolute;
+    top: 50%;
+    right: 8%; 
+    font-size: 2em;
+    color: black;
+    cursor: pointer;
+}
+
+.post-wrapper {
+    width: 70%;
+    margin: 0px auto;
+    overflow: hidden;
+    padding: 10px 0px 10px 0px;
+}
+
+.post {
+    display: inline-block;
 }

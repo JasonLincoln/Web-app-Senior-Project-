@@ -7,6 +7,24 @@ $(document).ready( () => {
     saveUserInput(); // for the user to type the desc
 })
 
+const runSlick = () => {
+    const scriptElement = document.createElement("script");
+    scriptElement.src = "https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js";
+    document.body.appendChild(scriptElement);
+    
+    scriptElement.addEventListener("load", () => {
+        // Slick JS
+        $('.post-wrapper').slick({
+            slidesToShow: 2,
+            slidesToScroll: 1,
+            autoplay: false,
+            autoplaySpeed: 2000,
+            nextArrow: $('.next'),
+            prevArrow: $('.prev'),
+        });
+    })
+}
+
 const runContinuously = () => {
     if (runPickImageFnct) 
         pickImage();
@@ -53,21 +71,25 @@ const detectWhichCategory = radios => {
     }
 
     // Declarations
-    let imageCollection = [];
+    let html = "";
 
     // Clear any previous images
-    $("#image-collection").html("");
+    $(".post-wrapper").children().html("");
     $(".post-slider").css("visibility", "visible");
 
     // Store images into an array
     for (let i = 0; i < LIMIT; i++) {
-        imageCollection[i] = 
+        html = 
         `
-        <img src="../images/gallery_images/${selectedValue}/${selectedValue}${i+1}.png" alt="" id="image-${i+1}" class="gallery-image"></img>
-        `;
-        $("#image-collection").append(imageCollection[i]);
+        <div class="post">
+            <img src="../images/gallery_images/${selectedValue}/${selectedValue}${i+1}.png" alt="" id="image-${i+1}" class="gallery-image"></img>
+        </div>
+        `
+        $(".post-wrapper").append(html);
+        console.log(`appended ${i+1} times`);
     }
 
+    runSlick();
     runPickImageFnct = true;
 }
 
@@ -91,15 +113,14 @@ const pickImage = () => {
 }
 
 const saveUserInput = () => {
-
     $("#c-desc").on("input", () => {
         let descLength = $("#c-desc").val().length;
-        $("#characters-left").html(`Characters Left: ${180 - descLength}`);
+        $("#characters-left").html(`${150 - descLength}`);
     })
 
     $("#submit").on("click", () => {
         let desc = $("#c-desc").val();
         $(".card-desc").text(desc);
-    })
-    
+    }) 
 }
+
