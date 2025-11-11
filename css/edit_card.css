@@ -1,0 +1,81 @@
+/* Overall */
+
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+#popup {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+#select-category-wrapper {
+    display: grid;
+    grid-template-areas:
+    "form card"
+    "images card";
+    place-items: center;
+    position: relative;
+    background-color: rgb(230, 230, 230);
+    width: 85vw;
+    height: 85vh;
+}
+
+#select-category-wrapper .fa-xmark {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-top: 5px;
+    margin-right: 5px;
+    cursor: pointer;
+    color: rgb(255, 0, 0);
+}
+
+input[type="radio"] {
+    padding: 10px, 0px;
+}
+
+.textarea {
+    background-color: rgb(220, 220, 220);
+    color: #666666;
+    padding: 1em;
+    border-radius: 10px;
+    border: 2px solid transparent;
+    outline: none;
+    font-family: 'Heebo', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.4;
+    width: 500px;
+    height: 100px;
+    resize: none;
+}
+
+.gallery-image {
+    cursor: pointer;
+    margin: 10px;
+    width: 200px;
+    height: auto;
+}
+
+.gallery-image:hover {
+    outline: 2px solid rgb(0, 220, 0);
+}
+
+#image-collection {
+    display: inline-block;
+    grid-area: images;
+    background-color: rgb(220, 220, 220);
+}
+
+.card {
+    grid-area: card;
+}
+
+#select-category {
+    grid-area: form;
+}
