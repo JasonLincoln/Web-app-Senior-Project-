@@ -1,6 +1,8 @@
 "use strict"
-let runPickImageFnct = false;
+let loadCarousel = false;
 let intervalID = null;
+let image = [];
+let imageCollection = [];
 
 $(document).ready( () => {
     checkRadio(); // for the user to pick the image
@@ -23,10 +25,12 @@ const runSlick = () => {
             prevArrow: $('.prev'),
         });
     })
+
+    loadCarousel = true;
 }
 
 const runContinuously = () => {
-    if (runPickImageFnct) 
+    if (loadCarousel) 
         pickImage();
     
 }
@@ -44,7 +48,8 @@ const checkRadio = () => {
 
 const detectWhichCategory = radios => {
     let selectedValue = null;
-    let LIMIT = 0;
+    let LIMIT = 10;
+    let html = "";
 
     // go through each radio to see which one was checked
     for (let radio of radios) {
@@ -54,43 +59,35 @@ const detectWhichCategory = radios => {
         }
     }
 
-    // each skill category has a different number of images in the gallery; might change all of them to 10 soon
-    switch (selectedValue) {
-        case "prog_lang":
-        case "computers":
-        case "business":
-        case "math":
-        case "social_studies":
-        case "languages":
-            LIMIT = 6;
-            break;
-        case "science":
-        case "life_skills":
-            LIMIT = 10;
-            break;
-    }
-
-    // Declarations
-    let html = "";
-
     // Clear any previous images
-    $(".post-wrapper").children().html("");
-    $(".post-slider").css("visibility", "visible");
+    // $(".post-wrapper").children().html("");
+    $("#image-collection").css("visibility", "visible");
 
-    // Store images into an array
+    // Store each image into the carousel, or change them if the carousel is already loaded.
     for (let i = 0; i < LIMIT; i++) {
-        html = 
-        `
-        <div class="post">
-            <img src="../images/gallery_images/${selectedValue}/${selectedValue}${i+1}.png" alt="" id="image-${i+1}" class="gallery-image"></img>
-        </div>
-        `
-        $(".post-wrapper").append(html);
-        console.log(`appended ${i+1} times`);
+        if (!loadCarousel) {
+            html = 
+            `
+            <div class="post">
+                <img src="../images/gallery_images/${selectedValue}/${selectedValue}${i+1}.png" alt="" id="image-${i+1}" class="gallery-image"></img>
+            </div>
+            `
+            $(".post-wrapper").append(html);
+
+            image[i] = document.querySelector(`#image-${i+1}`);
+            imageCollection[i] = document.querySelector(`#image-${i+1}`).src;
+        } else {
+            console.log(imageCollection[i]);
+            console.log(image[i]);
+            (image[i]).src = imageCollection[i];
+            console.log(`ran ${i+1} times`);
+        }
+        
     }
 
-    runSlick();
-    runPickImageFnct = true;
+    // loads in the carousel javascript when the images have been selected
+    if (!loadCarousel)
+        runSlick();
 }
 
 const pickImage = () => {

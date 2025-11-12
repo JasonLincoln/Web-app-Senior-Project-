@@ -22,11 +22,6 @@ a {
     margin-top: 50px;
 }
 
-.post-slider .slider-title {
-    text-align: center;
-    margin: 30px auto;
-}
-
 .post-slider .prev {
     position: absolute;
     top: 50%;

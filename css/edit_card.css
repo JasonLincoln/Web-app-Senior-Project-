@@ -55,23 +55,8 @@ input[type="radio"] {
     resize: none;
 }
 
-.gallery-image {
-    cursor: pointer;
-    margin: 10px;
-    width: 200px;
-    height: auto;
-    object-fit: cover;
-}
-
 .gallery-image:hover {
     outline: 2px solid rgb(0, 220, 0);
-}
-
-#image-collection {
-    display: inline-block;
-    grid-area: images;
-    width: 100%;
-    background-color: rgb(180, 180, 180);
 }
 
 .card {
@@ -98,15 +83,21 @@ input[type="radio"] {
 /* Carousel CSS */
 /* Carousel CSS */
 /* Carousel CSS */
+
+#image-collection {
+    visibility: hidden;
+    grid-area: images;
+    width: 50vw;
+}
+
 .post-slider {
     position: relative;
-    margin-top: 50px;
 }
 
 .post-slider .prev {
     position: absolute;
     top: 50%;
-    left: 8%;
+    left: 5%;
     font-size: 2em;
     color: black;
     cursor: pointer;
@@ -115,7 +106,7 @@ input[type="radio"] {
 .post-slider .next {
     position: absolute;
     top: 50%;
-    right: 8%; 
+    right: 5%; 
     font-size: 2em;
     color: black;
     cursor: pointer;
@@ -123,11 +114,22 @@ input[type="radio"] {
 
 .post-wrapper {
     width: 70%;
+    height: 30%;
     margin: 0px auto;
     overflow: hidden;
-    padding: 10px 0px 10px 0px;
+    padding: 10px 0px;
 }
 
 .post {
-    display: inline-block;
+    width: 300px;
+    margin: 0px 10px 0px 10px;
+    border-radius: 10px;
+}
+
+.gallery-image {
+    cursor: pointer;
+    width: 100%;
+    margin: 10px 0px;
+    height: 160px;
+    object-fit: cover;
 }
