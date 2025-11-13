@@ -3,6 +3,7 @@
 /* Profile Section */
 #complete-profile
 {
+    position: relative;
     background-color: #596b51;
     display: flex;
     margin: 20px;

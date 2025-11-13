@@ -1,16 +1,22 @@
 /* Overall */
-
-html, body {
-    margin: 0;
-    padding: 0;
-}
-
 #popup {
     display: flex;
-    position: relative;
     justify-content: center;
     align-items: center;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    visibility: hidden;
     height: 100vh;
+}
+
+#popup.open {
+    opacity: 1;
+    z-index: 999;
 }
 
 #select-category-wrapper {
@@ -21,8 +27,8 @@ html, body {
     place-items: center;
     position: relative;
     background-color: rgb(230, 230, 230);
-    width: 85vw;
-    height: 85vh;
+    width: 80vw;
+    height: 80vh;
 }
 
 #select-category-wrapper .fa-xmark {
@@ -47,11 +53,9 @@ input[type="radio"] {
     border: 2px solid transparent;
     outline: none;
     font-family: 'Heebo', sans-serif;
-    font-weight: 500;
     font-size: 16px;
-    line-height: 1.4;
     width: 500px;
-    height: 150px;
+    height: 130px;
     resize: none;
 }
 
@@ -59,7 +63,7 @@ input[type="radio"] {
     outline: 2px solid rgb(0, 220, 0);
 }
 
-.card {
+.card-container {
     grid-area: card;
 }
 
@@ -87,7 +91,7 @@ input[type="radio"] {
 #image-collection {
     visibility: hidden;
     grid-area: images;
-    width: 50vw;
+    width: 40vw;
 }
 
 .post-slider {
@@ -132,4 +136,17 @@ input[type="radio"] {
     margin: 10px 0px;
     height: 160px;
     object-fit: cover;
+}
+
+@media only screen and (max-width: 1200px) {
+    #select-category-wrapper {
+    display: grid;
+    grid-template-areas:
+    "form"
+    "images"
+    "card";
+    place-items: center;
+    position: relative;
+    background-color: rgb(230, 230, 230);
+    }
 }

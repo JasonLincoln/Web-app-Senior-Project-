@@ -1,14 +1,15 @@
 "use strict"
 let loadCarousel = false;
 let intervalID = null;
-let image = [];
-let imageCollection = [];
+let selectedImage = null;
 
 $(document).ready( () => {
     checkRadio(); // for the user to pick the image
     saveUserInput(); // for the user to type the desc
+    clickOut(); // for the user to click out of the card customization
 })
 
+// function for initializing the slick carousel, activated after the user clicks one of radio boxes
 const runSlick = () => {
     const scriptElement = document.createElement("script");
     scriptElement.src = "https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js";
@@ -19,28 +20,39 @@ const runSlick = () => {
         $('.post-wrapper').slick({
             slidesToShow: 2,
             slidesToScroll: 1,
-            autoplay: false,
-            autoplaySpeed: 2000,
             nextArrow: $('.next'),
             prevArrow: $('.prev'),
+
+            responsive: [
+            {
+                breakpoint: 1200,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    infinite: true,
+                }
+            },
+            ]
         });
     })
 
     loadCarousel = true;
 }
 
+// function that runs every 1 second after the user has selected a radio box, it is important that this does not run on pageload
 const runContinuously = () => {
     if (loadCarousel) 
         pickImage();
-    
 }
 
+// function that checks what radio box the user has selected
 const checkRadio = () => {
     const radios = document.getElementsByName("which_category");
     
+    // iterate through each radio
     radios.forEach(radio => {
-        radio.addEventListener('click', () => {
-            detectWhichCategory(radios);
+        radio.addEventListener('click', () => { // runs if one of the radio boxes is clicked
+            detectWhichCategory(radios); // function for selecting the category
             intervalID = setInterval(runContinuously, 1000);
         })
     })
@@ -58,12 +70,15 @@ const detectWhichCategory = radios => {
             break;
         }
     }
+    
+    // Shows the image collection carousel after a radio box is selected and if the carousel has not loaded yet.
+    if (!loadCarousel) 
+        $("#image-collection").css("visibility", "visible");
 
-    // Clear any previous images
-    // $(".post-wrapper").children().html("");
-    $("#image-collection").css("visibility", "visible");
+    // remove outline if the user picks a different radio box
+    $(selectedImage).css("outline", "none");
 
-    // Store each image into the carousel, or change them if the carousel is already loaded.
+    // Store each image into the carousel and add them, or change them if the carousel is already loaded.
     for (let i = 0; i < LIMIT; i++) {
         if (!loadCarousel) {
             html = 
@@ -73,23 +88,19 @@ const detectWhichCategory = radios => {
             </div>
             `
             $(".post-wrapper").append(html);
-
-            image[i] = document.querySelector(`#image-${i+1}`);
-            imageCollection[i] = document.querySelector(`#image-${i+1}`).src;
         } else {
-            console.log(imageCollection[i]);
-            console.log(image[i]);
-            (image[i]).src = imageCollection[i];
-            console.log(`ran ${i+1} times`);
-        }
-        
-    }
+            let image = document.querySelector(`#image-${i+1}`);
+            (image).src = `../images/gallery_images/${selectedValue}/${selectedValue}${i+1}.png`;
+            selectedImage = image;
+        } // end if
+    } // end for
 
     // loads in the carousel javascript when the images have been selected
     if (!loadCarousel)
         runSlick();
 }
 
+// function to detect the image the user clicks and store it
 const pickImage = () => {
 
     const images = document.querySelectorAll(".gallery-image");
@@ -103,6 +114,7 @@ const pickImage = () => {
             }
             // set current selected image to be outlined
             $(image).css("outline", "5px solid rgba(0, 255, 0, 0.5)");
+            selectedImage = image;
             document.getElementById("selected-image").src = image.src;
         })
     })
@@ -117,7 +129,17 @@ const saveUserInput = () => {
 
     $("#submit").on("click", () => {
         let desc = $("#c-desc").val();
-        $(".card-desc").text(desc);
+        $(".card-desc p").text(desc);
     }) 
 }
 
+const editCard = () => {
+    $("#popup").css("visibility", "visible");
+}
+
+const clickOut = () => {
+    $(".fa-xmark").on("click", () => {
+        $("#popup").css("visibility", "hidden");
+        $("#image-collection").css("visibility", "hidden");
+    })
+}

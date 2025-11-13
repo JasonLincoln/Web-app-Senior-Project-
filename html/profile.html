@@ -3,8 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Profile CSS -->
     <link rel="stylesheet" href="../css/main.css"></link>
     <link rel="stylesheet" href="../css/profile.css"></link>
+    <!-- Edit Card CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.css">
+    <link rel="stylesheet" href="../css/edit_card.css">
+    <link rel="stylesheet" href="../css/cards.css">
     <title>Profile Page</title>
 </head>
 <body>
@@ -21,11 +26,10 @@
                 <p id="school">[School/Education]</p>
             </div>
             <div id="about-me">
-                <h4>About Me</h4>
-                <input type="text" id="about-me-text" placeholder="Bio">
+                <button type="button" id="edit-card" onclick="editCard()">Edit Profile Card</button>
             </div>
 
-        </div> <!-- end of personal content-->
+        </div> <!-- end of personal content -->
 
         <div id="All-Sections">
             <div id="Skills-and-Availability">
@@ -51,5 +55,85 @@
         
     </div> <!-- end of profile container -->
 
+    <!-- Edit Card Popup -->
+    <div id="popup">
+        <div id="select-category-wrapper">
+            <i class="fa-solid fa-xmark fa-2x"></i>
+            <form id="select-category">
+
+                <h3>What is the main subject you're going to share?</h3>
+                <input type="radio" id="prog_lang" name="which_category" value="prog_lang">
+                <label for="prog_lang">Programming Languages</label><br>
+
+                <input type="radio" id="computers" name="which_category" value="computers">
+                <label for="computers">Computers & Information Technology</label><br>
+
+                <input type="radio" id="math" name="which_category" value="math">
+                <label for="math">Mathematics</label><br>
+
+                <input type="radio" id="science" name="which_category" value="science">
+                <label for="science">Science</label><br>
+
+                <input type="radio" id="social_studies" name="which_category" value="social_studies">
+                <label for="social_studies">Social Studies</label><br>
+
+                <input type="radio" id="business" name="which_category" value="business">
+                <label for="business">Business</label><br>
+
+                <input type="radio" id="life_skills" name="which_category" value="life_skills">
+                <label for="life_skills">Life Skills</label><br>
+
+                <input type="radio" id="languages" name="which_category" value="languages">
+                <label for="languages">Language Arts</label><br>
+                
+                <h3>About You</h3>
+                <div class="text-group">
+                    <textarea class="textarea" name="c-desc" id="c-desc" placeholder="Enter Description Here" maxlength="150"></textarea>
+                    <div id="characters-left">150</div>
+                </div>
+                <br>
+                <input type="button" value="Save" id="submit">
+            </form>
+
+            <div id="image-collection">    
+                <div class="post-slider">
+                    <i class="fa-solid fa-chevron-left prev"></i>
+                    <i class="fa-solid fa-chevron-right next"></i>
+                    
+                    <div class="post-wrapper">
+                        
+                    </div> <!-- radio generates the image gallery here -->
+                </div> <!-- end post slider -->        
+            </div> <!-- end image collection -->
+
+            <div class="card-container">
+                <div class="card">
+                    <div class="card-image">
+                        <img src="../images/placeholder.png" alt="" id="selected-image">
+                    </div>
+                    
+                    <div class="card-content">
+                        <div class="creator">
+                            <i class="fa-solid fa-user"></i>
+                            <h3>Profile User</h3>
+                        </div>
+                        <div class="card-desc">
+                            <p>This is a user card description. If the user exceeds a certain amount of characters, the text must be cut off.</p>
+                        </div>
+                        <div class="card-tags">
+                            <p>Tags (Will change with JS)</p>
+                        </div>
+                        <div class="rating">
+                            <i class="fa-solid fa-star"></i>
+                            <p>Rating (xxx Reviews)</p>
+                        </div>
+                    </div> <!-- End Content -->
+                </div> <!-- End Card -->
+            </div> <!-- End Card Container -->
+        </div> <!-- End Wrapper -->
+    </div> <!-- Popup -->
+    <script src="https://kit.fontawesome.com/16ce6dc272.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="../js/edit_card.js"></script>
 </body>
 </html>
