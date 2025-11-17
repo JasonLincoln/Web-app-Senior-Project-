@@ -6,7 +6,7 @@
     font: inherit;
 }
 
-body {
+#messages-page {
     font-family: 'Inter', sans-serif;
     color: var(--slate-700);
 }
@@ -15,7 +15,7 @@ body {
 
 
 /* start: Chat */
-.chat-section {
+#messages-page .chat-section {
     box-shadow: inset 0 160px 0 0 var(--emerald-500);
     min-height: 100vh;
     display: flex;
@@ -23,7 +23,7 @@ body {
     justify-content: center;
     background-color: var(--slate-100);
 }
-.chat-container {
+#messages-page .chat-container {
     max-width: 1360px;
     width: 100%;
     height: 720px;
@@ -36,7 +36,7 @@ body {
 
 
 /* start: Sidebar */
-.chat-sidebar {
+#messages-page .chat-sidebar {
     width: 64px;
     background-color: var(--slate-100);
     height: 100%;
@@ -47,7 +47,7 @@ body {
     top: 0;
     z-index: 50;
 }
-.chat-sidebar-logo {
+#messages-page .chat-sidebar-logo {
     font-size: 28px;
     color: var(--emerald-600);
     display: block;
@@ -55,14 +55,14 @@ body {
     padding: 12px 8px;
     text-decoration: none;
 }
-.chat-sidebar-menu {
+#messages-page .chat-sidebar-menu {
     list-style-type: none;
     display: flex;
     flex-direction: column;
     height: 100%;
     padding: 16px 0;
 }
-.chat-sidebar-menu > * > a {
+#messages-page .chat-sidebar-menu > * > a {
     display: block;
     text-align: center;
     padding: 12px 8px;
@@ -72,15 +72,15 @@ body {
     position: relative;
     transition: color .15s ease-in-out;
 }
-.chat-sidebar-menu > * > a:hover {
+#messages-page .chat-sidebar-menu > * > a:hover {
     color: var(--slate-600);
 }
-.chat-sidebar-menu > .active > a {
+#messages-page .chat-sidebar-menu > .active > a {
     box-shadow: inset 4px 0 0 0 var(--emerald-500);
     color: var(--emerald-600);
     background-color: var(--emerald-100);
 }
-.chat-sidebar-menu > * > a::before {
+#messages-page .chat-sidebar-menu > * > a::before {
     content: attr(data-title);
     position: absolute;
     top: 50%;
@@ -95,16 +95,16 @@ body {
     visibility: hidden;
     transition: all .15s ease-in-out;
 }
-.chat-sidebar-menu > * > a:hover::before {
+#messages-page .chat-sidebar-menu > * > a:hover::before {
     left: calc(100% - 8px);
     opacity: 1;
     visibility: visible;
 }
-.chat-sidebar-profile {
+#messages-page .chat-sidebar-profile {
     margin-top: auto;
     position: relative;
 }
-.chat-sidebar-profile-toggle {
+#messages-page .chat-sidebar-profile-toggle {
     background-color: transparent;
     border: none;
     outline: transparent;
@@ -114,13 +114,13 @@ body {
     display: block;
     cursor: pointer;
 }
-.chat-sidebar-profile-toggle > img {
+#messages-page .chat-sidebar-profile-toggle > img {
     object-fit: cover;
     width: 100%;
     height: 100%;
     border-radius: 50%;
 }
-.chat-sidebar-profile-dropdown {
+#messages-page .chat-sidebar-profile-dropdown {
     position: absolute;
     bottom: 100%;
     left: 16px;
@@ -135,12 +135,12 @@ body {
     transform-origin: left bottom;
     transition: all .15s ease-in-out;
 }
-.chat-sidebar-profile.active .chat-sidebar-profile-dropdown {
+#messages-page .chat-sidebar-profile.active .chat-sidebar-profile-dropdown {
     opacity: 1;
     visibility: visible;
     transform: scale(1);
 }
-.chat-sidebar-profile-dropdown a {
+#messages-page .chat-sidebar-profile-dropdown a {
     display: flex;
     align-items: center;
     padding: 8px 12px;
@@ -148,14 +148,14 @@ body {
     color: var(--slate-400);
     font-size: 14px;
 }
-.chat-sidebar-profile-dropdown a:hover {
+#messages-page .chat-sidebar-profile-dropdown a:hover {
     background-color: var(--slate-100);
     color: var(--slate-600);
 }
-.chat-sidebar-profile-dropdown a:active {
+#messages-page .chat-sidebar-profile-dropdown a:active {
     background-color: var(--slate-200);
 }
-.chat-sidebar-profile-dropdown a i {
+#messages-page .chat-sidebar-profile-dropdown a i {
     margin-right: 12px;
     font-size: 17px;
 }
@@ -164,12 +164,12 @@ body {
 
 
 /* start: Content side */
-.chat-content {
+#messages-page .chat-content {
     padding-left: 64px;
     height: 100%;
     position: relative;
 }
-.content-sidebar {
+#messages-page .content-sidebar {
     width: 256px;
     background-color: var(--white);
     display: flex;
@@ -179,16 +179,16 @@ body {
     top: 0;
     left: 64px;
 }
-.content-sidebar-title {
+#messages-page .content-sidebar-title {
     font-size: 20px;
     font-weight: 600;
     padding: 16px;
 }
-.content-sidebar-form {
+#messages-page .content-sidebar-form {
     position: relative;
     padding: 0 16px;
 }
-.content-sidebar-input {
+#messages-page .content-sidebar-input {
     padding: 8px 16px;
     background-color: var(--slate-100);
     border: 1px solid var(--slate-300);
@@ -198,10 +198,10 @@ body {
     padding-right: 32px;
     font-size: 14px;
 }
-.content-sidebar-input:focus {
+#messages-page .content-sidebar-input:focus {
     border-color: var(--slate-400);
 }
-.content-sidebar-submit {
+#messages-page .content-sidebar-submit {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
@@ -213,32 +213,32 @@ body {
     cursor: pointer;
     transition: color .15s ease-in-out;
 }
-.content-sidebar-submit:hover {
+#messages-page .content-sidebar-submit:hover {
     color: var(--slate-600);
 }
-.content-messages {
+#messages-page .content-messages {
     overflow-y: auto;
     height: 100%;
     margin-top: 16px;
 }
-.content-messages-list {
+#messages-page .content-messages-list {
     list-style-type: none;
     padding: 8px 0;
 }
-.content-messages-list > * > a {
+#messages-page .content-messages-list > * > a {
     display: flex;
     align-items: center;
     text-decoration: none;
     color: var(--slate-700);
     padding: 6px 16px;
 }
-.content-messages-list > * > a:hover {
+#messages-page .content-messages-list > * > a:hover {
     background-color: var(--slate-50);
 }
-.content-messages-list > .active > a {
+#messages-page .content-messages-list > .active > a {
     background-color: var(--slate-100);
 }
-.content-message-title {
+#messages-page .content-message-title {
     margin-left: 16px;
     margin-right: 16px;
     color: var(--slate-400);
@@ -247,13 +247,13 @@ body {
     margin-bottom: 2px;
     position: relative;
 }
-.content-message-title > * {
+#messages-page .content-message-title > * {
     position: relative;
     z-index: 1;
     padding: 0 4px 0 0;
     background-color: var(--white);
 }
-.content-message-title::before {
+#messages-page .content-message-title::before {
     content: '';
     position: absolute;
     top: 50%;
@@ -264,7 +264,7 @@ body {
     border-bottom: 1px solid var(--slate-300);
     z-index: 0;
 }
-.content-message-image {
+#messages-page .content-message-image {
     width: 32px;
     height: 32px;
     border-radius: 50%;
@@ -272,28 +272,28 @@ body {
     flex-shrink: 0;
     margin-right: 12px;
 }
-.content-message-info {
+#messages-page .content-message-info {
     display: grid;
     margin-right: 12px;
     width: 100%;
 }
-.content-message-name {
+#messages-page .content-message-name {
     display: block;
     font-size: 14px;
     font-weight: 500;
     margin-bottom: 2px;
 }
-.content-message-text {
+#messages-page .content-message-text {
     font-size: 13px;
     color: var(--slate-400);
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
 }
-.content-message-more {
+#messages-page .content-message-more {
     text-align: right;
 }
-.content-message-unread {
+#messages-page .content-message-unread {
     font-size: 12px;
     font-weight: 500;
     color: var(--white);
@@ -301,7 +301,7 @@ body {
     padding: 2px 4px;
     border-radius: 4px;
 }
-.content-message-time {
+#messages-page .content-message-time {
     font-size: 12px;
     color: var(--slate-400);
     font-weight: 500;
@@ -311,23 +311,23 @@ body {
 
 
 /* start: Conversation */
-.conversation {
+#messages-page .conversation {
     background-color: var(--slate-100);
     height: 100%;
     padding-left: 256px;
     display: none;
 }
-.conversation.active {
+#messages-page .conversation.active {
     display: flex;
     flex-direction: column;
 }
-.conversation-top {
+#messages-page .conversation-top {
     padding: 8px 16px;
     background-color: var(--white);
     display: flex;
     align-items: center;
 }
-.conversation-back {
+#messages-page .conversation-back {
     background-color: transparent;
     border: none;
     outline: none;
@@ -341,34 +341,34 @@ body {
     margin-right: 12px;
     display: none;
 }
-.conversation-back:hover {
+#messages-page .conversation-back:hover {
     background-color: var(--slate-100);
     border-radius: 50%;
     color: var(--slate-600);
 }
-.conversation-back:active {
+#messages-page .conversation-back:active {
     background-color: var(--slate-200);
 }
-.conversation-user {
+#messages-page .conversation-user {
     display: flex;
     align-items: center;
 }
-.conversation-user-image {
+#messages-page .conversation-user-image {
     width: 40px;
     height: 40px;
     border-radius: 50%;
     object-fit: cover;
     margin-right: 8px;
 }
-.conversation-user-name {
+#messages-page .conversation-user-name {
     font-weight: 500;
     font-size: 17px;
 }
-.conversation-user-status {
+#messages-page .conversation-user-status {
     color: var(--slate-400);
     font-size: 13px;
 }
-.conversation-user-status::before {
+#messages-page .conversation-user-status::before {
     content: '';
     width: 10px;
     height: 10px;
@@ -378,15 +378,15 @@ body {
     display: inline-block;
     margin-right: 4px;
 }
-.conversation-user-status.online::before {
+#messages-page .conversation-user-status.online::before {
     background-color: var(--emerald-500);
 }
-.conversation-buttons {
+#messages-page .conversation-buttons {
     display: flex;
     align-items: center;
     margin-left: auto;
 }
-.conversation-buttons > * {
+#messages-page .conversation-buttons > * {
     width: 36px;
     height: 36px;
     display: flex;
@@ -401,60 +401,60 @@ body {
     color: var(--slate-600);
     margin-left: 4px;
 }
-.conversation-buttons > :hover {
+#messages-page .conversation-buttons > :hover {
     background-color: var(--slate-100);
     color: var(--slate-700);
 }
-.conversation-buttons > :active {
+#messages-page .conversation-buttons > :active {
     background-color: var(--slate-200);
 }
 
-.conversation-main {
+#messages-page .conversation-main {
     overflow-y: auto;
     overflow-x: hidden;
     height: 100%;
     padding: 16px;
 }
-.conversation-wrapper {
+#messages-page .conversation-wrapper {
     list-style-type: none;
 }
-.conversation-item {
+#messages-page .conversation-item {
     display: flex;
     align-items: flex-end;
     flex-direction: row-reverse;
     margin-bottom: 16px;
 }
-.conversation-item.me {
+#messages-page .conversation-item.me {
     flex-direction: row;
 }
-.conversation-item-side {
+#messages-page .conversation-item-side {
     margin-left: 8px;
 }
-.conversation-item.me .conversation-item-side {
+#messages-page .conversation-item.me .conversation-item-side {
     margin-right: 8px;
 }
-.conversation-item-image {
+#messages-page .conversation-item-image {
     width: 24px;
     height: 24px;
     border-radius: 50%;
     object-fit: cover;
     display: block;
 }
-.conversation-item-content {
+#messages-page .conversation-item-content {
     width: 100%;
 }
-.conversation-item-wrapper:not(:last-child) {
+#messages-page .conversation-item-wrapper:not(:last-child) {
     margin-bottom: 8px;
 }
-.conversation-item-box {
+#messages-page .conversation-item-box {
     max-width: 720px;
     position: relative;
     margin-left: auto;
 }
-.conversation-item.me .conversation-item-box {
+#messages-page .conversation-item.me .conversation-item-box {
     margin-left: unset;
 }
-.conversation-item-text {
+#messages-page .conversation-item-text {
     padding: 12px 16px 8px;
     background-color: var(--white);
     box-shadow: 0 2px 12px -2px rgba(0, 0, 0, .1);
@@ -463,16 +463,16 @@ body {
     line-height: 1.5;
     margin-left: 32px;
 }
-.conversation-item.me .conversation-item-text {
+#messages-page .conversation-item.me .conversation-item-text {
     margin-left: unset;
     margin-right: 32px;
 }
-.conversation-item.me .conversation-item-text {
+#messages-page .conversation-item.me .conversation-item-text {
     background-color: var(--emerald-500);
     box-shadow: 0 2px 12px -2px var(--emerald-500);
     color: rgba(255, 255, 255, .8);
 }
-.conversation-item-time {
+#messages-page .conversation-item-time {
     font-size: 10px;
     color: var(--slate-400);
     display: block;
@@ -480,10 +480,10 @@ body {
     margin-top: 4px;
     line-height: 1;
 }
-.conversation-item.me .conversation-item-time {
+#messages-page .conversation-item.me .conversation-item-time {
     color: rgba(255, 255, 255, .7);
 }
-.conversation-item-dropdown {
+#messages-page .conversation-item-dropdown {
     position: absolute;
     top: 0;
     left: 0;
@@ -491,15 +491,15 @@ body {
     visibility: hidden;
     transition: all .15s ease-in-out;
 }
-.conversation-item.me .conversation-item-dropdown {
+#messages-page .conversation-item.me .conversation-item-dropdown {
     left: unset;
     right: 0;
 }
-.conversation-item-wrapper:hover .conversation-item-dropdown {
+#messages-page .conversation-item-wrapper:hover .conversation-item-dropdown {
     opacity: 1;
     visibility: visible;
 }
-.conversation-item-dropdown-toggle {
+#messages-page .conversation-item-dropdown-toggle {
     width: 24px;
     height: 24px;
     display: flex;
@@ -512,15 +512,15 @@ body {
     cursor: pointer;
     transition: all .15s ease-in-out;
 }
-.conversation-item-dropdown-toggle:hover {
+#messages-page .conversation-item-dropdown-toggle:hover {
     background-color: var(--emerald-500);
     color: var(--white);
     box-shadow: 0 2px 12px -2px var(--emerald-500);
 }
-.conversation-item-dropdown-toggle:active {
+#messages-page .conversation-item-dropdown-toggle:active {
     background-color: var(--emerald-600);
 }
-.conversation-item-dropdown-list {
+#messages-page .conversation-item-dropdown-list {
     position: absolute;
     top: 100%;
     left: 0;
@@ -536,16 +536,16 @@ body {
     transform-origin: left top;
     transition: all .15s ease-in-out;
 }
-.conversation-item.me .conversation-item-dropdown-list {
+#messages-page .conversation-item.me .conversation-item-dropdown-list {
     left: unset;
     right: 0;
 }
-.conversation-item-dropdown.active .conversation-item-dropdown-list {
+#messages-page .conversation-item-dropdown.active .conversation-item-dropdown-list {
     opacity: 1;
     visibility: visible;
     transform: scale(1);
 }
-.conversation-item-dropdown-list a {
+#messages-page .conversation-item-dropdown-list a {
     display: flex;
     align-items: center;
     text-decoration: none;
@@ -553,25 +553,25 @@ body {
     font-size: 13px;
     padding: 6px 12px;
 }
-.conversation-item-dropdown-list a:hover {
+#messages-page .conversation-item-dropdown-list a:hover {
     background-color: var(--slate-100);
     color: var(--slate-600);
 }
-.conversation-item-dropdown-list a:active {
+#messages-page .conversation-item-dropdown-list a:active {
     background-color: var(--slate-200);
 }
-.conversation-item-dropdown-list a i {
+#messages-page .conversation-item-dropdown-list a i {
     font-size: 16px;
     margin-right: 8px;
 }
-.coversation-divider {
+#messages-page .coversation-divider {
     text-align: center;
     font-size: 13px;
     color: var(--slate-400);
     margin-bottom: 16px;
     position: relative;
 }
-.coversation-divider::before {
+#messages-page .coversation-divider::before {
     content: '';
     position: absolute;
     top: 50%;
@@ -581,7 +581,7 @@ body {
     height: 0;
     border-bottom: 1px solid var(--slate-300);
 }
-.coversation-divider span {
+#messages-page .coversation-divider span {
     display: inline-block;
     padding: 0 8px;
     background-color: var(--slate-100);
@@ -589,19 +589,19 @@ body {
     z-index: 1;
 }
 
-.conversation-form {
+#messages-page .conversation-form {
     padding: 8px 16px;
     background-color: var(--white);
     display: flex;
     align-items: flex-end;
 }
-.conversation-form-group {
+#messages-page .conversation-form-group {
     width: 100%;
     position: relative;
     margin-left: 16px;
     margin-right: 16px;
 }
-.conversation-form-input {
+#messages-page .conversation-form-input {
     background-color: var(--slate-100);
     border: 1px solid var(--slate-300);
     border-radius: 4px;
@@ -615,10 +615,10 @@ body {
     line-height: 1.5;
     max-height: calc(20px + ((14px * 2) * 6));
 }
-.conversation-form-input:focus {
+#messages-page .conversation-form-input:focus {
     border-color: var(--slate-400);
 }
-.conversation-form-record {
+#messages-page .conversation-form-record {
     position: absolute;
     bottom: 8px;
     right: 16px;
@@ -629,10 +629,10 @@ body {
     outline: transparent;
     cursor: pointer;
 }
-.conversation-form-record:hover {
+#messages-page .conversation-form-record:hover {
     color: var(--slate-600);
 }
-.conversation-form-button {
+#messages-page .conversation-form-button {
     width: 40px;
     height: 40px;
     display: flex;
@@ -647,38 +647,38 @@ body {
     cursor: pointer;
     flex-shrink: 0;
 }
-.conversation-form-button:hover {
+#messages-page .conversation-form-button:hover {
     background-color: var(--slate-100);
     color: var(--slate-600);
 }
-.conversation-form-button:active {
+#messages-page .conversation-form-button:active {
     background-color: var(--slate-200);
     color: var(--slate-600);
 }
-.conversation-form-submit {
+#messages-page .conversation-form-submit {
     background-color: var(--emerald-500);
     box-shadow: 0 2px 8px -2px var(--emerald-500);
     color: var(--white);
 }
-.conversation-form-submit:hover {
+#messages-page .conversation-form-submit:hover {
     background-color: var(--emerald-600);
     color: var(--white);
 }
-.conversation-form-submit:active {
+#messages-page .conversation-form-submit:active {
     background-color: var(--emerald-700);
     color: var(--white);
 }
-.conversation-default {
+#messages-page .conversation-default {
     align-items: center;
     justify-content: center;
     padding: 16px;
     padding-left: calc(256px + 16px);
     color: var(--slate-400);
 }
-.conversation-default i {
+#messages-page .conversation-default i {
     font-size: 32px;
 }
-.conversation-default p {
+#messages-page .conversation-default p {
     margin-top: 16px;
 }
 /* end: Conversation */
@@ -694,76 +694,76 @@ body {
 }
 
 @media screen and (max-width: 767px) {
-    .chat-sidebar {
+    #messages-page .chat-sidebar {
         top: unset;
         bottom: 0;
         width: 100%;
         height: 48px;
     }
-    .chat-sidebar-logo {
+    #messages-page .chat-sidebar-logo {
         display: none;
     }
-    .chat-sidebar-menu {
+    #messages-page .chat-sidebar-menu {
         flex-direction: row;
         padding: 0;
     }
-    .chat-sidebar-menu > *,
-    .chat-sidebar-menu > * > a {
+    #messages-page .chat-sidebar-menu > *,
+    #messages-page .chat-sidebar-menu > * > a {
         width: 100%;
         height: 100%;
     }
-    .chat-sidebar-menu > * > a {
+    #messages-page .chat-sidebar-menu > * > a {
         padding: 8px;
     }
-    .chat-sidebar-menu > .active > a {
+    #messages-page .chat-sidebar-menu > .active > a {
         box-shadow: inset 0 4px 0 0 var(--emerald-500);
     }
-    .chat-sidebar-profile {
+    #messages-page .chat-sidebar-profile {
         margin-top: 0;
         display: flex;
         align-items: center;
     }
-    .chat-sidebar-profile-toggle {
+    #messages-page .chat-sidebar-profile-toggle {
         width: 32px;
         height: 32px;
     }
-    .chat-sidebar-profile-dropdown {
+    #messages-page .chat-sidebar-profile-dropdown {
         left: unset;
         right: 16px;
     }
 
-    .conversation,
-    .chat-content {
+    #messages-page .conversation,
+    #messages-page .chat-content {
         padding-left: unset;
     }
-    .content-sidebar {
+    #messages-page .content-sidebar {
         left: unset;
         z-index: 10;
         width: 100%;
     }
-    .chat-sidebar-menu > * > a::before {
+    #messages-page .chat-sidebar-menu > * > a::before {
         left: 50%;
         transform: translateX(-50%);
         bottom: 100%;
         top: unset;
     }
-    .chat-sidebar-menu > * > a:hover::before {
+    #messages-page .chat-sidebar-menu > * > a:hover::before {
         bottom: calc(100% + 8px);
         left: 50%;
     }
 
-    .chat-content {
+    #messages-page .chat-content {
         position: relative;
         height: calc(100% - 48px);
     }
-    .conversation.active {
+    #messages-page .conversation.active {
         position: relative;
         z-index: 20;
     }
-    .conversation-back {
+    #messages-page .conversation-back {
         display: flex;
     }
-    .conversation-default.active {
+    #messages-page .conversation-default.active {
         display: none;
         padding: 16px;
     }

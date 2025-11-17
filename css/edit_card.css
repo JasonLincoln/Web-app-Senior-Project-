@@ -1,6 +1,6 @@
-/* Overall */
+/* Edit Card Page */
 
-html, body {
+#edit-card-page {
     margin: 0;
     padding: 0;
 }
@@ -35,11 +35,11 @@ html, body {
     color: rgb(255, 0, 0);
 }
 
-input[type="radio"] {
-    padding: 10px, 0px;
+#edit-card-page input[type="radio"] {
+    padding: 10px;
 }
 
-.textarea {
+#edit-card-page .textarea {
     background-color: rgb(220, 220, 220);
     color: #666666;
     padding: 1em;
@@ -55,14 +55,14 @@ input[type="radio"] {
     resize: none;
 }
 
-.gallery-image {
+#edit-card-page .gallery-image {
     cursor: pointer;
     margin: 10px;
     width: 200px;
     height: auto;
 }
 
-.gallery-image:hover {
+#edit-card-page .gallery-image:hover {
     outline: 2px solid rgb(0, 220, 0);
 }
 
@@ -72,7 +72,7 @@ input[type="radio"] {
     background-color: rgb(220, 220, 220);
 }
 
-.card {
+#edit-card-page .card {
     grid-area: card;
 }
 
