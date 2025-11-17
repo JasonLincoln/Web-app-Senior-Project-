@@ -39,6 +39,24 @@ input[type="radio"] {
     background-color: rgb(230, 230, 230);
     width: 80vw;
     height: 80vh;
+    box-shadow: 0px 2px 5px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+body.active-popup {
+    overflow: hidden;
+}
+
+body.active-popup #complete-profile {
+    filter: blur(5px);
+    background: rgba(0, 0, 0, 0.08);
+    transition: filter 0ms ease-in-out 0ms;
+}
+
+body.active-popup #select-category-wrapper {
+    visibility: visible;
+    transition: top 0ms ease-in-out 0ms,
+                opacity 300ms ease-in-out,;
 }
 
 #select-category-wrapper .fa-xmark {
@@ -172,19 +190,6 @@ input[type="radio"] {
     width: 400px;
     height: 100px;
     resize: none;
-}
-
-.text-group {
-    position: relative;
-}
-
-#characters-left {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    margin-bottom: 2%;
-    margin-right: 2%;
-    opacity: 0.25;
 }
 
 }
