@@ -114,7 +114,7 @@
     align-items: center;
     justify-content: center;
     background: linear-gradient(45deg, #ffd195, #ffb283)
-}
+} */
 .rating-box {
     position: relative;
     background: white;
@@ -143,5 +143,5 @@
 
 .stars i.active {
     color: #ff9c1a;
-} */
+}
 /* end: stars */
