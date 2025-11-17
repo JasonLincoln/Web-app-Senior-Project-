@@ -1,21 +1,21 @@
 /* Dropdown CSS */
 
-#skill-dropdown-button{
+#profile-creation-page .skill-dropdown-button{
     background-color: white;
 }
 
-#skill-dropdown{
+#profile-creation-page .skill-dropdown{
     display: inline;
 }
 
-#skill-dropdown-content{
+#profile-creation-page .skill-dropdown-content{
     display: none;
     position: absolute;
     background-color: white;
     min-width: 130px;
 }
 
-#skill-dropdown:hover #skill-dropdown-content{
+#profile-creation-page .skill-dropdown:hover .skill-dropdown-content{
     display: inline-block;
     margin:0;
 }
