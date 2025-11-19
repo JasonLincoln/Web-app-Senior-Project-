@@ -21,19 +21,34 @@
             <p>Repellendus praesentium rerum mollitia modi commodi quos obcaecati quo consequuntur explicabo veniam eius, culpa facilis laboriosam tenetur ea quis quibusdam impedit quae consequatur odio maiores natus esse doloremque perferendis? Pariatur?</p>
             <p>Vel quos explicabo fugiat, fugit aspernatur eaque inventore pariatur praesentium sequi eos dicta consectetur exercitationem minus, sapiente est ullam. Perspiciatis, voluptate debitis quia enim laborum obcaecati numquam non dolores inventore!</p>
             <p>Quibusdam labore nam, quis officiis, reiciendis porro blanditiis commodi illum voluptates ipsa soluta? Deserunt, laborum eius at, assumenda officiis vel commodi repellendus, corrupti odit obcaecati harum quasi molestiae nostrum natus!</p>
+
+            <label for="myDropdown">Choose an option:</label>
+            <select id="myDropdown">
+                <option value="" selected disabled hidden>Select an option</option>
+                <option value="prog_lang" id="prog_lang"> Programming Languages</option>
+                <option value="computers" id="computers"> Computers & Info Technology</option>
+                <option value="math" id="math"> Mathematics</option>
+                <option value="science" id="science"> Science</option>
+                <option value="social_studies" id="social_studies"> Social Studies</option>
+                <option value="business" id="business"> Business</option>
+                <option value="life_skills" id="life_skills"> Life Skills</option>
+                <option value="languages" id="languages"> Language Arts</option>
+            </select>
         </div>
 
     </div>
+    <!-- Popup -->
     <div class="popup">
         <div class="close-btn">
             <i class="fa-solid fa-xmark fa-2x"></i>
         </div>
+        <!-- Grid 1 -->
         <form id="select-category">
 
-            <h3>What is the main subject you're going to share?</h3>
+            <h3 id="radio-header">What is the main subject you're going to share?</h3>
             <div class="radio-group-grid">
-                <label><input type="radio" name="which_category" value="prog_lang" id="prog_lang"> Programming Languages</label>
-                <label><input type="radio" name="which_category" value="computers" id="computers"> Computers & Information Technology</label>
+                <label><input type="radio" name="which_category" value="prog_lang" id="prog_lang"> Programming</label>
+                <label><input type="radio" name="which_category" value="computers" id="computers"> Computers & I.T.</label>
                 <label><input type="radio" name="which_category" value="math" id="math"> Mathematics</label>
                 <label><input type="radio" name="which_category" value="science" id="science"> Science</label>
                 <label><input type="radio" name="which_category" value="social_studies" id="social_studies"> Social Studies</label>
@@ -41,16 +56,16 @@
                 <label><input type="radio" name="which_category" value="life_skills" id="life_skills"> Life Skills</label>
                 <label><input type="radio" name="which_category" value="languages" id="languages"> Language Arts</label>
             </div>
-            
-            <h3>About You</h3>
+
             <div class="text-group">
+                <h3>About You</h3>
                 <textarea class="textarea" name="c-desc" id="c-desc" placeholder="Enter Description Here" maxlength="150"></textarea>
                 <div id="characters-left">150</div>
+                <br>
+                <input type="button" value="Save" id="submit">
             </div>
-            <br>
-            <input type="button" value="Save" id="submit">
         </form>
-
+        <!-- Grid 2 -->
         <div id="image-collection">    
             <div class="post-slider">
                 <i class="fa-solid fa-chevron-left prev"></i>
@@ -61,7 +76,7 @@
                 </div> <!-- radio generates the image gallery here -->
             </div> <!-- end post slider -->        
         </div> <!-- end image collection -->
-
+        <!-- Grid 3 -->
         <div class="card-container">
             <div class="card">
                 <div class="card-image">

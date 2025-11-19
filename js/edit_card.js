@@ -6,6 +6,7 @@ let selectedImage = null;
 $(document).ready( () => {
     checkRadio(); // for the user to pick the image
     saveUserInput(); // for the user to type the desc
+    editCard(); // for the user to click the card customization popup
     clickOut(); // for the user to click out of the card customization
 })
 
@@ -134,12 +135,13 @@ const saveUserInput = () => {
 }
 
 const editCard = () => {
-    $("#popup").css("visibility", "visible");
+    $("#open-popup").on("click", () => {
+        document.body.classList.add("active-popup");
+    })
 }
 
 const clickOut = () => {
-    $(".fa-xmark").on("click", () => {
-        $("#popup").css("visibility", "hidden");
-        $("#image-collection").css("visibility", "hidden");
+    $("#close-btn").on("click", () => {
+        document.body.classList.remove("active-popup");
     })
 }

@@ -5,3 +5,10 @@ $("#open-popup").on("click", () => {
 $(".close-btn").on("click", () => {
     document.body.classList.remove("active-popup");
 })
+
+const selectElement = document.getElementById("myDropdown");
+
+selectElement.addEventListener("change", function() {
+  const selectedValue = this.value; // 'this' refers to the selectElement
+  console.log("New selected value:", selectedValue);
+});

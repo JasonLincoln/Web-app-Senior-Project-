@@ -1,3 +1,7 @@
+#myDropdown option[hidden] {
+    display: none;
+}
+
 .main {
     box-sizing: border-box;
     min-height: 100vh;
@@ -28,23 +32,21 @@
     top: -100%;
     left: 50%; /* left side of the popup aligns with center*/
     transform: translate(-50%, -50%); /* follows left property and makes this truly centered */
-    width: 90%;
-    max-width: 1700px;
+    width: 85vw;
     padding: 20px;
     background: #ffffff;
     border-radius: 10px;
     box-shadow: 0px 2px 5px 5px rgba(0, 0, 0, 0.1);
-    margin-top: -25px;
     opacity: 0;
     transition: top 0ms ease-in-out 300ms,
             opacity 300ms ease-in-out,
             margin-top 300ms ease-in-out;
 
     display: grid;
+    place-items: center;
     grid-template-areas:
     "form card"
     "images card";
-    place-items: center;
     background-color: rgb(230, 230, 230);
     box-shadow: 0px 2px 5px 5px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
@@ -58,11 +60,6 @@
     margin-right: 5px;
     cursor: pointer;
     color: rgb(255, 0, 0);
-}
-
-
-.popup > * {
-    margin: 15px 0px;
 }
 
 body.active-popup {
@@ -85,24 +82,6 @@ body.active-popup .popup {
 }
 
 /* Overall */
-input[type="radio"] {
-    vertical-align: middle;
-    margin: 0;
-    padding: 10px, 0px;
-}
-
-.radio-group-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr); 
-  grid-template-rows: repeat(4, auto); 
-  gap: 10px; 
-}
-
-.radio-group-grid input[type="radio"] {
-  margin-right: 5px;
-  vertical-align: middle; 
-}
-
 .textarea {
     position: relative;
     background-color: rgb(220, 220, 220);
@@ -131,7 +110,26 @@ input[type="radio"] {
     grid-area: form;
 }
 
+input[type="radio"] {
+    vertical-align: middle;
+    margin: 0;
+    padding: 10px, 0px;
+}
+
+.radio-group-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); 
+  grid-template-rows: repeat(4, auto); 
+  gap: 10px; 
+}
+
+.radio-group-grid input[type="radio"] {
+  margin-right: 5px;
+  vertical-align: middle; 
+}
+
 .text-group {
+    padding: 0px 10px;
     position: relative;
     width: 90%;
     max-width: 40vw;
@@ -201,6 +199,10 @@ input[type="radio"] {
     object-fit: cover;
 }
 
+/* Card CSS */
+/* Card CSS */
+/* Card CSS */
+
 /* Card Title */
 .card
 {
@@ -251,6 +253,7 @@ input[type="radio"] {
 .card-desc
 {
     margin-top: -25px;
+    overflow: hidden;
     overflow-wrap: break-word;
     height: 120px;
 }
@@ -274,21 +277,21 @@ input[type="radio"] {
     margin-right: 5px;
 }
 
-@media only screen and (max-width: 700px) {
+@media only screen and (max-width: 720px) {
 
 body.active-popup {
-    height: 100vh;
+    /* height: 100vh; */
     overflow-y: scroll;
     overflow-x: hidden;
 }
 
 .popup {
     position: absolute;
+    height: fit-content;
     top: -100%;
     left: 50%; /* left side of the popup aligns with center*/
     transform: translate(-50%, -50%); /* follows left property and makes this truly centered */
-    width: 90%;
-    padding: 20px;
+    width: 100%;
     opacity: 0;
     transition: top 0ms ease-in-out 300ms,
             opacity 300ms ease-in-out,
@@ -296,9 +299,9 @@ body.active-popup {
 
     display: grid;
     grid-template-areas:
+    "card"
     "form"
-    "images"
-    "card";
+    "images";
     place-items: center;
     background-color: rgb(230, 230, 230);
     box-shadow: 0px 2px 5px 5px rgba(0, 0, 0, 0.1);
@@ -308,8 +311,17 @@ body.active-popup {
 #image-collection {
     visibility: hidden;
     grid-area: images;
-    width: 90vw;
+    width: 80vw;
     height: 200px;
+}
+
+.card-container {
+    margin-top: 300px;
+    grid-area: card;
+}
+
+#select-category {
+    grid-area: form;
 }
 
 .textarea {
@@ -334,10 +346,101 @@ body.active-popup {
     max-width: 90vw;
 }
 
-/* Card Title */
-.card-container
+.fa-xmark {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-top: 32vh;
+    margin-right: 8vw;
+    cursor: pointer;
+    color: rgb(255, 0, 0);
+}
+
+.radio-group-grid {
+    padding-left: 10px;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr); 
+    grid-template-rows: repeat(8, auto); 
+    gap: 10px; 
+}
+
+#radio-header {
+    padding: 0px 10px;
+}
+
+/* Cards CSS */
+/* Cards CSS */
+/* Cards CSS */
+.card
 {
-    /* width: 80vw; */
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    height: 380px;
+    padding: 15px;
+    background-color: rgb(240, 240, 240);
+    border-radius: 20px;
+}
+
+/* Card Image */
+.card-image 
+{
+    text-align: center;
+}
+
+.card-image img
+{
+    border-radius: 20px;
+    width: 200px;
+    height: auto;
+    object-fit: cover;
+}
+
+/* Everything under the image */
+.card-content
+{
+    margin-top: -10px;
+    display: inline-block;
+    height: 60%;
+}
+
+/* Card Creator */
+.creator
+{
+    display: flex;
+    align-items: center;
+}
+
+.creator i
+{
+    margin-right: 5px;
+}
+
+/* Card Description */
+.card-desc
+{
+    margin-top: -25px;
+    overflow-wrap: break-word;
+    height: 120px;
+}
+
+/* Card Tags */
+.card-tags
+{
+    margin-top: 30px;
+}
+
+/* Ratings */
+.rating
+{
+    margin-top: -10px;
+    display: flex;
+    align-items: center;
+}
+
+.rating i
+{
+    margin-right: 5px;
 }
 
 }
