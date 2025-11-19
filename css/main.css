@@ -1,4 +1,4 @@
-/* CSS file for all css common amonst each html page */
+/* CSS file for all css common amongst each html page */
 body 
 {
     margin: 0;
@@ -9,7 +9,7 @@ body
 }
 
 /* Navbar CSS */
-.navbar-body {
+#navbar-body {
     display: flex;
     height: 75px;
     background-color: #c8e8ba; /* For browsers that do not support gradients */
@@ -17,20 +17,18 @@ body
     border-style: solid;
 }
 
-.navbar-body .list-item {
+#navbar-body .list-item {
     list-style-type: none;
 }
 
-.navbar-title{
+#navbar-title{
     justify-content: flex-start;
 }
 
-.navbar-signup-button{
+#navbar-signup-button{
     justify-content: flex-end;
 }
 
 .profile-picture{
     justify-content: flex-end;
 }
-
-/* Footer CSS */

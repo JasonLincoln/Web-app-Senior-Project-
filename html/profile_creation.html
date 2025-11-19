@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="../css/profile_creation.css">
     <title>Profile Creation</title>
 </head>
-<body>
+<body id="profile-creation-page">
     <!-- Basis for profile creation for new and past users -->
     <form action="profile.html">
         <h3>First Name</h3>
@@ -19,13 +19,13 @@
         <input type="text" id="pronouns" name="pronouns" placeholder="Enter your pronouns">
 
         <h3>Skills You Have</h3>
-        <input type="text" id="skill-dropdown-textbox" placeholder="Select Skill" readonly>
-        <div id="skill-dropdown">
+        <input type="text" class="skill-dropdown-textbox" placeholder="Select Skill" readonly>
+        <div class="skill-dropdown">
             <!-- Include the ability to when hover over dropdown button, display the skill-dropdown-content -->
-            <button id="dropdown-button">
+            <button class="dropdown-button">
                 ▼
             </button>
-            <ul id="skill-dropdown-content">
+            <ul class="skill-dropdown-content">
                 <li><a class="dropdown-item" href="#">Math</a></li>
                 <li><a class="dropdown-item" href="#">Science</a></li>
                 <li><a class="dropdown-item" href="#">History</a></li>
@@ -33,13 +33,13 @@
         </div>
 
         <h3>Skills To Learn</h3>
-        <input type="text" id="skill-dropdown-textbox" placeholder="Select Skill" readonly>
-        <div id="skill-dropdown">
+        <input type="text" class="skill-dropdown-textbox" placeholder="Select Skill" readonly>
+        <div class="skill-dropdown">
             <!-- Include the ability to when hover over dropdown button, display the skill-dropdown-content -->
-            <button id="dropdown-button">
+            <button class="dropdown-button">
                 ▼
             </button>
-            <ul id="skill-dropdown-content">
+            <ul class="skill-dropdown-content">
                 <li><a class="dropdown-item" href="#">Math</a></li>
                 <li><a class="dropdown-item" href="#">Science</a></li>
                 <li><a class="dropdown-item" href="#">History</a></li>

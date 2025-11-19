@@ -1,32 +1,31 @@
-/* Overall Page CSS */
-body{
+/* Active Session CSS */
+
+#active-session-page{
     background-color: black;
 }
 
-/* Link CSS */
-h2 a{
+#active-session-page h2 a{
     color: greenyellow;
 }
 
-h2 a:hover{
+#active-session-page h2 a:hover{
     color: green;
 }
 
-/* Button CSS */
-button{
+#active-session-page button{
     position:relative;
     margin-top:44.5%;
 }
 
-#leave{
+#active-session-page #leave{
     float: left;
 }
 
-#mic,
-#camera{
+#active-session-page #mic,
+#active-session-page #camera{
     left: 44.5%;
 }
 
-#feedback{
+#active-session-page #feedback{
     float: right;
 }
