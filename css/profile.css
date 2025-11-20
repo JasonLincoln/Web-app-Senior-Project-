@@ -1,12 +1,12 @@
-/* Specific CSS for the profile page */
-
 /* Profile Section */
 #complete-profile
 {
+    position: relative;
     background-color: #596b51;
     display: flex;
     margin: 20px;
     padding: 20px;
+    transition: filter 0ms ease-in-out 300ms;
 }
 
 #main-profile

@@ -108,6 +108,15 @@
 
 /* start: Reviews */
 /* start: Create Review */
+.create-review {
+    margin: 5px 10px 5px 10px;
+    background-color: var(--gray-200);
+    border-radius: 10px;
+    padding: 0px 10px 10px 10px;
+}
+.create-review .review-top {
+    padding: 4px 5px;
+}
 .create-review-input {
     background-color: var(--slate-100);
     border: 1px solid var(--slate-300);
@@ -178,6 +187,7 @@
     text-decoration: underline;
     font-weight: bold;
     font-size: 17px;
+    cursor: default;
 }
 .read-more-reviews-button{
     display: inline;
@@ -194,3 +204,12 @@
     background-color: var(--slate-200);
 }
 /* end: Reviews */
+
+/* start: Breakpoints */
+@media screen and (max-width:950px) {
+    .rating-content {
+        max-width: unset;
+        height: 100vh;
+    }
+}
+/* end: Breakpoints */

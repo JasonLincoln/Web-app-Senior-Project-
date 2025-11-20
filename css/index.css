@@ -1,11 +1,11 @@
 /* Overall */
 
-#main-page h1, #main-page h2, #main-page h3, #main-page h4, #main-page h5, #main-page h6, #main-page p {
+h1, h2, h3, h4, h5, h6, p {
     font-family: 'Candal', serif;
     text-align: center;
 }
 
-#main-page a {
+a {
     text-decoration: none;
     color: inherit;
 }
@@ -14,21 +14,16 @@
 /* Carousel CSS */
 /* Carousel CSS */
 
-#main-page .page-wrapper a:hover {
+.page-wrapper a:hover {
     color: rgb(160, 218, 160);
 }
 
-#main-page .post-slider {
+.post-slider {
     position: relative;
     margin-top: 50px;
 }
 
-#main-page .post-slider .slider-title {
-    text-align: center;
-    margin: 30px auto;
-}
-
-#main-page .post-slider .prev {
+.post-slider .prev {
     position: absolute;
     top: 50%;
     left: 8%; /* fix arrows cutting off */
@@ -37,7 +32,7 @@
     cursor: pointer;
 }
 
-#main-page .post-slider .next {
+.post-slider .next {
     position: absolute;
     top: 50%;
     right: 8%; /* fix arrows cutting off */
@@ -46,7 +41,7 @@
     cursor: pointer;
 }
 
-#main-page .post-slider .post-wrapper {
+.post-slider .post-wrapper {
     width: 70%;
     height: 350px;
     margin: 0px auto;
@@ -54,7 +49,7 @@
     padding: 10px 0px 10px 0px;
 }
 
-#main-page .post-slider .post-wrapper .post {
+.post-slider .post-wrapper .post {
     width: 300px;
     height: 330px;
     margin: 0px 10px 0px 10px;
@@ -64,14 +59,14 @@
     /* box-shadow: 1rem 1rem 1rem -1rem white; */
 }
 
-#main-page .post-slider .post-wrapper .post .post-info {
+.post-slider .post-wrapper .post .post-info {
     height: 130px;
     padding: 0px 10px;
     text-align: center;
 }
 
 
-#main-page .slider-image {
+.slider-image {
     width: 100%;
     height: 200px;
     object-fit: cover;
@@ -83,11 +78,11 @@
 /* About Skillswap Grid */
 /* About Skillswap Grid */
 
-#main-page .skillswap-title {
+.skillswap-title {
     margin-top: 100px;
 }
 
-#main-page .about-skillswap {
+.about-skillswap {
     display: grid;
     justify-items: center;
     grid-template-columns: repeat(3, 1fr); /*fr = fractional unit*/
@@ -102,11 +97,11 @@
     height: 500px;
 }
 
-#main-page .image1 { grid-area: image1; margin-top: 25px; }
-#main-page .image2 { grid-area: image2; margin-top: 25px; }
-#main-page .image3 { grid-area: image3; margin-top: 25px; }
+.image1 { grid-area: image1; margin-top: 25px; }
+.image2 { grid-area: image2; margin-top: 25px; }
+.image3 { grid-area: image3; margin-top: 25px; }
 
-#main-page .about-ss-image {
+.about-ss-image {
     border-radius: 50%; 
     border: 2px solid black;
     max-width: 100%;
@@ -114,20 +109,20 @@
     object-fit: cover;
 }
 
-#main-page .header1 { grid-area: header1; }
-#main-page .header2 { grid-area: header2; }
-#main-page .header3 { grid-area: header3; }
+.header1 { grid-area: header1; }
+.header2 { grid-area: header2; }
+.header3 { grid-area: header3; }
 
-#main-page .desc1 { grid-area: desc1; }
-#main-page .desc2 { grid-area: desc2; }
-#main-page .desc3 { grid-area: desc3; }
+.desc1 { grid-area: desc1; }
+.desc2 { grid-area: desc2; }
+.desc3 { grid-area: desc3; }
 
 /* Categories Cards */
 /* Categories Cards */
 /* Categories Cards */
 
 /* Cards Container */
-#main-page .skill-categories {
+.skill-categories {
     display: grid;
     margin: 100px 150px;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -137,7 +132,7 @@
 }
 
 /* For All Cards */
-#main-page .card {
+.card {
     height: 250px; 
     background-color: rgb(92, 146, 92);
     background-size: cover;
@@ -148,7 +143,7 @@
 }
 
 /* Card Image Properties */
-#main-page .card img {
+.card img {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -157,12 +152,12 @@
                 300ms ease-in-out filter;
 }
 
-#main-page .card:hover img {
+.card:hover img {
     transform: scale(1.2);
     filter: blur(1px);
 }
 
-#main-page [id^="hidden-"] { /* Hidden Text Content */
+[id^="hidden-"] { /* Hidden Text Content */
     margin: 0;
     position: absolute;
     width: 100%;
@@ -174,7 +169,7 @@
 }
 
 
-#main-page [id$="-header"] { /* Card Headers */
+[id$="-header"] { /* Card Headers */
     position: absolute;
     background-color: rgba(160, 218, 160, 0.5);
     margin: 0;

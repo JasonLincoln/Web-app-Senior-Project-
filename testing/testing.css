@@ -1,3 +1,32 @@
+#myDropdown option[hidden] {
+    display: none;
+}
+
+.main {
+    box-sizing: border-box;
+    min-height: 100vh;
+    transition: filter 0ms ease-in-out 300ms;
+}
+
+.content {
+    width: 100%;
+    max-width: 800px;
+    padding: 20px;
+    margin: 0 auto;
+}
+
+.content h2 {
+    font-size: 40px;
+}
+
+.content img {
+    width: 400px;
+}
+
+.content > * {
+    margin: 10px 0px;
+}
+
 .popup {
     position: absolute;
     top: -100%;
@@ -37,8 +66,9 @@ body.active-popup {
     overflow: hidden;
 }
 
-body.active-popup #complete-profile {
+body.active-popup .main {
     filter: blur(5px);
+    background: rgba(0, 0, 0, 0.08);
     transition: filter 0ms ease-in-out 0ms;
 }
 
