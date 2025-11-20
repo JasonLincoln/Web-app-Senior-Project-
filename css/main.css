@@ -13,27 +13,100 @@ body
 }
 
 /* Navbar CSS */
-.navbar-body {
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: rgb(255, 255, 255);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px 7%;
     display: flex;
-    height: 75px;
-    background-color: #c8e8ba; /* For browsers that do not support gradients */
-    background-image: linear-gradient(to right, #bfd8b4, #c8e8ba);
+    align-items: center;
+    justify-content: space-between;
+    z-index: 1000;
 }
 
-.navbar-body .list-item {
-    list-style-type: none;
+header .navbar ul {
+    list-style: none;
 }
 
-.navbar-title{
-    justify-content: flex-start;
+header .navbar ul li {
+    position: relative;
+    float: left;
 }
 
-.navbar-signup-button{
-    justify-content: flex-end;
+header .navbar ul li a {
+    font-size: 20px;
+    padding: 20px;
+    color: rgb(50, 50, 50);
+    display: block;
 }
 
-.profile-picture{
-    justify-content: flex-end;
+header .navbar ul li a:hover {
+    background: rgb(50, 50, 50);
+    color: rgb(255, 255, 255);
+}
+
+header .navbar ul li ul {
+    position: absolute;
+    left: 0;
+    width: 200px;
+    background: rgb(255, 255, 255);
+    display: none;
+}
+
+header .navbar ul li:focus-within > ul,
+header .navbar ul li:hover > ul {
+    display: initial;
+}
+
+#menu-bar {
+    display: none;
+}
+
+header label {
+    font-size: 20px;
+    color: rgb(50, 50, 50);
+    cursor: pointer;
+    display: none;
+}
+
+@media only screen and (max-width: 991px) {
+    header {
+        padding: 20px;
+    }
+
+    header label {
+        display: initial;
+    }
+
+    header .navbar {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: rgb(255, 255, 255);
+        border-top: 1px solid rgba(0, 0, 0, 0.1);
+        display: none;
+    }
+
+    header .navbar ul li {
+        width: 100%;
+    }
+
+    header .navbar ul li ul {
+        position: relative; 
+        width: 100%;
+    }
+
+    header .navbar ul li ul li {
+        background: rgb(255, 255, 255);
+    }
+
+    #menu-bar:checked ~ .navbar {
+        display: initial;
+    }
 }
 
 /* Footer CSS */
