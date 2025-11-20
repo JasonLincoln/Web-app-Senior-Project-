@@ -8,15 +8,25 @@
 </head>
 <body>
     <!-- Basis for profile creation for new and past users -->
-    <form action="<profile.html>">
-        <h3>First Name</h3>
-        <input type="text" id="first" name="first" placeholder="Enter your first name">
+    <form action="../html/profile.html">
+        <div class="email-wrapper">
+            <label for="email">Email address</label>
+            <input type="email" class="email" name="email" readonly>
+        </div>
+        <div class="username-wrapper">
+            <label for="username">Username</label>
+            <input type="text" class="username" name="username" readonly>
+        </div>
 
-        <h3>Last Name</h3>
-        <input type="text" id="last" name="last" placeholder="Enter your last name">
+        <div class="display-name-wrapper">
+        <label for="display-name">Display Name</label>
+        <input type="text" class="display-name" name="display-name" value="User" placeholder="Enter your display name">
+        </div>
 
-        <h3>Pronouns</h3>
-        <input type="text" id="pronouns" name="pronouns" placeholder="Enter your pronouns">
+        <div class="pronouns-wrapper">
+            <label for="pronouns">Pronouns</label>
+            <input type="text" id="pronouns" name="pronouns" placeholder="Enter your pronouns">
+        </div>
 
         <h3>Skills You Have</h3>
         <input type="text" id="skill-dropdown-textbox" placeholder="Select Skill" readonly>
