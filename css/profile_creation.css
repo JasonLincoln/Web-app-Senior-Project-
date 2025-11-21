@@ -1,7 +1,20 @@
-/* Dropdown CSS */
+/* Start: Globals */
+* {
+    margin: 0px;
+    padding: 0px;
+}
+.profile-creation-page {
+    display: flex;
+    justify-content: center;
+    background-color: green;
+    height: 100vh;
+}
+/* End: Globals */
+
+/* Start: Dropdown */
 
 .profile-creation-page .skill-dropdown-button{
-    background-color: white;
+    background-color: var(--slate-400);
 }
 
 .profile-creation-page .skill-dropdown{
@@ -25,3 +38,31 @@
     margin: 0;
     padding: 0;
 }
+/* End: Dropdown */
+
+
+.profile-creation-title {
+    margin-top: 10px;
+    font-size: 25px;
+    font-weight: bold;
+    letter-spacing: 1.2px;
+}
+
+/* Start: Form Inputs */
+.creation-page-inputs label{
+    display: block;
+    padding: 5px 5px 5px 0px;
+}
+.email-wrapper, .username-wrapper, .display-name-wrapper, .pronouns-wrapper,
+.skills-you-have-wrapper, .skills-to-learn-wrapper {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.creation-page-inputs input {
+    outline: none;
+    border-radius: 10px;
+    border: none;
+    padding: 10px;
+}
+/* End: Form Inputs */
