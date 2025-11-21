@@ -1,26 +1,26 @@
 /* Dropdown CSS */
 
-#profile-creation-page .skill-dropdown-button{
+.profile-creation-page .skill-dropdown-button{
     background-color: white;
 }
 
-#profile-creation-page .skill-dropdown{
+.profile-creation-page .skill-dropdown{
     display: inline;
 }
 
-#profile-creation-page .skill-dropdown-content{
+.profile-creation-page .skill-dropdown-content{
     display: none;
     position: absolute;
     background-color: white;
     min-width: 130px;
 }
 
-#profile-creation-page .skill-dropdown:hover .skill-dropdown-content{
+.profile-creation-page .skill-dropdown:hover .skill-dropdown-content{
     display: inline-block;
     margin:0;
 }
 
-#profile-creation-page ul{
+.profile-creation-page ul{
     list-style-type: none;
     margin: 0;
     padding: 0;
