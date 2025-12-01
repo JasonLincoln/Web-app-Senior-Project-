@@ -202,7 +202,7 @@ input[type="radio"] {
 /* Everything under the image */
 .card-content
 {
-    margin-top: -10px;
+    margin-top: 10px;
     display: inline-block;
     height: 60%;
 }
@@ -222,7 +222,7 @@ input[type="radio"] {
 /* Card Description */
 .card-desc
 {
-    margin-top: -25px;
+    margin-top: 10px;
     overflow: hidden;
     overflow-wrap: break-word;
     height: 120px;
@@ -231,13 +231,13 @@ input[type="radio"] {
 /* Card Tags */
 .card-tags
 {
-    margin-top: 30px;
+    /* margin-top: 30px; */
 }
 
 /* Ratings */
 .rating
 {
-    margin-top: -10px;
+    margin-top: 30px;
     display: flex;
     align-items: center;
 }
@@ -328,6 +328,8 @@ body.active-popup {
 
 .radio-group-grid {
     padding-left: 10px;
+    padding-top: 20px;
+    padding-bottom: 20px;
     display: grid;
     grid-template-columns: repeat(1, 1fr); 
     grid-template-rows: repeat(8, auto); 
@@ -335,7 +337,10 @@ body.active-popup {
 }
 
 #radio-header {
-    padding: 0px 10px;
+    border-top-width: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-color: red;
 }
 
 /* Cards CSS */
@@ -369,7 +374,7 @@ body.active-popup {
 /* Everything under the image */
 .card-content
 {
-    margin-top: -10px;
+    margin-top: 10px;
     display: inline-block;
     height: 60%;
 }
@@ -389,7 +394,6 @@ body.active-popup {
 /* Card Description */
 .card-desc
 {
-    margin-top: -25px;
     overflow-wrap: break-word;
     height: 120px;
 }
@@ -397,13 +401,13 @@ body.active-popup {
 /* Card Tags */
 .card-tags
 {
-    margin-top: 30px;
+    margin-top: 20px;
 }
 
 /* Ratings */
 .rating
 {
-    margin-top: -10px;
+    margin-top: 10px;
     display: flex;
     align-items: center;
 }
