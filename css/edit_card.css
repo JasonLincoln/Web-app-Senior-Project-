@@ -338,9 +338,8 @@ body.active-popup {
 
 #radio-header {
     border-top-width: 20px;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    background-color: red;
+    background-color: #666666;
+    margin: 20px;
 }
 
 /* Cards CSS */
