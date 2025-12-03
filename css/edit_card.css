@@ -80,6 +80,10 @@ body.active-popup .popup {
     grid-area: form;
 }
 
+.radio-header {
+    padding: 20px 0px;
+}
+
 input[type="radio"] {
     vertical-align: middle;
     margin: 0;
@@ -91,6 +95,7 @@ input[type="radio"] {
   grid-template-columns: repeat(2, 1fr); 
   grid-template-rows: repeat(4, auto); 
   gap: 10px; 
+  padding: 20px 0px;
 }
 
 .radio-group-grid input[type="radio"] {
@@ -99,10 +104,14 @@ input[type="radio"] {
 }
 
 .text-group {
-    padding: 0px 10px;
+    padding: 10px 10px;
     position: relative;
     width: 90%;
     max-width: 40vw;
+}
+
+.text-group h3 {
+    padding-bottom: 10px;
 }
 
 .characters-left {
@@ -132,7 +141,7 @@ input[type="radio"] {
 .post-slider .prev {
     position: absolute;
     top: 50%;
-    left: 5%;
+    left: 4%;
     font-size: 2em;
     color: black;
     cursor: pointer;
@@ -141,7 +150,7 @@ input[type="radio"] {
 .post-slider .next {
     position: absolute;
     top: 50%;
-    right: 5%; 
+    right: 4%; 
     font-size: 2em;
     color: black;
     cursor: pointer;
@@ -335,13 +344,6 @@ body.active-popup {
     grid-template-rows: repeat(8, auto); 
     gap: 10px; 
 }
-
-.radio-header {
-    border-top-width: 20px;
-    padding: 20px 10px;
-    margin: 20px;
-}
-
 /* Cards CSS */
 /* Cards CSS */
 /* Cards CSS */
