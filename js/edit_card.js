@@ -74,7 +74,7 @@ const detectWhichCategory = radios => {
     
     // Shows the image collection carousel after a radio box is selected and if the carousel has not loaded yet.
     if (!loadCarousel) 
-        $("#image-collection").css("visibility", "visible");
+        $(".image-collection").css("visibility", "visible");
 
     // remove outline if the user picks a different radio box
     $(selectedImage).css("outline", "none");
@@ -116,32 +116,32 @@ const pickImage = () => {
             // set current selected image to be outlined
             $(image).css("outline", "5px solid rgba(0, 255, 0, 0.5)");
             selectedImage = image;
-            document.getElementById("selected-image").src = image.src;
+            document.querySelector(".selected-image").src = image.src;
         })
     })
 
 }
 
 const saveUserInput = () => {
-    $("#c-desc").on("input", () => {
-        let descLength = $("#c-desc").val().length;
-        $("#characters-left").html(`${150 - descLength}`);
+    $(".textarea").on("input", () => {
+        let descLength = $(".textarea").val().length;
+        $(".characters-left").html(`${150 - descLength}`);
     })
 
-    $("#submit").on("click", () => {
-        let desc = $("#c-desc").val();
+    $(".submit").on("click", () => {
+        let desc = $(".textarea").val();
         $(".card-desc p").text(desc);
     }) 
 }
 
 const editCard = () => {
-    $("#open-popup").on("click", () => {
+    $(".open-popup").on("click", () => {
         document.body.classList.add("active-popup");
     })
 }
 
 const clickOut = () => {
-    $("#close-btn").on("click", () => {
+    $(".close-btn").on("click", () => {
         document.body.classList.remove("active-popup");
     })
 }

@@ -13,6 +13,12 @@ body
 }
 
 /* Navbar CSS */
+.navbar-body {
+    display: flex;
+    align-items: center;
+    list-style: none;
+}
+
 header {
     position: fixed;
     top: 0;

@@ -55,7 +55,7 @@ body.active-popup .popup {
 .textarea {
     position: relative;
     background-color: rgb(220, 220, 220);
-    color: #666666;
+    color: .666666;
     padding: 1em;
     border-radius: 10px;
     border: 2px solid transparent;
@@ -76,7 +76,7 @@ body.active-popup .popup {
     grid-area: card;
 }
 
-#select-category {
+.select-category {
     grid-area: form;
 }
 
@@ -105,7 +105,7 @@ input[type="radio"] {
     max-width: 40vw;
 }
 
-#characters-left {
+.characters-left {
     position: absolute;
     bottom: 0;
     right: 0;
@@ -118,7 +118,7 @@ input[type="radio"] {
 /* Carousel CSS */
 /* Carousel CSS */
 
-#image-collection {
+.image-collection {
     visibility: hidden;
     grid-area: images;
     width: 40vw;
@@ -278,7 +278,7 @@ body.active-popup {
     border-radius: 10px;
 }
 
-#image-collection {
+.image-collection {
     visibility: hidden;
     grid-area: images;
     width: 80vw;
@@ -290,14 +290,14 @@ body.active-popup {
     grid-area: card;
 }
 
-#select-category {
+.select-category {
     grid-area: form;
 }
 
 .textarea {
     position: relative;
     background-color: rgb(220, 220, 220);
-    color: #666666;
+    color: .666666;
     padding: 1em;
     border-radius: 10px;
     border: 2px solid transparent;
@@ -336,9 +336,9 @@ body.active-popup {
     gap: 10px; 
 }
 
-#radio-header {
+.radio-header {
     border-top-width: 20px;
-    background-color: #666666;
+    padding: 20px 10px;
     margin: 20px;
 }
 

@@ -4,46 +4,70 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/profile_creation.css">
+    <link rel="stylesheet" href="../css/tailwindcss-colors.css">
     <title>Profile Creation</title>
 </head>
 <body>
-    <!-- Basis for profile creation for new and past users -->
-    <form action="profile.html">
-        <h3>First Name</h3>
-        <input type="text" id="first" name="first" placeholder="Enter your first name">
+    <!-- Start: Profile Creation Page -->
+    <div class="profile-creation-page">
+        <form action="#">
+            <header class="profile-creation-title">Profile Settings</header>
 
-        <h3>Last Name</h3>
-        <input type="text" id="last" name="last" placeholder="Enter your last name">
+            <!-- start: Creation Page Inputs -->
+            <div class="creation-page-inputs">
+                <div class="email-wrapper">
+                    <label for="email">Email address</label>
+                    <input type="email" class="email" name="email" value="giggitygiggity@goo.com" readonly>
+                </div>
+                <div class="username-wrapper">
+                    <label for="username">Username</label>
+                    <input type="text" class="username" name="username" value="username" readonly>
+                </div>
 
-        <h3>Pronouns</h3>
-        <input type="text" id="pronouns" name="pronouns" placeholder="Enter your pronouns">
+                <div class="display-name-wrapper">
+                <label for="display-name">Display Name</label>
+                <input type="text" class="display-name" name="display-name" value="User" placeholder="Enter your display name">
+                </div>
 
-        <h3>Skills You Have</h3>
-        <input type="text" id="skill-dropdown-textbox" placeholder="Select Skill" readonly>
-        <div id="skill-dropdown">
-            <!-- Include the ability to when hover over dropdown button, display the skill-dropdown-content -->
-            <button id="dropdown-button">
-                ▼
-            </button>
-            <ul id="skill-dropdown-content">
-                <li><a class="dropdown-item" href="#">Math</a></li>
-                <li><a class="dropdown-item" href="#">Science</a></li>
-                <li><a class="dropdown-item" href="#">History</a></li>
-            </ul>
-        </div>
+                <div class="pronouns-wrapper">
+                    <label for="pronouns">Pronouns</label>
+                    <input type="text" class="pronouns" name="pronouns" placeholder="Enter your pronouns">
+                </div>
+                
+                <div class="skills-you-have-wrapper">
+                    <label for="skills-you-have">Skills You Have</label>
+                    <input type="text" name="skills-you-have" class="skill-dropdown-textbox" placeholder="Select Skill" readonly>
+                    <div class="skill-dropdown">
+                        <!-- Include the ability to when hover over dropdown button, display the skill-dropdown-content -->
+                        <button class="dropdown-button">
+                            ▼
+                        </button>
+                        <ul class="skill-dropdown-content">
+                            <li><a class="dropdown-item" href="#">Math</a></li>
+                            <li><a class="dropdown-item" href="#">Science</a></li>
+                            <li><a class="dropdown-item" href="#">History</a></li>
+                        </ul>
+                    </div>
+                </div>
 
-        <h3>Skills To Learn</h3>
-        <input type="text" id="skill-dropdown-textbox" placeholder="Select Skill" readonly>
-        <div id="skill-dropdown">
-            <!-- Include the ability to when hover over dropdown button, display the skill-dropdown-content -->
-            <button id="dropdown-button">
-                ▼
-            </button>
-            <ul id="skill-dropdown-content">
-                <li><a class="dropdown-item" href="#">Math</a></li>
-                <li><a class="dropdown-item" href="#">Science</a></li>
-                <li><a class="dropdown-item" href="#">History</a></li>
-            </ul>
-        </div>
-    </form>
+                <div class="skills-to-learn-wrapper">
+                    <label for="skills-to-learn">Skills To Learn</label>
+                    <input type="text" class="skill-dropdown-textbox" placeholder="Select Skill" readonly>
+                    <div class="skill-dropdown">
+                        <!-- Include the ability to when hover over dropdown button, display the skill-dropdown-content -->
+                        <button class="dropdown-button">
+                            ▼
+                        </button>
+                        <ul class="skill-dropdown-content">
+                            <li><a class="dropdown-item" href="#">Math</a></li>
+                            <li><a class="dropdown-item" href="#">Science</a></li>
+                            <li><a class="dropdown-item" href="#">History</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- end: Creation Page Inputs -->
+        </form>
+    </div>
+    <!-- end: Profile Creation Page -->
 </body>
