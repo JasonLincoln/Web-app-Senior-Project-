@@ -12,32 +12,28 @@
 /* End: Globals */
 
 /* Start: Dropdown */
-
-.profile-creation-page .skill-dropdown-button{
-    background-color: var(--slate-400);
+.dropdown {
+    position: relative;
 }
 
-.profile-creation-page .skill-dropdown{
-    display: inline;
-    cursor:pointer;
-}
-
-.profile-creation-page .skill-dropdown-content{
-    display: none;
+.dropdown-menu {
     position: absolute;
+    left: 0;
+    top: calc(100% + .25rem);
     background-color: white;
-    min-width: 130px;
+    padding: .75rem;
+    border-radius: .25rem;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .1);
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-10px);
+    transition: opacity 150ms ease-in-out, transform 150ms ease-in-out; 
 }
 
-.profile-creation-page .skill-dropdown:hover .skill-dropdown-content{
-    display: inline-block;
-    margin:0;
-}
-
-.profile-creation-page ul{
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
+.dropdown > .link:focus + .dropdown-menu {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
 }
 /* End: Dropdown */
 
