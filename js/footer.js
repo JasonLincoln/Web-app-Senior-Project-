@@ -1,15 +1,14 @@
 let acc = document.getElementsByClassName("footer-accordion");
-let i = 0;
 
-for (i = 0; i < acc.length; i++) {
+for (let i = 0; i < acc.length; i++) {
     acc[i].addEventListener("click", function() {
-        acc[i].classList.toggle("active");
+        this.classList.toggle("active");
 
-        let panel = acc[i].nextElementSibling;
-        if (panel.style.display === "block") {
-        panel.style.display = "none";
+        let panel = this.nextElementSibling;
+        if (panel.style.maxHeight) {
+            panel.style.maxHeight = null;
         } else {
-        panel.style.display = "block";
+            panel.style.maxHeight = panel.scrollHeight + "px";
         }
     });
 }
