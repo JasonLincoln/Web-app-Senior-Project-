@@ -1,11 +1,11 @@
-"use strict"
+"use strict";
 
 $(document).ready( () => {
 
     $("#username").focus();
     validateForm();
-    
-})
+    showPassword();
+});
 
 function validateForm()
 {
@@ -47,7 +47,7 @@ function validateForm()
         if (isValid == false) {
             event.preventDefault();
         } 
-    })
+    });
 }
 
 function returnPassStatus()
@@ -95,5 +95,26 @@ function returnPassStatus()
         } 
 
         return false;
-    })
+    });
+}
+
+function showPassword()
+{
+    const lock = $("#passwordToggle");
+    const passInput = $("#password");
+
+    lock.on("click", () => {
+        passInput.focus();
+        const type = passInput.attr("type") === "password" ? "text" : "password";
+        passInput.attr("type", type);
+
+        if (lock.attr("class") == 'fa-solid fa-lock-open')
+        {
+            lock.attr("class", "fa-solid fa-lock");
+        }
+        else
+        {
+            lock.attr("class", "fa-solid fa-lock-open");
+        }
+    });
 }

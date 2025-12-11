@@ -83,7 +83,7 @@ body.active-popup .popup {
 input[type="radio"] {
     vertical-align: middle;
     margin: 0;
-    padding: 10px, 0px;
+    padding: 10px 0px;
 }
 
 .radio-group-grid {

@@ -1,4 +1,4 @@
-"use strict"
+"use strict";
 
 // Slick JS
 $('.post-wrapper').slick({
@@ -47,12 +47,12 @@ function hoverEffects(cardID, elementID, elementSubtopicsID)
     card.mouseover(function() {
         elementSubtopics.css("transform", "translate(0%, -100%)");
         element.css("visibility", "hidden");
-    })
+    });
 
     card.mouseout(function() {
         elementSubtopics.css("transform", "translate(0%, 100%)");
         element.css("visibility", "visible");
-    })
+    });
 }
 
 hoverEffects("#programming-languages", "#prog-lang-header", "#hidden-prog-lang"); // programming languages
