@@ -79,7 +79,7 @@ a {
 /* About Skillswap Grid */
 
 .skillswap-title {
-    margin-top: 100px;
+    margin: 100px 0px 50px;
 }
 
 .about-skillswap {
@@ -159,19 +159,22 @@ a {
 
 [id^="hidden-"] { /* Hidden Text Content */
     margin: 0;
+    text-align: center;
+    padding-top: 20px;
     position: absolute;
     width: 100%;
     height: 100%;
     top: 100%;
     transform: translate(0, 100%);
-    background-color: rgba(160, 218, 160, 0.5);
+    background-color: rgba(81, 209, 81, 0.6);
     transition: 300ms ease-in-out transform;
+    line-height: 1.75em;
 }
 
 
 [id$="-header"] { /* Card Headers */
     position: absolute;
-    background-color: rgba(160, 218, 160, 0.5);
+    background-color: rgba(81, 209, 81, 0.6);
     margin: 0;
     width: 100%;
     padding: 10px 0px;
