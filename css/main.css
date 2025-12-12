@@ -19,7 +19,7 @@ body
     list-style: none;
 }
 
-header {
+.navbar-header {
     position: fixed;
     top: 0;
     left: 0;
@@ -33,18 +33,18 @@ header {
     z-index: 1000;
 }
 
-header .navbar ul {
+.navbar-header .navbar ul {
     display: flex;
     align-items: center;
     list-style: none;
 }
 
-header .navbar ul li {
+.navbar-header .navbar ul li {
     position: relative;
     float: left;
 }
 
-header .navbar ul li a {
+.navbar-header .navbar ul li a {
     font-size: 20px;
     padding: 20px;
     color: rgb(50, 50, 50);
@@ -52,12 +52,12 @@ header .navbar ul li a {
     text-decoration: none;
 }
 
-header .navbar ul li a:hover {
+.navbar-header .navbar ul li a:hover {
     background: rgb(50, 50, 50);
     color: rgb(255, 255, 255);
 }
 
-header .navbar ul li ul {
+.navbar-header .navbar ul li ul {
     position: absolute;
     left: 0;
     width: 200px;
@@ -65,12 +65,12 @@ header .navbar ul li ul {
     display: none;
 }
 
-header .navbar ul li ul li {
+.navbar-header .navbar ul li ul li {
     width: 100%;
 }
 
-header .navbar ul li:focus-within > ul,
-header .navbar ul li:hover > ul {
+.navbar-header .navbar ul li:focus-within > ul,
+.navbar-header .navbar ul li:hover > ul {
     display: initial;
     width: 150%;
 }
@@ -79,7 +79,7 @@ header .navbar ul li:hover > ul {
     display: none;
 }
 
-header label {
+.navbar-header label {
     font-size: 20px;
     color: rgb(50, 50, 50);
     cursor: pointer;
@@ -87,15 +87,15 @@ header label {
 }
 
 @media only screen and (max-width: 991px) {
-    header {
+    .navbar-header {
         padding: 20px;
     }
 
-    header label {
+    .navbar-header label {
         display: initial;
     }
 
-    header .navbar {
+    .navbar-header .navbar {
         position: absolute;
         top: 100%;
         left: 0;
@@ -105,21 +105,21 @@ header label {
         display: none;
     } 
 
-    header .navbar ul {
+    .navbar-header .navbar ul {
         display: block;
         align-items: center;
     }
 
-    header .navbar ul li {
+    .navbar-header .navbar ul li {
         width: 100%;
     }
 
-    header .navbar ul li ul {
+    .navbar-header .navbar ul li ul {
         position: relative; 
         width: 100%;
     }
 
-    header .navbar ul li ul li {
+    .navbar-header .navbar ul li ul li {
         background: rgb(255, 255, 255);
     }
 
