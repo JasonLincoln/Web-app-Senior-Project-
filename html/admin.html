@@ -19,8 +19,8 @@
             
             <form id="getUserByID">
                 <h3 class="get">Get user by id</h3>
-                <label for="userID">User ID</label>
-                <input type="text" name="userID" id="userID1">
+                <label for="getUserID">User ID</label>
+                <input type="text" name="getUserID" id="getUserID">
                 <br>
                 <button class="get-button" type="submit">Get</button>
             </form>
@@ -34,8 +34,8 @@
             
             <form id="getSkillByID">
                 <h3 class="get">Get skill by id</h3>
-                <label for="skillID">Skill ID</label>
-                <input type="text" name="skillID" id="skillID1">
+                <label for="getSkillID">Skill ID</label>
+                <input type="text" name="getSkillID" id="getSkillID">
                 <br>
                 <button class="get-button" type="button">Get</button>
             </form>
@@ -49,12 +49,42 @@
             
             <form id="getAchievementByID">
                 <h3 class="get">Get achievement by id</h3>
-                <label for="achievementID">Achievement ID</label>
-                <input type="text" name="achievementID" id="achievementID1">
+                <label for="getAchievementID">Achievement ID</label>
+                <input type="text" name="getAchievementID" id="getAchievementID">
                 <br>
                 <button class="get-button" type="button">Get</button>
             </form>
             <ul id="achievementByID"></ul>
+
+            <form id="getAllMessages">
+                <h3 class="get">Get all messages</h3>
+                <button class="get-button" type="button">Get</button>
+            </form>
+            <ul id="allMessages"></ul>
+            
+            <form id="getMessageByID">
+                <h3 class="get">Get message by id</h3>
+                <label for="getMessageID">Message ID</label>
+                <input type="text" name="getMessageID" id="getMessageID">
+                <br>
+                <button class="get-button" type="button">Get</button>
+            </form>
+            <ul id="messageByID"></ul>
+
+            <form id="getAllSessions">
+                <h3 class="get">Get all sessions</h3>
+                <button class="get-button" type="button">Get</button>
+            </form>
+            <ul id="allSessions"></ul>
+            
+            <form id="getSessionByID">
+                <h3 class="get">Get session by id</h3>
+                <label for="getSessionID">Achievement ID</label>
+                <input type="text" name="getSessionID" id="getSessionID">
+                <br>
+                <button class="get-button" type="button">Get</button>
+            </form>
+            <ul id="sessionByID"></ul>
             
         </div>
         <div class="column">
@@ -62,8 +92,8 @@
 
             <form id="updateUserByID">
                 <h3 class="put">Update user by id</h3>
-                <label for="userID">User ID</label>
-                <input type="text" name="userID" id="userID2">
+                <label for="updateUserID">User ID</label>
+                <input type="text" name="updateUserID" id="updateUserID">
                 <h4>Info to Update</h4>
                 <ul>
                     <li>
@@ -130,8 +160,8 @@
             
             <form id="updateSkillByID">
                 <h3 class="put">Update skill by id</h3>
-                <label for="skillID">Skill ID</label>
-                <input type="text" name="skillID" id="skillID2">
+                <label for="updateSkillID">Skill ID</label>
+                <input type="text" name="updateSkillID" id="updateSkillID">
                 <h4>Info to Update</h4>
                 <ul>
                     <li>
@@ -146,11 +176,11 @@
                 <br>
                 <button class="put-button" type="button">Put</button>
             </form>
-            
+
             <form id="updateAchievementByID">
                 <h3 class="put">Update achievement by id</h3>
-                <label for="achievementID">Achievement ID</label>
-                <input type="text" name="achievementID" id="achievementID2">
+                <label for="updateAchievementID">Achievement ID</label>
+                <input type="text" name="updateAchievementID" id="updateAchievementID">
                 <h4>Info to Update</h4>
                 <ul>
                     <li>
@@ -169,6 +199,21 @@
                 <br>
                 <button class="put-button" type="button">Put</button>
             </form>
+
+            <form id="updateSessionByID">
+                <h3 class="put">Update session by id</h3>
+                <label for="updateSessionID">Session ID</label>
+                <input type="text" name="updateSessionID" id="updateSessionID">
+                <h4>Info to Update</h4>
+                <ul>
+                    <li>
+                        <label for="sessionDate">Session Date</label>
+                        <input type="text" name="sessionDate" id="sessionDate">
+                    </li>
+                </ul>
+                <br>
+                <button class="put-button" type="button">Put</button>
+            </form>
             
         </div>
     </div>
@@ -178,11 +223,56 @@
 
             <form id="createSkill">
                 <h3 class="post">Create skill</h3>
+                <h4>Info for Creation</h4>
+                <ul>
+                    <li>
+                        <label for="createSuperCategory">Supercategory</label>
+                        <input type="text" name="createSuperCategory" id="createSuperCategory">
+                    </li>
+                    <li>
+                        <label for="createSubCategory">Subcategory</label>
+                        <input type="text" name="createSubCategory" id="createSubCategory">
+                    </li>
+                </ul>
+                <br>
                 <button class="post-button" type="button">Post</button>
             </form>
             
             <form id="createAchievement">
                 <h3 class="post">Create achievement</h3>
+                <h4>Info for Creation</h4>
+                <ul>
+                    <li>
+                        <label for="createAchievementName">Achievement Name</label>
+                        <input type="text" name="createAchievementName" id="createAchievementName">
+                    </li>
+                    <li>
+                        <label for="createDescription">Description</label>
+                        <input type="text" name="createDescription" id="createDescription">
+                    </li>
+                    <li>
+                        <label for="createImageURL">Image URL</label>
+                        <input type="text" name="createImageURL" id="createImageURL">
+                    </li>
+                </ul>
+                <br>
+                <button class="post-button" type="button">Post</button>
+            </form>
+
+            <form id="createUserSkill">
+                <h3 class="post">Create user skill</h3>
+                <h4>Info for Creation</h4>
+                <ul>
+                    <li>
+                        <label for="createUserID">Supercategory</label>
+                        <input type="text" name="createUserID" id="createUserID">
+                    </li>
+                    <li>
+                        <label for="createSkillID">Subcategory</label>
+                        <input type="text" name="createSkillID" id="createSkillID">
+                    </li>
+                </ul>
+                <br>
                 <button class="post-button" type="button">Post</button>
             </form>
             
@@ -192,40 +282,32 @@
 
             <form id="deleteUserByID">
                 <h3 class="delete">Delete user by id</h3>
-                <label for="userID">User ID</label>
-                <input type="text" name="userID" id="userID3">
+                <label for="deleteUserID">User ID</label>
+                <input type="text" name="deleteUserID" id="deleteUserID">
                 <br>
                 <button class="delete-button" type="button">Delete</button>
             </form>
             
             <form id="deleteSkillByID">
                 <h3 class="delete">Delete skill by id</h3>
-                <label for="skillID">Skill ID</label>
-                <input type="text" name="skillID" id="skillID3">
+                <label for="deleteSkillID">Skill ID</label>
+                <input type="text" name="deleteSkillID" id="deleteSkillID">
                 <br>
                 <button class="delete-button" type="button">Delete</button>
             </form>
             
             <form id="deleteAchievementByID">
                 <h3 class="delete">Delete achievement by id</h3>
-                <label for="achievementID">Achievement ID</label>
-                <input type="text" name="achievementID" id="achievementID3">
+                <label for="deleteAchievementID">Achievement ID</label>
+                <input type="text" name="deleteAchievementID" id="deleteAchievementID">
                 <br>
                 <button class="delete-button" type="button">Delete</button>
             </form>
 
             <form id="deleteMessageByID">
                 <h3 class="delete">Delete message by id</h3>
-                <label for="messageID">Message ID</label>
-                <input type="text" name="messageID" id="messageID1">
-                <br>
-                <button class="delete-button" type="button">Delete</button>
-            </form>
-            
-            <form id="deleteSessionByID">
-                <h3 class="delete">Delete session by id</h3>
-                <label for="sessionID">Session ID</label>
-                <input type="text" name="sessionID" id="sessionID1">
+                <label for="deleteMessageID">Message ID</label>
+                <input type="text" name="deleteMessageID" id="deleteMessageID">
                 <br>
                 <button class="delete-button" type="button">Delete</button>
             </form>
