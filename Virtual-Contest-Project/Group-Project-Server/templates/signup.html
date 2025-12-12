@@ -1,0 +1,70 @@
+{% extends 'layout.html' %}
+
+{% block extra_head %}
+    <link rel="stylesheet" type = 'text/css' href="{{ url_for('static', path = 'css/main.css') }}">
+    <link rel="stylesheet" type = 'text/css' href="{{ url_for('static', path = 'css/signup.css') }}">
+{% endblock %}
+
+{% block content %}
+<!-- Signup Page -->
+<div class="wrapper">
+    <form method="get" id="signup_form">
+        <h1>Sign Up For SkillSwap</h1>
+
+        <div class="input-box">
+            <input type="text" placeholder="Username" id="username" required>
+            <i class="fa-solid fa-user"></i>
+        </div>
+
+        <div class="input-box">
+            <input type="text" placeholder="Email" id="email" required>
+            <i class="fa-solid fa-envelope"></i>
+        </div>
+
+        <div class="input-box">
+            <input type="password" placeholder="Password" id="password" required>
+            <i class="fa-solid fa-lock"></i>
+        </div>
+
+        <div class="requirements">
+            <ul>
+                <li id="eightChars">
+                    <i class="fa-solid fa-xmark"></i>
+                    <div>Contain at least 8 characters</div>
+                </li>
+                <li id="uppercaseChar">
+                    <i class="fa-solid fa-xmark"></i>
+                    <div>Contain an uppercase character</div>
+                </li>
+                <li id="numSpecial">
+                    <i class="fa-solid fa-xmark"></i>
+                    <div>Contain a number or special character</div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="extra-information">
+            <label><input type="checkbox">
+                I wish to receive emails about SkillSwap, SkillSwap Sessions, and more.
+            </label>
+            <p>
+                By creating an account, you agree to our <a href="#">Terms</a>.
+            </p>
+        </div>
+
+        <button type="submit" class="signup">Sign Up</button>
+
+        <div class="login-link">
+            <p>
+                Already have an account? <a href="/auth/login-page">Login</a>
+            </p>
+        </div>
+    </form>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="{{ url_for('static', path = 'js/signup_login.js') }}"></script>
+    <script src="https://kit.fontawesome.com/16ce6dc272.js" crossorigin="anonymous"></script>
+{% endblock %}

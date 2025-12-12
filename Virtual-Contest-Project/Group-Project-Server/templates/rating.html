@@ -1,0 +1,102 @@
+{% extends 'layout.html' %}
+
+{% block extra_head %}
+    <title>Rating and Feedback</title>
+    <!-- stylesheet for icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css">
+    <!-- stylesheet for colors -->
+    <link rel="stylesheet" type = 'text/css' href="{{ url_for('static', path = 'css/tailwindcss-colors.css') }}">
+    <link rel="stylesheet" type = 'text/css' href="{{ url_for('static', path = 'css/main.css') }}">
+    <link rel="stylesheet" type = 'text/css' href="{{ url_for('static', path = 'css/rating.css') }}">
+    <link rel="stylesheet" href="../css/tailwindcss-colors.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/rating.css">
+{% endblock %}
+
+{% block content %}
+    <!-- start: Rating page -->
+     <section class="rating-section">
+        <div class="rating-content">
+            <!-- Page for users to view their rating and feedback they've been given -->
+            <button class="close-button"><i class="fa-solid fa-xmark fa-2x"></i></button>
+            <!-- start: Progress Bar -->
+            <div class="progress-bar-wrapper">
+                <h2 class="progress-bar-wrapper-header">Reviews</h2>
+                <div class="progress-bar-skills-wrapper">
+
+                    <div class="bar">
+                        <div class="progress-bar-info">
+                            <span class="skill-bar-title">5 Stars</span>
+                        </div>
+                        <div class="progress-bar">
+                            <span class="five-star"></span>
+                        </div>
+                    </div>
+
+                    <div class="bar">
+                        <div class="progress-bar-info">
+                            <span class="skill-bar-title">4 Stars</span>
+                        </div>
+                        <div class="progress-bar">
+                            <span class="four-star"></span>
+                        </div>
+                    </div>
+
+                    <div class="bar">
+                        <div class="progress-bar-info">
+                            <span class="skill-bar-title">3 Stars</span>
+                        </div>
+                        <div class="progress-bar">
+                            <span class="three-star"></span>
+                        </div>
+                    </div>
+
+                    <div class="bar">
+                        <div class="progress-bar-info">
+                            <span class="skill-bar-title">2 Stars</span>
+                        </div>
+                        <div class="progress-bar">
+                            <span class="two-star"></span>
+                        </div>
+                    </div>
+
+                    <div class="bar">
+                        <div class="progress-bar-info">
+                            <span class="skill-bar-title">1 Star</span>
+                        </div>
+                        <div class="progress-bar">
+                            <span class="one-star"></span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <!-- end: Progress Bar-->
+
+        <div class="rating-box">
+            <header class="rating-box-header">How was your experience?</header>
+            <div class="stars">
+                <i class="ri-star-fill"></i>
+                <i class="ri-star-fill"></i>
+                <i class="ri-star-fill"></i>
+                <i class="ri-star-fill"></i>
+                <i class="ri-star-fill"></i>
+            </div>
+        </div>
+
+            <!-- start: Reviews -->
+            <div class="create-a-review">
+                
+            </div>
+
+            <div class="top-reviews">
+                <div class="rating"></div>
+                <div class="comment"></div>
+            </div>
+            <!-- end: Reviews-->
+            <!-- end: Rating page -->
+        </div>
+    </section>
+    <script src="https://kit.fontawesome.com/16ce6dc272.js" crossorigin="anonymous"></script>
+    <script src="../js/rating.js"></script>
+{% endblock %}

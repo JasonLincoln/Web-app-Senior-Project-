@@ -1,0 +1,166 @@
+/* Container CSS */
+#sessions-page
+{
+    display: flex;
+    width: 90%;
+    margin: 10px auto;
+}
+
+/* Upcoming and Requested Session CSS */
+#upcoming-and-requested-sessions
+{
+    margin:10px;
+    width: 48%;
+}
+
+#upcoming-sessions,
+#requested-sessions{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 400px;
+    background-color: #596b51;
+    margin:10px;
+}
+ 
+#upcoming-sessions
+{
+    border-radius: 40px 40px 0 0;
+}
+
+#requested-sessions{
+    margin-top: auto;
+    border-radius: 0 0 40px 40px;
+}
+
+#scheduled-session{
+    width: 90%;
+    display: flex;
+    align-content: center;
+    background-color: lightgray;
+}
+
+/* Button CSS */
+button{
+    border: none;
+    margin: 10px;
+}
+
+button:active {
+    transform: translateY(7px);
+
+}
+
+#start-now-button,
+#accept-button,
+#request-button{
+    background-color: #7ed957;
+    box-shadow: 0px 5px 5px #355e3b;
+}
+
+#start-now-button:active,
+#accept-button:active,
+#request-button:active{
+    box-shadow: 0px 3px 3px #355e3b;
+}
+
+#deny-button,
+#clear-button{
+    background-color: red;
+    box-shadow: 0px 5px 5px #7b0323;
+}
+
+#deny-button:active,
+#clear-button:active{
+    box-shadow: 0px 3px 3px #7b0323;
+}
+
+#start-now-button,
+#accept-button,
+#deny-button{
+    border-radius: 100px;
+}
+
+#request-button,
+#clear-button{
+    border-radius: 25px;
+}
+
+#skill-dropdown-button{
+    background-color: white;
+}
+
+#request-and-clear-buttons{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#request-button,
+#clear-button{
+    font-size: 20px;
+    padding: 10px 20px;
+}
+
+#view-past-sessions{
+    margin-top:auto;
+    margin: 10px;
+    border-radius: 10px;
+    background-color:darkgrey;
+    font-size: 30px;
+    padding: 20px 30px;
+}
+
+/* Session Info CSS */
+#scheduled-session > * {
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+#rnvp-sessions{
+    display: flex;
+    flex-direction: column;
+    margin:10px;
+    width: 48%;
+}
+
+#requested-session
+{
+    width: 90%;
+    display: flex;
+    align-content: center;
+    background-color: gray;
+}
+
+#requested-session > *{
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+#request-a-session{
+    display: flex;
+    flex-direction: column;
+    background-color: gray;
+    height: 400px;
+    border-radius: 35px;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+}
+
+/* Dropdown CSS */
+#skill-dropdown{
+    display: inline;
+}
+
+#skill-dropdown-content{
+    display: none;
+    position: absolute;
+    background-color: white;
+    min-width: 130px;
+}
+
+#skill-dropdown:hover #skill-dropdown-content{
+    display: block;
+    margin:0;
+}

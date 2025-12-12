@@ -1,0 +1,7 @@
+python-jose
+passlib
+starlette
+pydantic
+sqlalchemy
+fastapi
+uvicorn[standard]

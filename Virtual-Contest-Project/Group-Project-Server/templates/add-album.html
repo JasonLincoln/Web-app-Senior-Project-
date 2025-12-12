@@ -1,0 +1,39 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<div class="container">
+  <div class="card">
+    <div class="card-header">
+      Add a new album
+    </div>
+    <div class="card-body">
+      <form id="albumForm">
+        <div class="form-group">
+          <label>Title</label>
+          <input type="text" class="form-control" name="title" required>
+        </div>
+        <div class="form-group">
+          <label>Artist</label>
+          <input type="text" class="form-control" name="artist" required>
+        </div>
+        <div class="form-group">
+          <label>Category</label>
+          <input type="text" class="form-control" name="category" required>
+        </div>
+        <div class="form-group">
+          <label>Rating</label>
+          <select class="form-control" name="rating">
+            <option>5</option>
+            <option>4</option>
+            <option>3</option>
+            <option>2</option>
+            <option>1</option>
+          </select>
+        </div>
+        <button type="submit" class="btn btn-primary"> Add new album </button>
+        <a href="/albums/albums-page" class="btn btn-success">Back</a>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}
