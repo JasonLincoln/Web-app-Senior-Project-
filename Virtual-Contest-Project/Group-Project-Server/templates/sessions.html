@@ -1,0 +1,85 @@
+{% extends 'layout.html' %}
+
+{% block extra_head %}
+    <title>Sessions</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type = 'text/css' href="{{ url_for('static', path = 'css/sessions.css') }}">
+    <link rel="stylesheet" type = 'text/css' href="{{ url_for('static', path = 'css/main.css') }}">
+{% endblock %}
+
+{% block content %}
+    <!-- Page for viewing and requesting sessions -->
+    <div id="sessions-page">
+        <div id="upcoming-and-requested-sessions">
+            <div id="upcoming-sessions">
+                <h1 id="upcoming-sessions-title">
+                    Upcoming Sessions
+                </h1>
+                <div id="scheduled-session">
+                    <p>GizzLeeBear2002</p>
+                    <p>5/15/20026</p>
+                    <p>3:30 PM</p>
+                    <p><a id="edit" href="">Edit</a></p>
+                    <button id="start-now-button">Start Now</button>
+                </div>
+            </div> <!-- end of upcoming sessions -->
+
+            <div id="requested-sessions">
+                <h1 id="requested-sessions-title">
+                    Requested Sessions
+                </h1>
+                <div id="requested-session">
+                    <p>GizzLeeBear2002</p>
+                    <p>5/15/20026</p>
+                    <p>3:30 PM</p>
+                    <p><a id="edit1" href="">Edit</a></p>
+                    <button id="accept-button">Accept</button>
+                    <button id="deny-button">Deny</button>
+                </div>
+            </div> <!-- end of requested sessions-->
+        </div> <!-- end of upcoming/requested container -->
+
+        <div id="rnvp-sessions">
+            <div id="request-a-session">
+                <h1 id="request-a-session-title">Request A Session</h1>
+                <p id="tutor-input-box">
+                    With:  
+                    <span>
+                        <input id="tutor-input" type="text" placeholder="Type tutor here">
+                    </span>
+                </p>
+
+                <p id="date-and-time-box">
+                    When: 
+                    <span><input id="date-input" type="text" placeholder="Select Date">
+                    <input id="time-input" type="text" placeholder="Select Time">
+                    </span>
+                </p>
+
+                <div id="skill-dropdown-and-input">
+                    Over: 
+                    <div>
+                        <input type="text" id="skill-dropdown-textbox" placeholder="Select Skill" readonly>
+                        <div id="skill-dropdown">
+                            <!-- Include the ability to when hover over dropdown button, display the skill-dropdown-content -->
+                            <button id="dropdown-button">
+                                ▼
+                            </button>
+                            <ul id="skill-dropdown-content">
+                                <li><a class="dropdown-item" href="#">Math</a></li>
+                                <li><a class="dropdown-item" href="#">Science</a></li>
+                                <li><a class="dropdown-item" href="#">History</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div id="request-and-clear-buttons">
+                    <button id="request-button"> Request </button> 
+                    <button id="clear-button"> Clear </button>
+                </div>
+            </div> <!-- end of request session form -->
+
+            <button id="view-past-sessions">View Past Sessions</button>
+        </div> <!-- end of request/view container -->
+    </div> <!-- end of page container -->
+{% endblock %}

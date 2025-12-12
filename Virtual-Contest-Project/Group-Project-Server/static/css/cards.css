@@ -1,0 +1,81 @@
+*
+{
+    margin: 0;
+    padding: 0;
+}
+
+/* Card Title */
+.card
+{
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    height: 450px;
+    padding: 15px;
+    background-color: rgb(240, 240, 240);
+    border-radius: 20px;
+}
+
+/* Card Image */
+.card-image 
+{
+    text-align: center;
+}
+
+.card-image img
+{
+    border-radius: 20px;
+    width: 300px;
+    height: auto;
+    object-fit: cover;
+}
+
+/* Everything under the image */
+/* Everything under the image */
+/* Everything under the image */
+/* Everything under the image */
+/* Everything under the image */
+.card-content
+{
+    display: inline-block;
+    margin: 10px 0px;
+    height: 60%;
+}
+
+/* Card Creator */
+.creator
+{
+    display: flex;
+    align-items: center;
+    margin: 10px 0px;
+}
+
+.creator i
+{
+    margin-right: 5px;
+}
+
+/* Card Description */
+.card-desc
+{
+    overflow-wrap: break-word;
+    height: 120px;
+}
+
+/* Card Tags */
+.card-tags
+{
+    margin-bottom: 30px;
+}
+
+/* Ratings */
+.rating
+{
+    display: flex;
+    align-items: center;
+}
+
+.rating i
+{
+    margin-right: 5px;
+}

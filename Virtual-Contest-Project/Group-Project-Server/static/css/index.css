@@ -1,0 +1,216 @@
+/* Overall */
+h1, h2, h3, h4, h5, h6, p {
+    font-family: 'Candal', serif;
+    text-align: center;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Carousel CSS */
+/* Carousel CSS */
+/* Carousel CSS */
+
+.page-wrapper a:hover {
+    color: rgb(160, 218, 160);
+}
+
+.post-slider {
+    position: relative;
+    margin-top: 50px;
+}
+
+.post-slider .slider-title {
+    text-align: center;
+    margin: 30px auto;
+}
+
+.post-slider .prev {
+    position: absolute;
+    top: 50%;
+    left: 8%; /* fix arrows cutting off */
+    font-size: 2em;
+    color: black;
+    cursor: pointer;
+}
+
+.post-slider .next {
+    position: absolute;
+    top: 50%;
+    right: 8%; /* fix arrows cutting off */
+    font-size: 2em;
+    color: black;
+    cursor: pointer;
+}
+
+.post-slider .post-wrapper {
+    width: 70%;
+    height: 350px;
+    margin: 0px auto;
+    overflow: hidden;
+    padding: 10px 0px 10px 0px;
+}
+
+.post-slider .post-wrapper .post {
+    width: 300px;
+    height: 330px;
+    margin: 0px 10px 0px 10px;
+    display: inline-block;
+    background-color: rgb(225,225,225);
+    border-radius: 10px;
+    /* box-shadow: 1rem 1rem 1rem -1rem white; */
+}
+
+.post-slider .post-wrapper .post .post-info {
+    height: 130px;
+    padding: 0px 10px;
+    text-align: center;
+}
+
+
+.slider-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+/* About Skillswap Grid */
+/* About Skillswap Grid */
+/* About Skillswap Grid */
+
+.skillswap-title {
+    margin-top: 100px;
+}
+
+.about-skillswap {
+    display: grid;
+    justify-items: center;
+    grid-template-columns: repeat(3, 1fr); /*fr = fractional unit*/
+    column-gap: 25px;
+    grid-template-areas:
+        "image1 image2 image3"
+        "header1 header2 header3"
+        "desc1 desc2 desc3"
+        "desc1 desc2 desc3";
+    background-color: rgb(240,240,240);
+    padding: 0px 50px 0px 50px;
+    height: 500px;
+}
+
+.image1 { grid-area: image1; margin-top: 25px; }
+.image2 { grid-area: image2; margin-top: 25px; }
+.image3 { grid-area: image3; margin-top: 25px; }
+
+.about-ss-image {
+    border-radius: 50%; 
+    border: 2px solid black;
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.header1 { grid-area: header1; }
+.header2 { grid-area: header2; }
+.header3 { grid-area: header3; }
+
+.desc1 { grid-area: desc1; }
+.desc2 { grid-area: desc2; }
+.desc3 { grid-area: desc3; }
+
+/* Categories Cards */
+/* Categories Cards */
+/* Categories Cards */
+
+/* Cards Container */
+.skill-categories {
+    display: grid;
+    margin: 100px 150px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    justify-content: center;
+    overflow: hidden;
+}
+
+/* For All Cards */
+.card {
+    height: 250px; 
+    background-color: rgb(92, 146, 92);
+    background-size: cover;
+    color: white;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+}
+
+/* Card Image Properties */
+.card img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 300ms ease-in-out transform,
+                300ms ease-in-out filter;
+}
+
+.card:hover img {
+    transform: scale(1.2);
+    filter: blur(1px);
+}
+
+[id^="hidden-"] { /* Hidden Text Content */
+    margin: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 100%;
+    transform: translate(0, 100%);
+    background-color: rgba(160, 218, 160, 0.5);
+    transition: 300ms ease-in-out transform;
+}
+
+
+[id$="-header"] { /* Card Headers */
+    position: absolute;
+    background-color: rgba(160, 218, 160, 0.5);
+    margin: 0;
+    width: 100%;
+    padding: 10px 0px;
+    bottom: 0;
+}
+
+/* Media Queries */
+/* Media Queries */
+/* Media Queries */
+
+/*Small Mobile Devices*/
+@media only screen and (max-width: 320px) {
+    /* Add responsiveness to the grid here */
+}
+
+/*Large Mobile Devices and Low-Res Tablets*/
+@media only screen and (min-width: 375px) and (max-width:424px) {
+    /* Add responsiveness to the grid here */
+}
+
+/*Tablets in Portrait and Landscape Orientation*/
+@media only screen and (min-width: 425px) and (max-width:767px) {
+    /* Add responsiveness to the grid here */
+}
+
+/*Laptops and Small Desktops*/
+@media only screen and (min-width: 768px) and (max-width:1023px) {
+    /* Add responsiveness to the grid here */
+}
+
+/*Large Desktops*/
+@media only screen and (min-width: 1024px) and (max-width: 1439px) {
+    /* Add responsiveness to the grid here */
+}
+
+@media only screen and (min-width: 1440px) {
+    /* Add responsiveness to the grid here */
+}

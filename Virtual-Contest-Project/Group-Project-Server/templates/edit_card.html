@@ -1,0 +1,114 @@
+{% extends 'layout.html' %}
+
+{% block extra_head %}
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.css">
+    <link rel="stylesheet" href="{{ url_for('static', path = 'css/edit_card.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', path = 'css/cards.css') }}">
+{% endblock %}
+
+{% block content %}
+    <div id="popup">
+        <div id="select-category-wrapper">
+            <i class="fa-solid fa-xmark fa-2x"></i>
+            <form id="select-category">
+
+                <h3>What is the main subject you're going to share?</h3>
+                <input type="radio" id="prog_lang" name="which_category" value="prog_lang">
+                <label for="prog_lang">Programming Languages</label><br>
+
+                <input type="radio" id="computers" name="which_category" value="computers">
+                <label for="computers">Computers & Information Technology</label><br>
+
+                <input type="radio" id="math" name="which_category" value="math">
+                <label for="math">Mathematics</label><br>
+
+                <input type="radio" id="science" name="which_category" value="science">
+                <label for="science">Science</label><br>
+
+                <input type="radio" id="social_studies" name="which_category" value="social_studies">
+                <label for="social_studies">Social Studies</label><br>
+
+                <input type="radio" id="business" name="which_category" value="business">
+                <label for="business">Business</label><br>
+
+                <input type="radio" id="life_skills" name="which_category" value="life_skills">
+                <label for="life_skills">Life Skills</label><br>
+
+                <input type="radio" id="languages" name="which_category" value="languages">
+                <label for="languages">Language Arts</label><br>
+                
+                <h3>Description</h3>
+                <textarea class="textarea" name="c-desc" id="c-desc" placeholder="Enter Description Here" maxlength="180"></textarea>
+
+                <p>Your description must be 180 characters or less!</p>
+                <div id="characters-left">Characters Left: 180</div>
+                <br>
+                <input type="button" value="Save" id="submit">
+            </form>
+
+            <div id="image-collection">
+                <div class="page-wrapper">
+                    <div class="post-slider">
+                        <i class="fa-solid fa-chevron-left prev"></i>
+                        <i class="fa-solid fa-chevron-right next"></i>
+                        
+                        <div class="post-wrapper">
+                            <div class="post">
+                                <img src="../images/index_images/Placeholder.png" alt="" class="slider-image">
+                                <div class="post-info">
+                                    <h3><a href="#">Placeholder One</a></h3>
+                                    <p>Placeholder Description</p>
+                                </div>
+                            </div> <!-- end post -->
+                            <div class="post">
+                                <img src="../images/index_images/Placeholder2.png" alt="" class="slider-image">
+                                <div class="post-info">
+                                    <h3><a href="#">Placeholder Two</a></h3>
+                                    <p>Placeholder Description</p>
+                                </div>
+                            </div> <!-- end post -->
+                            <div class="post">
+                                <img src="../images/index_images/Placeholder3.png" alt="" class="slider-image">
+                                <div class="post-info">
+                                    <h3><a href="#">Placeholder Three</a></h3>
+                                    <p>Placeholder Description</p>
+                                </div>
+                            </div> <!-- end post -->
+                        </div> <!-- end post wrapper -->
+                    </div> <!-- end post slider -->
+                </div> <!-- end page wrapper -->                
+            </div> <!-- end image collection -->
+
+            <div class="card">
+                <div class="card-image">
+                    <img src="../images/placeholder.png" alt="" id="selected-image">
+                </div>
+                
+                <div class="card-content">
+                    <div class="creator">
+                        <i class="fa-solid fa-user"></i>
+                        <h3>Profile User</h3>
+                    </div>
+                    <div class="card-desc">
+                        <p>This is a user card description. If the user exceeds a certain amount of characters, the text must be cut off.</p>
+                    </div>
+                    <div class="card-tags">
+                        <p>Tags (Will change with JS)</p>
+                    </div>
+                    <div class="rating">
+                        <i class="fa-solid fa-star"></i>
+                        <p>Rating (xxx Reviews)</p>
+                    </div>
+                </div> <!-- End Content -->
+            </div> <!-- End Card -->
+        </div> <!-- End Wrapper -->
+    </div> <!-- Popup -->
+{% endblock %}
+
+{% block extra_js %}
+    <script src="https://kit.fontawesome.com/16ce6dc272.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script src="../js/edit_card.js"></script>
+{% endblock %}

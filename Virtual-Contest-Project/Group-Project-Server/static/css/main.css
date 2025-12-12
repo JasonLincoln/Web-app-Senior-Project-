@@ -1,0 +1,36 @@
+/* CSS file for all css common amongst each html page */
+body 
+{
+    margin: 0;
+    padding: 0;
+    background-color: #d9d9d9;
+    width: 100%;
+    background-color: #fafafa;
+}
+
+/* Navbar CSS */
+.navbar-body {
+    display: flex;
+    height: 75px;
+    background-color: #c8e8ba; /* For browsers that do not support gradients */
+    background-image: linear-gradient(to right, #bfd8b4, #c8e8ba);
+    border-style: solid;
+}
+
+.navbar-body .list-item {
+    list-style-type: none;
+}
+
+.navbar-title{
+    justify-content: flex-start;
+}
+
+.navbar-signup-button{
+    justify-content: flex-end;
+}
+
+.profile-picture{
+    justify-content: flex-end;
+}
+
+/* Footer CSS */

@@ -1,0 +1,27 @@
+/* Dropdown CSS */
+
+#skill-dropdown-button{
+    background-color: white;
+}
+
+#skill-dropdown{
+    display: inline;
+}
+
+#skill-dropdown-content{
+    display: none;
+    position: absolute;
+    background-color: white;
+    min-width: 130px;
+}
+
+#skill-dropdown:hover #skill-dropdown-content{
+    display: inline-block;
+    margin:0;
+}
+
+ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}

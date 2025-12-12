@@ -1,0 +1,52 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<div class="container">
+    <div class="card text-center">
+        <div class="card-header">
+            Your Users!
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">
+                List of your users!
+            </h5>
+            <p class="card-text">
+                Users in your collection.
+            </p>
+
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Username</th>
+                        <th scope="col">Display_name</th>
+                        <th scope="col">Pronouns</th>
+                        <th scope="col">Gender</th>
+                        <th scope="col">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for user in users %}
+                <tr class="pointer">
+                    <td>{{loop.index}}</td>
+                    <td>{{user.email}}</td>
+                    <td>{{user.username}}</td>
+                    <td>{{user.display_name}}</td>
+                    <td>{{user.pronouns}}</td>
+                    <td>{{user.gender}}</td>
+                    <td>
+                        <button onclick="window.location.href=''"
+                                type="button" class="btn btn-info">
+                            Edit
+                        </button>
+                    </td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+            <a href="add-album-page" class="btn btn-primary">Add a new album!</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
