@@ -1,44 +1,46 @@
-* {
+/* Admin Page */
+
+#admin-page{
   box-sizing: border-box;
 }
 
-.row {
+#admin-page .row {
   display: flex;
 }
 
-.column {
+#admin-page .column {
   flex: 50%;
   padding: 10px;
 }
 
-.get {
+#admin-page .get {
     border: 5px groove aqua;
 }
 
-.get-button {
+#admin-page .get-button {
     background-color: aqua;
 }
 
-.post {
+#admin-page .post {
     border: 5px groove lime;
 }
 
-.post-button {
+#admin-page .post-button {
     background-color: lime;
 }
 
-.put {
+#admin-page .put {
     border: 5px groove goldenrod;
 }
 
-.put-button {
+#admin-page .put-button {
     background-color: goldenrod;
 }
 
-.delete {
+#admin-page .delete {
     border: 5px groove red;
 }
 
-.delete-button {
+#admin-page .delete-button {
     background-color: red;
 }
