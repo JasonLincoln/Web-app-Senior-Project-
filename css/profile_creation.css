@@ -1,27 +1,177 @@
-/* Dropdown CSS */
-
-#profile-creation-page .skill-dropdown-button{
-    background-color: white;
+/* Start: Globals */
+* {
+    margin: 0px;
+    padding: 0px;
 }
-
-#profile-creation-page .skill-dropdown{
-    display: inline;
+.profile-creation-page {
+    display: flex;
+    justify-content: center;
+    background-color: var(--emerald-500);
+    height: 100vh;
 }
+.profile-creation-title {
+    margin-top: 10px;
+    font-size: 25px;
+    font-weight: bold;
+    letter-spacing: 1.2px;
+}
+/* End: Globals */
 
-#profile-creation-page .skill-dropdown-content{
-    display: none;
+/* Start: Dropdown */
+.dropdown {
+    position: relative;
+}
+.dropdown-button {
+    display: block;
+    color: purple;
+}
+.dropdown-menu {
     position: absolute;
+    left: 0;
+    top: calc(100% + .25rem);
     background-color: white;
-    min-width: 130px;
+    padding: .75rem;
+    border-radius: .25rem;
+    box-shadow: 0 4px 5px 0 rgba(0, 0, 0, .1);
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-10px);
+    transition: opacity 150ms ease-in-out, transform 150ms ease-in-out; 
+    z-index: 10;
 }
 
-#profile-creation-page .skill-dropdown:hover .skill-dropdown-content{
-    display: inline-block;
-    margin:0;
+.dropdown > .link:focus + .dropdown-menu {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+.information-grid {
+    display: grid;
+    grid-template-columns: repeat(2, max-content);
+    gap: 2rem;
+}
+.dropdown-header {
+    font-weight: bold;
+    font-size: 20px;
+    text-shadow: 2px 2px 2px gray;
+    cursor: default;
+}
+.dropdown-links {
+    display: flex;
+    flex-direction: column;
+    gap: .25rem;
+}
+.link {
+    color: black;
+    text-decoration: none;
+
+}
+.dropdown-button {
+    z-index: 1;
+}
+/* End: Dropdown */
+
+/* Start: Form Inputs */
+.creation-page-inputs label{
+    display: block;
+    padding: 5px 5px 5px 0px;
+}
+.email-wrapper, .username-wrapper, .display-name-wrapper, .pronouns-wrapper,
+.skills-you-have-wrapper, .skills-to-learn-wrapper {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.input-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.creation-page-inputs input {
+    outline: none;
+    border-radius: 10px;
+    border: none;
+    padding: 10px;
 }
 
-#profile-creation-page ul{
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
+.bio-wrapper
+{
+    width: 300px;
+    height: 50px;
+    border-radius: 10px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: black;
+    background-color: white;
+    padding: 10px;
+    overflow: auto;
+    margin-bottom: 10px;
 }
+/* End: Form Inputs */
+
+/* Start: Right-side skills box */
+.skills-sidebox {
+    position: fixed;
+    right: 20px;
+    top: 90px;
+    width: 340px;
+    max-height: calc(100vh - 120px);
+    overflow: auto;
+    background: #ffffff;
+    border-radius: 10px;
+    padding: 12px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+    z-index: 50;
+    font-family: inherit;
+}
+.skills-sidebox-header{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:10px;
+    margin-bottom:8px;
+}
+.skills-sidebox h3{ margin:0; font-size:18px }
+.skills-toggle{ display:flex; gap:6px }
+.toggle-btn{
+    background: transparent;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    padding:6px 8px;
+    cursor:pointer;
+    font-size:13px;
+}
+.toggle-btn.active{
+    background: var(--emerald-500, #10b981);
+    color: white;
+    border-color: transparent;
+}
+.skills-panel{ display:none }
+.skills-panel.active{ display:block }
+.skills-panel .information-grid{ display:grid; grid-template-columns:repeat(2, 1fr); gap:12px }
+.skills-panel .dropdown-header{ font-size:14px; font-weight:700; margin-bottom:6px }
+.skills-panel .dropdown-links{ display:flex; flex-direction:column; gap:4px }
+.skills-panel .link{ color:#1f2937; text-decoration:none; font-size:13px }
+
+/* Skill item checkbox styles */
+.skill-item{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    padding:6px 8px;
+    border-radius:6px;
+    cursor:pointer;
+    user-select:none;
+}
+.skill-item:hover{ background: rgba(15,23,42,0.03); }
+.skill-checkbox{ width:16px; height:16px; accent-color: var(--emerald-500, #10b981); }
+.skill-item.selected{ background: rgba(16,185,129,0.12); }
+.skill-name{ font-size:13px; color:#111827 }
+
+/* Ensure default anchors in the sidebox are hidden if transform didn't run yet */
+.skills-sidebox .dropdown-links a.link{ display:none }
+
+@media (max-width: 900px){
+    .skills-sidebox{ position: static; width: auto; max-height: none; box-shadow: none; margin: 12px; }
+}
+
+/* End: Right-side skills box */

@@ -12,79 +12,80 @@
     <link rel="stylesheet" href="../css/edit_card.css">
     <title>Profile Page</title>
 </head>
-<body id="profile-page">
-    <!-- The profile page for users -->
+<body>
+    <!-- start: profile -->
     <div id="complete-profile">
-        <div id="main-profile">
-            <div id="profile-image">
-                <img id="pfp" src="../images/Profile-Image-Placeholder.png" alt="profile image">
+        <div class="main-profile">
+            <div class="profile-image">
+                <img class="pfp" src="../images/Profile-Image-Placeholder.png" alt="profile image">
             </div>
-            <div id="name-pronouns">
-                <p id="display-name">[Display Name]</p>
-                <p id="username">[Username]</p>
-                <p id="pronouns">[Pronouns]</p>
-                <p id="school">[School/Education]</p>
+            <div class="name-pronouns">
+                <p class="display-name">[Display Name]</p>
+                <p class="username">[Username]</p>
+                <p class="pronouns">[Pronouns]</p>
+                <p class="school">[School/Education]</p>
+                <textarea class="profile-bio" placeholder="This person has not wrote anything about themselves. How lame" readonly></textarea>
             </div>
-            <div id="about-me">
-                <button type="button" id="open-popup">Edit Profile Card</button>
+            <div class="about-me">
+                <button type="button" class="open-popup">Edit Profile Card</button>
             </div>
 
         </div> <!-- end of personal content -->
 
-        <div id="All-Sections">
-            <div id="Skills-and-Availability">
-                <div id="Skills-and-Offerings">
-                    <h2 id="Skills-Title">Skills and Offerings</h2>
+        <div class="All-Sections">
+            <div class="Skills-and-Availability">
+                <div class="Skills-and-Offerings">
+                    <h2 class="Skills-Title">Skills and Offerings</h2>
                 </div>
 
-                <div id="Availability-and-Session-Info">
-                    <h2 id="Availability-Title">Availability and Session Info</h2>
+                <div class="Availability-and-Session-Info">
+                    <h2 class="Availability-Title">Availability and Session Info</h2>
                 </div>
             </div>
 
-            <div id="Achievements-and-Ratings">
-                <div id="Achievements">
-                    <h2 id="Achievements-Title">Achievements</h2>
+            <div class="Achievements-and-Ratings">
+                <div class="Achievements">
+                    <h2 class="Achievements-Title">Achievements</h2>
                 </div>
 
-                <div id="Ratings-and-Comments">
-                    <h2 id="Ratings-Title">Ratings and Comments</h2>
+                <div class="Ratings-and-Comments">
+                    <h2 class="Ratings-Title">Ratings and Comments</h2>
                 </div>
             </div> 
         </div> <!-- end of non-personal content -->
         
     </div> <!-- end of profile container -->
 
-    <!-- Popup -->
+    <!-- start: Popup -->
     <div class="popup">
-        <div id="close-btn">
+        <div class="close-btn">
             <i class="fa-solid fa-xmark fa-2x"></i>
         </div>
         <!-- Grid 1 -->
-        <form id="select-category">
+        <form class="select-category">
 
-            <h3 id="radio-header">What is the main subject you're going to share?</h3>
+            <h3 class="radio-header">What is the main subject you're going to share?</h3>
             <div class="radio-group-grid">
-                <label><input type="radio" name="which_category" value="prog_lang" id="prog_lang"> Programming</label>
-                <label><input type="radio" name="which_category" value="computers" id="computers"> Computers & I.T.</label>
-                <label><input type="radio" name="which_category" value="math" id="math"> Mathematics</label>
-                <label><input type="radio" name="which_category" value="science" id="science"> Science</label>
-                <label><input type="radio" name="which_category" value="social_studies" id="social_studies"> Social Studies</label>
-                <label><input type="radio" name="which_category" value="business" id="business"> Business</label>
-                <label><input type="radio" name="which_category" value="life_skills" id="life_skills"> Life Skills</label>
-                <label><input type="radio" name="which_category" value="languages" id="languages"> Language Arts</label>
+                <label><input type="radio" name="which_category" value="prog_lang" class="prog_lang"> Programming</label>
+                <label><input type="radio" name="which_category" value="computers" class="computers"> Computers & I.T.</label>
+                <label><input type="radio" name="which_category" value="math" class="math"> Mathematics</label>
+                <label><input type="radio" name="which_category" value="science" class="science"> Science</label>
+                <label><input type="radio" name="which_category" value="social_studies" class="social_studies"> Social Studies</label>
+                <label><input type="radio" name="which_category" value="business" class="business"> Business</label>
+                <label><input type="radio" name="which_category" value="life_skills" class="life_skills"> Life Skills</label>
+                <label><input type="radio" name="which_category" value="languages" class="languages"> Language Arts</label>
             </div>
 
             <div class="text-group">
                 <h3>About You</h3>
-                <textarea class="textarea" name="c-desc" id="c-desc" placeholder="Enter Description Here" maxlength="150"></textarea>
-                <div id="characters-left">150</div>
+                <textarea class="textarea" name="c-desc" class="c-desc" placeholder="Enter Description Here" maxlength="150"></textarea>
+                <div class="characters-left">150</div>
                 <br>
-                <input type="button" value="Save" id="submit">
+                <input type="button" value="Save" class="submit">
             </div>
         </form>
         <!-- Grid 2 -->
-        <div id="image-collection">    
+        <div class="image-collection">    
             <div class="post-slider">
                 <i class="fa-solid fa-chevron-left prev"></i>
                 <i class="fa-solid fa-chevron-right next"></i>
@@ -98,7 +99,7 @@
         <div class="card-container">
             <div class="card">
                 <div class="card-image">
-                    <img src="../images/placeholder.png" alt="" id="selected-image">
+                    <img src="../images/placeholder.png" alt="" class="selected-image">
                 </div>
                 
                 <div class="card-content">
@@ -120,6 +121,7 @@
             </div> <!-- End Card -->
         </div> <!-- End Wrapper -->
     </div>
+    <!-- end: Popup -->
     <script src="https://kit.fontawesome.com/16ce6dc272.js" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script src="../js/edit_card.js"></script>

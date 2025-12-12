@@ -3,41 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
     <link rel="stylesheet" href="../../css/main.css">
-    <title>Navbar</title>
 </head>
 <body>
-  <!-- Navbar template -->
-  <ul id="navbar-body">
-    <li class="list-item">
-      <h3 class="navbar-title">
-        <a href="../index.html">SkillSwap</a>
-      </h3>
-    </li>
-    <li class="list-item">
-        <h4 class="searchbar-title">
-          <a href="../tutor_search.html">Explore</a>
-        </h4>
-    </li>
-    <li class="list-item">
-        <p id="placeholder-searchbar">
-          Placeholder Search bar.
-        </p>
-    </li>
-    <li class="list-item">
-      <button class="navbar-log-in-button">
-        <a href="../login.html">Log in</a>
-      </button>
-    </li>
-    <li class="list-item">
-      <button class="navbar-signup-button">
-        <a href="../signup.html">Sign Up</a>
-      </button>
-    </li>
-    <li class="list-item">
-      <img src="" alt="profile picture" class="profile-picture">
-    </li>
-  </ul>
+    <header>
+        <a href="" class="logo"><img src="../../images/SkillSwap.png" alt=""></a>
 
+        <input type="checkbox" id="menu-bar">
+        <label for="menu-bar">Menu</label>
+
+        <nav class="navbar">
+            <ul>
+                <li> 
+                    <a href="#">Explore <i class="fa-solid fa-chevron-down fa-2xs"></i> </a>
+                    <ul>
+                        <li><a href="#">Programming Languages</a></li>
+                        <li><a href="#">Computers and Information Technology</a></li>
+                        <li><a href="#">Mathematics</a></li>
+                        <li><a href="#">Science</a></li>
+                        <li><a href="#">Social Studies</a></li>
+                        <li><a href="#">Business</a></li>
+                        <li><a href="#">Life Skills</a></li>
+                        <li><a href="#">Language Arts</a></li>
+                    </ul>
+                </li>
+                <li><a href="../about_us.html">About</a></li>
+                <li><a href="../sessions.html">Sessions</a></li>
+                <li>
+                    <a href="#"><img src="../../images/profileicon.png" alt=""></a>
+                    <ul>
+                        <li><a href="../profile.html">Profile</a></li>
+                        <li><a href="#">Signout</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <script src="https://kit.fontawesome.com/16ce6dc272.js" crossorigin="anonymous"></script>
 </body>
 </html>

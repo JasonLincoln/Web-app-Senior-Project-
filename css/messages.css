@@ -564,14 +564,14 @@
     font-size: 16px;
     margin-right: 8px;
 }
-#messages-page .coversation-divider {
+#messages-page .conversation-divider {
     text-align: center;
     font-size: 13px;
     color: var(--slate-400);
     margin-bottom: 16px;
     position: relative;
 }
-#messages-page .coversation-divider::before {
+#messages-page .conversation-divider::before {
     content: '';
     position: absolute;
     top: 50%;
@@ -581,7 +581,7 @@
     height: 0;
     border-bottom: 1px solid var(--slate-300);
 }
-#messages-page .coversation-divider span {
+#messages-page .conversation-divider span {
     display: inline-block;
     padding: 0 8px;
     background-color: var(--slate-100);

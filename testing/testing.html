@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="testing.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.css">
     <link rel="stylesheet" href="../css/edit_card.css">
+    <script src="https://code.juery.com/ui/1.13.3/themes/smoothness/jquery-ui.css"></script>
     <title>Document</title>
 </head>
 <body>
@@ -34,6 +35,19 @@
                 <option value="life_skills" id="life_skills"> Life Skills</option>
                 <option value="languages" id="languages"> Language Arts</option>
             </select>
+        </div>
+
+        <div id="tabs">
+            <ul>
+                <li><a href="#fragment-1">Movies</a></li>
+                <li><a href="#fragment-2">Movies</a></li>
+                <li><a href="#fragment-3">Movies</a></li>
+                <li><a href="#fragment-4">Movies</a></li>
+            </ul>
+            <div id="fragment-1"></div>
+            <div id="fragment-2"></div>
+            <div id="fragment-3"></div>
+            <div id="fragment-4"></div>
         </div>
 
     </div>
@@ -106,5 +120,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script src="../js/edit_card.js"></script>
     <script src="testing.js"></script>
+    <script>
+        $("#tabs").tabs();
+    </script>
 </body>
 </html>
