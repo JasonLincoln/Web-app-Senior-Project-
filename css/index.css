@@ -74,75 +74,64 @@ a {
     border-top-right-radius: 10px;
 }
 
-/* About Skillswap Grid */
-/* About Skillswap Grid */
-/* About Skillswap Grid */
+/* About Skillswap Section */
+/* About Skillswap Section */
+/* About Skillswap Section */
 
 .skillswap-title {
-    margin: 100px 0px 50px;
+    margin: 100px 0 50px;
 }
-
-.about-skillswap {
-    display: grid;
-    justify-items: center;
-    grid-template-columns: repeat(3, 1fr); /*fr = fractional unit*/
-    column-gap: 25px;
-    grid-template-areas:
-        "image1 image2 image3"
-        "header1 header2 header3"
-        "desc1 desc2 desc3"
-        "desc1 desc2 desc3";
-    background-color: rgb(240,240,240);
-    padding: 0px 50px 0px 50px;
-    height: 500px;
-}
-
-.image1 { grid-area: image1; margin-top: 25px; }
-.image2 { grid-area: image2; margin-top: 25px; }
-.image3 { grid-area: image3; margin-top: 25px; }
-
-.about-ss-image {
-    border-radius: 50%; 
-    border: 2px solid black;
-    max-width: 100%;
-    height: auto;
-    object-fit: cover;
-}
-
-.header1 { grid-area: header1; }
-.header2 { grid-area: header2; }
-.header3 { grid-area: header3; }
-
-.desc1 { grid-area: desc1; }
-.desc2 { grid-area: desc2; }
-.desc3 { grid-area: desc3; }
-
-/* About Skillswap Grid */
-/* About Skillswap Grid */
-/* About Skillswap Grid */
 
 [class^=about-section-] {
     display: flex;
+    padding: 20px;
+    justify-content: space-between;
     max-height: 500px;
+    background-color: rgb(220, 220, 220);
 }
 
-[class^=about-section-] .section-description {
-    flex: 2;
-    flex-direction: column;
+.about-section-2 {
+    background-color: rgb(200, 200, 200);
+}
+
+.center-this-line
+{
+    display: flex;
+    width: 100%;
     justify-content: center;
-    align-items: center;
-    background-color: rgb(225, 225, 225);
-    width: fit-content;
 }
 
-[class^=about-section-] .section-image {
+.my-line {
+    border: none; /* Removes default browser border */
+    height: 10px; 
+    background-color: rgb(121, 224, 121); 
+    width: 70%; 
+    margin-bottom: 10px;
+}
+
+.section-description
+{
+    padding: 0px 20px;
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+}
+
+.section-description h3
+{
+    font-size: 1.5rem;
+}
+
+.section-description p
+{
+    font-size: 19px;
+    margin-top: 20px;
+}
+
+.section-image img{
     flex: 3;
-    background-size: cover;
-}
-
-[class^=about-section-] .section-image img {
-    max-width: 100%;
-    height: 500px;
+    width: 50vw;
+    height: 100%;
 }
 
 /* Categories Cards */
