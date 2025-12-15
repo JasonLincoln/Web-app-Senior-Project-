@@ -250,29 +250,4 @@ position: fixed;
 /* End: Right-side skills box */
 
 /* Start: Edit skills section */
-#select-category-wrapper {
-    display: grid;
-    place-items: center;
-    grid-template-areas:
-    "form card"
-    "images card";
-    background-color: rgb(230, 230, 230);
-    box-shadow: 0px 2px 5px 5px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-    padding: 20px;
-    width: 85vw;
-    margin: 20px auto;
-}
-#select-category-wrapper .fa-xmark {
-    position: absolute;
-    top: 0;
-    right: 0;
-    margin-top: 5px;
-    margin-right: 5px;
-    cursor: pointer;
-    color: rgb(255, 0, 0);
-}
-#select-category-wrapper .image-collection {
-    visibility: visible; /* Override hidden for profile_creation */
-}
 /* End: Edit skills section */

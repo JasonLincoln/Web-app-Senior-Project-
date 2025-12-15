@@ -37,7 +37,22 @@
                 </div>
                 <div class="bio-wrapper">
                     <label for="bio">Bio</label>
-                    <textarea class="profile-bio" name="bio" placeholder="Write a short bio about yourself"></textarea>
+                    <textarea class="textarea" name="c-desc" class="c-desc" placeholder="Enter Description Here" maxlength="150"></textarea>
+                    <div class="characters-left">150</div>
+                <form class="select-category">
+
+                    <h3 class="radio-header">What is Your Main Subject</h3>
+                    <div class="radio-group-grid">
+                        <label><input type="radio" name="which_category" value="prog_lang" class="prog_lang"> Programming</label>
+                        <label><input type="radio" name="which_category" value="computers" class="computers"> Computers & I.T.</label>
+                        <label><input type="radio" name="which_category" value="math" class="math"> Mathematics</label>
+                        <label><input type="radio" name="which_category" value="science" class="science"> Science</label>
+                        <label><input type="radio" name="which_category" value="social_studies" class="social_studies"> Social Studies</label>
+                        <label><input type="radio" name="which_category" value="business" class="business"> Business</label>
+                        <label><input type="radio" name="which_category" value="life_skills" class="life_skills"> Life Skills</label>
+                        <label><input type="radio" name="which_category" value="languages" class="languages"> Language Arts</label>
+                    </div>
+                </form>
             </div>
                 <div class="save-changes-wrapper">
                     <button type="button" class="save-changes-btn">Save Changes</button>
@@ -237,29 +252,32 @@
 
     <!-- start: edit skills section -->
     <!-- Grid 1 -->
-    <form class="select-category">
-
-        <h3 class="radio-header">What is the main subject you're going to share?</h3>
-        <div class="radio-group-grid">
-            <label><input type="radio" name="which_category" value="prog_lang" class="prog_lang"> Programming</label>
-            <label><input type="radio" name="which_category" value="computers" class="computers"> Computers & I.T.</label>
-            <label><input type="radio" name="which_category" value="math" class="math"> Mathematics</label>
-            <label><input type="radio" name="which_category" value="science" class="science"> Science</label>
-            <label><input type="radio" name="which_category" value="social_studies" class="social_studies"> Social Studies</label>
-            <label><input type="radio" name="which_category" value="business" class="business"> Business</label>
-            <label><input type="radio" name="which_category" value="life_skills" class="life_skills"> Life Skills</label>
-            <label><input type="radio" name="which_category" value="languages" class="languages"> Language Arts</label>
-        </div>
-
-        <div class="text-group">
-            <h3>About You</h3>
-            <textarea class="textarea" name="c-desc" class="c-desc" placeholder="Enter Description Here" maxlength="150"></textarea>
-            <div class="characters-left">150</div>
-            <br>
-            <input type="button" value="Save" class="submit">
-        </div>
-    </form>
-    <!-- Grid 2 -->
+    <div id="edit-skills-section">
+        <div class="card-container">
+            <div class="card">
+                <div class="card-image">
+                    <img src="../images/placeholder.png" alt="" class="selected-image">
+                </div>
+                
+                <div class="card-content">
+                    <div class="creator">
+                        <i class="fa-solid fa-user"></i>
+                        <h3>Profile User</h3>
+                    </div>
+                    <div class="card-desc">
+                        <p>This is a user card description. If the user exceeds a certain amount of characters, the text must be cut off.</p>
+                    </div>
+                    <div class="card-tags">
+                        <p>Tags (Will change with JS)</p>
+                    </div>
+                    <div class="rating">
+                        <i class="fa-solid fa-star"></i>
+                        <p>Rating (xxx Reviews)</p>
+                    </div>
+                </div> <!-- End Content -->
+            </div> <!-- End Card -->
+        </div> <!-- End Wrapper -->
+    </div>
     <div class="image-collection">    
         <div class="post-slider">
             <i class="fa-solid fa-chevron-left prev"></i>
@@ -270,31 +288,6 @@
             </div> <!-- radio generates the image gallery here -->
         </div> <!-- end post slider -->        
     </div> <!-- end image collection -->
-    <!-- Grid 3 -->
-    <div class="card-container">
-        <div class="card">
-            <div class="card-image">
-                <img src="../images/placeholder.png" alt="" class="selected-image">
-            </div>
-            
-            <div class="card-content">
-                <div class="creator">
-                    <i class="fa-solid fa-user"></i>
-                    <h3>Profile User</h3>
-                </div>
-                <div class="card-desc">
-                    <p>This is a user card description. If the user exceeds a certain amount of characters, the text must be cut off.</p>
-                </div>
-                <div class="card-tags">
-                    <p>Tags (Will change with JS)</p>
-                </div>
-                <div class="rating">
-                    <i class="fa-solid fa-star"></i>
-                    <p>Rating (xxx Reviews)</p>
-                </div>
-            </div> <!-- End Content -->
-        </div> <!-- End Card -->
-    </div> <!-- End Wrapper -->
     <!-- end: edit skills section -->
     <script src="https://kit.fontawesome.com/16ce6dc272.js" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>

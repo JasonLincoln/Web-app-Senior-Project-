@@ -61,12 +61,4 @@ document.addEventListener('DOMContentLoaded', function () {
 		});
 	});
 
-	// Handle save changes button click to navigate to profile.html page
-	const saveBtn = document.querySelector('.save-changes-btn');
-	if (saveBtn) {
-		saveBtn.addEventListener('click', function (e) {
-			e.preventDefault(); // prevent form submission
-			window.location.href = 'profile.html';
-		});
-	}
 });
