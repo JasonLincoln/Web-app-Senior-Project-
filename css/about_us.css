@@ -44,3 +44,44 @@ ul {
     grid-area: programming-languages-list;
 }
 /* End: About Us Page */
+
+@media (max-width: 1500px) {
+    #about-us-skills-wrapper {
+        grid-template-areas:
+            "mathematics-list science-list social-studies-list language-arts-list"
+            "business-list life-skills-list computers-and-it-list programming-languages-list";
+    }
+}
+
+@media (max-width: 1024px) {
+    #about-us-skills-wrapper {
+        grid-template-areas:
+            "mathematics-list science-list social-studies-list"
+            "language-arts-list business-list life-skills-list"
+            "computers-and-it-list programming-languages-list .";
+    }
+}
+
+@media (max-width: 768px) {
+    #about-us-skills-wrapper {
+        grid-template-areas:
+            "mathematics-list science-list"
+            "social-studies-list language-arts-list"
+            "business-list life-skills-list"
+            "computers-and-it-list programming-languages-list";
+    }
+}
+
+@media (max-width: 480px) {
+    #about-us-skills-wrapper {
+        grid-template-areas:
+            "mathematics-list"
+            "science-list"
+            "social-studies-list"
+            "language-arts-list"
+            "business-list"
+            "life-skills-list"
+            "computers-and-it-list"
+            "programming-languages-list";
+    }
+}

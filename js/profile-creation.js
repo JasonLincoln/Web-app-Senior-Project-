@@ -60,5 +60,4 @@ document.addEventListener('DOMContentLoaded', function () {
 			item.classList.toggle('selected', checkbox.checked);
 		});
 	});
-
 });
