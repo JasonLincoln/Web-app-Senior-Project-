@@ -61,3 +61,20 @@ hoverEffects("#social-studies", "#social-studies-header", "#hidden-social-studie
 hoverEffects("#business", "#business-header", "#hidden-business"); // business
 hoverEffects("#life-skills", "#life-skills-header", "#hidden-life-skills"); // life skills
 hoverEffects("#languages", "#lang-header", "#hidden-lang"); // foreign languages
+
+// Accordion JS
+
+let acc = document.getElementsByClassName("accordion");
+
+for (let i = 0; i < acc.length; i++) {
+    acc[i].addEventListener("click", function() {
+        this.classList.toggle("active-faq");
+
+        let panel = this.nextElementSibling;
+        if (panel.style.maxHeight) {
+            panel.style.maxHeight = null;
+        } else {
+            panel.style.maxHeight = panel.scrollHeight + "px";
+        }
+    });
+}
