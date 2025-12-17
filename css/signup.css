@@ -96,6 +96,15 @@
     font-size: 20px;
 }
 
+#signup-page .input-box #passwordToggle {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+    cursor: pointer;
+}
+
 #signup-page .extra-information {
     font-size: 14.5px;
     margin: 15px 0px;

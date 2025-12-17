@@ -1,0 +1,6 @@
+for every student with a skill
+query the userskill table for skill = the whatever skill id
+then inner join students where student id = id
+
+get all students with skill
+select * from userskills where sk-id == anyskill inner join students where st-id == id

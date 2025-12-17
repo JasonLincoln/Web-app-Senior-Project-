@@ -1,0 +1,234 @@
+{% extends 'layout.html' %}
+
+{% block extra_head %}
+    <title>Admin Page</title>
+    <link rel="stylesheet" href="{{ url_for('static', path = 'css/admin.css') }}">
+{% endblock %}
+
+{% block content %}
+    <div class="row">
+        <div class="column">
+            <h1>Get</h1>
+
+            <form id="getAllUsers">
+                <h3 class="get">Get all users</h3>
+                <button class="get-button" type="submit">Get</button>
+                <ul id="allUsers"></ul>
+            </form>
+            
+            <form id="getUserByID">
+                <h3 class="get">Get user by id</h3>
+                <label for="userID">User ID</label>
+                <input type="text" name="userID" id="userID">
+                <br>
+                <button class="get-button" type="submit">Get</button>
+            </form>
+            <ul id="userByID"></ul>
+
+            <form id="getAllSkills">
+                <h3 class="get">Get all skills</h3>
+                <button class="get-button" type="button">Get</button>
+            </form>
+            <ul id="allSkills"></ul>
+            
+            <form id="getSkillByID">
+                <h3 class="get">Get skill by id</h3>
+                <label for="skillID">Skill ID</label>
+                <input type="text" name="skillID" id="skillID">
+                <br>
+                <button class="get-button" type="button">Get</button>
+            </form>
+            <ul id="skillByID"></ul>
+
+            <form id="getAllAchievements">
+                <h3 class="get">Get all achievements</h3>
+                <button class="get-button" type="button">Get</button>
+            </form>
+            <ul id="allAchievements"></ul>
+            
+            <form id="getAchievementByID">
+                <h3 class="get">Get achievement by id</h3>
+                <label for="achievementID">Achievement ID</label>
+                <input type="text" name="achievementID" id="achievementID">
+                <br>
+                <button class="get-button" type="button">Get</button>
+            </form>
+            <ul id="achievementByID"></ul>
+            
+        </div>
+        <div class="column">
+            <h1>Put</h1>
+
+            <form id="updateUserByID">
+                <h3 class="put">Update user by id</h3>
+                <label for="userID">User ID</label>
+                <input type="text" name="userID" id="userID">
+                <h4>Info to Update</h4>
+                <ul>
+                    <li>
+                        <label for="username">Username</label>
+                        <input type="text" name="username" id="username">
+                    </li>
+                    <li>
+                        <label for="displayName">Display Name</label>
+                        <input type="text" name="displayName" id="displayName">
+                    </li>
+                    <li>
+                        <label for="pronouns">Pronouns</label>
+                        <input type="text" name="pronouns" id="pronouns">
+                    </li>
+                    <li>
+                        <label for="gender">Gender</label>
+                        <input type="text" name="gender" id="gender">
+                    </li>
+                    <li>
+                        <label for="profileURL">Profile Picture</label>
+                        <input type="text" name="profileURL" id="profileURL">
+                    </li>
+                    <li>
+                        <label for="biography">Biography</label>
+                        <input type="text" name="biography" id="biography">
+                    </li>
+                    <li>
+                        <label for="rating">Rating</label>
+                        <select name="rating" id="rating">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
+                    </li>
+                    <li>
+                        <label for="email">Email</label>
+                        <input type="text" name="email" id="email">
+                    </li>
+                    <li>
+                        <label for="password">Password</label>
+                        <input type="text" name="password" id="password">
+                    </li>
+                    <li>
+                        <label for="role">Role</label>
+                        <select name="role" id="role">
+                            <option value="user">User</option>
+                            <option value="admin">Admin</option>
+                        </select>
+                    </li>
+                    <li>
+                        <label for="is_active">Is Active</label>
+                        <select name="is_active" id="is_active">
+                            <option value="true">True</option>
+                            <option value="false">False</option>
+                        </select>
+                    </li>
+                    
+                </ul>
+                <br>
+                <button class="put-button" type="button">Put</button>
+            </form>
+            
+            <form id="updateSkillByID">
+                <h3 class="put">Update skill by id</h3>
+                <label for="skillID">Skill ID</label>
+                <input type="text" name="skillID" id="skillID">
+                <h4>Info to Update</h4>
+                <ul>
+                    <li>
+                        <label for="superCategory">Supercategory</label>
+                        <input type="text" name="superCategory" id="superCategory">
+                    </li>
+                    <li>
+                        <label for="subCategory">Subcategory</label>
+                        <input type="text" name="subCategory" id="subCategory">
+                    </li>
+                </ul>
+                <br>
+                <button class="put-button" type="button">Put</button>
+            </form>
+            
+            <form id="updateAchievementByID">
+                <h3 class="put">Update achievement by id</h3>
+                <label for="achievementID">Achievement ID</label>
+                <input type="text" name="achievementID" id="achievementID">
+                <h4>Info to Update</h4>
+                <ul>
+                    <li>
+                        <label for="achievementName">Achievement Name</label>
+                        <input type="text" name="achievementName" id="achievementName">
+                    </li>
+                    <li>
+                        <label for="description">Description</label>
+                        <input type="text" name="description" id="description">
+                    </li>
+                    <li>
+                        <label for="imageURL">Image URL</label>
+                        <input type="text" name="imageURL" id="imageURL">
+                    </li>
+                </ul>
+                <br>
+                <button class="put-button" type="button">Put</button>
+            </form>
+            
+        </div>
+    </div>
+    <div class="row">
+        <div class="column">
+            <h1>Post</h1>
+
+            <form id="createSkill">
+                <h3 class="post">Create skill</h3>
+                <button class="post-button" type="button">Post</button>
+            </form>
+            
+            <form id="createAchievement">
+                <h3 class="post">Create achievement</h3>
+                <button class="post-button" type="button">Post</button>
+            </form>
+            
+        </div>
+        <div class="column">
+            <h1>Delete</h1>
+
+            <form id="deleteUserByID">
+                <h3 class="delete">Delete user by id</h3>
+                <label for="userID">User ID</label>
+                <input type="text" name="userID" id="userID">
+                <br>
+                <button class="delete-button" type="button">Delete</button>
+            </form>
+            
+            <form id="deleteSkillByID">
+                <h3 class="delete">Delete skill by id</h3>
+                <label for="skillID">Skill ID</label>
+                <input type="text" name="skillID" id="skillID">
+                <br>
+                <button class="delete-button" type="button">Delete</button>
+            </form>
+            
+            <form id="deleteAchievementByID">
+                <h3 class="delete">Delete achievement by id</h3>
+                <label for="achievementID">Achievement ID</label>
+                <input type="text" name="achievementID" id="achievementID">
+                <br>
+                <button class="delete-button" type="button">Delete</button>
+            </form>
+
+            <form id="deleteMessageByID">
+                <h3 class="delete">Delete message by id</h3>
+                <label for="messageID">Message ID</label>
+                <input type="text" name="messageID" id="messageID">
+                <br>
+                <button class="delete-button" type="button">Delete</button>
+            </form>
+            
+            <form id="deleteSessionByID">
+                <h3 class="delete">Delete session by id</h3>
+                <label for="sessionID">Session ID</label>
+                <input type="text" name="sessionID" id="sessionID">
+                <br>
+                <button class="delete-button" type="button">Delete</button>
+            </form>
+
+        </div>
+    </div>
+{% endblock %}

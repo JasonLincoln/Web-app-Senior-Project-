@@ -1,1 +1,87 @@
 /* About Us Page */
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    background-color: #f9f9f9;
+    color: #333;
+}
+ul {
+    list-style-type: disc;
+}
+#about-us-skills-wrapper-title {
+    font-size: 24px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+#about-us-skills-wrapper {
+    display: grid;
+    grid-template-areas:
+        "mathematics-list science-list  social-studies-list language-arts-list  business-list life-skills-list  computers-and-it-list programming-languages-list";
+    gap: 20px;
+}
+#mathematics-list {
+    grid-area: mathematics-list;
+}
+#science-list {
+    grid-area: science-list;
+}
+#social-studies-list {
+    grid-area: social-studies-list;
+}
+#language-arts-list {
+    grid-area: language-arts-list;
+}
+#business-list {
+    grid-area: business-list;
+}
+#life-skills-list {
+    grid-area: life-skills-list;
+}
+#computers-and-it-list {
+    grid-area: computers-and-it-list;
+}
+#programming-languages-list {
+    grid-area: programming-languages-list;
+}
+/* End: About Us Page */
+
+@media (max-width: 1500px) {
+    #about-us-skills-wrapper {
+        grid-template-areas:
+            "mathematics-list science-list social-studies-list language-arts-list"
+            "business-list life-skills-list computers-and-it-list programming-languages-list";
+    }
+}
+
+@media (max-width: 1024px) {
+    #about-us-skills-wrapper {
+        grid-template-areas:
+            "mathematics-list science-list social-studies-list"
+            "language-arts-list business-list life-skills-list"
+            "computers-and-it-list programming-languages-list .";
+    }
+}
+
+@media (max-width: 768px) {
+    #about-us-skills-wrapper {
+        grid-template-areas:
+            "mathematics-list science-list"
+            "social-studies-list language-arts-list"
+            "business-list life-skills-list"
+            "computers-and-it-list programming-languages-list";
+    }
+}
+
+@media (max-width: 480px) {
+    #about-us-skills-wrapper {
+        grid-template-areas:
+            "mathematics-list"
+            "science-list"
+            "social-studies-list"
+            "language-arts-list"
+            "business-list"
+            "life-skills-list"
+            "computers-and-it-list"
+            "programming-languages-list";
+    }
+}

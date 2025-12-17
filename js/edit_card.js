@@ -1,4 +1,4 @@
-"use strict"
+"use strict";
 let loadCarousel = false;
 let intervalID = null;
 let selectedImage = null;
@@ -8,7 +8,7 @@ $(document).ready( () => {
     saveUserInput(); // for the user to type the desc
     editCard(); // for the user to click the card customization popup
     clickOut(); // for the user to click out of the card customization
-})
+});
 
 // function for initializing the slick carousel, activated after the user clicks one of radio boxes
 const runSlick = () => {
@@ -35,16 +35,16 @@ const runSlick = () => {
             },
             ]
         });
-    })
+    });
 
     loadCarousel = true;
-}
+};
 
 // function that runs every 1 second after the user has selected a radio box, it is important that this does not run on pageload
 const runContinuously = () => {
     if (loadCarousel) 
         pickImage();
-}
+};
 
 // function that checks what radio box the user has selected
 const checkRadio = () => {
@@ -55,9 +55,9 @@ const checkRadio = () => {
         radio.addEventListener('click', () => { // runs if one of the radio boxes is clicked
             detectWhichCategory(radios); // function for selecting the category
             intervalID = setInterval(runContinuously, 1000);
-        })
-    })
-}
+        });
+    });
+};
 
 const detectWhichCategory = radios => {
     let selectedValue = null;
@@ -87,7 +87,7 @@ const detectWhichCategory = radios => {
             <div class="post">
                 <img src="../images/gallery_images/${selectedValue}/${selectedValue}${i+1}.png" alt="" id="image-${i+1}" class="gallery-image"></img>
             </div>
-            `
+            `;
             $(".post-wrapper").append(html);
         } else {
             let image = document.querySelector(`#image-${i+1}`);
@@ -99,7 +99,7 @@ const detectWhichCategory = radios => {
     // loads in the carousel javascript when the images have been selected
     if (!loadCarousel)
         runSlick();
-}
+};
 
 // function to detect the image the user clicks and store it
 const pickImage = () => {
@@ -120,7 +120,7 @@ const pickImage = () => {
         })
     })
 
-}
+};
 
 const saveUserInput = () => {
     $(".textarea").on("input", () => {
@@ -128,20 +128,20 @@ const saveUserInput = () => {
         $(".characters-left").html(`${150 - descLength}`);
     })
 
-    $(".submit").on("click", () => {
+    $(".save-changes-btn").on("click", () => {
         let desc = $(".textarea").val();
         $(".card-desc p").text(desc);
-    }) 
-}
+    });
+};
 
 const editCard = () => {
     $(".open-popup").on("click", () => {
         document.body.classList.add("active-popup");
-    })
-}
+    });
+};
 
 const clickOut = () => {
     $(".close-btn").on("click", () => {
         document.body.classList.remove("active-popup");
-    })
-}
+    });
+};

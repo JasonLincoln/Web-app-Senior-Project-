@@ -1,0 +1,52 @@
+{% extends 'layout.html' %}
+
+{% block extra_head %}
+    <title>Profile Page</title>
+    <link rel="stylesheet" type = 'text/css' href="{{ url_for('static', path = 'css/main.css') }}">
+    <link rel="stylesheet" type = 'text/css' href="{{ url_for('static', path = 'css/profile.css') }}">
+{% endblock %}
+
+{% block content %}
+    <!-- The profile page for users -->
+    <div id="complete-profile">
+        <div id="main-profile">
+            <div id="profile-image">
+                <img id="pfp" src="../images/Profile-Image-Placeholder.png" alt="profile image">
+            </div>
+            <div id="name-pronouns">
+                <p id="display-name">[Display Name]</p>
+                <p id="username">[Username]</p>
+                <p id="pronouns">[Pronouns]</p>
+                <p id="school">[School/Education]</p>
+            </div>
+            <div id="about-me">
+                <h4>About Me</h4>
+                <input type="text" id="about-me-text" placeholder="Bio">
+            </div>
+
+        </div> <!-- end of personal content-->
+
+        <div id="All-Sections">
+            <div id="Skills-and-Availability">
+                <div id="Skills-and-Offerings">
+                    <h2 id="Skills-Title">Skills and Offerings</h2>
+                </div>
+
+                <div id="Availability-and-Session-Info">
+                    <h2 id="Availability-Title">Availability and Session Info</h2>
+                </div>
+            </div>
+
+            <div id="Achievements-and-Ratings">
+                <div id="Achievements">
+                    <h2 id="Achievements-Title">Achievements</h2>
+                </div>
+
+                <div id="Ratings-and-Comments">
+                    <h2 id="Ratings-Title">Ratings and Comments</h2>
+                </div>
+            </div> 
+        </div> <!-- end of non-personal content -->
+        
+    </div> <!-- end of profile container -->
+{% endblock %}

@@ -2,6 +2,12 @@
   box-sizing: border-box;
 }
 
+/* Temporary navbar for layout */
+.navbar-section {
+  height: 135px;
+  background-color: black;
+  margin-bottom: 20px;
+}
 .row {
   display: flex;
   align-items: center;
@@ -12,50 +18,176 @@
   padding: 10px;
 }
 
+/* Card CSS */
+/* Card CSS */
+/* Card CSS */
+
+/* Card Title */
+.card
+{
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    height: 450px;
+    padding: 15px;
+    background-color: rgb(240, 240, 240);
+    border-radius: 20px;
+}
+
+/* Card Image */
+.card-image 
+{
+    text-align: center;
+}
+
+.card-image img
+{
+    border-radius: 20px;
+    width: 250px;
+    height: auto;
+    object-fit: cover;
+}
+
+/* Everything under the image */
+.card-content
+{
+    margin-top: 10px;
+    display: inline-block;
+    height: 60%;
+}
+
+/* Card Creator */
+.creator
+{
+    display: flex;
+    align-items: center;
+}
+
+.creator i
+{
+    margin-right: 5px;
+}
+
+/* Card Description */
+.card-desc
+{
+    margin-top: 10px;
+    overflow: hidden;
+    overflow-wrap: break-word;
+    height: 120px;
+}
+
+/* Ratings */
+.rating
+{
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.rating i
+{
+    margin-right: 5px;
+}
+
 /* Dropdown CSS */
-
-#skill-dropdown-button {
-    background-color: white;
+.link {
+  background: none;
+  border: none;
+  text-decoration: none;
+  color: #777;
+  font-family: inherit;
+  font-size: inherit;
+  cursor: pointer;
+  padding: 0;
 }
 
-#skill-dropdown {
-    display: inline;
+.dropdown.active > .link,
+.link:hover {
+  color: black;
 }
 
-#skill-dropdown-content {
-    display: none;
+.dropdown {
+  position: relative;
+}
+
+.dropdown-menu {
+  position: absolute;
+  left: 0;
+  top: calc(100% + .25rem);
+  background-color: white;
+  padding: .75rem;
+  border-radius: .25rem;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .1);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-10px);
+  transition: opacity 150ms ease-in-out, transform 150ms ease-in-out;
+  z-index: 10;
+}
+
+.dropdown.active > .link + .dropdown-menu {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.information-grid {
+  display: grid;
+  grid-template-columns: repeat(2, max-content);
+  gap: 2rem;
+}
+
+.dropdown-links {
+  display: flex;
+  flex-direction: column;
+  gap: .25rem;
+}
+ .dropdown-menu .link {
+  color: black;
+  text-decoration: none;
+  list-style-type: none;
+}
+/* end: skills dropdown */
+
+/* start: body */
+
+/* start: searchbar */
+.search {
+    position: relative;
+    width: 80%;
+    max-width: 800px;
+    margin: 20px auto 0;
+}
+.search input[type="search"] {
+    width: 100%;
+    padding: 10px 10px 10px 40px;
+    font-size: 16px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+}
+.ri-search-line {
     position: absolute;
-    background-color: white;
-    min-width: 130px;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+    color: #666;
 }
+/* end: searchbar */
 
-#skill-dropdown:hover #skill-dropdown-content {
-    display: inline-block;
-    margin:0;
-}
+/* start: filters */
+/* end: filters */
 
-ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
+/* start: card-grid */
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    max-width: 1200px;
+    margin: 50px auto 0;
+    padding: 20px;
+    justify-items: center;
 }
-
-#rating-dropdown-button {
-    background-color: white;
-}
-
-#rating-dropdown {
-    display: inline;
-}
-
-#rating-dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: white;
-    min-width: 130px;
-}
-
-#rating-dropdown:hover #rating-dropdown-content {
-    display: inline-block;
-    margin:0;
-}
+/* end: card-grid */
+/* end: body */

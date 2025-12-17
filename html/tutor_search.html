@@ -5,202 +5,134 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Find a Tutor</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/tailwindcss-colors.css">
     <link rel="stylesheet" href="../css/cards.css">
     <link rel="stylesheet" href="../css/tutor_search.css">
 </head>
 <body>
-    
-    <h1><i class="ri-filter-line"></i>Filters</h1>
-    <input type="text" id="skill-dropdown-textbox" placeholder="Skills" readonly>
-    <div id="skill-dropdown">
-        <!-- Include the ability to when hover over dropdown button, display the skill-dropdown-content -->
-        <button id="dropdown-button">
-            ▼
-        </button>
-        <ul id="skill-dropdown-content">
-            <li><a class="dropdown-item" href="#">Math</a></li>
-            <li><a class="dropdown-item" href="#">Science</a></li>
-            <li><a class="dropdown-item" href="#">History</a></li>
-        </ul>
-    </div>
-    <input type="text" id="rating-dropdown-textbox" placeholder="Rating" readonly>
-    <div id="rating-dropdown">
-        <!-- Include the ability to when hover over dropdown button, display the skill-dropdown-content -->
-        <button id="dropdown-button">
-            ▼
-        </button>
-        <ul id="rating-dropdown-content">
-            <li><a class="dropdown-item" href="#">1</a></li>
-            <li><a class="dropdown-item" href="#">2</a></li>
-            <li><a class="dropdown-item" href="#">3</a></li>
-            <li><a class="dropdown-item" href="#">4</a></li>
-            <li><a class="dropdown-item" href="#">5</a></li>
-        </ul>
-    </div>
-    <i class="ri-search-line"></i>
-    <input type="text" name="searchBar" id="searchBar">
-    <div class="row">
-        <div class="column">
-            <div class="card">
-                <div class="card-image">
-                    <img src="../images/placeholder.png" alt="" id="selected-image">
+    <div class="navbar-section"> Navbar </div>
+    <div class="filters-section">
+        <div class="filters">
+            <input type="text" id="skill-dropdown-textbox" placeholder="Skills" readonly>
+            <div class="dropdown">
+                <button class="link">▼</button>
+                <div class="dropdown-menu information-grid">
+                    <div>
+                        <div class="dropdown-header">Programming Languages</div>
+                        <div class="dropdown-links">
+                            <a href="#" class="link">Python</a>
+                            <a href="#" class="link">Java</a>
+                            <a href="#" class="link">C++</a>
+                            <a href="#" class="link">C#</a>
+                            <a href="#" class="link">HTML</a>
+                            <a href="#" class="link">CSS</a>
+                            <a href="#" class="link">Javascript</a>
+                            <a href="#" class="link">SQL</a>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="dropdown-header">Computers & Information Technology</div>
+                        <div class="dropdown-links">
+                            <a href="#" class="link">Microsoft Word</a>
+                            <a href="#" class="link">Microsoft Excel</a>
+                            <a href="#" class="link">Microsoft Powerpoint</a>
+                            <a href="#" class="link">Networking</a>
+                            <a href="#" class="link">Cybersecurity</a>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="dropdown-header">Mathematics</div>
+                        <div class="dropdown-links">
+                            <a href="#" class="link">Algebra</a>
+                            <a href="#" class="link">Statistics</a>
+                            <a href="#" class="link">Geometry</a>
+                            <a href="#" class="link">Pre-Calculus</a>
+                            <a href="#" class="link">Calculus</a>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="dropdown-header">Science</div>
+                        <div class="dropdown-links">
+                            <a href="#" class="link">Biology</a>
+                            <a href="#" class="link">Chemistry</a>
+                            <a href="#" class="link">Anatomy & Physiology</a>
+                            <a href="#" class="link">Physics</a>
+                            <a href="#" class="link">Astrology</a>
+                            <a href="#" class="link">Nutrition</a>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="dropdown-header">Social Studies</div>
+                        <div class="dropdown-links">
+                            <a href="#" class="link">History</a>
+                            <a href="#" class="link">Economics</a>
+                            <a href="#" class="link">Government</a>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="dropdown-header">Business</div>
+                        <div class="dropdown-links">
+                            <a href="#" class="link">Accounting</a>
+                            <a href="#" class="link">Banking & Finance</a>
+                            <a href="#" class="link">Entrepreneurship</a>
+                            <a href="#" class="link">Marketing</a>
+                            <a href="#" class="link">Real Estate</a>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="dropdown-header">Life Skills</div>
+                        <div class="dropdown-links">
+                            <a href="#" class="link">Cars</a>
+                            <a href="#" class="link">College Admissions</a>
+                            <a href="#" class="link">Job Applications</a>
+                            <a href="#" class="link">Social Media</a>
+                            <a href="#" class="link">Physical Arts</a>
+                            <a href="#" class="link">Visual Arts</a>
+                            <a href="#" class="link">Music</a>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="dropdown-header">Foreign Languages</div>
+                        <div class="dropdown-links">
+                            <a href="#" class="link">English</a>
+                            <a href="#" class="link">Spanish</a>
+                            <a href="#" class="link">French</a>
+                        </div>
+                    </div>
                 </div>
-        
-                <div class="card-content">
-                    <div class="creator">
-                        <i class="fa-solid fa-user"></i>
-                        <h3>Profile User</h3>
-                    </div>
-                    <div class="card-desc">
-                        <p>This is a user card description. If the user exceeds a certain amount of characters, the text must be cut off.</p>
-                    </div>
-                    <div class="card-tags">
-                        <p>Tags (Will change with JS)</p>
-                    </div>
-                    <div class="rating">
-                        <i class="fa-solid fa-star"></i>
-                        <p>Rating (xxx Reviews)</p>
-                    </div>
-                </div>
+            </div>
+            <input type="text" id="rating-dropdown-textbox" placeholder="Rating" readonly>
+            <div class="dropdown">
+                <button class="link">▼</button>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item link" href="#">1</a></li>
+                    <li><a class="dropdown-item link" href="#">2</a></li>
+                    <li><a class="dropdown-item link" href="#">3</a></li>
+                    <li><a class="dropdown-item link" href="#">4</a></li>
+                    <li><a class="dropdown-item link" href="#">5</a></li>
+                </ul>
             </div>
         </div>
-        <div class="column">
-            <div class="card">
-                <div class="card-image">
-                    <img src="../images/placeholder.png" alt="" id="selected-image">
-                </div>
-        
-                <div class="card-content">
-                    <div class="creator">
-                        <i class="fa-solid fa-user"></i>
-                        <h3>Profile User</h3>
-                    </div>
-                    <div class="card-desc">
-                        <p>This is a user card description. If the user exceeds a certain amount of characters, the text must be cut off.</p>
-                    </div>
-                    <div class="card-tags">
-                        <p>Tags (Will change with JS)</p>
-                    </div>
-                    <div class="rating">
-                        <i class="fa-solid fa-star"></i>
-                        <p>Rating (xxx Reviews)</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="column">
-            <div class="card">
-                <div class="card-image">
-                    <img src="../images/placeholder.png" alt="" id="selected-image">
-                </div>
-        
-                <div class="card-content">
-                    <div class="creator">
-                        <i class="fa-solid fa-user"></i>
-                        <h3>Profile User</h3>
-                    </div>
-                    <div class="card-desc">
-                        <p>This is a user card description. If the user exceeds a certain amount of characters, the text must be cut off.</p>
-                    </div>
-                    <div class="card-tags">
-                        <p>Tags (Will change with JS)</p>
-                    </div>
-                    <div class="rating">
-                        <i class="fa-solid fa-star"></i>
-                        <p>Rating (xxx Reviews)</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="column">
-            <div class="card">
-                <div class="card-image">
-                    <img src="../images/placeholder.png" alt="" id="selected-image">
-                </div>
-        
-                <div class="card-content">
-                    <div class="creator">
-                        <i class="fa-solid fa-user"></i>
-                        <h3>Profile User</h3>
-                    </div>
-                    <div class="card-desc">
-                        <p>This is a user card description. If the user exceeds a certain amount of characters, the text must be cut off.</p>
-                    </div>
-                    <div class="card-tags">
-                        <p>Tags (Will change with JS)</p>
-                    </div>
-                    <div class="rating">
-                        <i class="fa-solid fa-star"></i>
-                        <p>Rating (xxx Reviews)</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="column">
-            <div class="card">
-                <div class="card-image">
-                    <img src="../images/placeholder.png" alt="" id="selected-image">
-                </div>
-        
-                <div class="card-content">
-                    <div class="creator">
-                        <i class="fa-solid fa-user"></i>
-                        <h3>Profile User</h3>
-                    </div>
-                    <div class="card-desc">
-                        <p>This is a user card description. If the user exceeds a certain amount of characters, the text must be cut off.</p>
-                    </div>
-                    <div class="card-tags">
-                        <p>Tags (Will change with JS)</p>
-                    </div>
-                    <div class="rating">
-                        <i class="fa-solid fa-star"></i>
-                        <p>Rating (xxx Reviews)</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="column">
-            <div class="card">
-                <div class="card-image">
-                    <img src="../images/placeholder.png" alt="" id="selected-image">
-                </div>
-        
-                <div class="card-content">
-                    <div class="creator">
-                        <i class="fa-solid fa-user"></i>
-                        <h3>Profile User</h3>
-                    </div>
-                    <div class="card-desc">
-                        <p>This is a user card description. If the user exceeds a certain amount of characters, the text must be cut off.</p>
-                    </div>
-                    <div class="card-tags">
-                        <p>Tags (Will change with JS)</p>
-                    </div>
-                    <div class="rating">
-                        <i class="fa-solid fa-star"></i>
-                        <p>Rating (xxx Reviews)</p>
-                    </div>
-                </div>
-            </div>
+        <div class="search">
+            <i class="ri-search-line"></i>
+            <input type="search" name="searchBar" class="search-bar">
         </div>
     </div>
-    <div class="row">
-        <div class="column">
+    <div class="cards-grid">
+        <div class="card-container">
             <div class="card">
                 <div class="card-image">
-                    <img src="../images/placeholder.png" alt="" id="selected-image">
+                    <img src="../images/placeholder.png" alt="" class="selected-image">
                 </div>
-        
+                
                 <div class="card-content">
                     <div class="creator">
                         <i class="fa-solid fa-user"></i>
-                        <h3>Profile User</h3>
+                        <h3>Profile User 1</h3>
                     </div>
                     <div class="card-desc">
-                        <p>This is a user card description. If the user exceeds a certain amount of characters, the text must be cut off.</p>
+                        <p>This is a user card description.</p>
                     </div>
                     <div class="card-tags">
                         <p>Tags (Will change with JS)</p>
@@ -212,19 +144,19 @@
                 </div>
             </div>
         </div>
-        <div class="column">
+        <div class="card-container">
             <div class="card">
                 <div class="card-image">
-                    <img src="../images/placeholder.png" alt="" id="selected-image">
+                    <img src="../images/placeholder.png" alt="" class="selected-image">
                 </div>
-        
+                
                 <div class="card-content">
                     <div class="creator">
                         <i class="fa-solid fa-user"></i>
-                        <h3>Profile User</h3>
+                        <h3>Profile User 2</h3>
                     </div>
                     <div class="card-desc">
-                        <p>This is a user card description. If the user exceeds a certain amount of characters, the text must be cut off.</p>
+                        <p>This is a user card description.</p>
                     </div>
                     <div class="card-tags">
                         <p>Tags (Will change with JS)</p>
@@ -236,19 +168,163 @@
                 </div>
             </div>
         </div>
-        <div class="column">
+        <div class="card-container">
             <div class="card">
                 <div class="card-image">
-                    <img src="../images/placeholder.png" alt="" id="selected-image">
+                    <img src="../images/placeholder.png" alt="" class="selected-image">
                 </div>
-        
+                
                 <div class="card-content">
                     <div class="creator">
                         <i class="fa-solid fa-user"></i>
-                        <h3>Profile User</h3>
+                        <h3>Profile User 3</h3>
                     </div>
                     <div class="card-desc">
-                        <p>This is a user card description. If the user exceeds a certain amount of characters, the text must be cut off.</p>
+                        <p>This is a user card description.</p>
+                    </div>
+                    <div class="card-tags">
+                        <p>Tags (Will change with JS)</p>
+                    </div>
+                    <div class="rating">
+                        <i class="fa-solid fa-star"></i>
+                        <p>Rating (xxx Reviews)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-container">
+            <div class="card">
+                <div class="card-image">
+                    <img src="../images/placeholder.png" alt="" class="selected-image">
+                </div>
+                
+                <div class="card-content">
+                    <div class="creator">
+                        <i class="fa-solid fa-user"></i>
+                        <h3>Profile User 4</h3>
+                    </div>
+                    <div class="card-desc">
+                        <p>This is a user card description.</p>
+                    </div>
+                    <div class="card-tags">
+                        <p>Tags (Will change with JS)</p>
+                    </div>
+                    <div class="rating">
+                        <i class="fa-solid fa-star"></i>
+                        <p>Rating (xxx Reviews)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-container">
+            <div class="card">
+                <div class="card-image">
+                    <img src="../images/placeholder.png" alt="" class="selected-image">
+                </div>
+                
+                <div class="card-content">
+                    <div class="creator">
+                        <i class="fa-solid fa-user"></i>
+                        <h3>Profile User 5</h3>
+                    </div>
+                    <div class="card-desc">
+                        <p>This is a user card description.</p>
+                    </div>
+                    <div class="card-tags">
+                        <p>Tags (Will change with JS)</p>
+                    </div>
+                    <div class="rating">
+                        <i class="fa-solid fa-star"></i>
+                        <p>Rating (xxx Reviews)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-container">
+            <div class="card">
+                <div class="card-image">
+                    <img src="../images/placeholder.png" alt="" class="selected-image">
+                </div>
+                
+                <div class="card-content">
+                    <div class="creator">
+                        <i class="fa-solid fa-user"></i>
+                        <h3>Profile User 6</h3>
+                    </div>
+                    <div class="card-desc">
+                        <p>This is a user card description.</p>
+                    </div>
+                    <div class="card-tags">
+                        <p>Tags (Will change with JS)</p>
+                    </div>
+                    <div class="rating">
+                        <i class="fa-solid fa-star"></i>
+                        <p>Rating (xxx Reviews)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-container">
+            <div class="card">
+                <div class="card-image">
+                    <img src="../images/placeholder.png" alt="" class="selected-image">
+                </div>
+                
+                <div class="card-content">
+                    <div class="creator">
+                        <i class="fa-solid fa-user"></i>
+                        <h3>Profile User 7</h3>
+                    </div>
+                    <div class="card-desc">
+                        <p>This is a user card description.</p>
+                    </div>
+                    <div class="card-tags">
+                        <p>Tags (Will change with JS)</p>
+                    </div>
+                    <div class="rating">
+                        <i class="fa-solid fa-star"></i>
+                        <p>Rating (xxx Reviews)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-container">
+            <div class="card">
+                <div class="card-image">
+                    <img src="../images/placeholder.png" alt="" class="selected-image">
+                </div>
+                
+                <div class="card-content">
+                    <div class="creator">
+                        <i class="fa-solid fa-user"></i>
+                        <h3>Profile User 8</h3>
+                    </div>
+                    <div class="card-desc">
+                        <p>This is a user card description.</p>
+                    </div>
+                    <div class="card-tags">
+                        <p>Tags (Will change with JS)</p>
+                    </div>
+                    <div class="rating">
+                        <i class="fa-solid fa-star"></i>
+                        <p>Rating (xxx Reviews)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-container">
+            <div class="card">
+                <div class="card-image">
+                    <img src="../images/placeholder.png" alt="" class="selected-image">
+                </div>
+                
+                <div class="card-content">
+                    <div class="creator">
+                        <i class="fa-solid fa-user"></i>
+                        <h3>Profile User 9</h3>
+                    </div>
+                    <div class="card-desc">
+                        <p>This is a user card description.</p>
                     </div>
                     <div class="card-tags">
                         <p>Tags (Will change with JS)</p>
@@ -261,5 +337,8 @@
             </div>
         </div>
     </div>
+
+    <script src="../js/tutor_search.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 </body>
 </html>
