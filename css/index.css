@@ -1,4 +1,6 @@
 /* Overall */
+/* Overall */
+/* Overall */
 
 h1, h2, h3, h4, h5, h6, p {
     font-family: 'Candal', serif;
@@ -10,9 +12,17 @@ a {
     color: inherit;
 }
 
-/* Carousel CSS */
-/* Carousel CSS */
-/* Carousel CSS */
+/* Header for each section */
+.skillswap-title {
+    margin: 100px 20vw 50px;
+    padding-bottom: 5px;
+    border-bottom: 3px solid rgba(0, 0, 0, 0.3);
+
+}
+
+/* Start: Carousel CSS */
+/* Start: Carousel CSS */
+/* Start: Carousel CSS */
 
 .page-wrapper a:hover {
     color: rgb(160, 218, 160);
@@ -74,13 +84,13 @@ a {
     border-top-right-radius: 10px;
 }
 
-/* About Skillswap Section */
-/* About Skillswap Section */
-/* About Skillswap Section */
+/* End: Carousel CSS */
+/* End: Carousel CSS */
+/* End: Carousel CSS */
 
-.skillswap-title {
-    margin: 100px 0 50px;
-}
+/* Start: About Skillswap Section */
+/* Start: About Skillswap Section */
+/* Start: About Skillswap Section */
 
 [class^=about-section-] {
     display: flex;
@@ -148,14 +158,13 @@ a {
     object-fit: cover;
 }
 
-/* Categories Cards */
-/* Categories Cards */
-/* Categories Cards */
+/* End: About Skillswap Section */
+/* End: About Skillswap Section */
+/* End: About Skillswap Section */
 
-.category-title 
-{
-    margin-top: 50px;
-}
+/* Start: Categories Cards */
+/* Start: Categories Cards */
+/* Start: Categories Cards */
 
 /* Cards Container */
 .skill-categories {
@@ -226,10 +235,13 @@ a {
     padding: 10px 0px;
     bottom: 0;
 }
+/* End: Categories Cards */
+/* End: Categories Cards */
+/* End: Categories Cards */
 
-/* Frequently Asked Questions */
-/* Frequently Asked Questions */
-/* Frequently Asked Questions */
+/* Start: Frequently Asked Questions */
+/* Start: Frequently Asked Questions */
+/* Start: Frequently Asked Questions */
 
 .faq {
     margin: 50px 10vw 100px;
@@ -283,12 +295,50 @@ a {
     padding: 30px 5vw;
 }
 
-/* Media Queries */
-/* Media Queries */
-/* Media Queries */
+/* End: Frequently Asked Questions */
+/* End: Frequently Asked Questions */
+/* End: Frequently Asked Questions */
 
-/*Small Mobile Devices*/
-@media only screen and (max-width: 320px) {
-    /* Add responsiveness to the grid here */
+/* Start: Media Queries */
+/* Start: Media Queries */
+/* Start: Media Queries */
+
+@media only screen and (max-width: 600px) {
+
+[class^=about-section-] {
+    display: flex;
+    flex-direction: column-reverse;
+    padding: 10px;
+    justify-content: space-between;
+    max-height: 500px;
+    background: repeating-linear-gradient(
+        70deg,
+        rgb(220, 220, 220),
+        rgb(220, 220, 220) 100px,
+        rgb(200, 200, 200) 100px,
+        rgb(200, 200, 200) 200px
+    );
+    margin: 30px 0px;
+}
+
+.about-section-B {
+    flex-direction: column;
+}
+
+.my-line {
+    border: none; /* Removes default browser border */
+    height: 10px; 
+    background-color: var(--green-200);
+    width: 70%; 
+    margin: 20px 0px;
+}
+
+.section-image img{
+    flex: 3;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
 }
 
