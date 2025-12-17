@@ -62,9 +62,9 @@ hoverEffects("#business", "#business-header", "#hidden-business"); // business
 hoverEffects("#life-skills", "#life-skills-header", "#hidden-life-skills"); // life skills
 hoverEffects("#languages", "#lang-header", "#hidden-lang"); // foreign languages
 
-// Accordion JS
+// Accordion JS by w3schools
 
-let acc = document.getElementsByClassName("accordion");
+let acc = document.getElementsByClassName("faq-accordion");
 
 for (let i = 0; i < acc.length; i++) {
     acc[i].addEventListener("click", function() {

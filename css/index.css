@@ -36,7 +36,7 @@ a {
 .post-slider .prev {
     position: absolute;
     top: 50%;
-    left: 8%; /* fix arrows cutting off */
+    left: 8vw; /* fix arrows cutting off */
     font-size: 2em;
     color: black;
     cursor: pointer;
@@ -45,7 +45,7 @@ a {
 .post-slider .next {
     position: absolute;
     top: 50%;
-    right: 8%; /* fix arrows cutting off */
+    right: 8vw; /* fix arrows cutting off */
     font-size: 2em;
     color: black;
     cursor: pointer;
@@ -248,7 +248,7 @@ a {
 }
 
 /* Style the buttons that are used to open and close the accordion panel. */
-.accordion {
+.faq-accordion {
     background-color: #fafafa;
     color: rgb(50, 50, 50);
     font-weight: 800;
@@ -263,7 +263,7 @@ a {
 }
 
 /* Add a background color to the button if it is clicked on, and when you move the mouse over it.*/
-.active-faq, .accordion:hover {
+.active-faq, .faq-accordion:hover {
     background-color: rgb(230, 230, 230);
 }
 
@@ -275,7 +275,7 @@ a {
     transition: max-height 0.2s ease-out;
 }
 
-.accordion:after {
+.faq-accordion:after {
     content: '\f107'; 
     font-family: "Font Awesome 5 Free";
     font-weight: 900;
@@ -303,7 +303,67 @@ a {
 /* Start: Media Queries */
 /* Start: Media Queries */
 
-@media only screen and (max-width: 600px) {
+@media only screen and (min-width: 1200px) {
+[class^=about-section-] {
+    display: flex;
+    padding: 20px;
+    justify-content: space-between;
+    max-height: 500px;
+    background: repeating-linear-gradient(
+        70deg,
+        rgb(220, 220, 220),
+        rgb(220, 220, 220) 100px,
+        rgb(200, 200, 200) 100px,
+        rgb(200, 200, 200) 200px
+    );
+    margin: 10px 0px;
+}
+
+.center-this-line
+{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+.my-line {
+    border: none; /* Removes default browser border */
+    height: 10px; 
+    background-color: var(--green-200);
+    width: 70%; 
+    margin: 20px 0px;
+}
+
+.section-description
+{
+    padding: 0px 20px;
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+}
+
+.section-description h3
+{
+    font-size: 1.75rem;
+}
+
+.section-description p
+{
+    font-size: 22px;
+    margin-top: 20px;
+}
+
+.section-image img{
+    flex: 3;
+    width: 50vw;
+    height: 100%;
+    max-height: 420px;
+    object-fit: cover;
+}
+
+}
+
+@media only screen and (max-width: 720px) {
 
 [class^=about-section-] {
     display: flex;
@@ -338,6 +398,24 @@ a {
     width: 100%;
     height: 100%;
     object-fit: cover;
+}
+
+.post-slider .prev {
+    position: absolute;
+    top: 50%;
+    left: 2vw;
+    font-size: 2em;
+    color: black;
+    cursor: pointer;
+}
+
+.post-slider .next {
+    position: absolute;
+    top: 50%;
+    right: 2vw;
+    font-size: 2em;
+    color: black;
+    cursor: pointer;
 }
 
 }
