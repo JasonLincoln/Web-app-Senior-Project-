@@ -123,8 +123,8 @@ const pickImage = () => {
 };
 
 const saveUserInput = () => {
-    $(".textarea").on("input", () => {
-        let descLength = $(".textarea").val().length;
+    $(".about-me-textarea").on("input", () => {
+        let descLength = $(".about-me-textarea").val().length;
         $(".characters-left").html(`${150 - descLength}`);
     })
 

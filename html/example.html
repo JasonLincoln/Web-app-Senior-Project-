@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/example.css">
+    <link rel="stylesheet" href="../css/tailwindcss-colors.css">
+    <link rel="stylesheet" href="../css/cards.css">
+    <title>Document</title>
+</head>
+<body>
+    <!-- All Content Inside The Central Box -->
+    <div class="profile-creation-page">
+        <!-- Section for Inputs & Card For Flexbox -->
+        <div class="inputs-and-card">
+
+            <!-- Left: Input Section -->
+            <div class="creation-page-inputs">
+                <header class="profile-creation-title">Profile Settings</header>
+                <!-- Email -->
+                <div class="email-wrapper">
+                    <label for="email">Email Address</label>
+                    <input type="email" class="email" name="email" value="email@gmail.com" readonly>
+                </div>
+                <!-- Username -->
+                <div class="username-wrapper">
+                    <label for="username">Username</label>
+                    <input type="text" class="username" name="username" value="Username" readonly>
+                </div>
+                <!-- Display Name -->
+                <div class="display-name-wrapper">
+                    <label for="display-name">Display Name</label>
+                    <input type="text" class="display-name" name="display-name" value="" placeholder="Enter your display name">
+                </div>
+                <!-- Pronouns -->
+                <div class="pronouns-wrapper">
+                    <label for="pronouns">Pronouns</label>
+                    <input type="text" class="pronouns" name="pronouns" placeholder="Enter your pronouns">
+                </div>
+                <!-- Biography -->
+                <div class="bio-wrapper">
+                    <label for="bio">About Me</label>
+                    <div class="textarea-container">
+                        <textarea class="about-me-textarea" name="c-desc" class="c-desc" placeholder="Enter Description Here" maxlength="150"></textarea>
+                        <div class="characters-left">150</div>
+                    </div>
+                </div>
+                <!-- Select Main Subject -->
+                <form class="select-category">
+                    <h3 class="radio-header">What is your main subject?</h3>
+                    <div class="radio-group-grid">
+                        <label><input type="radio" name="which_category" value="prog_lang" class="prog_lang"> Programming</label>
+                        <label><input type="radio" name="which_category" value="computers" class="computers"> Computers & I.T.</label>
+                        <label><input type="radio" name="which_category" value="math" class="math"> Mathematics</label>
+                        <label><input type="radio" name="which_category" value="science" class="science"> Science</label>
+                        <label><input type="radio" name="which_category" value="social_studies" class="social_studies"> Social Studies</label>
+                        <label><input type="radio" name="which_category" value="business" class="business"> Business</label>
+                        <label><input type="radio" name="which_category" value="life_skills" class="life_skills"> Life Skills</label>
+                        <label><input type="radio" name="which_category" value="languages" class="languages"> Language Arts</label>
+                    </div>
+                </form>
+                <!-- Image Collection That Appears After Selecting A Radio -->
+                <div class="image-collection">    
+                    <div class="post-slider">
+                        <i class="fa-solid fa-chevron-left prev"></i>
+                        <i class="fa-solid fa-chevron-right next"></i>
+                        
+                        <div class="post-wrapper">
+                            
+                        </div> <!-- radio generates the image gallery here -->
+                    </div> <!-- end post slider -->        
+                </div> <!-- end image collection -->
+            </div>
+            
+            <!-- Right: Card Template -->
+            <div id="edit-skills-section">
+                <div class="card-container">
+                    <div class="card">
+                        <div class="card-image">
+                            <img src="../images/placeholder.png" alt="" class="selected-image">
+                        </div>
+                        
+                        <div class="card-content">
+                            <div class="creator">
+                                <i class="fa-solid fa-user"></i>
+                                <h3>Profile User</h3>
+                            </div>
+                            <div class="card-desc">
+                                <p>This is a user card description. If the user exceeds a certain amount of characters, the text must be cut off.</p>
+                            </div>
+                            <div class="card-tags">
+                                <p>Tags (Will change with JS)</p>
+                            </div>
+                            <div class="rating">
+                                <i class="fa-solid fa-star"></i>
+                                <p>Rating (xxx Reviews)</p>
+                            </div>
+                        </div> <!-- End Content -->
+                    </div> <!-- End Card -->
+                </div> <!-- End Wrapper -->
+            </div>
+
+        </div>
+        <!-- Bottom: Save Button -->
+        <div class="save-changes-wrapper">
+            <button type="button" class="save-changes-btn">Save Changes</button>
+        </div>
+    </div>
+    <script src="https://kit.fontawesome.com/16ce6dc272.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="../js/edit_card.js"></script>
+    <script src="../js/profile-creation.js"></script>
+</body>
+</html>

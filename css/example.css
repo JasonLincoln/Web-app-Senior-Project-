@@ -1,0 +1,167 @@
+/* Overall Page */
+/* Overall Page */
+/* Overall Page */
+
+.profile-creation-page {
+    background-color: rgb(240, 240, 240);
+    margin: 10vh 10vw;
+    padding: 2vh 2vw;
+    box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.1);
+}
+
+.inputs-and-card
+{
+    display: flex;
+}
+
+.profile-creation-title
+{
+    width: fit-content;
+    padding: 0;
+    margin-top: 10px;
+    font-size: 25px;
+    font-weight: bold;
+    font-size: 28px;
+}
+
+.email-wrapper, .username-wrapper, .display-name-wrapper, .pronouns-wrapper,
+.skills-you-have-wrapper, .skills-to-learn-wrapper, .bio-wrapper {
+    margin: 20px 0px;
+    width: fit-content;
+}
+
+.creation-page-inputs label{
+    display: block;
+    padding: 5px 5px 5px 0px;
+}
+.creation-page-inputs input[type="text"],
+.creation-page-inputs input[type="email"] {
+    width: 300px;
+    background-color: white;
+    border: 1px solid rgba(0, 0, 0, 0.4);
+    padding: 10px;
+}
+
+input.email, input.username {
+    color: rgba(0, 0, 0, 0.5);
+}
+
+/* Biography-About Me */
+/* Biography-About Me */
+/* Biography-About Me */
+.textarea-container
+{
+    position: relative;
+    width: fit-content;
+}
+
+.about-me-textarea {
+    width: 300px;
+    height: 150px;
+    font-family: sans-serif;
+    background-color: white;
+    border: 1px solid rgba(0, 0, 0, 0.4);
+    padding: 10px;
+    resize: none;
+}
+
+.characters-left {
+    color: rgba(0, 0, 0, 0.4);
+    position: absolute;
+    right: 0;
+}
+
+/* Radio Group Grid */
+/* Radio Group Grid */
+/* Radio Group Grid */
+
+.radio-header {
+    margin: 40px 0 0;
+}
+
+.radio-group-grid {
+    padding: 20px 0px;
+}
+
+.radio-group-grid input[type="radio"] {
+    margin-right: 5px;
+    vertical-align: middle; 
+}
+
+/* Carousel CSS */
+/* Carousel CSS */
+/* Carousel CSS */
+.image-collection {
+    visibility: hidden;
+    width: 40vw;
+    height: 200px;
+}
+
+.post-slider {
+    position: relative;
+}
+
+.post-slider .prev {
+    position: absolute;
+    top: 50%;
+    left: 4%;
+    font-size: 2em;
+    color: black;
+    cursor: pointer;
+}
+
+.post-slider .next {
+    position: absolute;
+    top: 50%;
+    right: 4%; 
+    font-size: 2em;
+    color: black;
+    cursor: pointer;
+}
+
+.post-wrapper {
+    width: 70%;
+    height: 30%;
+    margin: 0px auto;
+    overflow: hidden;
+    padding: 10px 0px;
+}
+
+.post {
+    width: 300px;
+    margin: 0px 10px 0px 10px;
+    border-radius: 10px;
+}
+
+.gallery-image {
+    cursor: pointer;
+    width: 100%;
+    margin: 10px 0px;
+    height: 160px;
+    object-fit: cover;
+}
+
+/* Save Changes Button */
+/* Save Changes Button */
+/* Save Changes Button */
+.save-changes-wrapper {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+}
+.save-changes-btn {
+    background-color: var(--emerald-500);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.save-changes-btn:hover {
+    background-color: var(--emerald-600);
+}

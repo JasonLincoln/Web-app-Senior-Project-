@@ -3,8 +3,7 @@
 {
     display: flex;
     flex-direction: column;
-    width: 90%;
-    max-width: 300px;
+    width: 300px;
     height: 450px;
     padding: 15px;
     background-color: rgb(240, 240, 240);
@@ -26,13 +25,9 @@
 }
 
 /* Everything under the image */
-/* Everything under the image */
-/* Everything under the image */
-/* Everything under the image */
-/* Everything under the image */
 .card-content
 {
-    margin-top: -10px;
+    margin-top: 10px;
     display: inline-block;
     height: 60%;
 }
@@ -52,21 +47,18 @@
 /* Card Description */
 .card-desc
 {
-    margin-top: -25px;
+    margin-top: 10px;
+    overflow: hidden;
     overflow-wrap: break-word;
     height: 120px;
 }
 
 /* Card Tags */
-.card-tags
-{
-    margin-top: 30px;
-}
 
 /* Ratings */
 .rating
 {
-    margin-top: -10px;
+    margin-top: 30px;
     display: flex;
     align-items: center;
 }
