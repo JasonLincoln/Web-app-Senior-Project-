@@ -12,12 +12,13 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Select skill on link click
-    skillsMenu.addEventListener('click', function(e) {
-        if (e.target.classList.contains('link')) {
-            skillsInput.value = e.target.textContent;
-            skillsDropdown.classList.remove('active');
-        }
-    });
+
+    // skillsMenu.addEventListener('click', function(e) {
+    //     if (e.target.classList.contains('link')) {
+    //         skillsInput.value = e.target.textContent;
+    //         skillsDropdown.classList.remove('active');
+    //     }
+    // });
 
     // Rating dropdown
     const ratingDropdown = document.querySelectorAll('.dropdown')[1]; // second one
@@ -31,12 +32,13 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Select rating on link click
-    ratingMenu.addEventListener('click', function(e) {
-        if (e.target.classList.contains('link')) {
-            ratingInput.value = e.target.textContent;
-            ratingDropdown.classList.remove('active');
-        }
-    });
+    
+    // ratingMenu.addEventListener('click', function(e) {
+    //     if (e.target.classList.contains('link')) {
+    //         ratingInput.value = e.target.textContent;
+    //         ratingDropdown.classList.remove('active');
+    //     }
+    // });
 
     // Close dropdowns when clicking outside
     document.addEventListener('click', function(e) {

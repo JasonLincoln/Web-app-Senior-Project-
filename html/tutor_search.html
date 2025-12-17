@@ -14,9 +14,10 @@
     <div class="navbar-section"> Navbar </div>
     <div class="filters-section">
         <div class="filters">
-            <input type="text" id="skill-dropdown-textbox" placeholder="Skills" readonly>
+            <div class="filters-title">Filters</div>
             <div class="dropdown">
-                <button class="link">▼</button>
+                <!-- <input type="text" id="skill-dropdown-textbox" placeholder="Skills" readonly> -->
+                <button class="link filters-dropdown-button">Skills ▼</button>
                 <div class="dropdown-menu information-grid">
                     <div>
                         <div class="dropdown-header">Programming Languages</div>
@@ -32,7 +33,7 @@
                         </div>
                     </div>
                     <div>
-                        <div class="dropdown-header">Computers & Information Technology</div>
+                        <div class="dropdown-header">Computers & <br>Information Technology</div>
                         <div class="dropdown-links">
                             <a href="#" class="link">Microsoft Word</a>
                             <a href="#" class="link">Microsoft Excel</a>
@@ -102,9 +103,9 @@
                     </div>
                 </div>
             </div>
-            <input type="text" id="rating-dropdown-textbox" placeholder="Rating" readonly>
             <div class="dropdown">
-                <button class="link">▼</button>
+                <!-- <input type="text" id="rating-dropdown-textbox" placeholder="Rating" readonly> -->
+                <button class="link filters-dropdown-button">Rating ▼</button>
                 <ul class="dropdown-menu">
                     <li><a class="dropdown-item link" href="#">1</a></li>
                     <li><a class="dropdown-item link" href="#">2</a></li>
@@ -114,9 +115,11 @@
                 </ul>
             </div>
         </div>
-        <div class="search">
-            <i class="ri-search-line"></i>
-            <input type="search" name="searchBar" class="search-bar">
+        <div class="search-bar-filter-line">
+            <div class="search">
+                <i class="ri-search-line"></i>
+                <input type="search" name="searchBar" class="search-bar">
+            </div>
         </div>
     </div>
     <div class="cards-grid">
