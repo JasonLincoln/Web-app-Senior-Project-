@@ -41,12 +41,12 @@
 }
 
 /* Button CSS */
-button{
+#sessions-page button{
     border: none;
     margin: 10px;
 }
 
-button:active {
+#sessions-page button:active {
     transform: translateY(7px);
 
 }

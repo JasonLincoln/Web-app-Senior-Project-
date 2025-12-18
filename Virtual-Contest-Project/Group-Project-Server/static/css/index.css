@@ -1,4 +1,5 @@
 /* Overall */
+
 h1, h2, h3, h4, h5, h6, p {
     font-family: 'Candal', serif;
     text-align: center;
@@ -20,11 +21,6 @@ a {
 .post-slider {
     position: relative;
     margin-top: 50px;
-}
-
-.post-slider .slider-title {
-    text-align: center;
-    margin: 30px auto;
 }
 
 .post-slider .prev {

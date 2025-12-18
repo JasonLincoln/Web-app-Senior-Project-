@@ -1,10 +1,8 @@
 // Login JS
-    const loginForm = document.getElementById('loginForm');
+    const loginForm = document.getElementById('login-form');
     if (loginForm) {
         loginForm.addEventListener('submit', async function (event) {
             event.preventDefault();
-
-            print('help');
 
             const form = event.target;
             const formData = new FormData(form);
@@ -34,7 +32,6 @@
                 } else {
                     // Handle error
                     const errorData = await response.json();
-                    print('here')
                     alert(`Error: ${errorData.detail}`);
                 }
             } catch (error) {
@@ -56,11 +53,7 @@
             const payload = {
                 email: data.email,
                 username: data.username,
-                display_name: data.display_name,
-                hashed_password: data.hashed_password,
-                pronouns: data.pronouns,
-                gender: data.gender,
-                biography: data.biography
+                password: data.password
             };
 
             try {
