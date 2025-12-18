@@ -1,5 +1,5 @@
 from typing import Annotated
-from fastapi import APIRouter, Depends, HTTPException, Path
+from fastapi import APIRouter, Depends, HTTPException, Path, Request
 from pydantic import BaseModel, Field
 from sqlalchemy.orm import Session
 from starlette import status
@@ -8,7 +8,6 @@ from models import Users, Skills, UsersSkills, Achievements, Messages, Sessions
 from routers.achievements import AchievementRequest
 from routers.auth import get_current_user
 from fastapi.templating import Jinja2Templates
-
 from routers.sessions import SessionsRequest
 from routers.skills import SkillRequest, UserSkillRequest
 
@@ -40,11 +39,15 @@ class AdminUserRequest(BaseModel):
     role: str = Field(min_length = 1, max_length = 100)
     is_active: bool = Field(default = True)
 
+@router.get('/admin-page')
+def render_admin_page(request: Request):
+    return templates.TemplateResponse('admin.html', {'request': request})
+
 '''gets all users'''
 @router.get("/user", status_code=status.HTTP_200_OK)
-async def get_all_users(user: user_dependency, db: db_dependency):
-    if user is None or user.get('user_role') != 'admin':
-        raise HTTPException(status_code = 401, detail = "Authentication Failed")
+async def get_all_users(db: db_dependency):
+    # if user is None or user.get('user_role') != 'admin':
+    #     raise HTTPException(status_code = 401, detail = "Authentication Failed")
     return db.query(Users).all()
 
 '''gets a user by their id'''
@@ -70,9 +73,9 @@ async def get_user_by_id(user: user_dependency, db: db_dependency, user_id: int 
 
 '''gets all skills'''
 @router.get("/skill", status_code = status.HTTP_200_OK)
-async def get_all_skills(user: user_dependency, db: db_dependency):
-    if user is None or user.get('user_role') != 'admin':
-        raise HTTPException(status_code = 401, detail = "Authentication Failed")
+async def get_all_skills(db: db_dependency):
+    # if user is None or user.get('user_role') != 'admin':
+    #     raise HTTPException(status_code = 401, detail = "Authentication Failed")
     return db.query(Skills).all()
 
 '''gets a skill by it's id'''
@@ -87,9 +90,9 @@ async def get_skill_by_id(user: user_dependency, db: db_dependency, skill_id: in
 
 '''gets all achievements'''
 @router.get("/Achievement", status_code = status.HTTP_200_OK)
-async def get_all_achievements(user: user_dependency, db: db_dependency):
-    if user is None or user.get('user_role') != 'admin':
-        raise HTTPException(status_code = 401, detail = "Authentication Failed")
+async def get_all_achievements(db: db_dependency):
+    # if user is None or user.get('user_role') != 'admin':
+    #     raise HTTPException(status_code = 401, detail = "Authentication Failed")
     return db.query(Achievements).all()
 
 '''gets a achievement by it's id'''
@@ -104,9 +107,9 @@ async def get_achievement_by_id(user: user_dependency, db: db_dependency, achiev
 
 '''gets all messages'''
 @router.get("/Messages", status_code = status.HTTP_200_OK)
-async def get_all_messages(user: user_dependency, db: db_dependency):
-    if user is None or user.get('user_role') != 'admin':
-        raise HTTPException(status_code = 401, detail = "Authentication Failed")
+async def get_all_messages(db: db_dependency):
+    # if user is None or user.get('user_role') != 'admin':
+    #     raise HTTPException(status_code = 401, detail = "Authentication Failed")
     return db.query(Messages).all()
 
 '''gets a message by it's id'''
@@ -121,9 +124,9 @@ async def get_message_by_id(user: user_dependency, db: db_dependency, message_id
 
 '''gets all sessions'''
 @router.get("/Sessions", status_code = status.HTTP_200_OK)
-async def get_all_sessions(user: user_dependency, db: db_dependency):
-    if user is None or user.get('user_role') != 'admin':
-        raise HTTPException(status_code = 401, detail = "Authentication Failed")
+async def get_all_sessions(db: db_dependency):
+    # if user is None or user.get('user_role') != 'admin':
+    #     raise HTTPException(status_code = 401, detail = "Authentication Failed")
     return db.query(Sessions).all()
 
 '''gets a session by it's id'''
@@ -192,7 +195,6 @@ async def update_user(user: user_dependency, db: db_dependency, user_request: Ad
 
     db.add(user_model)
     db.commit()
-
 
 '''TO DO fix update endpoints bellow. Wants the field from user for some reason. Should be the problem'''
 @router.put('/{skill_id}', status_code = status.HTTP_204_NO_CONTENT)
@@ -308,3 +310,8 @@ async def delete_session_by_id(user: user_dependency, db: db_dependency, session
 #         raise HTTPException(status_code = 404, detail = "User not found")
 #     db.query(Users).filter(Users.username == user_username).delete()
 #     db.commit()
+
+'''Renders the admin page'''
+@router.get('/admin-page')
+def render_admin_page(request: Request):
+    return templates.TemplateResponse('admin.html', {'request': request})
