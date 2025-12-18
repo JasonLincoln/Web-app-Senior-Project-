@@ -1,12 +1,13 @@
 "use strict"
 
-document.addEventListener('DOMContentLoaded', function () {
-	const btnHave = document.getElementById('toggle-have');
-	const btnNeed = document.getElementById('toggle-need');
-	const panelHave = document.getElementById('panel-have');
-	const panelNeed = document.getElementById('panel-need');
+// runs when the page content is loaded
+document.addEventListener('DOMContentLoaded', () => {
+	const btnHave = document.getElementById('toggle-have'); // button for "Skills I Have"
+	const btnNeed = document.getElementById('toggle-need'); // button for "Skills To Learn"
+	const panelHave = document.getElementById('panel-have'); // panel for "Skills I Have"
+	const panelNeed = document.getElementById('panel-need'); // panel for "Skills To Learn"
 
-	function setActive(type) {
+	const setActive = (type) => {
 		if (type === 'have') {
 			btnHave.classList.add('active');
 			btnNeed.classList.remove('active');
@@ -20,12 +21,12 @@ document.addEventListener('DOMContentLoaded', function () {
 		}
 	}
 
-	btnHave && btnHave.addEventListener('click', function (e) {
+	btnHave.addEventListener('click', function (e) {
 		e.preventDefault();
 		setActive('have');
 	});
 
-	btnNeed && btnNeed.addEventListener('click', function (e) {
+	btnNeed.addEventListener('click', function (e) {
 		e.preventDefault();
 		setActive('need');
 	});
@@ -64,6 +65,7 @@ document.addEventListener('DOMContentLoaded', function () {
 	});
 });
 
+// Function for switching between tabs; is ran from HTML onclick() 
 const tabFunctions = (tabName, event) => {
 	let tabContents = document.getElementsByClassName("creation-tabs"); // Get a list of profile tabs
 	let tabLinks = document.getElementsByClassName("tab-buttons");

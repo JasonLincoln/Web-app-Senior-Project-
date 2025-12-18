@@ -341,3 +341,14 @@ input.email, input.username {
 
 /* Ensure default anchors in the sidebox are hidden if transform didn't run yet */
 .skills-sidebox .dropdown-links a.link{ display:none }
+
+/* Responsiveness */
+/* Responsiveness */
+/* Responsiveness */
+@media only screen and (max-width: 500px) {
+    .skills-panel .information-grid {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        gap: 12px;
+    }
+}
