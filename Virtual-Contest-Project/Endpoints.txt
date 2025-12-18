@@ -1,22 +1,15 @@
 Endpoints
 
 Users endpoints
-search: username, rating-done
-update: skills**,** username, password**,** firstname, lastname /might want to do password in a separate update -done besides skill and password
+search: username, rating, 
+update: skills, username, password, fullname
+delete: skills
 
 Admin endpoints
-search: id, username-done
-delete: id username-done
+search: id, username
+delete: id username
 
-Js endpoints? /Where to put???
-Search: achievements, skills, sessions, messages, rating /achievements also in a different table /same with sessions / and messages /do I need another ratings
-update: ratings /should probably be a math function based on people's feedback
-delete: is active /think about what to do with this auto delete or something else
-
-int numb-of-rating
-float/double total-rating
-float/double final rating
-
-final-rating = total-rating/numb-of-ratings
-
-debate on if you do decimals or not for ratings
+Js endpoints, Where to put???
+Search: achievements, skills, sessions, messages, rating
+update: ratings
+delete: is active

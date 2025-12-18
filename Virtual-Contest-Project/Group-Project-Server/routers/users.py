@@ -58,11 +58,9 @@ async def render_main_page(request: Request):
     try:
         user = await get_current_user(request.cookies.get('access_token'))
         if user is None:
-            print('nada')
             return redirect_to_login()
         return templates.TemplateResponse('index.html', {'request': request})
     except:
-        print('Nope')
         return redirect_to_login()
 
 class UserVerification(BaseModel):

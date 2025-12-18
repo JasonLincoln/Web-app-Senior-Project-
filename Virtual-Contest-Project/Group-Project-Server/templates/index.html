@@ -6,12 +6,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.css">
     <!-- Page CSS -->
     <link rel="stylesheet" type = 'text/css' href="{{ url_for('static', path = 'css/index.css') }}">
-    <link rel="stylesheet" type = 'text/css' href="{{ url_for('static', path = 'css/main.css') }}">
 {% endblock %}
 
 {% block content %}
     <!-- Carousel -->
     <div class="page-wrapper">
+        <a href="/admin/admin-page">Admin Access</a>
         <div class="post-slider">
             <i class="fa-solid fa-chevron-left prev"></i>
             <i class="fa-solid fa-chevron-right next"></i>
@@ -193,7 +193,6 @@
 
 
 {% block extra_js %}
-    <script src="https://kit.fontawesome.com/16ce6dc272.js" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     <script src="../static/js/index.js"></script>

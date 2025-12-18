@@ -42,13 +42,7 @@ db_dependency = Annotated[Session, Depends(get_db)]
 class CreateUserRequest(BaseModel):
     email: str
     username: str
-    display_name: str
-    hashed_password: str
-    rating: int
-    pronouns: str
-    gender: str
-    biography: str
-    role: str
+    password: str
 
 class Token(BaseModel):
     access_token: str
@@ -90,15 +84,11 @@ async def get_current_user(token: Annotated[str, Depends(oauth2_bearer)]):
 '''Creates a login token for a user that last for 20 minutes'''
 @router.post('/token', response_model=Token)
 async def login_for_access_token(form_data: Annotated[OAuth2PasswordRequestForm, Depends()], db: db_dependency):
-    try:
-        user = authenticate_user(form_data.username, form_data.password, db)
-        if not user:
-            raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail = 'Could not validate user')
-        token = create_access_token(user.username, user.id, user.role, timedelta(minutes = 20))
-        return {'access_token': token, 'token_type': 'bearer'}
-    except JWTError:
-        print(sys.exc_info())
-        print(traceback.format_exc())
+    user = authenticate_user(form_data.username, form_data.password, db)
+    if not user:
+        raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail = 'Could not validate user')
+    token = create_access_token(user.username, user.id, user.role, timedelta(minutes = 20))
+    return {'access_token': token, 'token_type': 'bearer'}
 
 '''Creates a new user'''
 @router.post('/', status_code = status.HTTP_201_CREATED)
@@ -106,11 +96,7 @@ async def create_user(db:db_dependency, create_user_request: CreateUserRequest):
     create_user_model = Users(
         email = create_user_request.email,
         username = create_user_request.username,
-        display_name = create_user_request.display_name,
-        hashed_password = bcrypt_context.hash(create_user_request.hashed_password),
-        pronouns = create_user_request.pronouns,
-        gender = create_user_request.gender,
-        biography = create_user_request.biography,
+        hashed_password = bcrypt_context.hash(create_user_request.password),
         is_active = True
     )
     db.add(create_user_model)
