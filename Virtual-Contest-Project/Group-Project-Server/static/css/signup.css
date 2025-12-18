@@ -12,7 +12,7 @@
 /* Signup Page CSS */
 /* Signup Page CSS */
 
-#signup-body
+#signup-page 
 {
     display: flex;
     justify-content: center;
@@ -23,7 +23,7 @@
     background-position: center;
 }
 
-.wrapper
+#signup-page .wrapper
 {
     width: 420px;
     background: #f6f6f6;
@@ -32,13 +32,13 @@
     padding: 30px 40px;
 }
 
-.wrapper h1 {
+#signup-page .wrapper h1 {
     font-size: 30px;
     text-align: center;
     color: #7ed957;
 }
 
-.wrapper .signup {
+#signup-page .wrapper .signup {
     width: 100%;
     height: 45px;
     background-color: #7ed957;
@@ -53,26 +53,26 @@
     margin: 15px 0px;
 } 
 
-.wrapper .signup:hover
+#signup-page .wrapper .signup:hover
 {
     background-color: #a1db89;
 }
 
-.wrapper .login-link {
+#signup-page .wrapper .login-link {
     font-size: 14.5px;
     text-align: center;
     margin: 15px 0px 5px;
 }
 
 
-.input-box {
+#signup-page .input-box {
     position: relative;
     width: 100%;
     height: 50px;
     margin: 30px 0px;
 }
 
-.input-box input {
+#signup-page .input-box input {
     width: 100%;
     height: 100%;
     background: transparent;
@@ -84,11 +84,11 @@
     padding: 20px 45px 20px 20px;
 }
 
-.input-box input::placeholder {
+#signup-page .input-box input::placeholder {
     color: rgba(0, 0, 0, 0.5);
 }
 
-.input-box i {
+#signup-page .input-box i {
     position: absolute;
     right: 20px;
     top: 50%;
@@ -96,59 +96,59 @@
     font-size: 20px;
 }
 
-.extra-information {
+#signup-page .extra-information {
     font-size: 14.5px;
     margin: 15px 0px;
 }
 
-.extra-information p {
+#signup-page .extra-information p {
     margin: 20px 0px -10px;
 }
 
-.extra-information label input {
+#signup-page .extra-information label input {
     accent-color: green;
     margin-right: 3px;
 }
 
-.extra-information a {
+#signup-page .extra-information a {
     text-decoration: none;
     color: #4daf23;
 }
 
-.extra-information a:hover {
+#signup-page .extra-information a:hover {
     text-decoration: underline;
     color: #7ed957;
 }
 
-.login-link {
+#signup-page .login-link {
     font-size: 14.5px;
     text-align: center;
     margin: 15px 0px 5px;
 }
 
-.login-link p a {
+#signup-page .login-link p a {
     color: black;
     text-decoration: none;
     font-weight: 600;
 }
 
-.login-link p a:hover {
+#signup-page .login-link p a:hover {
     text-decoration: underline;
 }
 
-.requirements ul {
+#signup-page .requirements ul {
     list-style-type: none;
 }
 
-.requirements ul li {
+#signup-page .requirements ul li {
     display: flex;
     margin: 10px 0px;
 }
 
-.fa-xmark {
+#signup-page .fa-xmark {
     color: red;
 }
 
-.fa-check {
+#signup-page .fa-check {
     color: green;
 }

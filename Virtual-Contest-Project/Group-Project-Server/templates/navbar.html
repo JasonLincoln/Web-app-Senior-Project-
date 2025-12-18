@@ -1,26 +1,26 @@
-<div>
-  <nav class="navbar navbar-expand-md navbar-dark main-color fixed-top">
-    <a class="navbar-brand" href="#">Users App</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
-        {% if user %}
-        <li class="nav-item active">
-          <a class="nav-link" href="/users/users-page">Home</a>
+ <nav class="navbar">
+    <ul>
+        <li>
+            <a href="#">Explore <i class="fa-solid fa-chevron-down fa-2xs"></i> </a>
+            <ul>
+                <li><a href="#">Programming Languages</a></li>
+                <li><a href="#">Computers and Information Technology</a></li>
+                <li><a href="#">Mathematics</a></li>
+                <li><a href="#">Science</a></li>
+                <li><a href="#">Social Studies</a></li>
+                <li><a href="#">Business</a></li>
+                <li><a href="#">Life Skills</a></li>
+                <li><a href="#">Language Arts</a></li>
+            </ul>
         </li>
-        {% endif %}
-      </ul>
-
-      <ul class="navbar-nav ml-auto">
-        {% if user %}
-        <li class="nav-item m-1">
-          <a type="button" class="btn btn-outline-light text-white" onclick="logout()">Logout</a>
+        <li><a href="about_us.html">About</a></li>
+        <li><a href="sessions.html">Sessions</a></li>
+        <li>
+            <a href="#"><img src="../static/images/profileicon.png" alt=""></a>
+            <ul>
+                <li><a href="profile.html">Profile</a></li>
+                <li><a href="#">Signout</a></li>
+            </ul>
         </li>
-        {% endif %}
-      </ul>
-    </div>
-  </nav>
-</div>
+    </ul>
+</nav>
