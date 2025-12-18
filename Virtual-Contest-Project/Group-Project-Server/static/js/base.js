@@ -4,8 +4,6 @@
         loginForm.addEventListener('submit', async function (event) {
             event.preventDefault();
 
-            print('help');
-
             const form = event.target;
             const formData = new FormData(form);
 
@@ -34,7 +32,6 @@
                 } else {
                     // Handle error
                     const errorData = await response.json();
-                    print('here')
                     alert(`Error: ${errorData.detail}`);
                 }
             } catch (error) {
