@@ -1,5 +1,5 @@
 from typing import Annotated
-from fastapi import APIRouter, Depends, HTTPException, Path
+from fastapi import APIRouter, Depends, HTTPException, Path, Request
 from pydantic import BaseModel, Field
 from sqlalchemy.orm import Session
 from starlette import status
@@ -8,7 +8,6 @@ from models import Users, Skills, UsersSkills, Achievements, Messages, Sessions
 from routers.achievements import AchievementRequest
 from routers.auth import get_current_user
 from fastapi.templating import Jinja2Templates
-
 from routers.sessions import SessionsRequest
 from routers.skills import SkillRequest, UserSkillRequest
 
@@ -40,11 +39,15 @@ class AdminUserRequest(BaseModel):
     role: str = Field(min_length = 1, max_length = 100)
     is_active: bool = Field(default = True)
 
+@router.get('/admin-page')
+def render_admin_page(request: Request):
+    return templates.TemplateResponse('admin.html', {'request': request})
+
 '''gets all users'''
 @router.get("/user", status_code=status.HTTP_200_OK)
-async def get_all_users(user: user_dependency, db: db_dependency):
-    if user is None or user.get('user_role') != 'admin':
-        raise HTTPException(status_code = 401, detail = "Authentication Failed")
+async def get_all_users(db: db_dependency):
+    # if user is None:
+    #     raise HTTPException(status_code = 401, detail = "Authentication Failed")
     return db.query(Users).all()
 
 '''gets a user by their id'''
@@ -192,7 +195,6 @@ async def update_user(user: user_dependency, db: db_dependency, user_request: Ad
 
     db.add(user_model)
     db.commit()
-
 
 '''TO DO fix update endpoints bellow. Wants the field from user for some reason. Should be the problem'''
 @router.put('/{skill_id}', status_code = status.HTTP_204_NO_CONTENT)
