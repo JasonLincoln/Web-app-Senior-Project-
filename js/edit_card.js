@@ -129,8 +129,12 @@ const saveUserInput = () => {
     })
 
     $(".save-changes-btn").on("click", () => {
-        let desc = $(".textarea").val();
+        // insert user's biography input into the card for showcase
+        let desc = $(".about-me-textarea").val();
         $(".card-desc p").text(desc);
+        // insert user's display name into the card for showcase
+        let name = $(".display-name").val();
+        $(".creator h3").text(name);
     });
 };
 

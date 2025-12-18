@@ -1,24 +1,60 @@
 /* Overall Page */
 /* Overall Page */
 /* Overall Page */
-
-.profile-creation-page {
-    background-color: rgb(240, 240, 240);
-    margin: 10vh 10vw;
-    padding: 2vh 2vw;
-    box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.1);
+* {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.inputs-and-card
-{
+.profile-creation-page {
+    /* background-color: rgb(255, 255, 255); */
+    margin: 10vh 10vw;
+    height: fit-content;
+    box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.tab-content-collection {
+    padding: 3vw;
+}
+
+/* Tabs CSS */
+/* Tabs CSS */
+/* Tabs CSS */
+
+.button-containers {
+    width: 100%;
     display: flex;
 }
 
-.profile-creation-title
+.tab-buttons {
+    flex: 1;
+    padding: 10px;
+    background-color: inherit;
+    cursor: pointer;
+    border-style: none;
+}
+
+.tab-buttons.active-tab {
+    background-color: rgb(230, 230, 230);
+}
+
+.tab-buttons:hover {
+    background-color: rgb(230, 230, 230);
+    box-shadow: 0 -3px 0 rgb(20, 255, 20) inset; /* Acts as a internal border */
+    transition: background-color 0.5s ease;
+}
+
+/* CSS For Inputs */
+/* CSS For Inputs */
+/* CSS For Inputs */
+.inputs {
+    display: flex;
+    justify-content: space-between;
+}
+
+.header-title
 {
     width: fit-content;
     padding: 0;
-    margin-top: 10px;
     font-size: 25px;
     font-weight: bold;
     font-size: 28px;
@@ -40,10 +76,30 @@
     background-color: white;
     border: 1px solid rgba(0, 0, 0, 0.4);
     padding: 10px;
+    box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 input.email, input.username {
     color: rgba(0, 0, 0, 0.5);
+}
+
+.tooltip {
+    width: fit-content;
+    height: fit-content;
+    cursor: pointer;
+    position: relative;
+}
+
+.tooltip-text {
+    visibility: hidden; /* Hidden by default */
+    width: 130px;
+    background-color: black;
+    color: #ffffff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+    position: absolute;
+    z-index: 1; /* Ensure tooltip is displayed above content */
 }
 
 /* Biography-About Me */
@@ -57,10 +113,11 @@ input.email, input.username {
 
 .about-me-textarea {
     width: 300px;
-    height: 150px;
+    height: 120px;
     font-family: sans-serif;
     background-color: white;
     border: 1px solid rgba(0, 0, 0, 0.4);
+    box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     padding: 10px;
     resize: none;
 }
@@ -75,22 +132,35 @@ input.email, input.username {
 /* Radio Group Grid */
 /* Radio Group Grid */
 
+.radioboxes-and-card {
+    display: flex;
+    justify-content: space-between;
+}
+
 .radio-header {
     margin: 40px 0 0;
 }
 
 .radio-group-grid {
+    display: flex;
+    flex-direction: column;
     padding: 20px 0px;
 }
 
 .radio-group-grid input[type="radio"] {
-    margin-right: 5px;
+    margin: 10px 5px 10px 0px;
     vertical-align: middle; 
 }
 
 /* Carousel CSS */
 /* Carousel CSS */
 /* Carousel CSS */
+
+.edit-skills-section {
+    display: flex;
+    flex-direction: column;
+}
+
 .image-collection {
     visibility: hidden;
     width: 40vw;
@@ -145,8 +215,7 @@ input.email, input.username {
 /* Save Changes Button */
 /* Save Changes Button */
 .save-changes-wrapper {
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin: 50px 0 20px;
     display: flex;
     justify-content: center;
 }
@@ -165,3 +234,110 @@ input.email, input.username {
 .save-changes-btn:hover {
     background-color: var(--emerald-600);
 }
+
+/* Skills CSS */
+/* Skills CSS */
+/* Skills CSS */
+
+.skills-sidebox { 
+    position: static; 
+    width: auto; 
+    max-height: none; 
+    box-shadow: none; 
+}
+
+.skills-sidebox-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 8px;
+}
+
+.skills-sidebox h3 { margin: 0; font-size: 18px; }
+
+.skills-toggle { 
+    display: flex; 
+    gap: 6px; 
+    margin: 20px 0;
+}
+
+.toggle-btn {
+    background: transparent;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    padding:6px 8px;
+    cursor:pointer;
+    font-size:13px;
+}
+
+.toggle-btn.active {
+    background: var(--emerald-500, #10b981);
+    color: white;
+    border-color: transparent;
+}
+
+.skills-panel { 
+    display: none;
+}
+
+.skills-panel.active{ 
+    display: block;
+}
+
+.skills-panel .information-grid { 
+    display: grid; 
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 12px;
+}
+
+.skills-panel .dropdown-header { 
+    font-size: 14px; 
+    font-weight: 700; 
+    margin-bottom: 6px;
+}
+
+.skills-panel .dropdown-links { 
+    display: flex; 
+    flex-direction: column; 
+    gap: 4px; 
+}
+
+.skills-panel .link { 
+    color:#1f2937; 
+    text-decoration:none; 
+    font-size:13px 
+}
+
+/* Skill item checkbox styles */
+.skill-item {
+    display:flex;
+    align-items:center;
+    gap:8px;
+    padding:6px 8px;
+    border-radius:6px;
+    cursor:pointer;
+    user-select:none;
+}
+
+.skill-item:hover { 
+    background: rgba(15,23,42,0.03); 
+}
+
+.skill-checkbox { 
+    width:16px; 
+    height:16px; 
+    accent-color: var(--emerald-500, #10b981); 
+}
+
+.skill-item.selected { 
+    background: rgba(16,185,129,0.12); 
+}
+
+.skill-name { 
+    font-size:13px; 
+    color:#111827
+}
+
+/* Ensure default anchors in the sidebox are hidden if transform didn't run yet */
+.skills-sidebox .dropdown-links a.link{ display:none }

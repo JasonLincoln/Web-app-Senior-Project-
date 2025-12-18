@@ -1,3 +1,5 @@
+"use strict"
+
 document.addEventListener('DOMContentLoaded', function () {
 	const btnHave = document.getElementById('toggle-have');
 	const btnNeed = document.getElementById('toggle-need');
@@ -61,3 +63,20 @@ document.addEventListener('DOMContentLoaded', function () {
 		});
 	});
 });
+
+const tabFunctions = (tabName, event) => {
+	let tabContents = document.getElementsByClassName("creation-tabs"); // Get a list of profile tabs
+	let tabLinks = document.getElementsByClassName("tab-buttons");
+
+	// Loop through each tab and set display to none; the targeted tab will be displayed after this loop
+	for (let i = 0; i < tabContents.length; i++) {
+		tabContents[i].style.display = "none";
+	}
+
+	for (let i = 0; i < tabLinks.length; i++) {
+		tabLinks[i].className = tabLinks[i].className.replace(" active-tab", "");
+	}
+
+	document.getElementById(tabName).style.display = "block";
+	event.currentTarget.className += " active-tab";
+}
