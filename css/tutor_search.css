@@ -1,13 +1,6 @@
 * {
   box-sizing: border-box;
 }
-
-/* Temporary navbar for layout */
-.navbar-section {
-  height: 135px;
-  background-color: black;
-  margin-bottom: 20px;
-}
 /* Card CSS */
 /* Card CSS */
 /* Card CSS */
@@ -237,10 +230,6 @@
 
 /* Responsive Design */
 @media (max-width: 768px) {
-    .navbar-section {
-        height: 100px;
-        margin-bottom: 10px;
-    }
     .search-bar-filter-line {
         flex-direction: column;
         align-items: center;
