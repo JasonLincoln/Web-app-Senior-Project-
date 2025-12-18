@@ -3,25 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.css">
     <link rel="stylesheet" href="../css/profile_creation.css">
     <link rel="stylesheet" href="../css/tailwindcss-colors.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/edit_card.css">
     <title>Profile Creation</title>
 </head>
 <body>
-    <!-- Start: Profile Creation Page -->
+    <!-- Start: Profile Creation Section -->
     <div class="profile-creation-page">
         <form action="#">
-            <header class="profile-creation-title">Profile Settings</header>
-
             <!-- start: Creation Page Inputs -->
             <div class="creation-page-inputs">
+                <header class="profile-creation-title">Profile Settings</header>
                 <div class="email-wrapper">
                     <label for="email">Email address</label>
-                    <input type="email" class="email" name="email" value="giggitygiggity@goo.com" readonly>
+                    <input type="email" class="email" name="email" value="email@gmail.com" readonly>
                 </div>
                 <div class="username-wrapper">
                     <label for="username">Username</label>
-                    <input type="text" class="username" name="username" value="username" readonly>
+                    <input type="text" class="username" name="username" value="Username" readonly>
                 </div>
 
                 <div class="display-name-wrapper">
@@ -35,13 +37,31 @@
                 </div>
                 <div class="bio-wrapper">
                     <label for="bio">Bio</label>
-                    <textarea class="bio" name="bio" placeholder="Write a short bio about yourself"></textarea>
+                    <textarea class="textarea" name="c-desc" class="c-desc" placeholder="Enter Description Here" maxlength="150"></textarea>
+                    <div class="characters-left">150</div>
+                <form class="select-category">
+
+                    <h3 class="radio-header">What is Your Main Subject</h3>
+                    <div class="radio-group-grid">
+                        <label><input type="radio" name="which_category" value="prog_lang" class="prog_lang"> Programming</label>
+                        <label><input type="radio" name="which_category" value="computers" class="computers"> Computers & I.T.</label>
+                        <label><input type="radio" name="which_category" value="math" class="math"> Mathematics</label>
+                        <label><input type="radio" name="which_category" value="science" class="science"> Science</label>
+                        <label><input type="radio" name="which_category" value="social_studies" class="social_studies"> Social Studies</label>
+                        <label><input type="radio" name="which_category" value="business" class="business"> Business</label>
+                        <label><input type="radio" name="which_category" value="life_skills" class="life_skills"> Life Skills</label>
+                        <label><input type="radio" name="which_category" value="languages" class="languages"> Language Arts</label>
+                    </div>
+                </form>
             </div>
+                <div class="save-changes-wrapper">
+                    <button type="button" class="save-changes-btn">Save Changes</button>
+                </div>
             <!-- end: Creation Page Inputs -->
         </form>
     </div>
-    <!-- end: Profile Creation Page -->
-    <!-- Right-side skills panel -->
+    <!-- end: Profile Creation Section-->
+    <!-- start: Right-side skills panel -->
     <aside class="skills-sidebox" aria-hidden="false">
         <div class="skills-sidebox-header">
             <h3>Skills</h3>
@@ -53,7 +73,6 @@
 
         <div class="skills-panels">
             <div class="skills-panel have active" id="panel-have">
-                <!-- Copied categories from dropdown-menu -->
                 <div class="information-grid">
                     <div>
                         <div class="dropdown-header">Programming Languages</div>
@@ -105,6 +124,7 @@
                             <a href="#" class="link">History</a>
                             <a href="#" class="link">Economics</a>
                             <a href="#" class="link">Government</a>
+                            <a href="#" class="link">Geography</a>
                         </div>
                     </div>
                     <div>
@@ -141,7 +161,6 @@
             </div>
 
             <div class="skills-panel need" id="panel-need">
-                <!-- Same list duplicated for 'need' side. Could be replaced with dynamic content later. -->
                 <div class="information-grid">
                     <div>
                         <div class="dropdown-header">Programming Languages</div>
@@ -193,6 +212,7 @@
                             <a href="#" class="link">History</a>
                             <a href="#" class="link">Economics</a>
                             <a href="#" class="link">Government</a>
+                            <a href="#" class="link">Geography</a>
                         </div>
                     </div>
                     <div>
@@ -230,5 +250,47 @@
         </div>
     </aside>
 
+    <!-- start: edit skills section -->
+    <!-- Grid 1 -->
+    <div id="edit-skills-section">
+        <div class="card-container">
+            <div class="card">
+                <div class="card-image">
+                    <img src="../images/placeholder.png" alt="" class="selected-image">
+                </div>
+                
+                <div class="card-content">
+                    <div class="creator">
+                        <i class="fa-solid fa-user"></i>
+                        <h3>Profile User</h3>
+                    </div>
+                    <div class="card-desc">
+                        <p>This is a user card description. If the user exceeds a certain amount of characters, the text must be cut off.</p>
+                    </div>
+                    <div class="card-tags">
+                        <p>Tags (Will change with JS)</p>
+                    </div>
+                    <div class="rating">
+                        <i class="fa-solid fa-star"></i>
+                        <p>Rating (xxx Reviews)</p>
+                    </div>
+                </div> <!-- End Content -->
+            </div> <!-- End Card -->
+        </div> <!-- End Wrapper -->
+    </div>
+    <div class="image-collection">    
+        <div class="post-slider">
+            <i class="fa-solid fa-chevron-left prev"></i>
+            <i class="fa-solid fa-chevron-right next"></i>
+            
+            <div class="post-wrapper">
+                
+            </div> <!-- radio generates the image gallery here -->
+        </div> <!-- end post slider -->        
+    </div> <!-- end image collection -->
+    <!-- end: edit skills section -->
+    <script src="https://kit.fontawesome.com/16ce6dc272.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="../js/edit_card.js"></script>
     <script src="../js/profile-creation.js"></script>
 </body>

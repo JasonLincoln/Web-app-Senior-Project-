@@ -1,15 +1,10 @@
-*
-{
-    margin: 0;
-    padding: 0;
-}
-
 /* Card Title */
 .card
 {
     display: flex;
     flex-direction: column;
-    width: 300px;
+    width: 90%;
+    max-width: 300px;
     height: 450px;
     padding: 15px;
     background-color: rgb(240, 240, 240);
@@ -37,8 +32,8 @@
 /* Everything under the image */
 .card-content
 {
+    margin-top: -10px;
     display: inline-block;
-    margin: 10px 0px;
     height: 60%;
 }
 
@@ -47,7 +42,6 @@
 {
     display: flex;
     align-items: center;
-    margin: 10px 0px;
 }
 
 .creator i
@@ -58,6 +52,7 @@
 /* Card Description */
 .card-desc
 {
+    margin-top: -25px;
     overflow-wrap: break-word;
     height: 120px;
 }
@@ -65,12 +60,13 @@
 /* Card Tags */
 .card-tags
 {
-    margin-bottom: 30px;
+    margin-top: 30px;
 }
 
 /* Ratings */
 .rating
 {
+    margin-top: -10px;
     display: flex;
     align-items: center;
 }

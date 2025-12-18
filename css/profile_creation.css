@@ -72,28 +72,42 @@
 /* End: Dropdown */
 
 /* Start: Form Inputs */
+
+.creation-page-inputs {
+position: fixed;
+    left: 20px;
+    top: 20px;
+    width: 340px;
+    max-height: calc(100vh - 120px);
+    overflow: auto;
+    background: #ffffff;
+    border-radius: 10px;
+    padding: 12px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+    z-index: 50;
+    font-family: inherit;
+}
 .creation-page-inputs label{
     display: block;
     padding: 5px 5px 5px 0px;
+}
+.creation-page-inputs input[type="text"],
+.creation-page-inputs input[type="email"]{
+    width: 300px;
+    background-color: white;
+    border-radius: 10px;
+    border-color: black;
+    border-style: solid;
+    border-width: 1px;
+    outline: none;
+    padding: 10px;
 }
 .email-wrapper, .username-wrapper, .display-name-wrapper, .pronouns-wrapper,
 .skills-you-have-wrapper, .skills-to-learn-wrapper {
     margin-top: 10px;
     margin-bottom: 10px;
 }
-.input-row {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-.creation-page-inputs input {
-    outline: none;
-    border-radius: 10px;
-    border: none;
-    padding: 10px;
-}
-
-.bio-wrapper
+.profile-bio
 {
     width: 300px;
     height: 50px;
@@ -108,11 +122,34 @@
 }
 /* End: Form Inputs */
 
+/* Start: Save Changes Button */
+.save-changes-wrapper {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+}
+.save-changes-btn {
+    background-color: var(--emerald-500);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.save-changes-btn:hover {
+    background-color: var(--emerald-600);
+}
+/* End: Save Changes Button */
+
 /* Start: Right-side skills box */
 .skills-sidebox {
     position: fixed;
     right: 20px;
-    top: 90px;
+    top: 20px;
     width: 340px;
     max-height: calc(100vh - 120px);
     overflow: auto;
@@ -145,12 +182,31 @@
     color: white;
     border-color: transparent;
 }
-.skills-panel{ display:none }
-.skills-panel.active{ display:block }
-.skills-panel .information-grid{ display:grid; grid-template-columns:repeat(2, 1fr); gap:12px }
-.skills-panel .dropdown-header{ font-size:14px; font-weight:700; margin-bottom:6px }
-.skills-panel .dropdown-links{ display:flex; flex-direction:column; gap:4px }
-.skills-panel .link{ color:#1f2937; text-decoration:none; font-size:13px }
+.skills-panel{ 
+    display:none 
+}
+.skills-panel.active{ 
+    display:block 
+}
+.skills-panel .information-grid{ 
+    display:grid; 
+    grid-template-columns:repeat(2, 1fr); 
+    gap:12px 
+}
+.skills-panel .dropdown-header{ 
+    font-size:14px; 
+    font-weight:700; 
+    margin-bottom:6px 
+}
+.skills-panel .dropdown-links{ 
+    display:flex; 
+    flex-direction:column; 
+    gap:4px 
+}
+.skills-panel .link{ 
+    color:#1f2937; 
+    text-decoration:none; 
+    font-size:13px }
 
 /* Skill item checkbox styles */
 .skill-item{
@@ -162,16 +218,33 @@
     cursor:pointer;
     user-select:none;
 }
-.skill-item:hover{ background: rgba(15,23,42,0.03); }
-.skill-checkbox{ width:16px; height:16px; accent-color: var(--emerald-500, #10b981); }
-.skill-item.selected{ background: rgba(16,185,129,0.12); }
-.skill-name{ font-size:13px; color:#111827 }
+.skill-item:hover{ 
+    background: rgba(15,23,42,0.03); 
+}
+.skill-checkbox{ 
+    width:16px; 
+    height:16px; 
+    accent-color: var(--emerald-500, #10b981); 
+}
+.skill-item.selected{ 
+    background: rgba(16,185,129,0.12); 
+}
+.skill-name{ 
+    font-size:13px; 
+    color:#111827
+ }
 
 /* Ensure default anchors in the sidebox are hidden if transform didn't run yet */
 .skills-sidebox .dropdown-links a.link{ display:none }
 
 @media (max-width: 900px){
-    .skills-sidebox{ position: static; width: auto; max-height: none; box-shadow: none; margin: 12px; }
+    .skills-sidebox{ 
+        position: static; 
+        width: auto; 
+        max-height: none; 
+        box-shadow: none; 
+        margin: 12px; 
+    }
 }
 
 /* End: Right-side skills box */

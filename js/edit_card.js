@@ -128,7 +128,7 @@ const saveUserInput = () => {
         $(".characters-left").html(`${150 - descLength}`);
     })
 
-    $(".submit").on("click", () => {
+    $(".save-changes-btn").on("click", () => {
         let desc = $(".textarea").val();
         $(".card-desc p").text(desc);
     });

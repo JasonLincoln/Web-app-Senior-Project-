@@ -28,6 +28,20 @@ document.addEventListener('DOMContentLoaded', function () {
 		setActive('need');
 	});
 
+	// Optional: clicking a skill link will populate the corresponding textbox
+	document.querySelectorAll('.skills-sidebox .dropdown-links .link').forEach(function (link) {
+		link.addEventListener('click', function (e) {
+			e.preventDefault();
+			const text = this.textContent.trim();
+			const activePanel = document.querySelector('.skills-panel.active');
+			const isHave = activePanel && activePanel.id === 'panel-have';
+			// There are two inputs with class .skill-dropdown-textbox in the form: first = Have, second = Need
+			const inputs = Array.from(document.querySelectorAll('.skill-dropdown-textbox'));
+			const target = isHave ? inputs[0] : inputs[1];
+			if (target) target.value = text;
+		});
+	});
+
 	// Transform anchors inside the skills-sidebox into checkbox label items for each skill
 	const dropdownContainers = document.querySelectorAll('.skills-sidebox .dropdown-links');
 	dropdownContainers.forEach(function (container) {
