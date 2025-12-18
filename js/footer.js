@@ -2,7 +2,7 @@ let acc = document.getElementsByClassName("footer-accordion");
 
 for (let i = 0; i < acc.length; i++) {
     acc[i].addEventListener("click", function() {
-        this.classList.toggle("active");
+        this.classList.toggle("active-footer");
 
         let panel = this.nextElementSibling;
         if (panel.style.maxHeight) {

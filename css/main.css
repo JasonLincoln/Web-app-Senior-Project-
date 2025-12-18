@@ -154,7 +154,7 @@ footer
 /* Top Portion */
 /* Top Portion */
 /* Top Portion */
-#skillswap-header
+#skillswap-intro
 {
     display: flex;
     justify-content: center;
@@ -294,7 +294,7 @@ footer
     }
 
     /* Add a background color to the button if it is clicked on, and when you move the mouse over it.*/
-    .active, .footer-accordion:hover {
+    .active-footer, .footer-accordion:hover {
         background-color: rgb(230, 230, 230);
     }
 
@@ -316,7 +316,7 @@ footer
         margin-left: 5px;
     }
 
-    .active:after {
+    .active-footer:after {
         content: '\f106'; 
         font-family: "Font Awesome 5 Free";
         font-weight: 900;

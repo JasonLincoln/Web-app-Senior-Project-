@@ -31,15 +31,15 @@
     background-color: inherit;
     cursor: pointer;
     border-style: none;
+    background-color: rgb(230, 230, 230);
 }
 
 .tab-buttons.active-tab {
-    background-color: rgb(230, 230, 230);
+    background-color: rgb(250, 250, 250);
 }
 
 .tab-buttons:hover {
-    background-color: rgb(230, 230, 230);
-    box-shadow: 0 -3px 0 rgb(20, 255, 20) inset; /* Acts as a internal border */
+    background-color: rgb(240, 240, 240);
     transition: background-color 0.5s ease;
 }
 
@@ -114,7 +114,7 @@ input.email, input.username {
 .about-me-textarea {
     width: 300px;
     height: 120px;
-    font-family: sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: white;
     border: 1px solid rgba(0, 0, 0, 0.4);
     box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -147,6 +147,7 @@ input.email, input.username {
     padding: 20px 0px;
 }
 
+/* Select Category */
 .radio-group-grid input[type="radio"] {
     margin: 10px 5px 10px 0px;
     vertical-align: middle; 
@@ -162,7 +163,6 @@ input.email, input.username {
 }
 
 .image-collection {
-    visibility: hidden;
     width: 40vw;
     height: 200px;
 }
@@ -235,6 +235,81 @@ input.email, input.username {
     background-color: var(--emerald-600);
 }
 
+/* Cards CSS */
+/* Cards CSS */
+/* Cards CSS */
+
+/* Card Title */
+.card
+{
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    height: 450px;
+    padding: 15px;
+    background-color: rgb(240, 240, 240);
+    border-radius: 20px;
+    box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+/* Card Image */
+.card-image 
+{
+    text-align: center;
+}
+
+.card-image img
+{
+    border-radius: 20px;
+    width: 300px;
+    height: auto;
+    object-fit: cover;
+}
+
+/* Everything under the image */
+.card-content
+{
+    margin-top: 10px;
+    display: inline-block;
+    height: 60%;
+}
+
+/* Card Creator */
+.creator
+{
+    display: flex;
+    align-items: center;
+}
+
+.creator i
+{
+    margin-right: 5px;
+}
+
+/* Card Description */
+.card-desc
+{
+    margin-top: 10px;
+    overflow: hidden;
+    overflow-wrap: break-word;
+    height: 120px;
+}
+
+/* Card Tags */
+
+/* Ratings */
+.rating
+{
+    margin-top: 30px;
+    display: flex;
+    align-items: center;
+}
+
+.rating i
+{
+    margin-right: 5px;
+}
+
 /* Skills CSS */
 /* Skills CSS */
 /* Skills CSS */
@@ -283,6 +358,7 @@ input.email, input.username {
 
 .skills-panel.active{ 
     display: block;
+    background-color: rgb(230, 230, 230);
 }
 
 .skills-panel .information-grid { 
@@ -304,20 +380,20 @@ input.email, input.username {
 }
 
 .skills-panel .link { 
-    color:#1f2937; 
-    text-decoration:none; 
-    font-size:13px 
+    color: #1f2937; 
+    text-decoration: none; 
+    font-size: 13px ;
 }
 
 /* Skill item checkbox styles */
 .skill-item {
-    display:flex;
-    align-items:center;
-    gap:8px;
-    padding:6px 8px;
-    border-radius:6px;
-    cursor:pointer;
-    user-select:none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 8px;
+    border-radius: 6px;
+    cursor: pointer;
+    user-select: none;
 }
 
 .skill-item:hover { 
@@ -335,20 +411,176 @@ input.email, input.username {
 }
 
 .skill-name { 
-    font-size:13px; 
-    color:#111827
+    font-size: 13px; 
+    color: #111827;
 }
 
 /* Ensure default anchors in the sidebox are hidden if transform didn't run yet */
-.skills-sidebox .dropdown-links a.link{ display:none }
+.skills-sidebox .dropdown-links a.link { display: none; }
 
 /* Responsiveness */
 /* Responsiveness */
 /* Responsiveness */
+@media only screen and (max-width: 850px) {
+    .radioboxes-and-card {
+        margin-top: 50px;
+        display: flex;
+        flex-direction: column-reverse;
+    }
+
+    form.select-category {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .radio-group-grid label {
+        display: flex;
+        justify-content: left;
+        align-items: center;
+    }
+
+    .carousel-container {
+        display: flex;
+        justify-content: center;
+    }
+
+    .image-collection {
+        width: 70vw;
+        height: 200px;
+    }
+}
+
 @media only screen and (max-width: 500px) {
     .skills-panel .information-grid {
         display: grid;
         grid-template-columns: repeat(1, 1fr);
         gap: 12px;
+    }
+
+    .creation-page-inputs {
+        width: 100%;
+    }
+
+    .email-wrapper, .username-wrapper, .display-name-wrapper, .pronouns-wrapper,
+    .skills-you-have-wrapper, .skills-to-learn-wrapper, .bio-wrapper {
+        width: 100%;
+    }
+
+    .creation-page-inputs input[type="text"],
+    .creation-page-inputs input[type="email"] {
+        width: 90%;
+        background-color: white;
+        border: 1px solid rgba(0, 0, 0, 0.4);
+        padding: 10px 0px 10px 10px;
+        box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+
+    .textarea-container
+    {
+        position: relative;
+        width: 100%;
+    }
+
+    .about-me-textarea {
+        width: 90%;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: white;
+        border: 1px solid rgba(0, 0, 0, 0.4);
+        box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        padding: 10px 0px 10px 10px;
+        resize: none;
+    }
+
+    .characters-left {
+        color: rgba(0, 0, 0, 0.4);
+        position: absolute;
+        left: 0;
+    }
+
+    .card-container {
+        display: flex;
+        justify-content: center;
+    }
+
+    .card
+    {
+        display: flex;
+        flex-direction: column;
+        width: 200px;
+        height: 380px;
+        padding: 15px;
+        background-color: rgb(240, 240, 240);
+        border-radius: 20px;
+    }
+
+    /* Card Image */
+    .card-image 
+    {
+        text-align: center;
+    }
+
+    .card-image img
+    {
+        border-radius: 20px;
+        width: 200px;
+        height: auto;
+        object-fit: cover;
+    }
+
+    /* Everything under the image */
+    .card-content
+    {
+        margin-top: 10px;
+        display: inline-block;
+        height: 60%;
+    }
+
+    /* Card Creator */
+    .creator
+    {
+        display: flex;
+        align-items: center;
+    }
+
+    .creator i
+    {
+        margin-right: 5px;
+    }
+
+    /* Card Description */
+    .card-desc
+    {
+        overflow-wrap: break-word;
+        height: 120px;
+    }
+
+    /* Card Tags */
+    .card-tags
+    {
+        margin-top: 20px;
+    }
+
+    /* Ratings */
+    .rating
+    {
+        margin-top: 10px;
+        display: flex;
+        align-items: center;
+    }
+
+    .rating i
+    {
+        margin-right: 5px;
+    }
+
+    .button-containers {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .tab-buttons {
+        border-bottom: 2px solid rgba(0, 0, 0, 0.25);
     }
 }
