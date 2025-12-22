@@ -111,3 +111,8 @@ def render_login_page(request: Request):
 @router.get('/register-page')
 def render_register_page(request: Request):
     return templates.TemplateResponse('signup.html', {'request': request})
+
+'''Renders the tutor search page'''
+@router.get('/tutor-search')
+def render_tutor_search_page(request: Request):
+    return templates.TemplateResponse('tutor_search.html', {'request': request})
