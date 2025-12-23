@@ -56,7 +56,7 @@ let users = [];
 
 // Display Tutors
 const allTutors = document.getElementById('cards-grid');
-const tutorTemplate = document.querySelector("[data-tutor-template]");
+const tutorTemplate = document.getElementById('tutorTemplate');
 const getAllUsersEndpoint = '/admin/user';
 showAllUsers();
 
@@ -91,7 +91,7 @@ async function showAllUsers(){
 }
 
 // Search Tutors
-const searchBar = document.querySelector("[data-search]");
+const searchBar = document.getElementById('searchBar');
 searchBar.addEventListener("input", (e) => {
     const value = e.target.value.toLowerCase();
     users.forEach(item => {

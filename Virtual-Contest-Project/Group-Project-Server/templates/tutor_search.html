@@ -1,6 +1,7 @@
+{% extends 'layout.html' %}
+
 {% block extra_head %}
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css">
-    <link rel="stylesheet" href="../static/css/main.css">
     <link rel="stylesheet" href="../static/css/tailwindcss-colors.css">
     <link rel="stylesheet" href="../static/css/cards.css">
     <link rel="stylesheet" href="../static/css/tutor_search.css">
@@ -114,13 +115,13 @@
         <div class="search-bar-filter-line">
             <div class="search">
                 <i class="ri-search-line"></i>
-                <input type="search" id="searchBar" name="searchBar" class="search-bar" data-search>
+                <input type="search" id="searchBar" name="searchBar" class="search-bar">
             </div>
         </div>
     </div>
     <div id="cards-grid" class="cards-grid">
     </div>
-<template data-tutor-template>
+<template id="tutorTemplate">
     <div class="card-container">
             <div class="card">
                 <div class="card-image">
