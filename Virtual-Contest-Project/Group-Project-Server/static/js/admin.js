@@ -300,8 +300,8 @@ const createSkill = document.getElementById('createSkill');
             const data = Object.fromEntries(formData.entries);
 
             const payload = {
-                subcategory: data.createSubcategory,
-                supercategory: data.createSupercategory
+                subcategory: data.createSubCategory,
+                supercategory: data.createSuperCategory
             };
 
             try {

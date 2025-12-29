@@ -123,9 +123,9 @@ async def get_session_by_id(db: db_dependency, session_id: int = Path(gt = 0)):
 
 '''creates a new skill'''
 @router.post('/create_skill', status_code = status.HTTP_201_CREATED)
-async def create_skill(user: user_dependency, db: db_dependency, skill_request: SkillRequest):
-    if user is None or user.get('user_role') != 'admin':
-        raise HTTPException(status_code = 401, detail = "Authentication Failed")
+async def create_skill(db: db_dependency, skill_request: SkillRequest):
+    # if user is None or user.get('user_role') != 'admin':
+    #     raise HTTPException(status_code = 401, detail = "Authentication Failed")
     skill_model = Skills(**skill_request.model_dump())
     if skill_model is None:
         raise HTTPException(status_code = 404, detail = 'Skill not found')
@@ -143,7 +143,7 @@ async def create_skill(user: user_dependency, db: db_dependency, userskill_reque
     db.add(user_skill_model)
     db.commit()
 
-@router.put('/{user_id}', status_code = status.HTTP_204_NO_CONTENT)
+@router.put('/update_user/{user_id}', status_code = status.HTTP_204_NO_CONTENT)
 async def update_user(user: user_dependency, db: db_dependency, user_request: AdminUserRequest, user_id: int = Path(gt = 0)):
     if user is None or user.get('user_role') != 'admin':
         raise HTTPException(status_code = 401, detail = "Authentication Failed")
@@ -168,7 +168,7 @@ async def update_user(user: user_dependency, db: db_dependency, user_request: Ad
     db.commit()
 
 '''TO DO fix update endpoints bellow. Wants the field from user for some reason. Should be the problem'''
-@router.put('/{skill_id}', status_code = status.HTTP_204_NO_CONTENT)
+@router.put('/update_skill/{skill_id}', status_code = status.HTTP_204_NO_CONTENT)
 async def update_skill(user: user_dependency, db: db_dependency, skill_request: SkillRequest, skill_id: int = Path(gt = 0)):
     if user is None or user.get('user_role') != 'admin':
         raise HTTPException(status_code = 401, detail = "Authentication Failed")
@@ -184,7 +184,7 @@ async def update_skill(user: user_dependency, db: db_dependency, skill_request: 
     db.add(skill_model)
     db.commit()
 
-@router.put('/{session_id}', status_code = status.HTTP_204_NO_CONTENT)
+@router.put('/update_session/{session_id}', status_code = status.HTTP_204_NO_CONTENT)
 async def update_session(user: user_dependency, db: db_dependency, session_request: SessionsRequest, session_id: int = Path(gt = 0)):
     if user is None or user.get('user_role') != 'admin':
         raise HTTPException(status_code = 401, detail = "Authentication Failed")
@@ -233,7 +233,7 @@ async def delete_message_by_id(user: user_dependency, db: db_dependency, message
     db.commit()
 
 '''deletes a session by it's id'''
-@router.delete('/message/{message_id}', status_code = status.HTTP_204_NO_CONTENT)
+@router.delete('/session/{session_id}', status_code = status.HTTP_204_NO_CONTENT)
 async def delete_session_by_id(user: user_dependency, db: db_dependency, session_id: int = Path(gt = 0)):
     if user is None or user.get('user_role' != 'admin'):
         raise HTTPException(status_code = 401, detail = "Authentication Failed")
