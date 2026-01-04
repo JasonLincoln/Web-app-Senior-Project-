@@ -59,3 +59,89 @@ document.querySelectorAll('.conversation-back').forEach(function(item) {
     })
 })
 // end: Coversation
+
+//Messaging Functionality
+let chatMessages = [];
+
+const messageArea = document.querySelector('.conversation-wrapper');
+const myConversationItemTemplate = document.getElementById('my-conversation-item');
+const otherConversationItemTemplate = document.getElementById('other-conversation-item');
+const messageTemplate = document.getElementById('message');
+const currentUserEndpoint = '/users/';
+
+getCurrentUser().then(username => {
+    if(username) {
+        getFullChats(username);
+    }
+});
+
+async function getCurrentUser(){
+    const response = await fetch(currentUserEndpoint);
+    if (response.ok) {
+        const data = await response.json();
+        const currentUsername = data.username;
+        return currentUsername;
+    }
+    else {
+        const errorData = await response.json();
+        alert(`Error: ${errorData.detail}`);
+    }
+}
+
+async function getFullChats(currentUsername){
+    console.log("Getting all messages with user.");
+    const getFullChatEndpoint = `/messages/${currentUsername}`;
+    const response = await fetch(getFullChatEndpoint);
+    if (response.ok) {
+        const data = await response.json();
+        console.log(data);
+        console.log("Using user data for the getFullChat function.");
+        messageArea.innerHTML = "";
+        chatMessages = data.map(item => {
+            console.log("Displaying messages on page.");
+            let conversationItem = 0;
+            console.log(item.sender_username);
+            console.log(currentUsername);
+            if(item.sender_username == currentUsername)
+            {
+                conversationItem = myConversationItemTemplate.content.cloneNode(true).children[0];
+            }
+            else
+            {
+                conversationItem = otherConversationItemTemplate.content.cloneNode(true).children[0];
+            }
+            const conversationItemContent = conversationItem.querySelector('.conversation-item-content');
+            const message = messageTemplate.content.cloneNode(true).children[0];
+            const username = conversationItem.querySelector(".username");
+            const text = message.querySelector(".text");
+            const time_sent = message.querySelector(".timeSent");
+            const was_read = message.querySelector(".wasRead");
+
+            username.textContent = item.sender_username;
+            text.textContent = item.text;
+
+            const postgresDatetime = item.time_sent;
+            const jsDate = new Date(postgresDatetime);
+            const messageTime = jsDate.toLocaleTimeString();
+            time_sent.textContent = messageTime;
+
+            if(item.was_read == false)
+            {
+                was_read.textContent = "Delivered";
+            }
+            else
+            {
+                was_read.textContent = "Read";
+            }
+            conversationItemContent.append(message);
+            console.log(conversationItemContent);
+            conversationItem.append(conversationItemContent);
+            console.log(conversationItem);
+            messageArea.append(conversationItem);
+        });
+    }
+    else {
+        const errorData = await response.json();
+        alert(`Error: ${errorData.detail}`);
+    }
+}
