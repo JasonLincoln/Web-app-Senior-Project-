@@ -1,3 +1,13 @@
+//Messaging Functionality
+let chatMessages = [];
+
+const messageArea = document.querySelector('.conversation-wrapper');
+const myConversationItemTemplate = document.getElementById('my-conversation-item');
+const otherConversationItemTemplate = document.getElementById('other-conversation-item');
+const messageTemplate = document.getElementById('message');
+const currentUserEndpoint = '/users/';
+let talkingToUser = "";
+
 // start: Sidebar
 document.querySelector('.chat-sidebar-profile-toggle').addEventListener('click', function(e) {
     e.preventDefault()
@@ -8,6 +18,14 @@ document.addEventListener('click', function(e) {
     if(!e.target.matches('.chat-sidebar-profile, .chat-sidebar-profile *')) {
         document.querySelector('.chat-sidebar-profile').classList.remove('active')
     }
+})
+
+document.querySelector(".content-clicky").addEventListener('click', function(e) {
+    getCurrentUser().then(username => {
+        if(username) {
+            getFullChats(username);
+        }
+    });
 })
 // end: Sidebar
 
@@ -60,21 +78,6 @@ document.querySelectorAll('.conversation-back').forEach(function(item) {
 })
 // end: Coversation
 
-//Messaging Functionality
-let chatMessages = [];
-
-const messageArea = document.querySelector('.conversation-wrapper');
-const myConversationItemTemplate = document.getElementById('my-conversation-item');
-const otherConversationItemTemplate = document.getElementById('other-conversation-item');
-const messageTemplate = document.getElementById('message');
-const currentUserEndpoint = '/users/';
-
-getCurrentUser().then(username => {
-    if(username) {
-        getFullChats(username);
-    }
-});
-
 async function getCurrentUser(){
     const response = await fetch(currentUserEndpoint);
     if (response.ok) {
@@ -105,10 +108,12 @@ async function getFullChats(currentUsername){
             if(item.sender_username == currentUsername)
             {
                 conversationItem = myConversationItemTemplate.content.cloneNode(true).children[0];
+                talkingToUser = item.recipient_username;
             }
             else
             {
                 conversationItem = otherConversationItemTemplate.content.cloneNode(true).children[0];
+                talkingToUser = item.sender_username;
             }
             const conversationItemContent = conversationItem.querySelector('.conversation-item-content');
             const message = messageTemplate.content.cloneNode(true).children[0];
@@ -145,3 +150,44 @@ async function getFullChats(currentUsername){
         alert(`Error: ${errorData.detail}`);
     }
 }
+
+    const chatForm = document.getElementById('send_message');
+    if (chatForm) {
+        chatForm.addEventListener('submit', async function (event) {
+            event.preventDefault();
+
+            const form = event.target;
+            const formData = new FormData(form);
+            const data = Object.fromEntries(formData.entries());
+
+            const payload = {
+                recipient_username: talkingToUser,
+                text: data.text
+            };
+
+            try {
+                const response = await fetch('/messages/create_message', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(payload)
+                });
+
+                if (response.ok) {
+                    getCurrentUser().then(username => {
+                        if(username) {
+                            getFullChats(username);
+                        }
+                    });
+                } else {
+                    // Handle error
+                    const errorData = await response.json();
+                    alert(`Error: ${errorData.message}`);
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('An error occurred. Please try again.');
+            }
+        });
+    }

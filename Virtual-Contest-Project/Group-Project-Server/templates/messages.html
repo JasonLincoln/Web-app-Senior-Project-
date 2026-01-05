@@ -50,7 +50,7 @@
                     <div class="content-messages">
                         <ul class="content-messages-list">
                             <li class="content-message-title"><span>Recently</span></li>
-                            <li>
+                            <li class="content-clicky">
                                 <a href="#" data-conversation="#conversation-1">
                                     <img class="content-message-image" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=
                                     rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8cGVvcGxlfGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=500" alt="">
@@ -64,7 +64,7 @@
                                     </span>
                                 </a>
                             </li>
-                            <li>
+                            <li class="content-clicky">
                                 <a href="#" data-conversation="#conversation-1">
                                     <img class="content-message-image" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=
                                     rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8cGVvcGxlfGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=500" alt="">
@@ -77,7 +77,7 @@
                                     </span>
                                 </a>
                             </li>
-                            <li>
+                            <li class="content-clicky">
                                 <a href="#" data-conversation="#conversation-1">
                                     <img class="content-message-image" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=
                                     rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8cGVvcGxlfGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=500" alt="">
@@ -91,7 +91,7 @@
                                     </span>
                                 </a>
                             </li>
-                            <li>
+                            <li class="content-clicky">
                                 <a href="#" data-conversation="#conversation-1">
                                     <img class="content-message-image" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=
                                     rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8cGVvcGxlfGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=500" alt="">
@@ -104,7 +104,7 @@
                                     </span>
                                 </a>
                             </li>
-                            <li>
+                            <li class="content-clicky">
                                 <a href="#" data-conversation="#conversation-1">
                                     <img class="content-message-image" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=
                                     rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8cGVvcGxlfGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=500" alt="">
@@ -118,7 +118,7 @@
                                     </span>
                                 </a>
                             </li>
-                            <li>
+                            <li class="content-clicky">
                                 <a href="#" data-conversation="#conversation-1">
                                     <img class="content-message-image" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=
                                     rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8cGVvcGxlfGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=500" alt="">
@@ -162,14 +162,14 @@
 
                         </ul>
                     </div>
-                    <div class="conversation-form">
+                    <form id="send_message" class="conversation-form">
                         <button type="button" class="conversation-form-button"><i class="ri-emotion-line"></i></button>
                         <div class="conversation-form-group">
-                            <textarea class="conversation-form-input" rows="1" placeholder="Type here..."></textarea>
+                            <textarea class="conversation-form-input" rows="1" name="text" placeholder="Type here..."></textarea>
                             <button type="button" class="conversation-form-record"><i class="ri-mic-line"></i></button>
                         </div>
-                        <button type="button" class="conversation-form-button conversation-form-submit"><i class="ri-send-plane-2-line"></i></button>
-                    </div>
+                        <button type="submit" class="conversation-form-button conversation-form-submit"><i class="ri-send-plane-2-line"></i></button>
+                    </form>
                 </div>
                 <div class="conversation" id="conversation-2">
                     <div class="conversation-top">

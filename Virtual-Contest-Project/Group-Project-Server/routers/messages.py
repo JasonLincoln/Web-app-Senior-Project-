@@ -59,7 +59,8 @@ async def get_all_messages_with_user(request: Request, db: db_dependency, other_
 
 '''creates a new message between two users'''
 @router.post('/create_message', status_code = status.HTTP_201_CREATED)
-async def create_message(user: user_dependency, db: db_dependency, message_request: MessagesRequest):
+async def create_message(request: Request, db: db_dependency, message_request: MessagesRequest):
+    user = await get_current_user(request.cookies.get('access_token'))
     if user is None:
         raise HTTPException(status_code = 401, detail = "Authentication Failed")
     message_model = Messages(**message_request.model_dump(), sender_username = user.get('username'))
