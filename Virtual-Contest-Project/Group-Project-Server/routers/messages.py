@@ -7,7 +7,7 @@ from starlette import status
 from database import SessionLocal
 from models import Messages
 from routers.auth import get_current_user
-from routers.users import redirect_to_login
+from routers.pages import redirect_to_login
 from sqlalchemy import and_, or_
 from fastapi.templating import Jinja2Templates
 
@@ -31,17 +31,6 @@ templates = Jinja2Templates(directory = "templates")
 class MessagesRequest(BaseModel):
     recipient_username: str = Field(min_length = 1, max_length = 100)
     text: str = Field(min_length = 1, max_length = 100)
-
-'''Renders the main page'''
-@router.get('/messages-page')
-async def render_messages_page(request: Request):
-    try:
-        user = await get_current_user(request.cookies.get('access_token'))
-        if user is None:
-            return redirect_to_login()
-        return templates.TemplateResponse('messages.html', {'request': request})
-    except:
-        return redirect_to_login()
 
 '''gets all messages a user has to or from another user'''
 @router.get("/{other_user_username}", status_code = status.HTTP_200_OK)

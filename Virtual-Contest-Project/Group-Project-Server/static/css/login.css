@@ -73,6 +73,15 @@
     padding: 20px 45px 20px 20px;
 }
 
+#login-page .input-box #passwordToggle {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+    cursor: pointer;
+}
+
 #login-page .input-box input::placeholder {
     color: rgba(0, 0, 0, 0.5);
 }

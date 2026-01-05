@@ -140,9 +140,7 @@ async def create_skill(user: user_dependency, db: db_dependency, userskill_reque
     db.commit()
 
 @router.put('/update_user/{user_id}', status_code = status.HTTP_204_NO_CONTENT)
-async def update_user(user: user_dependency, db: db_dependency, user_request: AdminUserRequest, user_id: int = Path(gt = 0)):
-    if user is None or user.get('user_role') != 'admin':
-        raise HTTPException(status_code = 401, detail = "Authentication Failed")
+async def update_user(db: db_dependency, user_request: AdminUserRequest, user_id: int = Path(gt = 0)):
     user_model = (db.query(Users)
                    .filter(user_id == Users.id)
                    .first())
@@ -165,9 +163,7 @@ async def update_user(user: user_dependency, db: db_dependency, user_request: Ad
 
 '''TO DO fix update endpoints bellow. Wants the field from user for some reason. Should be the problem'''
 @router.put('/update_skill/{skill_id}', status_code = status.HTTP_204_NO_CONTENT)
-async def update_skill(user: user_dependency, db: db_dependency, skill_request: SkillRequest, skill_id: int = Path(gt = 0)):
-    if user is None or user.get('user_role') != 'admin':
-        raise HTTPException(status_code = 401, detail = "Authentication Failed")
+async def update_skill(db: db_dependency, skill_request: SkillRequest, skill_id: int = Path(gt = 0)):
     skill_model = (db.query(Skills)
                    .filter(skill_id == Skills.id)
                    .first())
@@ -181,9 +177,7 @@ async def update_skill(user: user_dependency, db: db_dependency, skill_request: 
     db.commit()
 
 @router.put('/update_session/{session_id}', status_code = status.HTTP_204_NO_CONTENT)
-async def update_session(user: user_dependency, db: db_dependency, session_request: SessionsRequest, session_id: int = Path(gt = 0)):
-    if user is None or user.get('user_role') != 'admin':
-        raise HTTPException(status_code = 401, detail = "Authentication Failed")
+async def update_session(db: db_dependency, session_request: SessionsRequest, session_id: int = Path(gt = 0)):
     session_model = (db.query(Sessions)
                    .filter(session_id == Sessions.id)
                    .first())

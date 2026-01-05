@@ -34,13 +34,19 @@ templates = Jinja2Templates(directory = "templates")
 
 '''Redirects the user to the login page if not logged in'''
 def redirect_to_login():
-    redirect_response = RedirectResponse(url="../auth/login-page", status_code=status.HTTP_302_FOUND)
+    redirect_response = RedirectResponse(url="../pages/login", status_code=status.HTTP_302_FOUND)
     redirect_response.delete_cookie(key = 'access_token')
     return redirect_response
 
 @router.get('/admin-page')
-def render_admin_page(request: Request):
-    return templates.TemplateResponse('admin.html', {'request': request})
+async def render_admin_page(request: Request):
+    try:
+        user = await get_current_user(request.cookies.get('access_token'))
+        if user is None:
+            return redirect_to_login()
+        return templates.TemplateResponse('admin.html', {'request': request, 'user': user})
+    except:
+        return redirect_to_login()
 
 '''Renders the index page'''
 @router.get('/index')
@@ -50,6 +56,17 @@ async def render_main_page(request: Request):
         if user is None:
             return redirect_to_login()
         return templates.TemplateResponse('index.html', {'request': request, 'user': user})
+    except:
+        return redirect_to_login()
+
+'''Renders the tutor search page'''
+@router.get('/explore')
+async def render_search_page(request: Request):
+    try:
+        user = await get_current_user(request.cookies.get('access_token'))
+        if user is None:
+            return redirect_to_login()
+        return templates.TemplateResponse('tutor_search.html', {'request': request, 'user': user})
     except:
         return redirect_to_login()
 
