@@ -490,5 +490,5 @@
 {% endblock %}
 
 {% block extra_js %}
-    <script src="../js/messages.js"></script>
+    <script src="{{ url_for('static', path = 'js/messages.js') }}"></script>
 {% endblock %}

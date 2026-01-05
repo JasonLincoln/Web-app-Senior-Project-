@@ -39,10 +39,6 @@ class AdminUserRequest(BaseModel):
     role: str = Field(min_length = 1, max_length = 100)
     is_active: bool = Field(default = True)
 
-@router.get('/admin-page')
-def render_admin_page(request: Request):
-    return templates.TemplateResponse('admin.html', {'request': request})
-
 '''gets all users'''
 @router.get("/user", status_code=status.HTTP_200_OK)
 async def get_all_users(db: db_dependency):

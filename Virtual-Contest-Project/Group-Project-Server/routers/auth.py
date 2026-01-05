@@ -101,13 +101,3 @@ async def create_user(db:db_dependency, create_user_request: CreateUserRequest):
     )
     db.add(create_user_model)
     db.commit()
-
-'''Renders the login page'''
-@router.get('/login-page')
-def render_login_page(request: Request):
-    return templates.TemplateResponse('login.html', {'request': request})
-
-'''Renders the register page'''
-@router.get('/register-page')
-def render_register_page(request: Request):
-    return templates.TemplateResponse('signup.html', {'request': request})

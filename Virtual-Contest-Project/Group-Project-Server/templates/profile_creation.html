@@ -1,51 +1,327 @@
 {% extends 'layout.html' %}
 
 {% block extra_head %}
-    <title>Profile Creation</title>
-    <link rel="stylesheet" type = 'text/css' href="{{ url_for('static', path = 'css/profile_creation.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.css">
+    <link rel="stylesheet" href="../static/css/profile_creation.css">
+    <link rel="stylesheet" href="../static/css/tailwindcss-colors.css">
+    <title>Profile Creation Page</title>
 {% endblock %}
 
 {% block content %}
-    <!-- Basis for profile creation for new and past users -->
-    <form action="profile.html">
-        <h3>First Name</h3>
-        <input type="text" id="first" name="first" placeholder="Enter your first name">
-
-        <h3>Last Name</h3>
-        <input type="text" id="last" name="last" placeholder="Enter your last name">
-
-        <h3>Pronouns</h3>
-        <input type="text" id="pronouns" name="pronouns" placeholder="Enter your pronouns">
-
-        <h3>Skills You Have</h3>
-        <input type="text" id="have-dropdown-textbox" placeholder="Select Skill" readonly>
-        <div id="have-dropdown">
-            <!-- Include the ability to when hover over dropdown button, display the skill-dropdown-content -->
-            <button id="have-dropdown-button">
-                ▼
-            </button>
-            <ul id="have-dropdown-content">
-                <li><a class="dropdown-item" href="#">Math</a></li>
-                <li><a class="dropdown-item" href="#">Science</a></li>
-                <li><a class="dropdown-item" href="#">History</a></li>
-            </ul>
+    <div>
+    <!-- All Content Inside The Central Box -->
+    <div class="profile-creation-page">
+        <!-- Tabs -->
+        <div class="button-containers">
+            <button class="tab-buttons active-tab" onclick="tabFunctions('profile-tab', event)">Profile Settings</button>
+            <button class="tab-buttons" onclick="tabFunctions('card-tab', event)">Card Settings</button>
+            <button class="tab-buttons" onclick="tabFunctions('skills-tab', event)">Skills Settings</button>
         </div>
+        <!-- Page Contents of the tabs -->
+        <div class="tab-content-collection">
+            <!-- Profile Tab -->
+            <div id="profile-tab" class="creation-tabs">
+                <!-- Top: Section for Inputs -->
+                <div class="inputs">
+                    <!-- Input Section -->
+                    <div class="creation-page-inputs">
+                        <header class="header-title">Profile Settings</header>
+                        <!-- Email -->
+                        <div class="email-wrapper">
+                            <label for="email">Email Address</label>
+                            <input type="email" class="email" name="email" value="email@gmail.com" readonly>
+                        </div>
+                        <!-- Username -->
+                        <div class="username-wrapper">
+                            <label for="username">Username</label>
+                            <input type="text" class="username" name="username" value="Username" readonly>
+                        </div>
+                        <!-- Display Name -->
+                        <div class="display-name-wrapper">
+                            <label for="display-name"> Display Name </label>
+                            <input type="text" class="display-name" name="display-name" value="" placeholder="Enter Your Display Name" maxlength="18">
+                        </div>
+                        <!-- Pronouns -->
+                        <div class="pronouns-wrapper">
+                            <label for="pronouns">Pronouns</label>
+                            <input type="text" class="pronouns" name="pronouns" placeholder="Enter your pronouns">
+                        </div>
+                        <!-- Biography -->
+                        <div class="bio-wrapper">
+                            <label for="bio">About Me</label>
+                            <div class="textarea-container">
+                                <textarea class="about-me-textarea" name="c-desc" class="c-desc" placeholder="Enter Description Here" maxlength="150"></textarea>
+                                <div class="characters-left">150</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Bottom: Save Button -->
+                <div class="save-changes-wrapper">
+                    <button type="button" class="save-changes-btn">Save Changes</button>
+                </div>
+            </div>
+            <!-- Card Tab -->
+            <div id="card-tab" class="creation-tabs" style="display: none">
+                <header class="header-title">Card Settings</header>
+                <!-- Top: Container For Radioboxes And Card -->
+                <div class="radioboxes-and-card">
+                    <!-- Left: Radioboxes -->
+                    <form class="select-category">
+                        <h3 class="radio-header">What is your main subject?</h3>
+                        <div class="radio-group-grid">
+                            <label><input type="radio" name="which_category" value="prog_lang" class="prog_lang"> Programming</label>
+                            <label><input type="radio" name="which_category" value="computers" class="computers"> Computers & I.T.</label>
+                            <label><input type="radio" name="which_category" value="math" class="math"> Mathematics</label>
+                            <label><input type="radio" name="which_category" value="science" class="science"> Science</label>
+                            <label><input type="radio" name="which_category" value="social_studies" class="social_studies"> Social Studies</label>
+                            <label><input type="radio" name="which_category" value="business" class="business"> Business</label>
+                            <label><input type="radio" name="which_category" value="life_skills" class="life_skills"> Life Skills</label>
+                            <label><input type="radio" name="which_category" value="languages" class="languages"> Language Arts</label>
+                        </div>
+                    </form>
 
-        <h3>Skills To Learn</h3>
-        <input type="text" id="skill-dropdown-textbox" placeholder="Select Skill" readonly>
-        <div id="learn-dropdown">
-            <!-- Include the ability to when hover over dropdown button, display the skill-dropdown-content -->
-            <button id="learn-dropdown-button">
-                ▼
-            </button>
-            <ul id="learn-dropdown-content">
-                <li><a class="dropdown-item" href="#">Math</a></li>
-                <li><a class="dropdown-item" href="#">Science</a></li>
-                <li><a class="dropdown-item" href="#">History</a></li>
-            </ul>
+                    <!-- Right: Card Template -->
+                    <div id="edit-skills-section">
+                        <div class="card-container">
+                            <div class="card">
+                                <div class="card-image">
+                                    <img src="../images/placeholder.png" alt="" class="selected-image">
+                                </div>
+
+                                <div class="card-content">
+                                    <div class="creator">
+                                        <i class="fa-solid fa-user"></i>
+                                        <h3>Profile User</h3>
+                                    </div>
+                                    <div class="card-desc">
+                                        <p>This is a user card description. If the user exceeds a certain amount of characters, the text must be cut off.</p>
+                                    </div>
+                                    <div class="card-tags">
+                                        <p>Tags (Will change with JS)</p>
+                                    </div>
+                                    <div class="rating">
+                                        <i class="fa-solid fa-star"></i>
+                                        <p>Rating (xxx Reviews)</p>
+                                    </div>
+                                </div> <!-- End Content -->
+                            </div> <!-- End Card -->
+                        </div> <!-- End Wrapper -->
+                    </div>
+                </div>
+
+                <!-- Bottom: Image Collection (Appears After Radio Selection) -->
+                <div class="carousel-container">
+                    <div class="image-collection" style="visibility: hidden;">
+                        <div class="post-slider">
+                            <i class="fa-solid fa-chevron-left prev"></i>
+                            <i class="fa-solid fa-chevron-right next"></i>
+
+                            <div class="post-wrapper">
+
+                            </div> <!-- radio generates the image gallery here -->
+                        </div> <!-- end post slider -->
+                    </div> <!-- end image collection -->
+                </div>
+
+            </div>
+            <!-- Skills Tab -->
+            <div id="skills-tab" class="creation-tabs" style="display: none">
+                <header class="header-title">Skills Settings</header>
+
+                <div class="skills-sidebox" aria-hidden="false">
+                    <div class="skills-sidebox-header">
+                        <div class="skills-toggle">
+                            <button id="toggle-have" class="toggle-btn active">Skills I Have</button>
+                            <button id="toggle-need" class="toggle-btn">Skills To Learn</button>
+                        </div>
+                    </div>
+
+                    <div class="skills-panels">
+                        <div class="skills-panel have active" id="panel-have">
+                            <div class="information-grid">
+                                <div>
+                                    <div class="dropdown-header">Programming Languages</div>
+                                    <div class="dropdown-links">
+                                        <a href="#" class="link">Python</a>
+                                        <a href="#" class="link">Java</a>
+                                        <a href="#" class="link">C++</a>
+                                        <a href="#" class="link">C#</a>
+                                        <a href="#" class="link">HTML</a>
+                                        <a href="#" class="link">CSS</a>
+                                        <a href="#" class="link">Javascript</a>
+                                        <a href="#" class="link">SQL</a>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="dropdown-header">Computers & Information Technology</div>
+                                    <div class="dropdown-links">
+                                        <a href="#" class="link">Microsoft Word</a>
+                                        <a href="#" class="link">Microsoft Excel</a>
+                                        <a href="#" class="link">Microsoft Powerpoint</a>
+                                        <a href="#" class="link">Networking</a>
+                                        <a href="#" class="link">Cybersecurity</a>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="dropdown-header">Mathematics</div>
+                                    <div class="dropdown-links">
+                                        <a href="#" class="link">Algebra</a>
+                                        <a href="#" class="link">Statistics</a>
+                                        <a href="#" class="link">Geometry</a>
+                                        <a href="#" class="link">Pre-Calculus</a>
+                                        <a href="#" class="link">Calculus</a>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="dropdown-header">Science</div>
+                                    <div class="dropdown-links">
+                                        <a href="#" class="link">Biology</a>
+                                        <a href="#" class="link">Chemistry</a>
+                                        <a href="#" class="link">Anatomy & Physiology</a>
+                                        <a href="#" class="link">Physics</a>
+                                        <a href="#" class="link">Astrology</a>
+                                        <a href="#" class="link">Nutrition</a>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="dropdown-header">Social Studies</div>
+                                    <div class="dropdown-links">
+                                        <a href="#" class="link">History</a>
+                                        <a href="#" class="link">Economics</a>
+                                        <a href="#" class="link">Government</a>
+                                        <a href="#" class="link">Geography</a>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="dropdown-header">Business</div>
+                                    <div class="dropdown-links">
+                                        <a href="#" class="link">Accounting</a>
+                                        <a href="#" class="link">Banking & Finance</a>
+                                        <a href="#" class="link">Entrepreneurship</a>
+                                        <a href="#" class="link">Marketing</a>
+                                        <a href="#" class="link">Real Estate</a>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="dropdown-header">Life Skills</div>
+                                    <div class="dropdown-links">
+                                        <a href="#" class="link">Cars</a>
+                                        <a href="#" class="link">College Admissions</a>
+                                        <a href="#" class="link">Job Applications</a>
+                                        <a href="#" class="link">Social Media</a>
+                                        <a href="#" class="link">Physical Arts</a>
+                                        <a href="#" class="link">Visual Arts</a>
+                                        <a href="#" class="link">Music</a>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="dropdown-header">Foreign Languages</div>
+                                    <div class="dropdown-links">
+                                        <a href="#" class="link">English</a>
+                                        <a href="#" class="link">Spanish</a>
+                                        <a href="#" class="link">French</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="skills-panel need" id="panel-need">
+                            <div class="information-grid">
+                                <div>
+                                    <div class="dropdown-header">Programming Languages</div>
+                                    <div class="dropdown-links">
+                                        <a href="#" class="link">Python</a>
+                                        <a href="#" class="link">Java</a>
+                                        <a href="#" class="link">C++</a>
+                                        <a href="#" class="link">C#</a>
+                                        <a href="#" class="link">HTML</a>
+                                        <a href="#" class="link">CSS</a>
+                                        <a href="#" class="link">Javascript</a>
+                                        <a href="#" class="link">SQL</a>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="dropdown-header">Computers & Information Technology</div>
+                                    <div class="dropdown-links">
+                                        <a href="#" class="link">Microsoft Word</a>
+                                        <a href="#" class="link">Microsoft Excel</a>
+                                        <a href="#" class="link">Microsoft Powerpoint</a>
+                                        <a href="#" class="link">Networking</a>
+                                        <a href="#" class="link">Cybersecurity</a>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="dropdown-header">Mathematics</div>
+                                    <div class="dropdown-links">
+                                        <a href="#" class="link">Algebra</a>
+                                        <a href="#" class="link">Statistics</a>
+                                        <a href="#" class="link">Geometry</a>
+                                        <a href="#" class="link">Pre-Calculus</a>
+                                        <a href="#" class="link">Calculus</a>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="dropdown-header">Science</div>
+                                    <div class="dropdown-links">
+                                        <a href="#" class="link">Biology</a>
+                                        <a href="#" class="link">Chemistry</a>
+                                        <a href="#" class="link">Anatomy & Physiology</a>
+                                        <a href="#" class="link">Physics</a>
+                                        <a href="#" class="link">Astrology</a>
+                                        <a href="#" class="link">Nutrition</a>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="dropdown-header">Social Studies</div>
+                                    <div class="dropdown-links">
+                                        <a href="#" class="link">History</a>
+                                        <a href="#" class="link">Economics</a>
+                                        <a href="#" class="link">Government</a>
+                                        <a href="#" class="link">Geography</a>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="dropdown-header">Business</div>
+                                    <div class="dropdown-links">
+                                        <a href="#" class="link">Accounting</a>
+                                        <a href="#" class="link">Banking & Finance</a>
+                                        <a href="#" class="link">Entrepreneurship</a>
+                                        <a href="#" class="link">Marketing</a>
+                                        <a href="#" class="link">Real Estate</a>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="dropdown-header">Life Skills</div>
+                                    <div class="dropdown-links">
+                                        <a href="#" class="link">Cars</a>
+                                        <a href="#" class="link">College Admissions</a>
+                                        <a href="#" class="link">Job Applications</a>
+                                        <a href="#" class="link">Social Media</a>
+                                        <a href="#" class="link">Physical Arts</a>
+                                        <a href="#" class="link">Visual Arts</a>
+                                        <a href="#" class="link">Music</a>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="dropdown-header">Foreign Languages</div>
+                                    <div class="dropdown-links">
+                                        <a href="#" class="link">English</a>
+                                        <a href="#" class="link">Spanish</a>
+                                        <a href="#" class="link">French</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-    </form>
+    </div>
+</div>
 {% endblock %}
 
 {% block extra_js %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="../static/js/edit_card.js"></script>
 {% endblock %}
