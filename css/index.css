@@ -1,4 +1,6 @@
 /* Overall */
+/* Overall */
+/* Overall */
 
 h1, h2, h3, h4, h5, h6, p {
     font-family: 'Candal', serif;
@@ -10,9 +12,17 @@ a {
     color: inherit;
 }
 
-/* Carousel CSS */
-/* Carousel CSS */
-/* Carousel CSS */
+/* Header for each section */
+.skillswap-title {
+    margin: 100px 20vw 50px;
+    padding-bottom: 5px;
+    border-bottom: 3px solid rgba(0, 0, 0, 0.3);
+
+}
+
+/* Start: Carousel CSS */
+/* Start: Carousel CSS */
+/* Start: Carousel CSS */
 
 .page-wrapper a:hover {
     color: rgb(160, 218, 160);
@@ -26,7 +36,7 @@ a {
 .post-slider .prev {
     position: absolute;
     top: 50%;
-    left: 8%; /* fix arrows cutting off */
+    left: 8vw; /* fix arrows cutting off */
     font-size: 2em;
     color: black;
     cursor: pointer;
@@ -35,7 +45,7 @@ a {
 .post-slider .next {
     position: absolute;
     top: 50%;
-    right: 8%; /* fix arrows cutting off */
+    right: 8vw; /* fix arrows cutting off */
     font-size: 2em;
     color: black;
     cursor: pointer;
@@ -74,57 +84,92 @@ a {
     border-top-right-radius: 10px;
 }
 
-/* About Skillswap Grid */
-/* About Skillswap Grid */
-/* About Skillswap Grid */
+/* End: Carousel CSS */
+/* End: Carousel CSS */
+/* End: Carousel CSS */
 
-.skillswap-title {
-    margin-top: 100px;
+/* Start: About Skillswap Section */
+/* Start: About Skillswap Section */
+/* Start: About Skillswap Section */
+
+[class^=about-section-] {
+    display: flex;
+    padding: 10px;
+    justify-content: space-between;
+    max-height: 500px;
+    background: repeating-linear-gradient(
+        70deg,
+        rgb(220, 220, 220),
+        rgb(220, 220, 220) 100px,
+        rgb(200, 200, 200) 100px,
+        rgb(200, 200, 200) 200px
+    );
+    margin: 10px 0px;
 }
 
-.about-skillswap {
-    display: grid;
-    justify-items: center;
-    grid-template-columns: repeat(3, 1fr); /*fr = fractional unit*/
-    column-gap: 25px;
-    grid-template-areas:
-        "image1 image2 image3"
-        "header1 header2 header3"
-        "desc1 desc2 desc3"
-        "desc1 desc2 desc3";
-    background-color: rgb(240,240,240);
-    padding: 0px 50px 0px 50px;
-    height: 500px;
+.about-section-B {
+    background: repeating-linear-gradient(
+        -70deg,
+        rgb(220, 220, 220),
+        rgb(220, 220, 220) 100px,
+        rgb(200, 200, 200) 100px,
+        rgb(200, 200, 200) 200px
+    );
 }
 
-.image1 { grid-area: image1; margin-top: 25px; }
-.image2 { grid-area: image2; margin-top: 25px; }
-.image3 { grid-area: image3; margin-top: 25px; }
+.center-this-line
+{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
 
-.about-ss-image {
-    border-radius: 50%; 
-    border: 2px solid black;
-    max-width: 100%;
-    height: auto;
+.my-line {
+    border: none; /* Removes default browser border */
+    height: 10px; 
+    background-color: var(--green-200);
+    width: 70%; 
+    margin-bottom: 10px;
+}
+
+.section-description
+{
+    padding: 0px 20px;
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+}
+
+.section-description h3
+{
+    font-size: 1.5rem;
+}
+
+.section-description p
+{
+    font-size: 19px;
+    margin-top: 20px;
+}
+
+.section-image img{
+    flex: 3;
+    width: 50vw;
+    height: 100%;
     object-fit: cover;
 }
 
-.header1 { grid-area: header1; }
-.header2 { grid-area: header2; }
-.header3 { grid-area: header3; }
+/* End: About Skillswap Section */
+/* End: About Skillswap Section */
+/* End: About Skillswap Section */
 
-.desc1 { grid-area: desc1; }
-.desc2 { grid-area: desc2; }
-.desc3 { grid-area: desc3; }
-
-/* Categories Cards */
-/* Categories Cards */
-/* Categories Cards */
+/* Start: Categories Cards */
+/* Start: Categories Cards */
+/* Start: Categories Cards */
 
 /* Cards Container */
 .skill-categories {
     display: grid;
-    margin: 100px 150px;
+    margin: 50px 10vw;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 30px;
     justify-content: center;
@@ -158,55 +203,220 @@ a {
 }
 
 [id^="hidden-"] { /* Hidden Text Content */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    list-style-type: none;
+    font-weight: 500;
     margin: 0;
+    padding-top: 20px;
     position: absolute;
     width: 100%;
     height: 100%;
     top: 100%;
     transform: translate(0, 100%);
-    background-color: rgba(160, 218, 160, 0.5);
+    background-color: rgba(81, 209, 81, 0.6);
     transition: 300ms ease-in-out transform;
+    line-height: 1.75em;
+}
+
+[id^="hidden-"] li:hover
+{
+    text-decoration: underline;
 }
 
 
 [id$="-header"] { /* Card Headers */
     position: absolute;
-    background-color: rgba(160, 218, 160, 0.5);
+    background-color: rgba(81, 209, 81, 0.6);
     margin: 0;
     width: 100%;
     padding: 10px 0px;
     bottom: 0;
 }
+/* End: Categories Cards */
+/* End: Categories Cards */
+/* End: Categories Cards */
 
-/* Media Queries */
-/* Media Queries */
-/* Media Queries */
+/* Start: Frequently Asked Questions */
+/* Start: Frequently Asked Questions */
+/* Start: Frequently Asked Questions */
 
-/*Small Mobile Devices*/
-@media only screen and (max-width: 320px) {
-    /* Add responsiveness to the grid here */
+.faq {
+    margin: 50px 10vw 100px;
 }
 
-/*Large Mobile Devices and Low-Res Tablets*/
-@media only screen and (min-width: 375px) and (max-width:424px) {
-    /* Add responsiveness to the grid here */
+/* Style the buttons that are used to open and close the accordion panel. */
+.faq-accordion {
+    background-color: #fafafa;
+    color: rgb(50, 50, 50);
+    font-weight: 800;
+    cursor: pointer;
+    padding: 20px 5vw;
+    width: 100%;
+    text-align: left;
+    border: none;
+    outline: none;
+    transition: 0.4s;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.3);
 }
 
-/*Tablets in Portrait and Landscape Orientation*/
-@media only screen and (min-width: 425px) and (max-width:767px) {
-    /* Add responsiveness to the grid here */
+/* Add a background color to the button if it is clicked on, and when you move the mouse over it.*/
+.active-faq, .faq-accordion:hover {
+    background-color: rgb(230, 230, 230);
 }
 
-/*Laptops and Small Desktops*/
-@media only screen and (min-width: 768px) and (max-width:1023px) {
-    /* Add responsiveness to the grid here */
+/* Style the accordion panel. Note: hidden by default */
+.faq-panel {
+    background-color: #fafafa;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
 }
 
-/*Large Desktops*/
-@media only screen and (min-width: 1024px) and (max-width: 1439px) {
-    /* Add responsiveness to the grid here */
+.faq-accordion:after {
+    content: '\f107'; 
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    font-size: 13px;
+    color: rgba(0, 0, 0, 0.75);
+    float: right;
+    margin-left: 5px;
 }
 
-@media only screen and (min-width: 1440px) {
-    /* Add responsiveness to the grid here */
+.active-faq:after {
+    content: '\f106'; 
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
 }
+
+.faq-sub-grid {
+    padding: 30px 5vw;
+}
+
+/* End: Frequently Asked Questions */
+/* End: Frequently Asked Questions */
+/* End: Frequently Asked Questions */
+
+/* Start: Media Queries */
+/* Start: Media Queries */
+/* Start: Media Queries */
+
+@media only screen and (min-width: 1200px) {
+[class^=about-section-] {
+    display: flex;
+    padding: 20px;
+    justify-content: space-between;
+    max-height: 500px;
+    background: repeating-linear-gradient(
+        70deg,
+        rgb(220, 220, 220),
+        rgb(220, 220, 220) 100px,
+        rgb(200, 200, 200) 100px,
+        rgb(200, 200, 200) 200px
+    );
+    margin: 10px 0px;
+}
+
+.center-this-line
+{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+.my-line {
+    border: none; /* Removes default browser border */
+    height: 10px; 
+    background-color: var(--green-200);
+    width: 70%; 
+    margin: 20px 0px;
+}
+
+.section-description
+{
+    padding: 0px 20px;
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+}
+
+.section-description h3
+{
+    font-size: 1.75rem;
+}
+
+.section-description p
+{
+    font-size: 22px;
+    margin-top: 20px;
+}
+
+.section-image img{
+    flex: 3;
+    width: 50vw;
+    height: 100%;
+    max-height: 420px;
+    object-fit: cover;
+}
+
+}
+
+@media only screen and (max-width: 720px) {
+
+[class^=about-section-] {
+    display: flex;
+    flex-direction: column-reverse;
+    padding: 10px;
+    justify-content: space-between;
+    max-height: 500px;
+    background: repeating-linear-gradient(
+        70deg,
+        rgb(220, 220, 220),
+        rgb(220, 220, 220) 100px,
+        rgb(200, 200, 200) 100px,
+        rgb(200, 200, 200) 200px
+    );
+    margin: 30px 0px;
+}
+
+.about-section-B {
+    flex-direction: column;
+}
+
+.my-line {
+    border: none; /* Removes default browser border */
+    height: 10px; 
+    background-color: var(--green-200);
+    width: 70%; 
+    margin: 20px 0px;
+}
+
+.section-image img{
+    flex: 3;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.post-slider .prev {
+    position: absolute;
+    top: 50%;
+    left: 2vw;
+    font-size: 2em;
+    color: black;
+    cursor: pointer;
+}
+
+.post-slider .next {
+    position: absolute;
+    top: 50%;
+    right: 2vw;
+    font-size: 2em;
+    color: black;
+    cursor: pointer;
+}
+
+}
+

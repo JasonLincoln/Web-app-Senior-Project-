@@ -9,12 +9,12 @@
     <!-- Page CSS -->
     <link rel="stylesheet" href="../css/index.css">
     <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/tailwindcss-colors.css">
     <title>Home Page</title>
 </head>
 <body id="main-page">
-    <!-- Goal: Make the nav bar stay on top of the screen -->
-    
     <!-- Carousel -->
+    <h1 class="skillswap-title">Featured</h1>
     <div class="page-wrapper">
         <div class="post-slider">
             <i class="fa-solid fa-chevron-left prev"></i>
@@ -65,43 +65,61 @@
                 </div> <!-- end post -->
             </div> <!-- end post wrapper -->
         </div> <!-- end post slider -->
-    </div> <!-- end page wrapper -->
+    </div> 
 
+    <!-- About SkillSwap Section -->
     <h1 class="skillswap-title">How does SkillSwap Work?</h1>    
 
-    <!-- About Section -->
     <div class="about-skillswap">
-        <div class="image1">
-            <img src="../images/index_images/learnFromOthers.png" alt="" class="about-ss-image">
-        </div>
-        <div class="header1">
-            <h2>Learn from other students!</h2>
-        </div>
-        <div class="desc1">
-            <p>Learn about skills through courses other students have made!</p>
-        </div>
-
-        <div class="image2">
-            <img src="../images/index_images/progressQuickly.png" alt="" class="about-ss-image">
-        </div>
-        <div class="header2">
-            <h2>Track your progress!</h2>
-        </div>
-        <div class="desc2">
-            <p>SkillSwap tracks your progress right where you left off!</p>
+        <div class="about-section-A">
+            <div class="section-description">
+                <div class="center-this-line">
+                    <hr class="my-line">
+                </div>
+                <h3>Learn from other students!</h3>
+                <p>
+                    Learn about the skills you want through tutors with <strong>expertise</strong> on the field.
+                    SkillSwap features a rating system that shows the ratings of tutors, allowing you to choose from
+                    credible and trustworthy instructors.
+                </p>
+            </div>
+            <div class="section-image">
+                <img src="../images/learnFromOthers2.png" class="section-image" alt="">
+            </div>
         </div>
 
-        <div class="image3">
-            <img src="../images/index_images/teachOthers.png" alt="" class="about-ss-image">
+        <div class="about-section-B">
+            <div class="section-image">
+                <img src="../images/progressQuickly2.png" class="section-image" alt="">
+            </div>
+            <div class="section-description">
+                <div class="center-this-line">
+                    <hr class="my-line">
+                </div>
+                <h3>Track your progress and progress quickly!</h3>
+                <p>SkillSwap tracks your progress right where you left off, along with a solid recommendation of tutors to choose from.</p>
+            </div>
         </div>
-        <div class="header3">
-            <h2>Teach others your skills!</h2>
+
+        <div class="about-section-A">
+            <div class="section-description">
+                <div class="center-this-line">
+                    <hr class="my-line">
+                </div>
+                <h3>Teach others about your skills!</h3>
+                <p>
+                    Interested in being a tutor? It is easy to become one when you register an account for SkillSwap! 
+                    Teach other students your skills with an easy way of creating a course for others to learn!
+                </p>
+            </div>
+            <div class="section-image">
+                <img src="../images/teachOthers2.png" class="section-image" alt="">
+            </div>
         </div>
-        <div class="desc3">
-            <p>Teach other students your skills with an easy way of creating a course for others to learn!</p>
-        </div>
-    </div> <!-- end about section -->
+    </div>
+
     <!-- Skill Category Cards & Grid -->
+    <h1 class="skillswap-title"> Category of skills that are taught! </h1>
     <div class="skill-categories">
         <div id="programming-languages" class="card">
             <img src="../images/index_images/comp_prog_lang.png" alt="">
@@ -112,11 +130,14 @@
                 <li>C#</li>
                 <li>C++</li>
                 <li>SQL</li>
+                <li>HTML</li>
+                <li>CSS</li>
+                <li>JavaScript</li>
             </ul>
         </div>
         <div id="computers" class="card">
             <img src="../images/index_images/computers.png" alt="">
-            <h3 id="computers-header">Computers & Information Technology</h3>
+            <h3 id="computers-header">Computers</h3>
             <ul id="hidden-computers">
                 <li>Microsoft Word</li>
                 <li>Microsoft Excel</li>
@@ -145,7 +166,6 @@
                 <li>Biology</li>
                 <li>Anatomy & Physiology</li>
                 <li>Earth Science</li>
-                <li>Geology</li>
                 <li>Nutrition</li>               
             </ul>
         </div>
@@ -192,7 +212,49 @@
                 <li>French</li>
             </ul>
         </div>
-    </div> <!-- end of skills cards-->
+    </div>
+
+    <!-- Frequently Asked Questions -->
+    <h1 class="skillswap-title">Frequently Asked Questions</h1>
+    <div class="faq">
+        <button type="button" class="faq-accordion">1. What does it cost to use SkillSwap?</button>
+        <div class="faq-panel">
+            <div class="faq-sub-grid">
+                You can use SkillSwap at no cost! All tutors here volunteer to spend their time teaching subjects they are experienced at. 
+                If you would like to reward them for their services, you would do so on an external website.
+            </div>
+        </div>
+
+        <button type="button" class="faq-accordion">2. How to schedule a session with a tutor? </button>
+        <div class="faq-panel">
+            <div class="faq-sub-grid">
+                To get started with SkillSwap, you can go to the explore section in the navigation bar and select the category that the skill you want to learn falls under.
+                You can find what each skill category contains by hovering over the cards that are above the FAQ section. 
+                You will be able to message the tutor and ask for a session. 
+                This page will also allow you to search for certain tutors. 
+            </div>
+        </div>
+
+        <button type="button" class="faq-accordion">3. How to edit my profile? </button>
+        <div class="faq-panel">
+            <div class="faq-sub-grid">
+                To edit your profile, click on the profile icon and click on the profile button. 
+                There will be a button on the left side of the page that says "Edit Profile Card".
+                If you are a tutor, it is important to be descriptive in your biography in order to appeal to students.
+                If you are a student, it might be best to describe background information or specific aspects of the subjects you need to learn.
+            </div>
+        </div>
+
+        <button type="button" class="faq-accordion">4. How do I look at sessions I have? </button>
+        <div class="faq-panel">
+            <div class="faq-sub-grid">
+                To find the list of sessions you request or schedule, click on the sessions button in the navigation bar or <a href="sessions.html"><strong>here</strong></a>.
+                In the page, you will find upcoming sessions, requested sessions, and previous sessions you've used.
+                This page can also be used to request a session to a tutor. 
+            </div>
+        </div>
+
+    </div>
 
     <script src="https://kit.fontawesome.com/16ce6dc272.js" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>

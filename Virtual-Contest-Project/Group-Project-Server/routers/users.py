@@ -40,7 +40,8 @@ class UserVerification(BaseModel):
 
 '''Gets the logged in user'''
 @router.get('/', status_code = status.HTTP_200_OK)
-async def get_user(user: user_dependency, db: db_dependency):
+async def get_user(request: Request, db: db_dependency):
+    user = await get_current_user(request.cookies.get('access_token'))
     if user is None:
         raise HTTPException(status_code = 401, detail = 'Authentication Failed')
     return db.query(Users).filter(user.get('id') == Users.id).first()
