@@ -141,6 +141,12 @@ input.email, input.username {
     margin: 40px 0 0;
 }
 
+.radio-description {
+    margin: 20px 0;
+    width: 70%;
+    font-weight: 400;
+}
+
 .radio-group-grid {
     display: flex;
     flex-direction: column;
@@ -422,6 +428,11 @@ input.email, input.username {
 /* Responsiveness */
 /* Responsiveness */
 @media only screen and (max-width: 850px) {
+    .card-container {
+        display: flex;
+        justify-content: center;
+    }
+
     .radioboxes-and-card {
         margin-top: 50px;
         display: flex;
