@@ -28,7 +28,7 @@
                     logout();
                     // Save token to cookie
                     document.cookie = `access_token=${data.access_token}; path=/`;
-                    window.location.href = '/users/main-page'; // Change this to your desired redirect page
+                    window.location.href = '/pages/index'; // Change this to your desired redirect page
                 } else {
                     // Handle error
                     const errorData = await response.json();
@@ -66,7 +66,7 @@
                 });
 
                 if (response.ok) {
-                    window.location.href = '/auth/login-page';
+                    window.location.href = '/pages/login';
                 } else {
                     // Handle error
                     const errorData = await response.json();
@@ -78,7 +78,6 @@
             }
         });
     }
-
 
     // Helper function to get a cookie by name
     function getCookie(name) {
@@ -110,5 +109,5 @@
         }
 
         // Redirect to the login page
-        window.location.href = '/auth/login-page';
+        window.location.href = '/pages/login-page';
     };

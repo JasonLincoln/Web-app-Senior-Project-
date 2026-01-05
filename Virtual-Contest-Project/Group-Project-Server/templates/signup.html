@@ -1,17 +1,18 @@
-{% extends 'layout.html' %}
-
-{% block extra_head %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Website CSS -->
     <link rel="stylesheet" href="../static/css/signup.css">
+    <link rel="stylesheet" href="../static/css/main.css">
     <!-- Google Fonts CSS -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
     <title>Sign Up Page</title>
-{% endblock %}
-
-{% block content %}
-<div id="signup-page">
+</head>
+<body id="signup-page">
     <!-- Signup Page -->
     <div class="wrapper">
         <form method="get" id="signup_form">
@@ -29,7 +30,7 @@
 
             <div class="input-box">
                 <input type="password" placeholder="Password" name = 'password' id="password" required>
-                <i class="fa-solid fa-lock"></i>
+                <i id="passwordToggle" class="fa-solid fa-lock"></i>
             </div>
 
             <div class="requirements">
@@ -62,16 +63,14 @@
 
             <div class="login-link">
                 <p>
-                    Already have an account? <a href="login.html">Login</a>
+                    Already have an account? <a href="/pages/login">Login</a>
                 </p>
             </div>
         </form>
     </div>
-</div>
-{% endblock %}
-
-{% block extra_js %}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="../static/js/signup_login.js"></script>
-{% endblock %}
-
+    <script src="../static/js/base.js"></script>
+    <script src="https://kit.fontawesome.com/16ce6dc272.js" crossorigin="anonymous"></script>
+</body>
+</html>

@@ -32,37 +32,6 @@ user_dependency = Annotated[dict, Depends(get_current_user)]
 bcrypt_context = CryptContext(schemes = ['bcrypt'], deprecated = 'auto')
 templates = Jinja2Templates(directory = "templates")
 
-'''Redirects the user to the login page if not logged in'''
-def redirect_to_login():
-    redirect_response = RedirectResponse(url="../auth/login-page", status_code=status.HTTP_302_FOUND)
-    redirect_response.delete_cookie(key = 'access_token')
-    return redirect_response
-
-# '''Renders the Users Page. TEMP ENDPOINT'''
-# @router.get('/users-page')
-# async def render_users (request: Request, db: db_dependency):
-#     try:
-#         user = await get_current_user(request.cookies.get('access_token'))
-#         if user is None:
-#             return redirect_to_login()
-#         users = db.query(Users).all()
-#         return templates.TemplateResponse('users.html', {'request': request, 'users': users, 'user': user})
-#     except:
-#         print(sys.exc_info())
-#         print(traceback.format_exc())
-#         return redirect_to_login()
-
-'''Renders the main page'''
-@router.get('/main-page')
-async def render_main_page(request: Request):
-    try:
-        user = await get_current_user(request.cookies.get('access_token'))
-        if user is None:
-            return redirect_to_login()
-        return templates.TemplateResponse('index.html', {'request': request})
-    except:
-        return redirect_to_login()
-
 class UserVerification(BaseModel):
     password: str
     new_password: str = Field(min_length = 6)

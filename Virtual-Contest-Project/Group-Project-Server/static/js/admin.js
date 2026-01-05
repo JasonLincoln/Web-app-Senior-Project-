@@ -297,35 +297,28 @@ const createSkill = document.getElementById('createSkill');
 
             const form = event.target;
             const formData = new FormData(form);
-            const data = Object.fromEntries(formData.entries);
+            const data = Object.fromEntries(formData.entries());
 
             const payload = {
-                subcategory: data.createSubCategory,
-                supercategory: data.createSuperCategory
+                super_category: data.createSuperCategory,
+                sub_category: data.createSubCategory
             };
 
             try {
                 const response = await fetch('/admin/create_skill', {
                     method: 'POST',
                     headers: {
-                        'Content-Type': 'application/x-www-form-urlencoded'
+                        'Content-Type': 'application/json'
                     },
                     body: JSON.stringify(payload)
                 });
 
                 if (response.ok) {
-                    alert("Created a skill.");
-                    // // Handle success (e.g., redirect to dashboard)
-                    // const data = await response.json();
-                    // // Delete any cookies available
-                    // logout();
-                    // // Save token to cookie
-                    // document.cookie = `access_token=${data.access_token}; path=/`;
-                    // window.location.href = '/users/main-page'; // Change this to your desired redirect page
+                    console.log("Submitted new skill.")
                 } else {
                     // Handle error
                     const errorData = await response.json();
-                    alert(`Error: ${errorData.detail}`);
+                    alert(`Error: ${errorData.message}`);
                 }
             } catch (error) {
                 console.error('Error:', error);
@@ -335,43 +328,45 @@ const createSkill = document.getElementById('createSkill');
     }
 
 // Update User By ID JS
-const updateUser = document.getElementById('updateUser');
+const updateUser = document.getElementById('updateUserByID');
     if (updateUser) {
         updateUser.addEventListener('submit', async function (event) {
             event.preventDefault();
 
-            print('help');
-
             const form = event.target;
             const formData = new FormData(form);
+            const data = Object.fromEntries(formData.entries());
+            const updateUserID = data.updateUserID;
 
             const payload = {
-                subcategory: data.subcategory,
-                supercategory: data.supercategory
+                username: data.updateUserUsername,
+                display_name: data.updateUserDisplayName,
+                pronouns: data.updateUserPronouns,
+                gender: data.updateUserGender,
+                profile_url: data.updateUserProfileURL,
+                biography: data.updateUserBiography,
+                rating: data.updateUserRating,
+                email: data.updateUserEmail,
+                hashed_password: data.updateUserPassword,
+                role: data.updateUserRole,
+                is_active: data.updateUserIsActive
             };
 
             try {
-                const response = await fetch('/admin/create_skill', {
-                    method: 'PUT',
+                const response = await fetch(`/admin/update_user/${updateUserID}`, {
+                    method: 'POST',
                     headers: {
-                        'Content-Type': 'application/x-www-form-urlencoded'
+                        'Content-Type': 'application/json'
                     },
-                    body: payload.toString()
+                    body: JSON.stringify(payload)
                 });
 
                 if (response.ok) {
-                    alert("Updated a user.");
-                    // // Handle success (e.g., redirect to dashboard)
-                    // const data = await response.json();
-                    // // Delete any cookies available
-                    // logout();
-                    // // Save token to cookie
-                    // document.cookie = `access_token=${data.access_token}; path=/`;
-                    // window.location.href = '/users/main-page'; // Change this to your desired redirect page
+                    console.log("Updated user.")
                 } else {
                     // Handle error
                     const errorData = await response.json();
-                    alert(`Error: ${errorData.detail}`);
+                    alert(`Error: ${errorData.message}`);
                 }
             } catch (error) {
                 console.error('Error:', error);
@@ -381,43 +376,36 @@ const updateUser = document.getElementById('updateUser');
     }
 
 // Update Skill By ID JS
-const updateSkill = document.getElementById('updateSkill');
+const updateSkill = document.getElementById('updateSkillByID');
     if (updateSkill) {
         updateSkill.addEventListener('submit', async function (event) {
             event.preventDefault();
 
-            print('help');
-
             const form = event.target;
             const formData = new FormData(form);
+            const data = Object.fromEntries(formData.entries());
+            const updateSkillID = data.updateSkillID;
 
             const payload = {
-                subcategory: data.subcategory,
-                supercategory: data.supercategory
+                super_category: data.updateSuperCategory,
+                sub_category: data.updateSubCategory
             };
 
             try {
-                const response = await fetch('/admin/create_skill', {
-                    method: 'PUT',
+                const response = await fetch(`/admin/update_skill/${updateSkillID}`, {
+                    method: 'POST',
                     headers: {
-                        'Content-Type': 'application/x-www-form-urlencoded'
+                        'Content-Type': 'application/json'
                     },
-                    body: payload.toString()
+                    body: JSON.stringify(payload)
                 });
 
                 if (response.ok) {
-                    alert("Updated a user.");
-                    // // Handle success (e.g., redirect to dashboard)
-                    // const data = await response.json();
-                    // // Delete any cookies available
-                    // logout();
-                    // // Save token to cookie
-                    // document.cookie = `access_token=${data.access_token}; path=/`;
-                    // window.location.href = '/users/main-page'; // Change this to your desired redirect page
+                    console.log("Updated skill.")
                 } else {
                     // Handle error
                     const errorData = await response.json();
-                    alert(`Error: ${errorData.detail}`);
+                    alert(`Error: ${errorData.message}`);
                 }
             } catch (error) {
                 console.error('Error:', error);
@@ -425,6 +413,9 @@ const updateSkill = document.getElementById('updateSkill');
             }
         });
     }
+
+// Update Session By ID
+
 
 // Delete User By ID
 
