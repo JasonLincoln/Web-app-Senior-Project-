@@ -43,59 +43,43 @@ function showAllUsers(data){
 }
 
 // Get User By ID JS
+const userByID = document.getElementById('userByID');
+const userByIDButton = document.getElementById('userByIDButton');
 
-//I don't know what the hell I'm doing with this function
+userByIDButton.addEventListener('click', async function (event) {
+    event.preventDefault();
 
-//const userByID = document.getElementById('getUserByID');
-//    if (userByID) {
-//        userByID.addEventListener('submit', async function (event) {
-//            event.preventDefault();
-//
-//            const form = event.target;
-//            const formData = new FormData(form);
-//            const data = Object.fromEntries(formData.entries());
-//
-//            const payload = {id: data.id};
-//
-//            try {
-//                const response = await fetch(`/admin/by_id/${payload}`, {
-//                    method: 'GET',
-//                    headers: {
-//                        'Content-Type': 'application/json'
-//                    },
-//                    body: JSON.stringify(payload)
-//                });
-//
-//                if (response.ok) {
-//                    showUserByID()
-//                } else {
-//                    // Handle error
-//                    const errorData = await response.json();
-//                    alert(`Error: ${errorData.message}`);
-//                }
-//            } catch (error) {
-//                console.error('Error:', error);
-//                alert('An error occurred. Please try again.');
-//            }
-//        });
-//    }
+    const userID = $('#getUserID').val();
+    const getUserByIDEndpoint = `/admin/by_user_id/${userID}`;
+
+    const response = await fetch(getUserByIDEndpoint);
+    if (response.ok) {
+        const data = await response.json();
+        console.log("Using user data for the showAllUsers function.");
+        showUserByID(data);
+    }
+    else {
+        const errorData = await response.json();
+        alert(`Error: ${errorData.detail}`);
+    }
+})
 
 function showUserByID(data){
-    allUsers.innerHTML = "";
+    userByID.innerHTML = "";
     console.log("Displaying user on page.");
     const li = document.createElement('li');
-    li.innerHTML = `ID: ${item.id},<br>
-        Username: ${item.username},<br>
-        Email: ${item.email}, <br>
-        Hashed Password: ${item.hashed_password},<br>
-        Display Name: ${item.display_name},<br>
-        Pronouns: ${item.pronouns}, <br>
-        Gender: ${item.gender},<br>
-        Biography: ${item.biography},<br>
-        Profile Picture: ${item.profile_url}, <br>
-        Role: ${item.role},<br>
-        Active: ${item.is_active} <br> <br>`;
-        allUsers.appendChild(li);
+    li.innerHTML = `ID: ${data.id},<br>
+        Username: ${data.username},<br>
+        Email: ${data.email}, <br>
+        Hashed Password: ${data.hashed_password},<br>
+        Display Name: ${data.display_name},<br>
+        Pronouns: ${data.pronouns}, <br>
+        Gender: ${data.gender},<br>
+        Biography: ${data.biography},<br>
+        Profile Picture: ${data.profile_url}, <br>
+        Role: ${data.role},<br>
+        Active: ${data.is_active} <br> <br>`;
+        userByID.appendChild(li);
 }
 
 // Get All Skills JS
@@ -136,25 +120,20 @@ function showAllSkills(data){
 
 
 // Get Skill By ID JS
+const skillByID = document.getElementById('skillByID');
+const skillByIDButton = document.getElementById('skillByIDButton');
 
-
-// Get All Achievements JS
-const allAchievements = document.getElementById('allAchievements');
-const getAllAchievementsEndpoint = '/admin/Achievement';
-const allAchievementsButton = document.getElementById('allAchievementsButton');
-
-allAchievementsButton.addEventListener('click', async function (event) {
+skillByIDButton.addEventListener('click', async function (event) {
     event.preventDefault();
 
-    console.log("Getting all achievements.");
+    const skillID = $('#getSkillID').val();
+    const getSkillByIDEndpoint = `/admin/by_skill_id/${skillID}`;
 
-    const response = await fetch(getAllAchievementsEndpoint);
+    const response = await fetch(getSkillByIDEndpoint);
     if (response.ok) {
         const data = await response.json();
-        console.log('hi');
-        console.log(data.data);
-        console.log("Using achievement data for the showAllAchievements function.");
-        showAllAchievements(data);
+        console.log("Using user data for the showAllUsers function.");
+        showSkillByID(data);
     }
     else {
         const errorData = await response.json();
@@ -162,20 +141,15 @@ allAchievementsButton.addEventListener('click', async function (event) {
     }
 })
 
-function showAllAchievements(data){
-    allAchievements.innerHTML = "";
-    data.forEach(item => {
-        const li = document.createElement('li');
-        li.innerHTML = `ID: ${item.id}, <br>
-        Name: ${item.name}, <br>
-        Description: ${item.description}, <br>
-        Image URL: ${item.img_url} <br> <br>`;
-        allAchievements.appendChild(li);
-    });
+function showSkillByID(data){
+    skillByID.innerHTML = "";
+    console.log("Displaying user on page.");
+    const li = document.createElement('li');
+    li.innerHTML = `ID: ${data.id}, <br>
+        Supercategory: ${data.super_category}, <br>
+        Subcategory: ${data.sub_category} <br> <br>`;
+        skillByID.appendChild(li);
 }
-
-// Get Achievements By ID JS
-
 
 // Get All Messages JS
 const allMessages = document.getElementById('allMessages');
@@ -216,7 +190,39 @@ function showAllMessages(data){
 }
 
 // Get Message By ID JS
+const messageByID = document.getElementById('messageByID');
+const messageByIDButton = document.getElementById('messageByIDButton');
 
+messageByIDButton.addEventListener('click', async function (event) {
+    event.preventDefault();
+
+    const messageID = $('#getMessageID').val();
+    const getMessageByIDEndpoint = `/admin/by_message_id/${messageID}`;
+
+    const response = await fetch(getMessageByIDEndpoint);
+    if (response.ok) {
+        const data = await response.json();
+        console.log("Using user data for the showAllUsers function.");
+        showMessageByID(data);
+    }
+    else {
+        const errorData = await response.json();
+        alert(`Error: ${errorData.detail}`);
+    }
+})
+
+function showMessageByID(data){
+    messageByID.innerHTML = "";
+    console.log("Displaying user on page.");
+    const li = document.createElement('li');
+    li.innerHTML = `ID: ${data.id}, <br>
+        Recipient: ${data.recipient_username}, <br>
+        Sender: ${data.sender_username}, <br>
+        Text: "${data.text}", <br>
+        Time Sent: ${data.time_sent}, <br>
+        Read: ${data.was_read} <br> <br>`;
+        messageByID.appendChild(li);
+}
 
 // Get All Sessions JS
 const allSessions = document.getElementById('allSessions');
@@ -253,7 +259,35 @@ function showAllSessions(data){
 }
 
 // Get Session By ID JS
+const sessionByID = document.getElementById('sessionByID');
+const sessionByIDButton = document.getElementById('sessionByIDButton');
 
+sessionByIDButton.addEventListener('click', async function (event) {
+    event.preventDefault();
+
+    const sessionID = $('#getSessionID').val();
+    const getSessionByIDEndpoint = `/admin/by_session_id/${sessionID}`;
+
+    const response = await fetch(getSessionByIDEndpoint);
+    if (response.ok) {
+        const data = await response.json();
+        console.log("Using user data for the showAllUsers function.");
+        showSessionByID(data);
+    }
+    else {
+        const errorData = await response.json();
+        alert(`Error: ${errorData.detail}`);
+    }
+})
+
+function showSessionByID(data){
+    sessionByID.innerHTML = "";
+    console.log("Displaying user on page.");
+    const li = document.createElement('li');
+    li.innerHTML = `ID: ${data.id}, <br>
+         Session Date: ${data.session_date} <br> <br>`;
+        sessionByID.appendChild(li);
+}
 
 // Create Skill JS
 const createSkill = document.getElementById('createSkill');
@@ -266,8 +300,8 @@ const createSkill = document.getElementById('createSkill');
             const data = Object.fromEntries(formData.entries);
 
             const payload = {
-                subcategory: data.createSubcategory,
-                supercategory: data.createSupercategory
+                subcategory: data.createSubCategory,
+                supercategory: data.createSuperCategory
             };
 
             try {
@@ -281,53 +315,6 @@ const createSkill = document.getElementById('createSkill');
 
                 if (response.ok) {
                     alert("Created a skill.");
-                    // // Handle success (e.g., redirect to dashboard)
-                    // const data = await response.json();
-                    // // Delete any cookies available
-                    // logout();
-                    // // Save token to cookie
-                    // document.cookie = `access_token=${data.access_token}; path=/`;
-                    // window.location.href = '/users/main-page'; // Change this to your desired redirect page
-                } else {
-                    // Handle error
-                    const errorData = await response.json();
-                    alert(`Error: ${errorData.detail}`);
-                }
-            } catch (error) {
-                console.error('Error:', error);
-                alert('An error occurred. Please try again.');
-            }
-        });
-    }
-
-// Create Achievement JS
-const createAchievement = document.getElementById('createAchievement');
-    if (createAchievement) {
-        createAchievement.addEventListener('submit', async function (event) {
-            event.preventDefault();
-
-            print('help');
-
-            const form = event.target;
-            const formData = new FormData(form);
-
-            const payload = {
-                name: data.createAchievementName,
-                description: data.createDescription,
-                img_url: data.createImageURL
-            };
-
-            try {
-                const response = await fetch('/admin/create_achievement', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/x-www-form-urlencoded'
-                    },
-                    body: JSON.stringify(payload)
-                });
-
-                if (response.ok) {
-                    alert("Created an achievement.");
                     // // Handle success (e.g., redirect to dashboard)
                     // const data = await response.json();
                     // // Delete any cookies available
@@ -439,59 +426,10 @@ const updateSkill = document.getElementById('updateSkill');
         });
     }
 
-// Update Achievement By ID JS
-const updateAchievement = document.getElementById('updateAchievement');
-    if (updateAchievement) {
-        updateAchievement.addEventListener('submit', async function (event) {
-            event.preventDefault();
-
-            print('help');
-
-            const form = event.target;
-            const formData = new FormData(form);
-
-            const payload = {
-                subcategory: data.subcategory,
-                supercategory: data.supercategory
-            };
-
-            try {
-                const response = await fetch('/admin/create_skill', {
-                    method: 'PUT',
-                    headers: {
-                        'Content-Type': 'application/x-www-form-urlencoded'
-                    },
-                    body: payload.toString()
-                });
-
-                if (response.ok) {
-                    alert("Updated a user.");
-                    // // Handle success (e.g., redirect to dashboard)
-                    // const data = await response.json();
-                    // // Delete any cookies available
-                    // logout();
-                    // // Save token to cookie
-                    // document.cookie = `access_token=${data.access_token}; path=/`;
-                    // window.location.href = '/users/main-page'; // Change this to your desired redirect page
-                } else {
-                    // Handle error
-                    const errorData = await response.json();
-                    alert(`Error: ${errorData.detail}`);
-                }
-            } catch (error) {
-                console.error('Error:', error);
-                alert('An error occurred. Please try again.');
-            }
-        });
-    }
-
 // Delete User By ID
 
 
 // Delete Skill By ID
-
-
-// Delete Achievement By ID
 
 
 // Delete Message By ID
