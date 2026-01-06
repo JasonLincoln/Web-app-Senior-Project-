@@ -1,138 +1,349 @@
-/* Start: Globals */
+/* Overall Page */
+/* Overall Page */
+/* Overall Page */
 * {
-    margin: 0px;
-    padding: 0px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+
 .profile-creation-page {
-    display: flex;
-    justify-content: center;
-    background-color: var(--emerald-500);
-    height: 100vh;
+    /* background-color: rgb(255, 255, 255); */
+    margin: 10vh 10vw;
+    height: fit-content;
+    box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
-.profile-creation-title {
-    margin-top: 10px;
+
+.tab-content-collection {
+    padding: 3vw;
+}
+
+/* Tabs CSS */
+/* Tabs CSS */
+/* Tabs CSS */
+
+.button-containers {
+    width: 100%;
+    display: flex;
+}
+
+.tab-buttons {
+    flex: 1;
+    padding: 10px;
+    background-color: inherit;
+    cursor: pointer;
+    border-style: none;
+    background-color: rgb(230, 230, 230);
+}
+
+.tab-buttons.active-tab {
+    background-color: rgb(250, 250, 250);
+}
+
+.tab-buttons:hover {
+    background-color: rgb(240, 240, 240);
+    transition: background-color 0.5s ease;
+}
+
+/* CSS For Inputs */
+/* CSS For Inputs */
+/* CSS For Inputs */
+.inputs {
+    display: flex;
+    justify-content: space-between;
+}
+
+.header-title
+{
+    width: fit-content;
+    padding: 0;
     font-size: 25px;
     font-weight: bold;
-    letter-spacing: 1.2px;
-}
-/* End: Globals */
-
-/* Start: Dropdown */
-.dropdown {
-    position: relative;
-}
-.dropdown-button {
-    display: block;
-    color: purple;
-}
-.dropdown-menu {
-    position: absolute;
-    left: 0;
-    top: calc(100% + .25rem);
-    background-color: white;
-    padding: .75rem;
-    border-radius: .25rem;
-    box-shadow: 0 4px 5px 0 rgba(0, 0, 0, .1);
-    opacity: 0;
-    pointer-events: none;
-    transform: translateY(-10px);
-    transition: opacity 150ms ease-in-out, transform 150ms ease-in-out; 
-    z-index: 10;
+    font-size: 28px;
 }
 
-.dropdown > .link:focus + .dropdown-menu {
-    opacity: 1;
-    transform: translateY(0);
-    pointer-events: auto;
+.email-wrapper, .username-wrapper, .display-name-wrapper, .pronouns-wrapper,
+.skills-you-have-wrapper, .skills-to-learn-wrapper, .bio-wrapper {
+    margin: 20px 0px;
+    width: fit-content;
 }
-.information-grid {
-    display: grid;
-    grid-template-columns: repeat(2, max-content);
-    gap: 2rem;
-}
-.dropdown-header {
-    font-weight: bold;
-    font-size: 20px;
-    text-shadow: 2px 2px 2px gray;
-    cursor: default;
-}
-.dropdown-links {
-    display: flex;
-    flex-direction: column;
-    gap: .25rem;
-}
-.link {
-    color: black;
-    text-decoration: none;
 
-}
-.dropdown-button {
-    z-index: 1;
-}
-/* End: Dropdown */
-
-/* Start: Form Inputs */
 .creation-page-inputs label{
     display: block;
     padding: 5px 5px 5px 0px;
 }
-.email-wrapper, .username-wrapper, .display-name-wrapper, .pronouns-wrapper,
-.skills-you-have-wrapper, .skills-to-learn-wrapper {
-    margin-top: 10px;
-    margin-bottom: 10px;
+.creation-page-inputs input[type="text"],
+.creation-page-inputs input[type="email"] {
+    width: 300px;
+    background-color: white;
+    border: 1px solid rgba(0, 0, 0, 0.4);
+    padding: 10px;
+    box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
-.input-row {
+
+input.email, input.username {
+    color: rgba(0, 0, 0, 0.5);
+}
+
+.tooltip {
+    width: fit-content;
+    height: fit-content;
+    cursor: pointer;
+    position: relative;
+}
+
+.tooltip-text {
+    visibility: hidden; /* Hidden by default */
+    width: 130px;
+    background-color: black;
+    color: #ffffff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+    position: absolute;
+    z-index: 1; /* Ensure tooltip is displayed above content */
+}
+
+/* Biography-About Me */
+/* Biography-About Me */
+/* Biography-About Me */
+.textarea-container
+{
+    position: relative;
+    width: fit-content;
+}
+
+.about-me-textarea {
+    width: 300px;
+    height: 120px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: white;
+    border: 1px solid rgba(0, 0, 0, 0.4);
+    box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    padding: 10px;
+    resize: none;
+}
+
+.characters-left {
+    color: rgba(0, 0, 0, 0.4);
+    position: absolute;
+    right: 0;
+}
+
+/* Radio Group Grid */
+/* Radio Group Grid */
+/* Radio Group Grid */
+
+.radioboxes-and-card {
+    display: flex;
+    justify-content: space-between;
+}
+
+.radio-header {
+    margin: 40px 0 0;
+}
+
+.radio-description {
+    margin: 20px 0;
+    width: 70%;
+    font-weight: 400;
+}
+
+.radio-group-grid {
+    display: flex;
+    flex-direction: column;
+    padding: 20px 0px;
+}
+
+/* Select Category */
+.radio-group-grid input[type="radio"] {
+    margin: 10px 5px 10px 0px;
+    vertical-align: middle;
+}
+
+/* Carousel CSS */
+/* Carousel CSS */
+/* Carousel CSS */
+
+.edit-skills-section {
+    display: flex;
+    flex-direction: column;
+}
+
+.image-collection {
+    width: 40vw;
+    height: 200px;
+}
+
+.post-slider {
+    position: relative;
+}
+
+.post-slider .prev {
+    position: absolute;
+    top: 50%;
+    left: 4%;
+    font-size: 2em;
+    color: black;
+    cursor: pointer;
+}
+
+.post-slider .next {
+    position: absolute;
+    top: 50%;
+    right: 4%;
+    font-size: 2em;
+    color: black;
+    cursor: pointer;
+}
+
+.post-wrapper {
+    width: 70%;
+    height: 30%;
+    margin: 0px auto;
+    overflow: hidden;
+    padding: 10px 0px;
+}
+
+.post {
+    width: 300px;
+    margin: 0px 10px 0px 10px;
+    border-radius: 10px;
+}
+
+.gallery-image {
+    cursor: pointer;
+    width: 100%;
+    margin: 10px 0px;
+    height: 160px;
+    object-fit: cover;
+}
+
+/* Save Changes Button */
+/* Save Changes Button */
+/* Save Changes Button */
+.save-changes-wrapper {
+    margin: 50px 0 20px;
+    display: flex;
+    justify-content: center;
+}
+.save-changes-btn {
+    background-color: var(--emerald-500);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.save-changes-btn:hover {
+    background-color: var(--emerald-600);
+}
+
+/* Cards CSS */
+/* Cards CSS */
+/* Cards CSS */
+
+/* Card Title */
+.card
+{
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    height: 450px;
+    padding: 15px;
+    background-color: rgb(240, 240, 240);
+    border-radius: 20px;
+    box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+/* Card Image */
+.card-image
+{
+    text-align: center;
+}
+
+.card-image img
+{
+    border-radius: 20px;
+    width: 300px;
+    height: auto;
+    object-fit: cover;
+}
+
+/* Everything under the image */
+.card-content
+{
+    margin-top: 10px;
+    display: inline-block;
+    height: 60%;
+}
+
+/* Card Creator */
+.creator
+{
     display: flex;
     align-items: center;
-    gap: 10px;
-}
-.creation-page-inputs input {
-    outline: none;
-    border-radius: 10px;
-    border: none;
-    padding: 10px;
 }
 
-.bio-wrapper
+.creator i
 {
-    width: 300px;
-    height: 50px;
-    border-radius: 10px;
-    border-style: solid;
-    border-width: 1px;
-    border-color: black;
-    background-color: white;
-    padding: 10px;
-    overflow: auto;
-    margin-bottom: 10px;
+    margin-right: 5px;
 }
-/* End: Form Inputs */
 
-/* Start: Right-side skills box */
+/* Card Description */
+.card-desc
+{
+    margin-top: 10px;
+    overflow: hidden;
+    overflow-wrap: break-word;
+    height: 120px;
+}
+
+/* Card Tags */
+
+/* Ratings */
+.rating
+{
+    margin-top: 30px;
+    display: flex;
+    align-items: center;
+}
+
+.rating i
+{
+    margin-right: 5px;
+}
+
+/* Skills CSS */
+/* Skills CSS */
+/* Skills CSS */
+
 .skills-sidebox {
-    position: fixed;
-    right: 20px;
-    top: 90px;
-    width: 340px;
-    max-height: calc(100vh - 120px);
-    overflow: auto;
-    background: #ffffff;
-    border-radius: 10px;
-    padding: 12px;
-    box-shadow: 0 6px 18px rgba(0,0,0,0.15);
-    z-index: 50;
-    font-family: inherit;
+    position: static;
+    width: auto;
+    max-height: none;
+    box-shadow: none;
 }
-.skills-sidebox-header{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:10px;
-    margin-bottom:8px;
+
+.skills-sidebox-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 8px;
 }
-.skills-sidebox h3{ margin:0; font-size:18px }
-.skills-toggle{ display:flex; gap:6px }
-.toggle-btn{
+
+.skills-sidebox h3 { margin: 0; font-size: 18px; }
+
+.skills-toggle {
+    display: flex;
+    gap: 6px;
+    margin: 20px 0;
+}
+
+.toggle-btn {
     background: transparent;
     border: 1px solid #ccc;
     border-radius: 6px;
@@ -140,38 +351,247 @@
     cursor:pointer;
     font-size:13px;
 }
-.toggle-btn.active{
+
+.toggle-btn.active {
     background: var(--emerald-500, #10b981);
     color: white;
     border-color: transparent;
 }
-.skills-panel{ display:none }
-.skills-panel.active{ display:block }
-.skills-panel .information-grid{ display:grid; grid-template-columns:repeat(2, 1fr); gap:12px }
-.skills-panel .dropdown-header{ font-size:14px; font-weight:700; margin-bottom:6px }
-.skills-panel .dropdown-links{ display:flex; flex-direction:column; gap:4px }
-.skills-panel .link{ color:#1f2937; text-decoration:none; font-size:13px }
+
+.skills-panel {
+    display: none;
+}
+
+.skills-panel.active{
+    display: block;
+    background-color: rgb(230, 230, 230);
+}
+
+.skills-panel .information-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+}
+
+.skills-panel .dropdown-header {
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 6px;
+}
+
+.skills-panel .dropdown-links {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.skills-panel .link {
+    color: #1f2937;
+    text-decoration: none;
+    font-size: 13px ;
+}
 
 /* Skill item checkbox styles */
-.skill-item{
-    display:flex;
-    align-items:center;
-    gap:8px;
-    padding:6px 8px;
-    border-radius:6px;
-    cursor:pointer;
-    user-select:none;
+.skill-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 8px;
+    border-radius: 6px;
+    cursor: pointer;
+    user-select: none;
 }
-.skill-item:hover{ background: rgba(15,23,42,0.03); }
-.skill-checkbox{ width:16px; height:16px; accent-color: var(--emerald-500, #10b981); }
-.skill-item.selected{ background: rgba(16,185,129,0.12); }
-.skill-name{ font-size:13px; color:#111827 }
+
+.skill-item:hover {
+    background: rgba(15,23,42,0.03);
+}
+
+.skill-checkbox {
+    width:16px;
+    height:16px;
+    accent-color: var(--emerald-500, #10b981);
+}
+
+.skill-item.selected {
+    background: rgba(16,185,129,0.12);
+}
+
+.skill-name {
+    font-size: 13px;
+    color: #111827;
+}
 
 /* Ensure default anchors in the sidebox are hidden if transform didn't run yet */
-.skills-sidebox .dropdown-links a.link{ display:none }
+.skills-sidebox .dropdown-links a.link { display: none; }
 
-@media (max-width: 900px){
-    .skills-sidebox{ position: static; width: auto; max-height: none; box-shadow: none; margin: 12px; }
+/* Responsiveness */
+/* Responsiveness */
+/* Responsiveness */
+@media only screen and (max-width: 850px) {
+    .card-container {
+        display: flex;
+        justify-content: center;
+    }
+
+    .radioboxes-and-card {
+        margin-top: 50px;
+        display: flex;
+        flex-direction: column-reverse;
+    }
+
+    form.select-category {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .radio-group-grid label {
+        display: flex;
+        justify-content: left;
+        align-items: center;
+    }
+
+    .carousel-container {
+        display: flex;
+        justify-content: center;
+    }
+
+    .image-collection {
+        width: 70vw;
+        height: 200px;
+    }
 }
 
-/* End: Right-side skills box */
+@media only screen and (max-width: 500px) {
+    .skills-panel .information-grid {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        gap: 12px;
+    }
+
+    .creation-page-inputs {
+        width: 100%;
+    }
+
+    .email-wrapper, .username-wrapper, .display-name-wrapper, .pronouns-wrapper,
+    .skills-you-have-wrapper, .skills-to-learn-wrapper, .bio-wrapper {
+        width: 100%;
+    }
+
+    .creation-page-inputs input[type="text"],
+    .creation-page-inputs input[type="email"] {
+        width: 90%;
+        background-color: white;
+        border: 1px solid rgba(0, 0, 0, 0.4);
+        padding: 10px 0px 10px 10px;
+        box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+
+    .textarea-container
+    {
+        position: relative;
+        width: 100%;
+    }
+
+    .about-me-textarea {
+        width: 90%;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: white;
+        border: 1px solid rgba(0, 0, 0, 0.4);
+        box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        padding: 10px 0px 10px 10px;
+        resize: none;
+    }
+
+    .characters-left {
+        color: rgba(0, 0, 0, 0.4);
+        position: absolute;
+        left: 0;
+    }
+
+    .card-container {
+        display: flex;
+        justify-content: center;
+    }
+
+    .card
+    {
+        display: flex;
+        flex-direction: column;
+        width: 200px;
+        height: 380px;
+        padding: 15px;
+        background-color: rgb(240, 240, 240);
+        border-radius: 20px;
+    }
+
+    /* Card Image */
+    .card-image
+    {
+        text-align: center;
+    }
+
+    .card-image img
+    {
+        border-radius: 20px;
+        width: 200px;
+        height: auto;
+        object-fit: cover;
+    }
+
+    /* Everything under the image */
+    .card-content
+    {
+        margin-top: 10px;
+        display: inline-block;
+        height: 60%;
+    }
+
+    /* Card Creator */
+    .creator
+    {
+        display: flex;
+        align-items: center;
+    }
+
+    .creator i
+    {
+        margin-right: 5px;
+    }
+
+    /* Card Description */
+    .card-desc
+    {
+        overflow-wrap: break-word;
+        height: 120px;
+    }
+
+    /* Card Tags */
+    .card-tags
+    {
+        margin-top: 20px;
+    }
+
+    /* Ratings */
+    .rating
+    {
+        margin-top: 10px;
+        display: flex;
+        align-items: center;
+    }
+
+    .rating i
+    {
+        margin-right: 5px;
+    }
+
+    .button-containers {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .tab-buttons {
+        border-bottom: 2px solid rgba(0, 0, 0, 0.25);
+    }
+}
