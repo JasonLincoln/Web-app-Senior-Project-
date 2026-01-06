@@ -156,7 +156,7 @@ input.email, input.username {
 /* Select Category */
 .radio-group-grid input[type="radio"] {
     margin: 10px 5px 10px 0px;
-    vertical-align: middle; 
+    vertical-align: middle;
 }
 
 /* Carousel CSS */
@@ -189,7 +189,7 @@ input.email, input.username {
 .post-slider .next {
     position: absolute;
     top: 50%;
-    right: 4%; 
+    right: 4%;
     font-size: 2em;
     color: black;
     cursor: pointer;
@@ -259,7 +259,7 @@ input.email, input.username {
 }
 
 /* Card Image */
-.card-image 
+.card-image
 {
     text-align: center;
 }
@@ -320,11 +320,11 @@ input.email, input.username {
 /* Skills CSS */
 /* Skills CSS */
 
-.skills-sidebox { 
-    position: static; 
-    width: auto; 
-    max-height: none; 
-    box-shadow: none; 
+.skills-sidebox {
+    position: static;
+    width: auto;
+    max-height: none;
+    box-shadow: none;
 }
 
 .skills-sidebox-header {
@@ -337,9 +337,9 @@ input.email, input.username {
 
 .skills-sidebox h3 { margin: 0; font-size: 18px; }
 
-.skills-toggle { 
-    display: flex; 
-    gap: 6px; 
+.skills-toggle {
+    display: flex;
+    gap: 6px;
     margin: 20px 0;
 }
 
@@ -358,36 +358,36 @@ input.email, input.username {
     border-color: transparent;
 }
 
-.skills-panel { 
+.skills-panel {
     display: none;
 }
 
-.skills-panel.active{ 
+.skills-panel.active{
     display: block;
     background-color: rgb(230, 230, 230);
 }
 
-.skills-panel .information-grid { 
-    display: grid; 
-    grid-template-columns: repeat(2, 1fr); 
+.skills-panel .information-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
     gap: 12px;
 }
 
-.skills-panel .dropdown-header { 
-    font-size: 14px; 
-    font-weight: 700; 
+.skills-panel .dropdown-header {
+    font-size: 14px;
+    font-weight: 700;
     margin-bottom: 6px;
 }
 
-.skills-panel .dropdown-links { 
-    display: flex; 
-    flex-direction: column; 
-    gap: 4px; 
+.skills-panel .dropdown-links {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
 }
 
-.skills-panel .link { 
-    color: #1f2937; 
-    text-decoration: none; 
+.skills-panel .link {
+    color: #1f2937;
+    text-decoration: none;
     font-size: 13px ;
 }
 
@@ -402,22 +402,22 @@ input.email, input.username {
     user-select: none;
 }
 
-.skill-item:hover { 
-    background: rgba(15,23,42,0.03); 
+.skill-item:hover {
+    background: rgba(15,23,42,0.03);
 }
 
-.skill-checkbox { 
-    width:16px; 
-    height:16px; 
-    accent-color: var(--emerald-500, #10b981); 
+.skill-checkbox {
+    width:16px;
+    height:16px;
+    accent-color: var(--emerald-500, #10b981);
 }
 
-.skill-item.selected { 
-    background: rgba(16,185,129,0.12); 
+.skill-item.selected {
+    background: rgba(16,185,129,0.12);
 }
 
-.skill-name { 
-    font-size: 13px; 
+.skill-name {
+    font-size: 13px;
     color: #111827;
 }
 
@@ -526,7 +526,7 @@ input.email, input.username {
     }
 
     /* Card Image */
-    .card-image 
+    .card-image
     {
         text-align: center;
     }

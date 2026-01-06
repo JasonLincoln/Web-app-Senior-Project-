@@ -1,18 +1,62 @@
 <footer>
-        <div id="skillswap-intro">
-            <p>
-                SkillSwap: Student Talent Exchange Platform is a web application designed by Xander Berger, Nathan Ferguson,
-                Mason Phonephomhom, and Jason Lincoln from Four County Career Center.
-                Four County Career Center is a vocational school located in Archbold, Ohio.
-                Four County Career Center is involved with Business Professionals of America,
-                signified by the Four County Career Center Chapter of the Ohio Association of Business Professionals of America.
-            </p>
-        </div>
+    <div id="skillswap-intro">
+        <p>
+            SkillSwap: Student Talent Exchange Platform is a web application designed by Xander Berger, Nathan Ferguson,
+            Mason Phonephomhom, and Jason Lincoln from Four County Career Center.
+            Four County Career Center is a vocational school located in Archbold, Ohio.
+            Four County Career Center is involved with Business Professionals of America,
+            signified by the Four County Career Center Chapter of the Ohio Association of Business Professionals of America.
+        </p>
+    </div>
 
-        <div id="grid-container" class="hide-on-mobile">
-            <!-- Skills -->
+    <div id="grid-container" class="hide-on-mobile">
+        <!-- Skills -->
+        <div class="sub-grid">
+            <div id="skills" class="sub-grid-header">Skill Categories</div>
+            <ul>
+                <li>Programming Languages</li>
+                <li>Computers & I.T.</li>
+                <li>Mathematics</li>
+                <li>Science</li>
+                <li>Social Studies</li>
+                <li>Business</li>
+                <li>Life Skills</li>
+                <li>Foreign Languages</li>
+                <!-- Add more when needed -->
+            </ul>
+        </div>
+        <!-- Website Links -->
+        <div class="sub-grid">
+            <div id="links" class="sub-grid-header">Website & Profile Links</div>
+            <ul>
+                <li><a href="/pages/profile/{{user.id}}">Your Profile</a></li>
+                <li><a href="/pages/sessions">Sessions</a></li>
+                <li><a href="/pages/messages">Messages</a></li>
+            </ul>
+        </div>
+        <!-- More -->
+        <div class="sub-grid">
+            <div id="more" class="sub-grid-header">Other Links</div>
+            <ul>
+                <li><a href="/pages/about-us">About Us</a></li>
+                <li><a href="/pages/terms">Terms</a></li>
+                <li><a href="/pages/credits">Credits</a></li>
+            </ul>
+        </div>
+        <!-- Contact -->
+        <div class="sub-grid">
+            <div id="contact" class="sub-grid-header">Contact Us</div>
+            <ul class="contact-info">
+                <li><i class="fa-solid fa-house"></i> Archbold, OH 43502, US </li>
+                <li><i class="fa-solid fa-envelope"></i> skillswap@gmail.com</li>
+                <li><i class="fa-solid fa-phone"></i> 999-999-9999</li>
+            </ul>
+        </div>
+    </div>
+    <div class="hide-on-desktop">
+        <button type="button" class="footer-accordion">Skill Categories</button>
+        <div class="panel">
             <div class="sub-grid">
-                <div id="skills" class="sub-grid-header">Skill Categories</div>
                 <ul>
                     <li>Programming Languages</li>
                     <li>Computers & I.T.</li>
@@ -22,30 +66,35 @@
                     <li>Business</li>
                     <li>Life Skills</li>
                     <li>Foreign Languages</li>
-                    <!-- Add more when needed -->
                 </ul>
             </div>
-            <!-- Website Links -->
+        </div>
+
+        <button type="button" class="footer-accordion">Website & Profile Links</button>
+        <div class="panel">
             <div class="sub-grid">
-                <div id="links" class="sub-grid-header">Website & Profile Links</div>
                 <ul>
                     <li><a href="/pages/profile/{{user.id}}">Your Profile</a></li>
                     <li><a href="/pages/sessions">Sessions</a></li>
                     <li><a href="/pages/messages">Messages</a></li>
                 </ul>
             </div>
-            <!-- More -->
+        </div>
+
+        <button type="button" class="footer-accordion">Other Links</button>
+        <div class="panel">
             <div class="sub-grid">
-                <div id="more" class="sub-grid-header">Other Links</div>
                 <ul>
                     <li><a href="/pages/about-us">About Us</a></li>
                     <li><a href="/pages/terms">Terms</a></li>
                     <li><a href="/pages/credits">Credits</a></li>
                 </ul>
             </div>
-            <!-- Contact -->
+        </div>
+
+        <button type="button" class="footer-accordion">Contact Us</button>
+        <div class="panel">
             <div class="sub-grid">
-                <div id="contact" class="sub-grid-header">Contact Us</div>
                 <ul class="contact-info">
                     <li><i class="fa-solid fa-house"></i> Archbold, OH 43502, US </li>
                     <li><i class="fa-solid fa-envelope"></i> skillswap@gmail.com</li>
@@ -53,66 +102,16 @@
                 </ul>
             </div>
         </div>
-        <div class="hide-on-desktop">
-            <button type="button" class="footer-accordion">Skill Categories</button>
-            <div class="panel">
-                <div class="sub-grid">
-                    <ul>
-                        <li>Programming Languages</li>
-                        <li>Computers & I.T.</li>
-                        <li>Mathematics</li>
-                        <li>Science</li>
-                        <li>Social Studies</li>
-                        <li>Business</li>
-                        <li>Life Skills</li>
-                        <li>Foreign Languages</li>
-                    </ul>
-                </div>
-            </div>
+    </div>
 
-            <button type="button" class="footer-accordion">Website & Profile Links</button>
-            <div class="panel">
-                <div class="sub-grid">
-                    <ul>
-                        <li><a href="../profile.html">Your Profile</a></li>
-                        <li><a href="../create_skills.html">Create a Course</a></li>
-                        <li><a href="../sessions.html">Sessions</a></li>
-                        <li><a href="../messages.html">Messages</a></li>
-                    </ul>
-                </div>
-            </div>
-
-            <button type="button" class="footer-accordion">Other Links</button>
-            <div class="panel">
-                <div class="sub-grid">
-                    <ul>
-                        <li><a href="../about_us.html">About Us</a></li>
-                        <li><a href="../terms.html">Terms</a></li>
-                        <li><a href="../credits.html">Credits</a></li>
-                    </ul>
-                </div>
-            </div>
-
-            <button type="button" class="footer-accordion">Contact Us</button>
-            <div class="panel">
-                <div class="sub-grid">
-                    <ul class="contact-info">
-                        <li><i class="fa-solid fa-house"></i> Archbold, OH 43502, US </li>
-                        <li><i class="fa-solid fa-envelope"></i> skillswap@gmail.com</li>
-                        <li><i class="fa-solid fa-phone"></i> 999-999-9999</li>
-                    </ul>
-                </div>
-            </div>
+    <div id="copyright-and-media">
+        <div class="copyright-text">
+            &copy; 2026 SkillSwap: Student Talent Exchange Platform
         </div>
-
-        <div id="copyright-and-media">
-            <div class="copyright-text">
-                &copy; 2026 SkillSwap: Student Talent Exchange Platform
-            </div>
-            <div class="media">
-                <a href="https://youtube.com"><i class="fa-brands fa-youtube"></i></a>
-                <a href="https://instagram.com"><i class="fa-brands fa-instagram"></i></a>
-                <a href="https://x.com"><i class="fa-brands fa-x-twitter"></i></a>
-            </div>
+        <div class="media">
+            <a href="https://youtube.com"><i class="fa-brands fa-youtube"></i></a>
+            <a href="https://instagram.com"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://x.com"><i class="fa-brands fa-x-twitter"></i></a>
         </div>
-    </footer>
+    </div>
+</footer>
