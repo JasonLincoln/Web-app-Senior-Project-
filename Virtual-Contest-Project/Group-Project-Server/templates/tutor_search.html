@@ -103,12 +103,12 @@
             <div class="dropdown">
                 <!-- <input type="text" id="rating-dropdown-textbox" placeholder="Rating" readonly> -->
                 <button class="link filters-dropdown-button">Rating ▼</button>
-                <ul class="dropdown-menu">
-                    <li><a class="dropdown-item link" href="#">1</a></li>
-                    <li><a class="dropdown-item link" href="#">2</a></li>
-                    <li><a class="dropdown-item link" href="#">3</a></li>
-                    <li><a class="dropdown-item link" href="#">4</a></li>
-                    <li><a class="dropdown-item link" href="#">5</a></li>
+                <ul id="rating-dropdown" class="dropdown-menu">
+                    <li><p id="1" class="dropdown-item link">1</p></li>
+                    <li><p id="2" class="dropdown-item link">2</p></li>
+                    <li><p id="3" class="dropdown-item link">3</p></li>
+                    <li><p id="4" class="dropdown-item link">4</p></li>
+                    <li><p id="5" class="dropdown-item link">5</p></li>
                 </ul>
             </div>
         </div>
@@ -139,9 +139,8 @@
                     <div class="card-tags">
                         <p class="skills" data-skills></p>
                     </div>
-                    <div class="rating">
-                        <i class="fa-solid fa-star"></i>
-                        <p class="ratingNum" data-rating></p>
+                    <div class="rating" data-rating>
+<!--                        <i class="fa-solid fa-star"></i>-->
                     </div>
                 </div>
             </div>

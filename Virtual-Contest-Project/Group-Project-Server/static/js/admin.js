@@ -354,7 +354,7 @@ const updateUser = document.getElementById('updateUserByID');
 
             try {
                 const response = await fetch(`/admin/update_user/${updateUserID}`, {
-                    method: 'POST',
+                    method: 'PUT',
                     headers: {
                         'Content-Type': 'application/json'
                     },
@@ -387,13 +387,13 @@ const updateSkill = document.getElementById('updateSkillByID');
             const updateSkillID = data.updateSkillID;
 
             const payload = {
-                super_category: data.updateSuperCategory,
-                sub_category: data.updateSubCategory
+                super_category: data.updateSkillSuperCategory,
+                sub_category: data.updateSkillSubCategory
             };
 
             try {
                 const response = await fetch(`/admin/update_skill/${updateSkillID}`, {
-                    method: 'POST',
+                    method: 'PUT',
                     headers: {
                         'Content-Type': 'application/json'
                     },
@@ -415,13 +415,159 @@ const updateSkill = document.getElementById('updateSkillByID');
     }
 
 // Update Session By ID
+const updateSession = document.getElementById('updateSessionByID');
+    if (updateSession) {
+        updateSession.addEventListener('submit', async function (event) {
+            event.preventDefault();
 
+            const form = event.target;
+            const formData = new FormData(form);
+            const data = Object.fromEntries(formData.entries());
+            const updateSessionID = data.updateSessionID;
+
+            const payload = {
+                session_date: data.updateSessionDate
+            };
+
+            try {
+                const response = await fetch(`/admin/update_session/${updateSessionID}`, {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(payload)
+                });
+
+                if (response.ok) {
+                    console.log("Updated session.")
+                } else {
+                    // Handle error
+                    const errorData = await response.json();
+                    alert(`Error: ${errorData.message}`);
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('An error occurred. Please try again.');
+            }
+        });
+    }
 
 // Delete User By ID
+const deleteUser = document.getElementById('deleteUserByID');
+    if (deleteUser) {
+        deleteUser.addEventListener('submit', async function (event) {
+            event.preventDefault();
 
+            const form = event.target;
+            const formData = new FormData(form);
+            const data = Object.fromEntries(formData.entries());
+            const deleteUserID = data.deleteUserID;
+
+            try {
+                const response = await fetch(`/admin/user/${deleteUserID}`, {
+                    method: 'DELETE'
+                });
+
+                if (response.ok) {
+                    console.log("Deleted User.");
+                } else {
+                    // Handle error
+                    const errorData = await response.json();
+                    alert(`Error: ${errorData.message}`);
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('An error occurred. Please try again.');
+            }
+        });
+    }
 
 // Delete Skill By ID
+const deleteSkill = document.getElementById('deleteSkillByID');
+    if (deleteSkill) {
+        deleteSkill.addEventListener('submit', async function (event) {
+            event.preventDefault();
 
+            const form = event.target;
+            const formData = new FormData(form);
+            const data = Object.fromEntries(formData.entries());
+            const deleteSkillID = data.deleteSkillID;
+
+            try {
+                const response = await fetch(`/admin/skill/${deleteSkillID}`, {
+                    method: 'DELETE'
+                });
+
+                if (response.ok) {
+                    console.log("Deleted skill.");
+                } else {
+                    // Handle error
+                    const errorData = await response.json();
+                    alert(`Error: ${errorData.message}`);
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('An error occurred. Please try again.');
+            }
+        });
+    }
+
+// Delete Session By ID
+const deleteSession = document.getElementById('deleteSessionByID');
+    if (deleteSession) {
+        deleteSession.addEventListener('submit', async function (event) {
+            event.preventDefault();
+
+            const form = event.target;
+            const formData = new FormData(form);
+            const data = Object.fromEntries(formData.entries());
+            const deleteSessionID = data.deleteSessionID;
+
+            try {
+                const response = await fetch(`/admin/session/${deleteSessionID}`, {
+                    method: 'DELETE'
+                });
+
+                if (response.ok) {
+                    console.log("Deleted session.");
+                } else {
+                    // Handle error
+                    const errorData = await response.json();
+                    alert(`Error: ${errorData.message}`);
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('An error occurred. Please try again.');
+            }
+        });
+    }
 
 // Delete Message By ID
+const deleteMessage = document.getElementById('deleteMessageByID');
+    if (deleteMessage) {
+        deleteMessage.addEventListener('submit', async function (event) {
+            event.preventDefault();
 
+            const form = event.target;
+            const formData = new FormData(form);
+            const data = Object.fromEntries(formData.entries());
+            const deleteMessageID = data.deleteMessageID;
+
+            try {
+                const response = await fetch(`/admin/message/${deleteMessageID}`, {
+                    method: 'DELETE'
+                });
+
+                if (response.ok) {
+                    console.log("Deleted message.");
+                } else {
+                    // Handle error
+                    const errorData = await response.json();
+                    alert(`Error: ${errorData.message}`);
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('An error occurred. Please try again.');
+            }
+        });
+    }

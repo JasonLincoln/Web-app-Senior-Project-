@@ -140,3 +140,13 @@ async def render_messages_page(request: Request):
 def render_profile_page(request: Request, db: db_dependency, user_id: int):
     user = db.query(Users).filter(user_id == Users.id).first()
     return templates.TemplateResponse('profile.html', {'request': request, 'user': user})
+
+@router.get('/sessions')
+async def render_sessions_page(request: Request, db: db_dependency):
+    try:
+        user = await get_current_user(request.cookies.get('access_token'))
+        if user is None:
+            return redirect_to_login()
+        return templates.TemplateResponse('sessions.html', {'request': request, 'user': user})
+    except:
+        return redirect_to_login()

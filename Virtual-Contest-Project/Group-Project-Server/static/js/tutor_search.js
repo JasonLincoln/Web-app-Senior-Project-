@@ -1,3 +1,5 @@
+"use strict";
+
 // Dropdown functionality
 document.addEventListener('DOMContentLoaded', function() {
     // Skills dropdown
@@ -66,7 +68,6 @@ async function showAllUsers(){
     const response = await fetch(getAllUsersEndpoint);
     if (response.ok) {
         const data = await response.json();
-        console.log('hi');
         console.log(data.data);
         console.log("Using user data for the showAllUsers function.");
         allTutors.innerHTML = "";
@@ -76,10 +77,15 @@ async function showAllUsers(){
             const username = card.querySelector("[data-username]");
             const biography = card.querySelector("[data-biography]");
             const skills = card.querySelector("[data-skills]");
-            const rating = card.querySelector("[data-rating]");
+            let rating = card.querySelector("[data-rating]");
             username.textContent = item.username;
             biography.textContent = item.biography;
-            rating.textContent = item.rating;
+            console.log(item.rating);
+            for(let i = 0; i < item.rating; i++)
+            {
+                const star = Object.assign(document.createElement('i'), { className : "fa-solid fa-star"});
+                rating.append(star);
+            }
             allTutors.append(card);
             return { username: item.username, biography: item.biography, rating: item.rating, element: card};
         });
