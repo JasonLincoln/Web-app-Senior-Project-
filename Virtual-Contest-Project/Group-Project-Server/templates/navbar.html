@@ -1,5 +1,8 @@
  <nav class="navbar">
     <ul>
+        {% if user.user_role == 'admin' %}
+            <li><a href="/pages/admin-page">Admin Access</a></li>
+        {% endif %}
         <li><a href="/pages/explore">Explore</a></li>
         <li><a href="/pages/about-us">About</a></li>
         <li><a href="/pages/sessions">Sessions</a></li>
@@ -8,7 +11,7 @@
             <ul>
                 <li><a href="/pages/profile/{{user.id}}">Profile</a></li>
                 <li><a href="/pages/messages">Messages</a></li>
-                <li><a href="login">Signout</a></li>
+                <li><a href="/pages/login">Signout</a></li>
             </ul>
         </li>
     </ul>
