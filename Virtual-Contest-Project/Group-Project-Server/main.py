@@ -3,7 +3,7 @@ from fastapi.templating import Jinja2Templates
 from fastapi.staticfiles import StaticFiles
 import models
 from database import engine
-from routers import users, auth, admin, skills, messages, achievements, sessions, pages
+from routers import users, auth, admin, skills, messages, achievements, sessions, pages, audits
 
 '''Connects the endpoints from each router to FastAPI'''
 app = FastAPI()
@@ -14,6 +14,7 @@ app.include_router(skills.router)
 app.include_router(messages.router)
 app.include_router(achievements.router)
 app.include_router(sessions.router)
+app.include_router(audits.router)
 app.include_router(pages.router)
 
 models.Base.metadata.create_all(bind = engine)

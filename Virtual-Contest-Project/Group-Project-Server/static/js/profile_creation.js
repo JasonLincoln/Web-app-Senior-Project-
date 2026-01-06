@@ -86,13 +86,21 @@ const detectWhichCategory = radios => {
             html = 
             `
             <div class="post">
+<<<<<<< HEAD
                 <img src='../static/images/gallery_images/${selectedValue}/${selectedValue}${i+1}.png' class="gallery-image" id='image-${i+1}'></img>
+=======
+                <img src="../images/gallery_images/${selectedValue}/${selectedValue}${i+1}.png" alt="" id="image-${i+1}" class="gallery-image"></img>
+>>>>>>> 2ec8b3faeaa3f3961820990b1a7da7907a17a982
             </div>
             `;
             $(".post-wrapper").append(html);
         } else {
             let image = document.querySelector(`#image-${i+1}`);
+<<<<<<< HEAD
             image.src = `../static/images/gallery_images/${selectedValue}/${selectedValue}${i+1}.png`;
+=======
+            (image).src = `../images/gallery_images/${selectedValue}/${selectedValue}${i+1}.png`;
+>>>>>>> 2ec8b3faeaa3f3961820990b1a7da7907a17a982
             selectedImage = image;
         } // end if
     } // end for

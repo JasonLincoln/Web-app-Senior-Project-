@@ -50,18 +50,6 @@ class Sessions(Base):
     id = Column(Integer, primary_key = True, index = True)
     session_date = Column(DateTime)
 
-class UsersAchievements(Base):
-    __tablename__ = 'users_achievements'
-    user_id = Column(Integer, ForeignKey('users.id'), primary_key = True)
-    achievement_id = Column(Integer, ForeignKey('achievements.id'), primary_key = True)
-
-class Achievements(Base):
-    __tablename__ = 'achievements'
-    id = Column(Integer, primary_key = True, index = True)
-    name = Column(String)
-    description = Column(String)
-    img_url = Column(String)
-
 class Ratings(Base):
     __tablename__ = 'ratings'
     id = Column(Integer, primary_key = True, index = True)
@@ -69,3 +57,14 @@ class Ratings(Base):
     feedback_rating = Column(Integer)
     recipient_id = Column(Integer, ForeignKey('users.id'))
     sender_id = Column(Integer, ForeignKey('users.id'))
+
+class Audits(Base):
+    __tablename__ = 'audits'
+    id = Column(Integer, primary_key = True, index = True)
+    user_id = Column(Integer, ForeignKey('users.id'), primary_key = True)
+    entity_id = Column(Integer, nullable=False)
+    entity_affected = Column(String, nullable=False)
+    timestamp = Column(DateTime)
+    details = Column(String)
+    successful_event = Column(Boolean)
+    error_details = Column(String)
