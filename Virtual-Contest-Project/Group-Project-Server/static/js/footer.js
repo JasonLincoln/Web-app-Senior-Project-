@@ -1,7 +1,7 @@
-let acc = document.getElementsByClassName("footer-accordion");
+let footerAcc = document.getElementsByClassName("footer-accordion");
 
-for (let i = 0; i < acc.length; i++) {
-    acc[i].addEventListener("click", function() {
+for (let i = 0; i < footerAcc.length; i++) {
+    footerAcc[i].addEventListener("click", function() {
         this.classList.toggle("active-footer");
 
         let panel = this.nextElementSibling;
