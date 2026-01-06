@@ -1,5 +1,6 @@
 from typing import Annotated
 from fastapi import APIRouter, Depends, HTTPException, Path, Request
+from passlib.context import CryptContext
 from pydantic import BaseModel, Field
 from sqlalchemy.orm import Session
 from starlette import status
@@ -24,6 +25,7 @@ def get_db():
 
 db_dependency = Annotated[Session, Depends(get_db)]
 user_dependency = Annotated[dict, Depends(get_current_user)]
+bcrypt_context = CryptContext(schemes=['bcrypt'], deprecated='auto')
 templates = Jinja2Templates(directory = "templates")
 
 class AdminUserRequest(BaseModel):
@@ -166,7 +168,7 @@ async def update_user(db: db_dependency, user_request: AdminUserRequest, user_id
 
     user_model.email = user_request.email
     user_model.display_name = user_request.display_name
-    user_model.hashed_password = user_request.hashed_password
+    user_model.hashed_password = bcrypt_context.hash(user_request.hashed_password),
     user_model.rating = user_request.rating
     user_model.pronouns = user_request.pronouns
     user_model.gender = user_request.gender
