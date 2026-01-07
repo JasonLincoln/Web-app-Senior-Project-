@@ -1,12 +1,14 @@
 //Messaging Functionality
 let chatMessages = [];
 
-const messageArea = document.querySelector('.conversation-wrapper');
+const chatContent = document.querySelector(".chat-content");
+const conversationTemplate = document.getElementById('conversation');
 const myConversationItemTemplate = document.getElementById('my-conversation-item');
 const otherConversationItemTemplate = document.getElementById('other-conversation-item');
 const messageTemplate = document.getElementById('message');
 const currentUserEndpoint = '/users/';
 let talkingToUser = "";
+let chatForm = 0;
 
 // start: Sidebar
 document.querySelector('.chat-sidebar-profile-toggle').addEventListener('click', function(e) {
@@ -18,14 +20,6 @@ document.addEventListener('click', function(e) {
     if(!e.target.matches('.chat-sidebar-profile, .chat-sidebar-profile *')) {
         document.querySelector('.chat-sidebar-profile').classList.remove('active')
     }
-})
-
-document.querySelector(".content-clicky").addEventListener('click', function(e) {
-    getCurrentUser().then(username => {
-        if(username) {
-            getFullChats(username);
-        }
-    });
 })
 // end: Sidebar
 
@@ -62,10 +56,12 @@ document.querySelectorAll('.conversation-form-input').forEach(function(item) {
 document.querySelectorAll('[data-conversation]').forEach(function(item) {
     item.addEventListener('click', function(e) {
         e.preventDefault()
-        document.querySelectorAll('.conversation').forEach(function(i) {
-            i.classList.remove('active')
-        })
-        document.querySelector(this.dataset.conversation).classList.add('active')
+        getCurrentUser().then(username => {
+            if(username) {
+                makeConversation();
+                getFullChats(username);
+            }
+        });
     })
 })
 
@@ -91,6 +87,16 @@ async function getCurrentUser(){
     }
 }
 
+async function makeConversation(){
+    conversation = conversationTemplate.content.cloneNode(true).children[0];
+    document.querySelectorAll('.conversation').forEach(function(i) {
+        i.classList.remove('active');
+    })
+    conversation.classList.add('active');
+    chatForm = conversation.querySelector('.send_message');
+    console.log(chatForm);
+}
+
 async function getFullChats(currentUsername){
     console.log("Getting all messages with user.");
     const getFullChatEndpoint = `/messages/${currentUsername}`;
@@ -99,12 +105,14 @@ async function getFullChats(currentUsername){
         const data = await response.json();
         console.log(data);
         console.log("Using user data for the getFullChat function.");
-        messageArea.innerHTML = "";
+
+        const messageArea = conversation.querySelector('.conversation-wrapper');
+        messageArea.textContent = "";
+
         chatMessages = data.map(item => {
             console.log("Displaying messages on page.");
             let conversationItem = 0;
-            console.log(item.sender_username);
-            console.log(currentUsername);
+
             if(item.sender_username == currentUsername)
             {
                 conversationItem = myConversationItemTemplate.content.cloneNode(true).children[0];
@@ -114,7 +122,10 @@ async function getFullChats(currentUsername){
             {
                 conversationItem = otherConversationItemTemplate.content.cloneNode(true).children[0];
                 talkingToUser = item.sender_username;
+                const otherUsername = conversation.querySelector('.conversation-user-name');
+                otherUsername.textContent = talkingToUser;
             }
+
             const conversationItemContent = conversationItem.querySelector('.conversation-item-content');
             const message = messageTemplate.content.cloneNode(true).children[0];
             const username = conversationItem.querySelector(".username");
@@ -138,56 +149,56 @@ async function getFullChats(currentUsername){
             {
                 was_read.textContent = "Read";
             }
+
             conversationItemContent.append(message);
-            console.log(conversationItemContent);
             conversationItem.append(conversationItemContent);
-            console.log(conversationItem);
             messageArea.append(conversationItem);
         });
+        chatContent.append(conversation);
     }
     else {
         const errorData = await response.json();
         alert(`Error: ${errorData.detail}`);
     }
-}
 
-    const chatForm = document.getElementById('send_message');
-    if (chatForm) {
-        chatForm.addEventListener('submit', async function (event) {
-            event.preventDefault();
+    if(chatForm) {
+            chatForm.addEventListener('submit', async function (event) {
+                event.preventDefault();
 
-            const form = event.target;
-            const formData = new FormData(form);
-            const data = Object.fromEntries(formData.entries());
+                const form = event.target;
+                const formData = new FormData(form);
+                const data = Object.fromEntries(formData.entries());
 
-            const payload = {
-                recipient_username: talkingToUser,
-                text: data.text
-            };
+                const payload = {
+                    recipient_username: talkingToUser,
+                    text: data.text
+                };
 
-            try {
-                const response = await fetch('/messages/create_message', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify(payload)
-                });
-
-                if (response.ok) {
-                    getCurrentUser().then(username => {
-                        if(username) {
-                            getFullChats(username);
-                        }
+                try {
+                    const response = await fetch('/messages/create_message', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(payload)
                     });
-                } else {
-                    // Handle error
-                    const errorData = await response.json();
-                    alert(`Error: ${errorData.message}`);
+
+                    if (response.ok) {
+                        console.log("Making message.");
+                        getCurrentUser().then(username => {
+                            if(username) {
+                                getFullChats(username);
+                            }
+                        });
+                    } else {
+                        // Handle error
+                        const errorData = await response.json();
+                        alert(`Error: ${errorData.message}`);
+                    }
+                } catch (error) {
+                    console.error('Error:', error);
+                    alert('An error occurred. Please try again.');
                 }
-            } catch (error) {
-                console.error('Error:', error);
-                alert('An error occurred. Please try again.');
-            }
-        });
-    }
+            });
+        }
+}
