@@ -1,29 +1,41 @@
 /* Profile Section */
-#complete-profile
+#complete-profile-parent
 {
-    position: relative;
-    background-color: #596b51;
     display: flex;
-    margin: 20px;
-    padding: 20px;
-    transition: filter 0ms ease-in-out 300ms;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
 }
 
-.main-profile
+#complete-profile
+{
+    background-color: yellow;
+    width: 60vw;
+    position: relative;
+    display: flex;
+    padding: 30px;
+    box-shadow: 0 8px 24px -4px rgba(0, 0, 0, .1);
+    background-color: var(--white);
+    overflow: auto;
+    max-height: 90vh;
+    justify-content: space-between;
+}
+
+.profile-personal-content
 {
     display: flex;
     flex-direction: column;
-    background-color: #919191;
-    border-style: solid;
-    border-width: 1px;
-    border-color: black;
+    background-color: var(--gray-200);
     border-radius: 10px;
     padding: 10px;
 }
 
 .pfp
 {
-    border-radius: 50px;
+    object-fit: cover;
+    width: auto;
+    height: auto;
+    border-radius: 50%;
 }
 
 .name-pronouns
@@ -31,9 +43,10 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    cursor: default;
 }
 
-.about-me
+.edit-profile, .sessions, .rating
 {
     margin-left: 10px;
     display: flex;
@@ -45,68 +58,24 @@
     width: 300px;
     height: 50px;
     border-radius: 10px;
-    border-style: solid;
-    border-width: 1px;
-    border-color: black;
     background-color: white;
     padding: 10px;
     overflow: auto;
     margin-bottom: 10px;
+    resize: none;
 }
 
 /* All Sections */
-.All-Sections
-{
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-}
 
-.Skills-and-Offerings,
-.Availability-and-Session-Info,
-.Achievements,
-.Ratings-and-Comments
+.Skills
 {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: #919191;
-    border-radius: 50px;
-    border-style: solid;
-    border-width: 2px;
-    border-color: black;
+    background-color: var(--gray-200);
+    border-radius: 10px;
     padding: 5px;
-    width: 48%;
-    height: 400px;
-}
-
-/* Skills and Availability Section */
-.Skills-and-Availability
-{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    margin-bottom: 10px;
+    width: 100%;
+    max-width: 500px;
     margin-left: 10px;
 }
-
-/* Skills & Offerings Section */
-
-
-/* Availability and Session Info Section */
-
-/* Achievements and Ratings Section */
-.Achievements-and-Ratings
-{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    margin-top: auto;
-    margin-top: 10px;
-    margin-left: 10px;
-}
-
-/* Achievements Section */
-
-
-/* Rating System/Comments Section */
