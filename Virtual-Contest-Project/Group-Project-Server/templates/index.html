@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.css">
     <!-- Page CSS -->
     <link rel="stylesheet" type = 'text/css' href="{{ url_for('static', path = 'css/index.css') }}">
+<link rel="stylesheet" type = 'text/css' href="{{ url_for('static', path = 'css/tailwindcss-colors.css') }}">
 {% endblock %}
 
 {% block content %}
@@ -20,28 +21,28 @@
                 <div class="post">
                     <img src="{{ url_for('static', path = 'images/index_images/Placeholder.png') }}" alt="" class="slider-image">
                     <div class="post-info">
-                        <h3><a href="#">Placeholder One</a></h3>
+                        <h2><a href="#">Placeholder One</a></h2>
                         <p>Placeholder Description</p>
                     </div>
                 </div> <!-- end post -->
                 <div class="post">
                     <img src="{{ url_for('static', path = 'images/index_images/Placeholder.png') }}" alt="" class="slider-image">
                     <div class="post-info">
-                        <h3><a href="#">Placeholder One</a></h3>
+                        <h2><a href="#">Placeholder One</a></h2>
                         <p>Placeholder Description</p>
                     </div>
                 </div> <!-- end post -->
                 <div class="post">
                     <img src="{{ url_for('static', path = 'images/index_images/Placeholder.png') }}" alt="" class="slider-image">
                     <div class="post-info">
-                        <h3><a href="#">Placeholder Two</a></h3>
+                        <h2><a href="#">Placeholder Two</a></h2>
                         <p>Placeholder Description</p>
                     </div>
                 </div> <!-- end post -->
                 <div class="post">
                     <img src="{{ url_for('static', path = 'images/index_images/Placeholder.png') }}" alt="" class="slider-image">
                     <div class="post-info">
-                        <h3><a href="#">Placeholder Three</a></h3>
+                        <h2><a href="#">Placeholder Three</a></h2>
                         <p>Placeholder Description</p>
                     </div>
                 </div> <!-- end post -->
@@ -58,7 +59,7 @@
                 <div class="center-this-line">
                     <hr class="my-line">
                 </div>
-                <h3>Learn from other students!</h3>
+                <h2>Learn from other students!</h2>
                 <p>
                     Learn about the skills you want through tutors with <strong>expertise</strong> on the field.
                     SkillSwap features a rating system that shows the ratings of tutors, allowing you to choose from
@@ -78,7 +79,7 @@
                 <div class="center-this-line">
                     <hr class="my-line">
                 </div>
-                <h3>Track your progress and progress quickly!</h3>
+                <h2>Track your progress and progress quickly!</h2>
                 <p>SkillSwap tracks your progress right where you left off, along with a solid recommendation of tutors to choose from.</p>
             </div>
         </div>
@@ -88,7 +89,7 @@
                 <div class="center-this-line">
                     <hr class="my-line">
                 </div>
-                <h3>Teach others about your skills!</h3>
+                <h2>Teach others about your skills!</h2>
                 <p>
                     Interested in being a tutor? It is easy to become one when you register an account for SkillSwap!
                     Teach other students your skills with an easy way of creating a course for others to learn!
@@ -105,7 +106,7 @@
     <div class="skill-categories">
         <div id="programming-languages" class="card">
             <img src="{{ url_for('static', path = 'images/index_images/comp_prog_lang.png') }}" alt="">
-            <h3 id="prog-lang-header">Programming Languages</h3>
+            <h2 id="prog-lang-header">Programming Languages</h2>
             <ul id="hidden-prog-lang">
                 <li>Java</li>
                 <li>Python</li>
@@ -119,7 +120,7 @@
         </div>
         <div id="computers" class="card">
             <img src="{{ url_for('static', path = 'images/index_images/computers.png') }}" alt="">
-            <h3 id="computers-header">Computers</h3>
+            <h2 id="computers-header">Computers</h2>
             <ul id="hidden-computers">
                 <li>Microsoft Word</li>
                 <li>Microsoft Excel</li>
@@ -130,7 +131,7 @@
         </div>
         <div id="math" class="card">
             <img src="{{ url_for('static', path = 'images/index_images/mathematics.png') }}" alt="">
-            <h3 id="math-header">Mathematics</h3>
+            <h2 id="math-header">Mathematics</h2>
             <ul id="hidden-math">
                 <li>Algebra</li>
                 <li>Statistics</li>
@@ -141,7 +142,7 @@
         </div>
         <div id="science" class="card">
             <img src="{{ url_for('static', path = 'images/index_images/science.png') }}" alt="">
-            <h3 id="science-header">Science</h3>
+            <h2 id="science-header">Science</h2>
             <ul id="hidden-science">
                 <li>Chemistry</li>
                 <li>Physics</li>
@@ -153,7 +154,7 @@
         </div>
         <div id="social-studies" class="card">
             <img src="{{ url_for('static', path = 'images/index_images/social-studies.png') }}" alt="">
-            <h3 id="social-studies-header">Social Studies</h3>
+            <h2 id="social-studies-header">Social Studies</h2>
             <ul id="hidden-social-studies">
                 <li>History</li>
                 <li>Economics</li>
@@ -163,7 +164,7 @@
         </div>
         <div id="business" class="card">
             <img src="{{ url_for('static', path = 'images/index_images/business.png') }}" alt="">
-            <h3 id="business-header">Business</h3>
+            <h2 id="business-header">Business</h2>
             <ul id="hidden-business">
                 <li>Accounting</li>
                 <li>Banking & Finance</li>
@@ -174,7 +175,7 @@
         </div>
         <div id="life-skills" class="card">
             <img src="{{ url_for('static', path = 'images/index_images/life-skills.png') }}" alt="">
-            <h3 id="life-skills-header">Life Skills</h3>
+            <h2 id="life-skills-header">Life Skills</h2>
             <ul id="hidden-life-skills">
                 <li>Cars</li>
                 <li>College Admissions</li>
@@ -187,7 +188,7 @@
         </div>
         <div id="languages" class="card">
             <img src="{{ url_for('static', path = 'images/index_images/languages.png') }}" alt="">
-            <h3 id="lang-header">Language Arts</h3>
+            <h2 id="lang-header">Language Arts</h2>
             <ul id="hidden-lang">
                 <li>English</li>
                 <li>Spanish</li>
