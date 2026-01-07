@@ -86,7 +86,7 @@ const detectWhichCategory = radios => {
             html = 
             `
             <div class="post">
-                <img src="../images/gallery_images/${selectedValue}/${selectedValue}${i+1}.png" alt="" id="image-${i+1}" class="gallery-image"></img>
+                <img src="{{ url_for('static', path='/images/gallery_images/${selectedValue}/${selectedValue}${i+1}.png') }}" alt="" id="image-${i+1}" class="gallery-image"></img>
             </div>
             `;
             $(".post-wrapper").append(html);
@@ -120,7 +120,6 @@ const pickImage = () => {
             document.querySelector(".selected-image").src = image.src;
         })
     })
-
 };
 
 const saveUserInput = () => {
@@ -233,3 +232,64 @@ const tabFunctions = (tabName, event) => {
 	document.getElementById(tabName).style.display = "block"; // display targeted panel
 	event.currentTarget.className += " active-tab"; // display targeted tab
 }
+
+const profileCreationForm = document.getElementById('user_update');
+    if (profileCreationForm) {
+        profileCreationForm.addEventListener('submit', async function (event) {
+            event.preventDefault();
+
+            const form = event.target;
+            const formData = new FormData(form);
+            const data = Object.fromEntries(formData.entries());
+
+            const payload = {
+                display_name: data.display_name,
+                pronouns: data.pronouns,
+                biography: data.biography
+            };
+
+            try {
+                const token = getCookie('access_token');
+                console.log(token)
+                if (!token) {
+                    throw new Error('Authentication token not found');
+                }
+
+                const response = await fetch('/users/update_user', {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${token}`
+                    },
+                    body: JSON.stringify(payload)
+                });
+
+                if (response.ok) {
+                    window.location.href = '/pages/index';
+                } else {
+                    // Handle error
+                    const errorData = await response.json();
+                    alert(`Error: ${errorData.message}`);
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('An error occurred. Please try again.');
+            }
+        });
+    }
+
+    // Helper function to get a cookie by name
+    function getCookie(name) {
+        let cookieValue = null;
+        if (document.cookie && document.cookie !== '') {
+            const cookies = document.cookie.split(';');
+            for (let i = 0; i < cookies.length; i++) {
+                const cookie = cookies[i].trim();
+                if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                    break;
+                }
+            }
+        }
+        return cookieValue;
+    };

@@ -36,6 +36,11 @@ class UserVerification(BaseModel):
     password: str
     new_password: str = Field(min_length = 6)
 
+class UserRequest(BaseModel):
+    display_name: str = Field(min_length = 1, max_length = 100)
+    pronouns: str = Field(min_length = 1, max_length = 100)
+    biography: str = Field(min_length = 1, max_length = 100)
+
 '''Authorization endpoints'''
 
 '''Gets the logged in user'''
@@ -48,8 +53,7 @@ async def get_user(request: Request, db: db_dependency):
 
 '''Changes the password of the current user'''
 @router.put('/password', status_code = status.HTTP_204_NO_CONTENT)
-async def change_password(user: user_dependency, db: db_dependency,
-                          user_verification: UserVerification):
+async def change_password(user: user_dependency, db: db_dependency,user_verification: UserVerification):
     if user is None:
         raise HTTPException(status_code = 401, detail = 'Authentication Failed')
     user_model = db.query(Users).filter(user.get('id') == Users.id).first()
@@ -61,14 +65,26 @@ async def change_password(user: user_dependency, db: db_dependency,
     db.add(user_model)
     db.commit()
 
+'''Updates the information of a user'''
+@router.put('/update_user', status_code = status.HTTP_204_NO_CONTENT)
+async def update_user(user: user_dependency,db: db_dependency,user_request: UserRequest):
+    if user is None:
+        raise HTTPException(status_code = 401, detail = "Authentication Failed")
+    user_model = db.query(Users).filter(user.get('id') == Users.id).first()
+
+    if user_model is None:
+        raise HTTPException(status_code = 404, detail = 'User not found')
+
+    user_model.display_name = user_request.display_name
+    user_model.pronouns = user_request.pronouns
+    user_model.biography = user_request.biography
+
+    db.add(user_model)
+    db.commit()
+
 '''Standard endpoints'''
 
-class UserRequest(BaseModel):
-    email: str = Field(min_length = 1, max_length = 100)
-    display_name: str = Field(min_length = 1, max_length = 100)
-    pronouns: str = Field(min_length = 1, max_length = 100)
-    gender: str = Field(min_length = 1, max_length = 100)
-    biography: str = Field(min_length = 1, max_length = 100)
+
 
 '''Queries for a user with a certain username'''
 @router.get('/by_username/{username}', status_code = status.HTTP_200_OK)
@@ -131,27 +147,3 @@ async def create_session(user: user_dependency, db: db_dependency, session_reque
     db.add(session_model)
     db.commit()
 
-'''Updates the information of a user'''
-@router.put('/{user_id}', status_code = status.HTTP_204_NO_CONTENT)
-async def update_user(user: user_dependency,
-                       db: db_dependency,
-                       user_request: UserRequest,
-                       user_id: int = Path(gt = 0)):
-    if user is None:
-        raise HTTPException(status_code = 401, detail = "Authentication Failed")
-
-    user_model = (db.query(Users)
-                   .filter(user_id == Users.id)
-                   .first())
-
-    if user_model is None:
-        raise HTTPException(status_code = 404, detail = 'User not found')
-
-    user_model.email = user_request.email
-    user_model.display_name = user_request.display_name
-    user_model.pronouns = user_request.pronouns
-    user_model.gender = user_request.gender
-    user_model.biography = user_request.biography
-
-    db.add(user_model)
-    db.commit()

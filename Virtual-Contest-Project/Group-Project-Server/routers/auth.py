@@ -81,13 +81,13 @@ async def get_current_user(token: Annotated[str, Depends(oauth2_bearer)]):
                             detail = 'Could not validate user.')
 
 #Endpoints
-'''Creates a login token for a user that last for 20 minutes'''
+'''Creates a login token for a user that last for 120 minutes'''
 @router.post('/token', response_model=Token)
 async def login_for_access_token(form_data: Annotated[OAuth2PasswordRequestForm, Depends()], db: db_dependency):
     user = authenticate_user(form_data.username, form_data.password, db)
     if not user:
         raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail = 'Could not validate user')
-    token = create_access_token(user.username, user.id, user.role, timedelta(minutes = 20))
+    token = create_access_token(user.username, user.id, user.role, timedelta(minutes = 120))
     return {'access_token': token, 'token_type': 'bearer'}
 
 '''Creates a new user'''
@@ -97,6 +97,7 @@ async def create_user(db:db_dependency, create_user_request: CreateUserRequest):
         email = create_user_request.email,
         username = create_user_request.username,
         hashed_password = bcrypt_context.hash(create_user_request.password),
+        role = 'user',
         is_active = True
     )
     db.add(create_user_model)

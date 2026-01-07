@@ -13,7 +13,6 @@ class Users(Base):
     hashed_password = Column(String)
     rating = Column(Integer)
     pronouns = Column(String)
-    gender = Column(String)
     biography = Column(String)
     profile_url = Column(String)
     role = Column(String)

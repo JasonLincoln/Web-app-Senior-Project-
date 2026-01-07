@@ -115,12 +115,13 @@ async def render_terms_page(request: Request):
 
 '''Renders the profile_creation page'''
 @router.get('/profile-creation')
-async def render_profile_creation_page(request: Request):
+async def render_profile_creation_page(db: db_dependency, request: Request):
     try:
         user = await get_current_user(request.cookies.get('access_token'))
         if user is None:
             return redirect_to_login()
-        return templates.TemplateResponse('profile_creation.html', {'request': request, 'user': user})
+        User = db.query(Users).filter(user.get('id') == Users.id).first()
+        return templates.TemplateResponse('profile_creation.html', {'request': request, 'user': User})
     except:
         return redirect_to_login()
 

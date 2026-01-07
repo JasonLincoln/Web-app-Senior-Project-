@@ -22,45 +22,47 @@
         <div class="tab-content-collection">
             <!-- Profile Tab -->
             <div id="profile-tab" class="creation-tabs">
-                <!-- Top: Section for Inputs -->
-                <div class="inputs">
-                    <!-- Input Section -->
-                    <div class="creation-page-inputs">
-                        <div class="header-title">Profile Settings</div>
-                        <!-- Email -->
-                        <div class="email-wrapper">
-                            <label for="email">Email Address</label>
-                            <input type="email" class="email" name="email" value="email@gmail.com" readonly>
-                        </div>
-                        <!-- Username -->
-                        <div class="username-wrapper">
-                            <label for="username">Username</label>
-                            <input type="text" class="username" name="username" value="Username" readonly>
-                        </div>
-                        <!-- Display Name -->
-                        <div class="display-name-wrapper">
-                            <label for="display-name"> Display Name </label>
-                            <input type="text" class="display-name" name="display-name" value="" placeholder="Enter Your Display Name" maxlength="18">
-                        </div>
-                        <!-- Pronouns -->
-                        <div class="pronouns-wrapper">
-                            <label for="pronouns">Pronouns</label>
-                            <input type="text" class="pronouns" name="pronouns" placeholder="Enter your pronouns">
-                        </div>
-                        <!-- Biography -->
-                        <div class="bio-wrapper">
-                            <label for="bio">About Me</label>
-                            <div class="textarea-container">
-                                <textarea class="about-me-textarea" name="c-desc" class="c-desc" placeholder="Enter Description Here" maxlength="150"></textarea>
-                                <div class="characters-left">150</div>
+                <form id = 'user_update' class = 'profile-form'>
+                    <!-- Top: Section for Inputs -->
+                    <div class="inputs">
+                        <!-- Input Section -->
+                        <div class="creation-page-inputs">
+                            <div class="header-title">Profile Settings</div>
+                            <!-- Email -->
+                            <div class="email-wrapper">
+                                <label for="email">Email Address</label>
+                                <input id = 'email' type="email" class="email" name="email" value="{{ user.email }}" readonly>
+                            </div>
+                            <!-- Username -->
+                            <div class="username-wrapper">
+                                <label for="username">Username</label>
+                                <input id = 'username' type="text" class="username" name="username" value= '{{ user.username }}' readonly>
+                            </div>
+                            <!-- Display Name -->
+                            <div class="display-name-wrapper">
+                                <label id = 'display-name' for="display-name"> Display Name </label>
+                                <input type="text" class="display-name" name="display_name" value="" placeholder="Enter Your Display Name" maxlength="18">
+                            </div>
+                            <!-- Pronouns -->
+                            <div class="pronouns-wrapper">
+                                <label for="pronouns">Pronouns</label>
+                                <input id = 'pronouns' type="text" class="pronouns" name="pronouns" placeholder="Enter your pronouns">
+                            </div>
+                            <!-- Biography -->
+                            <div class="bio-wrapper">
+                                <label for="bio">About Me</label>
+                                <div class="textarea-container">
+                                    <textarea id = 'bio' class="about-me-textarea c-desc" name="biography" placeholder="Enter Description Here" maxlength="150"></textarea>
+                                    <div class="characters-left">150</div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <!-- Bottom: Save Button -->
-                <div class="save-changes-wrapper">
-                    <button type="button" class="save-changes-btn">Save Changes</button>
-                </div>
+                    <!-- Bottom: Save Button -->
+                    <div class="save-changes-wrapper">
+                        <button type="submit" class="save-changes-btn">Save Changes</button>
+                    </div>
+                </form>
             </div>
             <!-- Card Tab -->
             <div id="card-tab" class="creation-tabs" style="display: none">
