@@ -7,13 +7,11 @@
     <link rel="stylesheet" href="../css/tailwindcss-colors.css">
     <link rel="stylesheet" href="../css/main.css">
     <link rel="stylesheet" href="../css/profile.css">
-    <!-- Edit Card CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.css">
-    <link rel="stylesheet" href="../css/edit_card.css">
     <title>Profile Page</title>
 </head>
 <body>
     <!-- start: profile -->
+<<<<<<< HEAD
     <div id="complete-profile">
         <div class="main-profile">
             <div class="profile-image">
@@ -108,22 +106,42 @@
                     <div class="creator">
                         <i class="fa-solid fa-user"></i>
                         <h3>Profile User</h3>
+=======
+    <div id="complete-profile-parent">
+        <div id="complete-profile">
+            <!-- start: personal content -->
+            <div class="profile-personal-content">
+                <div class="profile-picture-section">
+                     <div class="profile-image">
+                        <img class="pfp" src="../images/Profile-Image-Placeholder.png" alt="profile image">
+>>>>>>> jay
                     </div>
-                    <div class="card-desc">
-                        <p>This is a user card description. If the user exceeds a certain amount of characters, the text must be cut off.</p>
-                    </div>
-                    <div class="card-tags">
-                        <p>Tags (Will change with JS)</p>
-                    </div>
-                    <div class="rating">
-                        <i class="fa-solid fa-star"></i>
-                        <p>Rating (xxx Reviews)</p>
-                    </div>
-                </div> <!-- End Content -->
-            </div> <!-- End Card -->
-        </div> <!-- End Wrapper -->
+                </div>
+                <div class="name-pronouns">
+                    <p class="display-name">[Display Name]</p>
+                    <p class="username">[Username]</p>
+                    <p class="pronouns">[Pronouns]</p>
+                    <textarea class="profile-bio" placeholder="This person has been too lazy to write about themself." readonly></textarea>
+                </div>
+                <div class="edit-profile">
+                    <button type="button" class="open-popup">Edit Profile Card</button>
+                </div>
+                <div class="sessions">
+                    Sessions button
+                </div>
+                <div class="rating">
+                    Ratings button
+                </div>
+
+            </div> <!-- end: personal content -->
+
+            <div class="Skills">
+                <h2 class="Skills-Title">Skills</h2>
+            </div>
+            
+        </div> <!-- end of profile container -->
     </div>
-    <!-- end: Popup -->
+
     <script src="https://kit.fontawesome.com/16ce6dc272.js" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script src="../js/edit_card.js"></script>
