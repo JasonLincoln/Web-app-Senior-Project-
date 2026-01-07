@@ -1,12 +1,15 @@
 /* About Us Page */
 body {
     font-family: Arial, sans-serif;
-    margin: 20px;
+    margin: 20px 0 0;
     background-color: #f9f9f9;
     color: #333;
 }
 ul {
     list-style-type: disc;
+}
+#about-us-page {
+    padding: 40px;
 }
 #about-us-skills-wrapper-title {
     font-size: 24px;

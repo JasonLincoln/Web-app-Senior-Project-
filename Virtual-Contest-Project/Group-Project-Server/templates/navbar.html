@@ -1,8 +1,11 @@
  <nav class="navbar">
     <ul>
+        {% if user.user_role == 'admin' %}
+            <li><a href="/pages/admin-page">Admin Access</a></li>
+        {% endif %}
         <li><a href="/pages/explore">Explore</a></li>
         <li><a href="/pages/about-us">About</a></li>
-        <li><a href="sessions.html">Sessions</a></li>
+        <li><a href="/pages/sessions">Sessions</a></li>
         <li>
             <a href="/pages/profile/{{user.id}}"><img src="{{ url_for('static', path='/images/profileicon.png') }}" alt=""></a>
             <ul>

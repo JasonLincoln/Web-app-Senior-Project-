@@ -86,13 +86,13 @@ const detectWhichCategory = radios => {
             html = 
             `
             <div class="post">
-                <img src="{{ url_for('static', path='/images/gallery_images/${selectedValue}/${selectedValue}${i+1}.png') }}" alt="" id="image-${i+1}" class="gallery-image"></img>
+                <img src='../static/images/gallery_images/${selectedValue}/${selectedValue}${i+1}.png' class="gallery-image" id='image-${i+1}'></img>
             </div>
             `;
             $(".post-wrapper").append(html);
         } else {
             let image = document.querySelector(`#image-${i+1}`);
-            (image).src = `../images/gallery_images/${selectedValue}/${selectedValue}${i+1}.png`;
+            image.src = `../static/images/gallery_images/${selectedValue}/${selectedValue}${i+1}.png`;
             selectedImage = image;
         } // end if
     } // end for

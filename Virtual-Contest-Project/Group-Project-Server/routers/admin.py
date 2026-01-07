@@ -1,10 +1,11 @@
 from typing import Annotated
 from fastapi import APIRouter, Depends, HTTPException, Path, Request
+from passlib.context import CryptContext
 from pydantic import BaseModel, Field
 from sqlalchemy.orm import Session
 from starlette import status
 from database import SessionLocal
-from models import Users, Skills, UsersSkills, Messages, Sessions
+from models import Users, Skills, UsersSkills, Messages, Sessions, Audits
 from routers.auth import get_current_user
 from fastapi.templating import Jinja2Templates
 from routers.sessions import SessionsRequest
@@ -24,6 +25,7 @@ def get_db():
 
 db_dependency = Annotated[Session, Depends(get_db)]
 user_dependency = Annotated[dict, Depends(get_current_user)]
+bcrypt_context = CryptContext(schemes=['bcrypt'], deprecated='auto')
 templates = Jinja2Templates(directory = "templates")
 
 class AdminUserRequest(BaseModel):
@@ -117,6 +119,23 @@ async def get_session_by_id(db: db_dependency, session_id: int = Path(gt = 0)):
         return sessions_result
     raise HTTPException(status_code = 404, detail = 'Session not found')
 
+'''gets all audits'''
+@router.get("/audits", status_code = status.HTTP_200_OK)
+async def get_all_audits(db: db_dependency):
+    # if user is None or user.get('user_role') != 'admin':
+    #     raise HTTPException(status_code = 401, detail = "Authentication Failed")
+    return db.query(Audits).all()
+
+'''gets an audit by it's id'''
+@router.get('/by_audit_id/{audit_id}', status_code = status.HTTP_200_OK)
+async def get_audit_by_id(db: db_dependency, audit_id: int = Path(gt = 0)):
+    # if user is None or user.get('user_role') != 'admin':
+    #     raise HTTPException(status_code = 401, detail = "Authentication Failed")
+    audit_result = (db.query(Audits).filter(audit_id == Audits.id).first())
+    if audit_result is not None:
+        return audit_result
+    raise HTTPException(status_code = 404, detail = 'Audit not found')
+
 '''creates a new skill'''
 @router.post('/create_skill', status_code = status.HTTP_201_CREATED)
 async def create_skill(db: db_dependency, skill_request: SkillRequest):
@@ -149,7 +168,7 @@ async def update_user(db: db_dependency, user_request: AdminUserRequest, user_id
 
     user_model.email = user_request.email
     user_model.display_name = user_request.display_name
-    user_model.hashed_password = user_request.hashed_password
+    user_model.hashed_password = bcrypt_context.hash(user_request.hashed_password),
     user_model.rating = user_request.rating
     user_model.pronouns = user_request.pronouns
     user_model.gender = user_request.gender
@@ -191,9 +210,9 @@ async def update_session(db: db_dependency, session_request: SessionsRequest, se
 
 '''deletes a user by their id'''
 @router.delete('/user/{user_id}', status_code = status.HTTP_204_NO_CONTENT)
-async def delete_user_by_id(user: user_dependency, db: db_dependency, user_id: int = Path(gt = 0)):
-    if user is None or user.get('user_role' != 'admin'):
-        raise HTTPException(status_code = 401, detail = "Authentication Failed")
+async def delete_user_by_id(db: db_dependency, user_id: int = Path(gt = 0)):
+    # if user is None or user.get('user_role' != 'admin'):
+    #     raise HTTPException(status_code = 401, detail = "Authentication Failed")
     user_model = db.query(Users).filter(user_id == Users.id).first()
     if user_model is None:
         raise HTTPException(status_code = 404, detail = "User not found")
@@ -202,35 +221,35 @@ async def delete_user_by_id(user: user_dependency, db: db_dependency, user_id: i
 
 '''deletes a skill by it's id'''
 @router.delete('/skill/{skill_id}', status_code = status.HTTP_204_NO_CONTENT)
-async def delete_skill_by_id(user: user_dependency, db: db_dependency, skill_id: int = Path(gt = 0)):
-    if user is None or user.get('user_role' != 'admin'):
-        raise HTTPException(status_code = 401, detail = "Authentication Failed")
+async def delete_skill_by_id(db: db_dependency, skill_id: int = Path(gt = 0)):
+    # if user is None or user.get('user_role' != 'admin'):
+    #     raise HTTPException(status_code = 401, detail = "Authentication Failed")
     skill_model = db.query(Skills).filter(skill_id == Skills.id).first()
     if skill_model is None:
         raise HTTPException(status_code = 404, detail = "Skill not found")
-    db.query(Users).filter(skill_id == Skills.id).delete()
+    db.query(Skills).filter(skill_id == Skills.id).delete()
     db.commit()
 
 '''deletes a message by it's id'''
 @router.delete('/message/{message_id}', status_code = status.HTTP_204_NO_CONTENT)
-async def delete_message_by_id(user: user_dependency, db: db_dependency, message_id: int = Path(gt = 0)):
-    if user is None or user.get('user_role' != 'admin'):
-        raise HTTPException(status_code = 401, detail = "Authentication Failed")
+async def delete_message_by_id(db: db_dependency, message_id: int = Path(gt = 0)):
+    # if user is None or user.get('user_role' != 'admin'):
+    #     raise HTTPException(status_code = 401, detail = "Authentication Failed")
     message_model = db.query(Messages).filter(message_id == Messages.id).first()
     if message_model is None:
         raise HTTPException(status_code = 404, detail = "Message not found")
-    db.query(Users).filter(message_id == Messages.id).delete()
+    db.query(Messages).filter(message_id == Messages.id).delete()
     db.commit()
 
 '''deletes a session by it's id'''
 @router.delete('/session/{session_id}', status_code = status.HTTP_204_NO_CONTENT)
-async def delete_session_by_id(user: user_dependency, db: db_dependency, session_id: int = Path(gt = 0)):
-    if user is None or user.get('user_role' != 'admin'):
-        raise HTTPException(status_code = 401, detail = "Authentication Failed")
+async def delete_session_by_id(db: db_dependency, session_id: int = Path(gt = 0)):
+    # if user is None or user.get('user_role' != 'admin'):
+    #     raise HTTPException(status_code = 401, detail = "Authentication Failed")
     session_model = db.query(Sessions).filter(session_id == Sessions.id).first()
     if session_model is None:
         raise HTTPException(status_code = 404, detail = "Session not found")
-    db.query(Users).filter(session_id == Sessions.id).delete()
+    db.query(Sessions).filter(session_id == Sessions.id).delete()
     db.commit()
 
 '''Need to check if this is needed or if we are fine with just id'''
