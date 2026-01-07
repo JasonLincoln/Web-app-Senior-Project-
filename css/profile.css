@@ -1,4 +1,4 @@
-/* Profile Section */
+/* start: Profile Section */
 #complete-profile-parent
 {
     display: flex;
@@ -29,20 +29,66 @@
     border-radius: 10px;
     padding: 10px;
 }
+/* start: profile picture section */
+.profile-picture-section
+{
+    position: relative;
+    display: flex;
+    justify-content: row;
+    margin-bottom: 10px;
+    align-items: center;
+    justify-content: center;
+    justify-content: space-between;
+}
 
 .pfp
 {
     object-fit: cover;
-    width: auto;
-    height: auto;
+    max-width: 200px;
+    max-height: 200px;
     border-radius: 50%;
+    margin-left: 60px;
 }
 
+.settings-icon
+{
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 24px;
+    color: var(--gray-600);
+}
+
+.settings-icon-button
+{
+    background: none;
+    border: none;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+}
+.settings-icon-button:hover .settings-icon
+{
+    color: var(--gray-900);
+}
+/* end: profile picture section */
+
+/* start: profile information section */
 .name-pronouns
 {
     display: flex;
     flex-direction: column;
     align-items: center;
+    cursor: default;
+}
+
+
+.display-name, .pronouns, .username
+{
+    margin: 5px;
+    font-weight: bold;
+    font-size: 15px;
     cursor: default;
 }
 
@@ -53,6 +99,7 @@
     flex-direction: column;
     align-items: center;
 }
+
 .profile-bio
 {
     width: 300px;
@@ -63,10 +110,47 @@
     overflow: auto;
     margin-bottom: 10px;
     resize: none;
+    margin: 5px;
 }
 
-/* All Sections */
 
+/* end: profile information section */
+
+/* start: sessions-and-ratings buttons */
+#sessions-and-ratings
+{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    position: relative;
+    width: 100%;
+    justify-content: space-between;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+#sessions-button, #ratings-button
+{
+    background-color: var(--gray-400);
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    color: var(--white);
+    cursor: pointer;
+    font-size: 16px;
+    margin: 0;
+}
+#sessions-button:hover, #ratings-button:hover
+{
+    background-color: var(--gray-600);
+}
+#sessions-button:active, #ratings-button:active
+{
+    background-color: var(--gray-800);
+}
+/* end: sessions-and-ratings buttons */
+
+/* start: skills-section */
 .Skills
 {
     display: flex;
@@ -79,3 +163,6 @@
     max-width: 500px;
     margin-left: 10px;
 }
+/* end: skills-section */
+
+/* end: Profile Section */
