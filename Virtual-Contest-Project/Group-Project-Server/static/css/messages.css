@@ -421,17 +421,17 @@
 #messages-page .conversation-item {
     display: flex;
     align-items: flex-end;
-    flex-direction: row-reverse;
+    flex-direction: row;
     margin-bottom: 16px;
 }
 #messages-page .conversation-item.me {
-    flex-direction: row;
+    flex-direction: row-reverse;
 }
 #messages-page .conversation-item-side {
-    margin-left: 8px;
+    margin-right: 8px;
 }
 #messages-page .conversation-item.me .conversation-item-side {
-    margin-right: 8px;
+    margin-left: 8px;
 }
 #messages-page .conversation-item-image {
     width: 24px;
@@ -449,10 +449,10 @@
 #messages-page .conversation-item-box {
     max-width: 720px;
     position: relative;
-    margin-left: auto;
+    margin-left: unset;
 }
 #messages-page .conversation-item.me .conversation-item-box {
-    margin-left: unset;
+    margin-left: auto;
 }
 #messages-page .conversation-item-text {
     padding: 12px 16px 8px;
@@ -461,11 +461,11 @@
     font-size: 14px;
     border-radius: 6px;
     line-height: 1.5;
-    margin-left: 32px;
+    margin-right: 32px;
 }
 #messages-page .conversation-item.me .conversation-item-text {
-    margin-left: unset;
-    margin-right: 32px;
+    margin-right: unset;
+    margin-left: 32px;
 }
 #messages-page .conversation-item.me .conversation-item-text {
     background-color: var(--emerald-500);

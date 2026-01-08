@@ -1,4 +1,4 @@
-"use strict"
+"use strict";
 
 // Slick JS
 $('.post-wrapper').slick({
@@ -15,8 +15,6 @@ $('.post-wrapper').slick({
         settings: {
             slidesToShow: 3,
             slidesToScroll: 1,
-            infinite: true,
-            dots: true
         }
     },
     {
@@ -47,12 +45,12 @@ function hoverEffects(cardID, elementID, elementSubtopicsID)
     card.mouseover(function() {
         elementSubtopics.css("transform", "translate(0%, -100%)");
         element.css("visibility", "hidden");
-    })
+    });
 
     card.mouseout(function() {
         elementSubtopics.css("transform", "translate(0%, 100%)");
         element.css("visibility", "visible");
-    })
+    });
 }
 
 hoverEffects("#programming-languages", "#prog-lang-header", "#hidden-prog-lang"); // programming languages
@@ -63,3 +61,20 @@ hoverEffects("#social-studies", "#social-studies-header", "#hidden-social-studie
 hoverEffects("#business", "#business-header", "#hidden-business"); // business
 hoverEffects("#life-skills", "#life-skills-header", "#hidden-life-skills"); // life skills
 hoverEffects("#languages", "#lang-header", "#hidden-lang"); // foreign languages
+
+// Accordion JS by w3schools
+
+let acc = document.getElementsByClassName("faq-accordion");
+
+for (let i = 0; i < acc.length; i++) {
+    acc[i].addEventListener("click", function() {
+        this.classList.toggle("active-faq");
+
+        let panel = this.nextElementSibling;
+        if (panel.style.maxHeight) {
+            panel.style.maxHeight = null;
+        } else {
+            panel.style.maxHeight = panel.scrollHeight + "px";
+        }
+    });
+}
