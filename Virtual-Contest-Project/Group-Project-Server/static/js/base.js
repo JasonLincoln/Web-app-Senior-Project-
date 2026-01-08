@@ -1,3 +1,6 @@
+// Initialization
+let registeredUsername = "";
+
 // Login JS
     const loginForm = document.getElementById('login-form');
     if (loginForm) {
@@ -66,7 +69,8 @@
                 });
 
                 if (response.ok) {
-                    window.location.href = '/pages/login';
+                    registeredUsername = data.username;
+                    automatedMessage(registeredUsername);
                 } else {
                     // Handle error
                     const errorData = await response.json();
@@ -109,5 +113,33 @@
         }
 
         // Redirect to the login page
-        window.location.href = '/pages/login-page';
+        window.location.href = '/pages/login';
     };
+
+ async function automatedMessage(newUser){
+    const payload = {
+        recipient_username: newUser,
+        text: 'Welcome to SkillSwap! I am Daedalus, one of the lead developers and an admin of the website you are now visiting. I appreciate your registration, and I am excited for you to interact with other users, as well as hopefully develop some new skills along the way.'
+    };
+
+    try {
+        const response = await fetch('/messages/automated_message', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(payload)
+        });
+
+        if (response.ok) {
+            window.location.href = '/pages/login';
+        } else {
+            // Handle error
+            const errorData = await response.json();
+            alert(`Error: Message cannot be sent.`);
+        }
+    } catch (error) {
+        console.error('Error:', error);
+        alert('An error occurred. Please try again.');
+    }
+ }

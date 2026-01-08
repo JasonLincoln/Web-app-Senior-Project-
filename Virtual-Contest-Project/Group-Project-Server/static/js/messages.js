@@ -1,5 +1,6 @@
 //Messaging Functionality
 let chatMessages = [];
+let recentChats = [];
 
 const chatContent = document.querySelector(".chat-content");
 const conversationTemplate = document.getElementById('conversation');
@@ -9,6 +10,15 @@ const messageTemplate = document.getElementById('message');
 const currentUserEndpoint = '/users/';
 let talkingToUser = "";
 let chatForm = 0;
+
+addEventListener("DOMContentLoaded", (event) => {
+    getCurrentUser().then(username => {
+        if(username) {
+            displayRecents(username);
+        }
+    });
+})
+
 
 // start: Sidebar
 document.querySelector('.chat-sidebar-profile-toggle').addEventListener('click', function(e) {
@@ -101,6 +111,7 @@ async function getFullChats(currentUsername){
     console.log("Getting all messages with user.");
     const getFullChatEndpoint = `/messages/${currentUsername}`;
     const response = await fetch(getFullChatEndpoint);
+
     if (response.ok) {
         const data = await response.json();
         console.log(data);
@@ -131,7 +142,6 @@ async function getFullChats(currentUsername){
             const username = conversationItem.querySelector(".username");
             const text = message.querySelector(".text");
             const time_sent = message.querySelector(".timeSent");
-            const was_read = message.querySelector(".wasRead");
 
             username.textContent = item.sender_username;
             text.textContent = item.text;
@@ -141,18 +151,10 @@ async function getFullChats(currentUsername){
             const messageTime = jsDate.toLocaleTimeString();
             time_sent.textContent = messageTime;
 
-            if(item.was_read == false)
-            {
-                was_read.textContent = "Delivered";
-            }
-            else
-            {
-                was_read.textContent = "Read";
-            }
-
             conversationItemContent.append(message);
             conversationItem.append(conversationItemContent);
             messageArea.append(conversationItem);
+
         });
         chatContent.append(conversation);
     }
@@ -161,44 +163,49 @@ async function getFullChats(currentUsername){
         alert(`Error: ${errorData.detail}`);
     }
 
-    if(chatForm) {
-            chatForm.addEventListener('submit', async function (event) {
-                event.preventDefault();
+}
 
-                const form = event.target;
-                const formData = new FormData(form);
-                const data = Object.fromEntries(formData.entries());
+document.addEventListener('submit', async function (event) {
+    const chatForm = event.target;
 
-                const payload = {
-                    recipient_username: talkingToUser,
-                    text: data.text
-                };
+    if (!chatForm.matches('.send_message'))
+    {
+        return;
+    }
 
-                try {
-                    const response = await fetch('/messages/create_message', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json'
-                        },
-                        body: JSON.stringify(payload)
-                    });
+    event.preventDefault();
 
-                    if (response.ok) {
-                        console.log("Making message.");
-                        getCurrentUser().then(username => {
-                            if(username) {
-                                getFullChats(username);
-                            }
-                        });
-                    } else {
-                        // Handle error
-                        const errorData = await response.json();
-                        alert(`Error: ${errorData.message}`);
-                    }
-                } catch (error) {
-                    console.error('Error:', error);
-                    alert('An error occurred. Please try again.');
+    const formData = new FormData(chatForm);
+    const data = Object.fromEntries(formData.entries());
+
+    const payload = {
+        recipient_username: talkingToUser,
+        text: data.text
+    };
+
+    try {
+        const response = await fetch('/messages/create_message', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(payload)
+        });
+
+        if (response.ok) {
+            console.log("Making message.");
+            getCurrentUser().then(username => {
+                if(username) {
+                    getFullChats(username);
                 }
             });
-        }
-}
+            } else {
+                // Handle error
+                const errorData = await response.json();
+                alert(`Error: Message cannot be sent.`);
+            }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('An error occurred. Please try again.');
+            }
+        });

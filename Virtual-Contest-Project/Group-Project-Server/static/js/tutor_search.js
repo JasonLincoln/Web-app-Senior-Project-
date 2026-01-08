@@ -56,13 +56,31 @@ document.addEventListener('DOMContentLoaded', function() {
 // Search Functionality
 let users = [];
 
-// Display Tutors
+// Display Tutors other than you
 const allTutors = document.getElementById('cards-grid');
 const tutorTemplate = document.getElementById('tutorTemplate');
 const getAllUsersEndpoint = '/admin/user';
-showAllUsers();
+const currentUserEndpoint = '/users/';
+getCurrentUser().then(username => {
+    if(username) {
+        showAllUsers(username);
+    }
+});
 
-async function showAllUsers(){
+async function getCurrentUser(){
+    const response = await fetch(currentUserEndpoint);
+    if (response.ok) {
+        const data = await response.json();
+        const currentUsername = data.username;
+        return currentUsername;
+    }
+    else {
+        const errorData = await response.json();
+        alert(`Error: ${errorData.detail}`);
+    }
+}
+
+async function showAllUsers(currentUsername){
     console.log("Getting all users.");
 
     const response = await fetch(getAllUsersEndpoint);
@@ -72,22 +90,32 @@ async function showAllUsers(){
         console.log("Using user data for the showAllUsers function.");
         allTutors.innerHTML = "";
         users = data.map(item => {
-            console.log("Displaying users on page.");
-            const card = tutorTemplate.content.cloneNode(true).children[0];
-            const username = card.querySelector("[data-username]");
-            const biography = card.querySelector("[data-biography]");
-            const skills = card.querySelector("[data-skills]");
-            let rating = card.querySelector("[data-rating]");
-            username.textContent = item.username;
-            biography.textContent = item.biography;
-            console.log(item.rating);
-            for(let i = 0; i < item.rating; i++)
+            if(currentUsername == item.username)
             {
-                const star = Object.assign(document.createElement('i'), { className : "fa-solid fa-star"});
-                rating.append(star);
+                return 0;
             }
-            allTutors.append(card);
-            return { username: item.username, biography: item.biography, rating: item.rating, element: card};
+            else
+            {
+                console.log("Displaying users on page.");
+                const card = tutorTemplate.content.cloneNode(true).children[0];
+                const username = card.querySelector("[data-username]");
+                const biography = card.querySelector("[data-biography]");
+                const skills = card.querySelector("[data-skills]");
+                let rating = card.querySelector("[data-rating]");
+                username.textContent = item.username;
+                biography.textContent = item.biography;
+                console.log(item.rating);
+                for(let i = 0; i < item.rating; i++)
+                {
+                    const star = Object.assign(document.createElement('i'), { className : "fa-solid fa-star"});
+                    rating.append(star);
+                }
+                allTutors.append(card);
+                card.addEventListener('click', function(e) {
+                    window.location.href = `/pages/profile/${item.id}`;
+                })
+                return { username: item.username, biography: item.biography, rating: item.rating, element: card};
+            }
         });
     }
     else {
