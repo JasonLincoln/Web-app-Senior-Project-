@@ -1,46 +1,108 @@
-/* Admin Page */
-
-#admin-page{
-  box-sizing: border-box;
+/* Overall Page */
+/* Overall Page */
+/* Overall Page */
+#admin-page {
+    margin: 5vh 5vw;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-#admin-page .row {
-  display: flex;
+.tab-content-collection {
+    padding: 3vw;
 }
 
-#admin-page .column {
-  flex: 50%;
-  padding: 10px;
+/* Tabs CSS */
+/* Tabs CSS */
+/* Tabs CSS */
+
+.button-containers {
+    width: 100%;
+    display: flex;
 }
 
-#admin-page .get {
-    border: 5px groove aqua;
+.tab-buttons {
+    flex: 1;
+    padding: 10px;
+    background-color: inherit;
+    cursor: pointer;
+    border-style: none;
+    background-color: rgb(230, 230, 230);
 }
 
-#admin-page .get-button {
-    background-color: aqua;
+.tab-buttons.active-tab {
+    background-color: rgb(250, 250, 250);
 }
 
-#admin-page .post {
-    border: 5px groove lime;
+.tab-buttons:hover {
+    background-color: rgb(240, 240, 240);
+    transition: background-color 0.5s ease;
 }
 
-#admin-page .post-button {
-    background-color: lime;
+/* Buttons CSS */
+/* Buttons CSS */
+/* Buttons CSS */
+
+.important-button
+{
+    border: none;
+    border-radius: 10px;
+    font-size: 18px;
+    padding: 5px 20px;
+    cursor: pointer;
+}
+.post-button { background-color: var(--green-200); }
+.get-button { background-color: var(--blue-200); } 
+.put-button { background-color: var(--yellow-200); }
+.delete-button { background-color: var(--red-200); }
+
+/* Text CSS */
+/* Text CSS */
+/* Text CSS */
+
+h1 {
+    width: fit-content;
+    text-decoration: underline;
 }
 
-#admin-page .put {
-    border: 5px groove goldenrod;
+h2, h3 {
+    margin: 10px 0;
 }
 
-#admin-page .put-button {
-    background-color: goldenrod;
+form {
+    width: 50%;
+    margin: 20px 0;
+    padding: 10px 0;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.25);
 }
 
-#admin-page .delete {
-    border: 5px groove red;
+ul
+{
+    list-style-type: none;
 }
 
-#admin-page .delete-button {
-    background-color: red;
+/* Responsiveness */
+/* Responsiveness */
+/* Responsiveness */
+
+@media only screen and (max-width: 600px) {
+    .tab-content-collection {
+        padding: 5vw;
+    }
+
+    .button-containers {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .tab-buttons {
+        flex: 1;
+        padding: 10px;
+        background-color: inherit;
+        cursor: pointer;
+        border-style: none;
+        background-color: rgb(230, 230, 230);
+        border-bottom: 2px solid rgba(0, 0, 0, 0.25);
+    }
 }

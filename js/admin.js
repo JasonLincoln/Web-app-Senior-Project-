@@ -1,3 +1,22 @@
+// Function for switching between tabs; is ran from HTML onclick() 
+const tabFunctions = (tabName, event) => {
+	let tabContents = document.getElementsByClassName("admin-tabs"); // Get a list of admin tabs
+	let tabLinks = document.getElementsByClassName("tab-buttons");
+
+	// Loop through each tab and set display to none; the targeted tab will be displayed after this loop
+	for (let i = 0; i < tabContents.length; i++) {
+		tabContents[i].style.display = "none";
+	}
+
+    // Loop through each tab and remove their active-tab class; the targeted tab will be displayed after this loop
+	for (let i = 0; i < tabLinks.length; i++) {
+		tabLinks[i].className = tabLinks[i].className.replace(" active-tab", "");
+	}
+
+	document.getElementById(tabName).style.display = "block"; // display targeted panel
+	event.currentTarget.className += " active-tab"; // display targeted tab
+}
+
 // Get All Users JS
 const allUsers = document.getElementById('allUsers');
 const getAllUsersEndpoint = '/admin/user';

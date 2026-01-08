@@ -6,239 +6,246 @@
 {% endblock %}
 
 {% block content %}
+    <!-- Admin Page -->
     <div id="admin-page">
-    <div class="row">
-        <div class="column">
-            <h1>Get</h1>
-
-            <form id="getAllUsers">
-                <h2 class="get">Get all users</h2>
-                <button id="allUsersButton" class="get-button" type="submit">Get</button>
-                <ul id="allUsers"></ul>
-            </form>
-
-            <form id="getUserByID">
-                <h2 class="get">Get user by id</h2>
-                <label for="getUserID">User ID</label>
-                <input type="text" name="getUserID" id="getUserID">
-                <br>
-                <button id="userByIDButton" class="get-button" type="submit">Get</button>
-            </form>
-            <ul id="userByID"></ul>
-
-            <form id="getAllSkills">
-                <h2 class="get">Get all skills</h2>
-                <button id="allSkillsButton" class="get-button" type="button">Get</button>
-            </form>
-            <ul id="allSkills"></ul>
-
-            <form id="getSkillByID">
-                <h2 class="get">Get skill by id</h2>
-                <label for="getSkillID">Skill ID</label>
-                <input type="text" name="getSkillID" id="getSkillID">
-                <br>
-                <button id="skillByIDButton" class="get-button" type="button">Get</button>
-            </form>
-            <ul id="skillByID"></ul>
-
-            <form id="getAllMessages">
-                <h2 class="get">Get all messages</h2>
-                <button id="allMessagesButton" class="get-button" type="button">Get</button>
-            </form>
-            <ul id="allMessages"></ul>
-
-            <form id="getMessageByID">
-                <h2 class="get">Get message by id</h2>
-                <label for="getMessageID">Message ID</label>
-                <input type="text" name="getMessageID" id="getMessageID">
-                <br>
-                <button id="messageByIDButton" class="get-button" type="button">Get</button>
-            </form>
-            <ul id="messageByID"></ul>
-
-            <form id="getAllSessions">
-                <h2 class="get">Get all sessions</h2>
-                <button id="allSessionsButton" class="get-button" type="button">Get</button>
-            </form>
-            <ul id="allSessions"></ul>
-
-            <form id="getSessionByID">
-                <h2 class="get">Get session by id</h2>
-                <label for="getSessionID">Session ID</label>
-                <input type="text" name="getSessionID" id="getSessionID">
-                <br>
-                <button id="sessionByIDButton" class="get-button" type="button">Get</button>
-            </form>
-            <ul id="sessionByID"></ul>
-
+        <!-- Tab Buttons -->
+        <div class="button-containers">
+            <button class="tab-buttons active-tab" onclick="tabFunctions('post-section', event)">Post / Create Settings</button>
+            <button class="tab-buttons" onclick="tabFunctions('get-section', event)">Get / Read Settings</button>
+            <button class="tab-buttons" onclick="tabFunctions('put-section', event)">Put / Update Settings</button>
+            <button class="tab-buttons" onclick="tabFunctions('delete-section', event)">Delete Settings</button>
         </div>
-        <div class="column">
-            <h1>Put</h1>
+        <!-- Tab Content -->
+        <div class="tab-content-collection">
+            <!-- Post/Create -->
+            <div id="post-section" class="admin-tabs">
+                <h1>Post</h1>
+                <!-- Create User's Skill -->
+                <form method="get" id="createSkill">
+                    <h2 class="post">Create Skill</h2>
+                    <h3>Info for Creation</h3>
+                    <ul>
+                        <li>
+                            <label for="createSuperCategory">Supercategory</label>
+                            <input type="text" name="createSuperCategory" id="createSuperCategory">
+                        </li>
+                        <li>
+                            <label for="createSubCategory">Subcategory</label>
+                            <input type="text" name="createSubCategory" id="createSubCategory">
+                        </li>
+                    </ul>
+                    <br>
+                    <button class="post-button important-button" type="submit">Post</button>
+                </form>
+            </div>
+            <!-- Get/Read -->
+            <div id="get-section" class="admin-tabs" style="display: none">
+                <h1>Get</h1>
+                <!-- Get All Users -->
+                <form id="getAllUsers">
+                    <h2 class="get">Get all users</h2>
+                    <button id="allUsersButton" class="get-button important-button" type="submit">Get</button>
+                    <ul id="allUsers"></ul>
+                </form>
+                <!-- Get User By ID -->
+                <form id="getUserByID">
+                    <h2 class="get">Get user by id</h2>
+                    <label for="getUserID">User ID</label>
+                    <input type="text" name="getUserID" id="getUserID">
+                    <br>
+                    <button id="userByIDButton" class="get-button important-button" type="submit">Get</button>
+                </form>
+                <ul id="userByID"></ul>
+                <!-- Get All Skills -->
+                <form id="getAllSkills">
+                    <h2 class="get">Get all skills</h2>
+                    <button id="allSkillsButton" class="get-button important-button" type="button">Get</button>
+                </form>
+                <ul id="allSkills"></ul>
+                <!-- Get Skill By ID -->
+                <form id="getSkillByID">
+                    <h2 class="get">Get skill by id</h2>
+                    <label for="getSkillID">Skill ID</label>
+                    <input type="text" name="getSkillID" id="getSkillID">
+                    <br>
+                    <button id="skillByIDButton" class="get-button important-button" type="button">Get</button>
+                </form>
+                <ul id="skillByID"></ul>
+                <!-- Get All Messages -->
+                <form id="getAllMessages">
+                    <h2 class="get">Get all messages</h2>
+                    <button id="allMessagesButton" class="get-button important-button" type="button">Get</button>
+                </form>
+                <ul id="allMessages"></ul>
+                <!-- Get Message By ID -->
+                <form id="getMessageByID">
+                    <h2 class="get">Get message by id</h2>
+                    <label for="getMessageID">Message ID</label>
+                    <input type="text" name="getMessageID" id="getMessageID">
+                    <br>
+                    <button id="messageByIDButton" class="get-button important-button" type="button">Get</button>
+                </form>
+                <ul id="messageByID"></ul>
+                <!-- Get All Sessions -->
+                <form id="getAllSessions">
+                    <h2 class="get">Get all sessions</h2>
+                    <button id="allSessionsButton" class="get-button important-button" type="button">Get</button>
+                </form>
+                <ul id="allSessions"></ul>
+                <!-- Get Session By ID -->
+                <form id="getSessionByID">
+                    <h2 class="get">Get session by id</h2>
+                    <label for="getSessionID">Session ID</label>
+                    <input type="text" name="getSessionID" id="getSessionID">
+                    <br>
+                    <button id="sessionByIDButton" class="get-button important-button" type="button">Get</button>
+                </form>
+                <ul id="sessionByID"></ul>
+            </div>
+            <!-- Put/Update -->
+            <div id="put-section" class="admin-tabs" style="display: none">
+                <h1>Put</h1>
+                <!-- Update User By ID -->
+                <form id="updateUserByID">
+                    <h2 class="put">Update user by id</h2>
+                    <label for="updateUserID">User ID</label>
+                    <input type="text" name="updateUserID" id="updateUserID">
+                    <h3>Info to Update</h3>
+                    <ul>
+                        <li>
+                            <label for="updateUserUsername">Username</label>
+                            <input type="text" name="username" id="updateUserUsername">
+                        </li>
+                        <li>
+                            <label for="updateUserDisplayName">Display Name</label>
+                            <input type="text" name="updateUserDisplayName" id="updateUserDisplayName">
+                        </li>
+                        <li>
+                            <label for="updateUserPronouns">Pronouns</label>
+                            <input type="text" name="updateUserPronouns" id="updateUserPronouns">
+                        </li>
+                        <li>
+                            <label for="updateUserGender">Gender</label>
+                            <input type="text" name="updateUserGender" id="updateUserGender">
+                        </li>
+                        <li>
+                            <label for="updateUserProfileURL">Profile Picture</label>
+                            <input type="text" name="updateUserProfileURL" id="updateUserProfileURL">
+                        </li>
+                        <li>
+                            <label for="updateUserBiography">Biography</label>
+                            <input type="text" name="updateUserBiography" id="updateUserBiography">
+                        </li>
+                        <li>
+                            <label for="updateUserRating">Rating</label>
+                            <select name="updateUserRating" id="updateUserRating">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                            </select>
+                        </li>
+                        <li>
+                            <label for="updateUserEmail">Email</label>
+                            <input type="text" name="updateUserEmail" id="updateUserEmail">
+                        </li>
+                        <li>
+                            <label for="updateUserPassword">Password</label>
+                            <input type="text" name="updateUserPassword" id="updateUserPassword">
+                        </li>
+                        <li>
+                            <label for="updateUserRole">Role</label>
+                            <select name="updateUserRole" id="updateUserRole">
+                                <option value="user">User</option>
+                                <option value="admin">Admin</option>
+                            </select>
+                        </li>
+                        <li>
+                            <label for="updateUserIsActive">Is Active</label>
+                            <select name="updateUserIsActive" id="updateUserIsActive">
+                                <option value="true">True</option>
+                                <option value="false">False</option>
+                            </select>
+                        </li>
 
-            <form id="updateUserByID">
-                <h2 class="put">Update user by id</h2>
-                <label for="updateUserID">User ID</label>
-                <input type="text" name="updateUserID" id="updateUserID">
-                <h3>Info to Update</h3>
-                <ul>
-                    <li>
-                        <label for="updateUserUsername">Username</label>
-                        <input type="text" name="username" id="updateUserUsername">
-                    </li>
-                    <li>
-                        <label for="updateUserDisplayName">Display Name</label>
-                        <input type="text" name="updateUserDisplayName" id="updateUserDisplayName">
-                    </li>
-                    <li>
-                        <label for="updateUserPronouns">Pronouns</label>
-                        <input type="text" name="updateUserPronouns" id="updateUserPronouns">
-                    </li>
-                    <li>
-                        <label for="updateUserGender">Gender</label>
-                        <input type="text" name="updateUserGender" id="updateUserGender">
-                    </li>
-                    <li>
-                        <label for="updateUserProfileURL">Profile Picture</label>
-                        <input type="text" name="updateUserProfileURL" id="updateUserProfileURL">
-                    </li>
-                    <li>
-                        <label for="updateUserBiography">Biography</label>
-                        <input type="text" name="updateUserBiography" id="updateUserBiography">
-                    </li>
-                    <li>
-                        <label for="updateUserRating">Rating</label>
-                        <select name="updateUserRating" id="updateUserRating">
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                        </select>
-                    </li>
-                    <li>
-                        <label for="updateUserEmail">Email</label>
-                        <input type="text" name="updateUserEmail" id="updateUserEmail">
-                    </li>
-                    <li>
-                        <label for="updateUserPassword">Password</label>
-                        <input type="text" name="updateUserPassword" id="updateUserPassword">
-                    </li>
-                    <li>
-                        <label for="updateUserRole">Role</label>
-                        <select name="updateUserRole" id="updateUserRole">
-                            <option value="user">User</option>
-                            <option value="admin">Admin</option>
-                        </select>
-                    </li>
-                    <li>
-                        <label for="updateUserIsActive">Is Active</label>
-                        <select name="updateUserIsActive" id="updateUserIsActive">
-                            <option value="true">True</option>
-                            <option value="false">False</option>
-                        </select>
-                    </li>
-
-                </ul>
-                <br>
-                <button class="put-button" type="submit">Put</button>
-            </form>
-
-            <form id="updateSkillByID">
-                <h2 class="put">Update skill by id</h2>
-                <label for="updateSkillID">Skill ID</label>
-                <input type="text" name="updateSkillID" id="updateSkillID">
-                <h3>Info to Update</h3>
-                <ul>
-                    <li>
-                        <label for="updateSkillSuperCategory">Supercategory</label>
-                        <input type="text" name="updateSkillSuperCategory" id="updateSkillSuperCategory">
-                    </li>
-                    <li>
-                        <label for="updateSkillSubCategory">Subcategory</label>
-                        <input type="text" name="updateSkillSubCategory" id="updateSkillSubCategory">
-                    </li>
-                </ul>
-                <br>
-                <button class="put-button" type="submit">Put</button>
-            </form>
-
-            <form id="updateSessionByID">
-                <h2 class="put">Update session by id</h2>
-                <label for="updateSessionID">Session ID</label>
-                <input type="text" name="updateSessionID" id="updateSessionID">
-                <h3>Info to Update</h3>
-                <ul>
-                    <li>
-                        <label for="updateSessionDate">Session Date</label>
-                        <input type="text" name="updateSessionDate" id="updateSessionDate">
-                    </li>
-                </ul>
-                <br>
-                <button class="put-button" type="submit">Put</button>
-            </form>
-
+                    </ul>
+                    <br>
+                    <button class="put-button important-button" type="submit">Put</button>
+                </form>
+                <!-- Update Skill By ID -->
+                <form id="updateSkillByID">
+                    <h2 class="put">Update skill by id</h2>
+                    <label for="updateSkillID">Skill ID</label>
+                    <input type="text" name="updateSkillID" id="updateSkillID">
+                    <h3>Info to Update</h3>
+                    <ul>
+                        <li>
+                            <label for="updateSkillSuperCategory">Supercategory</label>
+                            <input type="text" name="updateSkillSuperCategory" id="updateSkillSuperCategory">
+                        </li>
+                        <li>
+                            <label for="updateSkillSubCategory">Subcategory</label>
+                            <input type="text" name="updateSkillSubCategory" id="updateSkillSubCategory">
+                        </li>
+                    </ul>
+                    <br>
+                    <button class="put-button important-button" type="submit">Put</button>
+                </form>
+                <!-- Update Session By ID -->
+                <form id="updateSessionByID">
+                    <h2 class="put">Update session by id</h2>
+                    <label for="updateSessionID">Session ID</label>
+                    <input type="text" name="updateSessionID" id="updateSessionID">
+                    <h3>Info to Update</h3>
+                    <ul>
+                        <li>
+                            <label for="updateSessionDate">Session Date</label>
+                            <input type="text" name="updateSessionDate" id="updateSessionDate">
+                        </li>
+                    </ul>
+                    <br>
+                    <button class="put-button important-button" type="submit">Put</button>
+                </form>
+            </div>
+            <!-- Delete -->
+            <div id="delete-section" class="admin-tabs" style="display: none">
+                <h1>Delete</h1>
+                <!-- Delete User By ID -->
+                <form id="deleteUserByID">
+                    <h2 class="delete">Delete user by id</h2>
+                    <label for="deleteUserID">User ID</label>
+                    <input type="text" name="deleteUserID" id="deleteUserID">
+                    <br>
+                    <button class="delete-button important-button" type="submit">Delete</button>
+                </form>
+                <!-- Delete Skill By ID -->
+                <form id="deleteSkillByID">
+                    <h2 class="delete">Delete skill by id</h2>
+                    <label for="deleteSkillID">Skill ID</label>
+                    <input type="text" name="deleteSkillID" id="deleteSkillID">
+                    <br>
+                    <button class="delete-button important-button" type="submit">Delete</button>
+                </form>
+                <!-- Delete Message By ID -->
+                <form id="deleteMessageByID">
+                    <h2 class="delete">Delete message by id</h2>
+                    <label for="deleteMessageID">Message ID</label>
+                    <input type="text" name="deleteMessageID" id="deleteMessageID">
+                    <br>
+                    <button class="delete-button important-button" type="submit">Delete</button>
+                </form>
+                <!-- Delete Session By ID -->
+                <form id="deleteSessionByID">
+                    <h2 class="delete">Delete session by id</h2>
+                    <label for="deleteSessionID">Session ID</label>
+                    <input type="text" name="deleteSessionID" id="deleteSessionID">
+                    <br>
+                    <button class="delete-button important-button" type="submit">Delete</button>
+                </form>
+            </div>
         </div>
     </div>
-    <div class="row">
-        <div class="column">
-            <h1>Post</h1>
-
-            <form method="get" id="createSkill">
-                <h2 class="post">Create skill</h2>
-                <h3>Info for Creation</h3>
-                <ul>
-                    <li>
-                        <label for="createSuperCategory">Supercategory</label>
-                        <input type="text" name="createSuperCategory" id="createSuperCategory">
-                    </li>
-                    <li>
-                        <label for="createSubCategory">Subcategory</label>
-                        <input type="text" name="createSubCategory" id="createSubCategory">
-                    </li>
-                </ul>
-                <br>
-                <button class="post-button" type="submit">Post</button>
-            </form>
-
-        </div>
-        <div class="column">
-            <h1>Delete</h1>
-
-            <form id="deleteUserByID">
-                <h2 class="delete">Delete user by id</h2>
-                <label for="deleteUserID">User ID</label>
-                <input type="text" name="deleteUserID" id="deleteUserID">
-                <br>
-                <button class="delete-button" type="submit">Delete</button>
-            </form>
-
-            <form id="deleteSkillByID">
-                <h2 class="delete">Delete skill by id</h2>
-                <label for="deleteSkillID">Skill ID</label>
-                <input type="text" name="deleteSkillID" id="deleteSkillID">
-                <br>
-                <button class="delete-button" type="submit">Delete</button>
-            </form>
-
-            <form id="deleteMessageByID">
-                <h2 class="delete">Delete message by id</h2>
-                <label for="deleteMessageID">Message ID</label>
-                <input type="text" name="deleteMessageID" id="deleteMessageID">
-                <br>
-                <button class="delete-button" type="submit">Delete</button>
-            </form>
-
-            <form id="deleteSessionByID">
-                <h2 class="delete">Delete session by id</h2>
-                <label for="deleteSessionID">Session ID</label>
-                <input type="text" name="deleteSessionID" id="deleteSessionID">
-                <br>
-                <button class="delete-button" type="submit">Delete</button>
-            </form>
-
-        </div>
-    </div>
-</div>
 {% endblock %}
 
 {% block extra_js %}
