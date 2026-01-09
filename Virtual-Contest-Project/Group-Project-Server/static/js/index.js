@@ -66,5 +66,5 @@ for (let i = 0; i < acc.length; i++) {
 
 // On click, it will take you to the explore page
 $(".card").on("click", () => {
-    window.location.href="tutor_search.html"; // takes you the explore page
+    window.location.href="/pages/explore"; // takes you the explore page
 })

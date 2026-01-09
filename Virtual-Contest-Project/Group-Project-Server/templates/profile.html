@@ -18,7 +18,9 @@
             <div class="profile-personal-content">
                 <div class="profile-picture-section">
                     <div class="profile-image">
-                        <img class="pfp" src="../../static/images/Profile-Image-Placeholder.png" alt="profile image">
+                        {% if user %}
+                        <img class="pfp" src="{{user.profile_url}}" alt="profile image">
+                        {% endif %}
                         <a href="/pages/profile-creation">
                             <button class="settings-icon-button"><i class="fa-solid fa-gear settings-icon"></i></button>
                         </a>

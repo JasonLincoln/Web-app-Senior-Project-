@@ -124,6 +124,17 @@ async def render_profile_creation_page(request: Request):
     except:
         return redirect_to_login()
 
+'''Renders the rating page'''
+@router.get('/rating')
+async def render_rating_page(request: Request):
+    try:
+        user = await get_current_user(request.cookies.get('access_token'))
+        if user is None:
+            return redirect_to_login()
+        return templates.TemplateResponse('rating.html', {'request': request, 'user': user})
+    except:
+        return redirect_to_login()
+
 '''Renders the messages page'''
 @router.get('/messages')
 async def render_messages_page(request: Request):

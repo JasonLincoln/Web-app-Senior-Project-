@@ -1,26 +1,19 @@
 {% extends 'layout.html' %}
 
 {% block extra_head %}
+    <link rel="stylesheet" href="../../static/css/rating.css">
     <title>Rating and Feedback</title>
-    <!-- stylesheet for icons -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css">
-    <!-- stylesheet for colors -->
-    <link rel="stylesheet" type = 'text/css' href="{{ url_for('static', path = 'css/tailwindcss-colors.css') }}">
-    <link rel="stylesheet" type = 'text/css' href="{{ url_for('static', path = 'css/main.css') }}">
-    <link rel="stylesheet" type = 'text/css' href="{{ url_for('static', path = 'css/rating.css') }}">
-    <link rel="stylesheet" href="../css/tailwindcss-colors.css">
-    <link rel="stylesheet" href="../css/main.css">
-    <link rel="stylesheet" href="../css/rating.css">
 {% endblock %}
 
 {% block content %}
+<div id="rating-page">
     <!-- start: Rating page -->
      <section class="rating-section">
         <div class="rating-content">
             <!-- Page for users to view their rating and feedback they've been given -->
-            <button class="close-button"><i class="fa-solid fa-xmark fa-2x"></i></button>
             <!-- start: Progress Bar -->
             <div class="progress-bar-wrapper">
+                <button class="close-button"><i class="fa-solid fa-xmark fa-2x"></i></button>
                 <h2 class="progress-bar-wrapper-header">Reviews</h2>
                 <div class="progress-bar-skills-wrapper">
 
@@ -73,30 +66,77 @@
             </div>
             <!-- end: Progress Bar-->
 
-        <div class="rating-box">
-            <header class="rating-box-header">How was your experience?</header>
-            <div class="stars">
-                <i class="ri-star-fill"></i>
-                <i class="ri-star-fill"></i>
-                <i class="ri-star-fill"></i>
-                <i class="ri-star-fill"></i>
-                <i class="ri-star-fill"></i>
-            </div>
-        </div>
-
             <!-- start: Reviews -->
-            <div class="create-a-review">
-                
+             <!-- add a create review here -->
+            <div class="create-review">
+                <div class="review-top">
+                    <div class="review-user">
+                        <img class="review-profile-image" src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8cGVvcGxlfGVufDB8fDB8fHww" alt="Profile Photo">
+                        <div class="review-user-name">Jack</div>
+                    </div>
+                    <div class="stars">
+                        <i class="ri-star-fill"></i>
+                        <i class="ri-star-fill"></i>
+                        <i class="ri-star-fill"></i>
+                        <i class="ri-star-fill"></i>
+                        <i class="ri-star-fill"></i>
+                    </div>  
+                </div>
+                <textarea class="create-review-input" rows="1" placeholder="Write a review..."></textarea>
+            </div>
+            
+            <div class="review" id="review-1">
+                <div class="review-top">
+                    <div class="review-user">
+                        <img class="review-profile-image" src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8cGVvcGxlfGVufDB8fDB8fHww" alt="Profile Photo">
+                        <div class="review-user-name">Jack</div>
+                    </div>
+                    <div class="stars">
+                        <i class="ri-star-fill"></i>
+                        <i class="ri-star-fill"></i>
+                        <i class="ri-star-fill"></i>
+                        <i class="ri-star-fill"></i>
+                        <i class="ri-star-fill"></i>
+                    </div>  
+                </div>
+                <div class="review-comment">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat sunt, adipisci, quasi tenetur itaque iste libero sequi a ipsam ab suscipit dolore labore! Ullam minus consequatur a cum eum expedita ad ratione itaque perferendis repudiandae esse, error facere. Dicta, repellendus!
+                </div>
             </div>
 
-            <div class="top-reviews">
-                <div class="rating"></div>
-                <div class="comment"></div>
+            <div class="review" id="review-2">
+                <div class="review-top">
+                    <div class="review-user">
+                        <img class="review-profile-image" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8cGVvcGxlfGVufDB8fDB8fHww" alt="Profile Photo">
+                        <div class="review-user-name">Jill</div>
+                    </div>
+                    <div class="stars">
+                        <i class="ri-star-fill"></i>
+                        <i class="ri-star-fill"></i>
+                        <i class="ri-star-fill"></i>
+                        <i class="ri-star-fill"></i>
+                        <i class="ri-star-fill"></i>
+                    </div>  
+                </div>
+                <div class="review-comment">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat sunt, adipisci, quasi tenetur itaque iste libero sequi a ipsam ab suscipit dolore labore! Ullam minus consequatur a cum eum expedita ad ratione itaque perferendis repudiandae esse, error facere. Dicta, repellendus!
+                </div>
+            </div>
+            <!-- last thing to work on -->
+            <div class="read-more-reviews">
+                <p class="read-more-reviews-text">Read more reviews 
+                    <button class="read-more-reviews-button"><i class="fa-solid fa-chevron-down"></i></button>
+                </p>
+                <!-- add functionality to the dropdown for reading more comments. 
+                 Incorporate slide bar to show more comments in a column. -->
             </div>
             <!-- end: Reviews-->
             <!-- end: Rating page -->
         </div>
     </section>
-    <script src="https://kit.fontawesome.com/16ce6dc272.js" crossorigin="anonymous"></script>
-    <script src="../js/rating.js"></script>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+    <script src="../../static/js/rating.js"></script>
 {% endblock %}
