@@ -13,54 +13,50 @@
     <title>Home Page</title>
 </head>
 <body id="main-page">
-    <!-- Carousel -->
+    <!-- Introduction -->
+    <div class="preview-to-website">
+        <div class="preview-title">Welcome to SkillSwap!</div>
+        <div class="preview-description">
+            SkillSwap is a website where students can learn from tutors about specific subjects 
+            and for tutors to teach their expertise to others. Learn more about SkillSwap by continuing to read about us below!
+        </div>
+    </div>
+    <!-- Featured -->
     <h1 class="skillswap-title">Featured</h1>
+    <div class="featured-description">
+        SkillSwap contains many features available to you to the start for free! Our slideshow below shows some of the features 
+        you can use as a student and/or tutor!
+    </div>
+    <!-- Featured: Carousel -->
     <div class="page-wrapper">
         <div class="post-slider">
+            <!-- Arrows -->
             <i class="fa-solid fa-chevron-left prev"></i>
             <i class="fa-solid fa-chevron-right next"></i>
-            
+            <!-- Wrapper for the carousel -->
             <div class="post-wrapper">
                 <div class="post">
-                    <img src="../images/index_images/Placeholder.png" alt="" class="slider-image">
+                    <img src="../images/index_images/carousel1.png" alt="" class="slider-image">
                     <div class="post-info">
-                        <h3><a href="#">Placeholder One</a></h3>
-                        <p>Placeholder Description</p>
+                        <h2><a href="sessions.html">Create tutoring sessions, or receive them!</a></h2>
+                        <p>Creating a tutoring session is easy regardless of if you're the student or the tutor.</p>
                     </div>
                 </div> <!-- end post -->
                 <div class="post">
-                    <img src="../images/index_images/Placeholder2.png" alt="" class="slider-image">
+                    <img src="../images/index_images/carousel2.png" alt="" class="slider-image">
                     <div class="post-info">
-                        <h3><a href="#">Placeholder Two</a></h3>
-                        <p>Placeholder Description</p>
+                        <h2><a href="tutor_search.html">Search for tutors!</a></h2>
+                        <p>
+                            Our explore page makes it easy to find tutors. 
+                            Tutors themselves give background information, and the skills they're proficient at, as well as their ratings!
+                        </p>
                     </div>
                 </div> <!-- end post -->
                 <div class="post">
-                    <img src="../images/index_images/Placeholder3.png" alt="" class="slider-image">
+                    <img src="../images/index_images/carousel3.png" alt="" class="slider-image">
                     <div class="post-info">
-                        <h3><a href="#">Placeholder Three</a></h3>
-                        <p>Placeholder Description</p>
-                    </div>
-                </div> <!-- end post -->
-                <div class="post">
-                    <img src="../images/index_images/Placeholder.png" alt="" class="slider-image">
-                    <div class="post-info">
-                        <h3><a href="#">Placeholder One</a></h3>
-                        <p>Placeholder Description</p>
-                    </div>
-                </div> <!-- end post -->
-                <div class="post">
-                    <img src="../images/index_images/Placeholder2.png" alt="" class="slider-image">
-                    <div class="post-info">
-                        <h3><a href="#">Placeholder Two</a></h3>
-                        <p>Placeholder Description</p>
-                    </div>
-                </div> <!-- end post -->
-                <div class="post">
-                    <img src="../images/index_images/Placeholder3.png" alt="" class="slider-image">
-                    <div class="post-info">
-                        <h3><a href="#">Placeholder Three</a></h3>
-                        <p>Placeholder Description</p>
+                        <h2><a href="messages.html">Message others!</a></h2>
+                        <p>Message others, especially tutors, about sessions or questions about your subjects!</p>
                     </div>
                 </div> <!-- end post -->
             </div> <!-- end post wrapper -->
@@ -69,14 +65,14 @@
 
     <!-- About SkillSwap Section -->
     <h1 class="skillswap-title">How does SkillSwap Work?</h1>    
-
     <div class="about-skillswap">
+        <!-- Section 1 -->
         <div class="about-section-A">
             <div class="section-description">
                 <div class="center-this-line">
                     <hr class="my-line">
                 </div>
-                <h3>Learn from other students!</h3>
+                <h2>Learn from other students!</h2>
                 <p>
                     Learn about the skills you want through tutors with <strong>expertise</strong> on the field.
                     SkillSwap features a rating system that shows the ratings of tutors, allowing you to choose from
@@ -87,7 +83,7 @@
                 <img src="../images/learnFromOthers2.png" class="section-image" alt="">
             </div>
         </div>
-
+        <!-- Section 2 (Mirrored Stripe Pattern) -->
         <div class="about-section-B">
             <div class="section-image">
                 <img src="../images/progressQuickly2.png" class="section-image" alt="">
@@ -96,17 +92,17 @@
                 <div class="center-this-line">
                     <hr class="my-line">
                 </div>
-                <h3>Track your progress and progress quickly!</h3>
+                <h2>Track your progress and progress quickly!</h2>
                 <p>SkillSwap tracks your progress right where you left off, along with a solid recommendation of tutors to choose from.</p>
             </div>
         </div>
-
+        <!-- Section 1 -->
         <div class="about-section-A">
             <div class="section-description">
                 <div class="center-this-line">
                     <hr class="my-line">
                 </div>
-                <h3>Teach others about your skills!</h3>
+                <h2>Teach others about your skills!</h2>
                 <p>
                     Interested in being a tutor? It is easy to become one when you register an account for SkillSwap! 
                     Teach other students your skills with an easy way of creating a course for others to learn!
@@ -121,9 +117,10 @@
     <!-- Skill Category Cards & Grid -->
     <h1 class="skillswap-title"> Category of skills that are taught! </h1>
     <div class="skill-categories">
+        <!-- Programming Languages -->
         <div id="programming-languages" class="card">
             <img src="../images/index_images/comp_prog_lang.png" alt="">
-            <h3 id="prog-lang-header">Programming Languages</h3>
+            <h2 id="prog-lang-header">Programming Languages</h2>
             <ul id="hidden-prog-lang">
                 <li>Java</li>
                 <li>Python</li>
@@ -135,9 +132,10 @@
                 <li>JavaScript</li>
             </ul>
         </div>
+        <!-- Computers -->
         <div id="computers" class="card">
             <img src="../images/index_images/computers.png" alt="">
-            <h3 id="computers-header">Computers</h3>
+            <h2 id="computers-header">Computers</h2>
             <ul id="hidden-computers">
                 <li>Microsoft Word</li>
                 <li>Microsoft Excel</li>
@@ -146,9 +144,10 @@
                 <li>Cybersecurity</li>
             </ul>
         </div>
+        <!-- Math -->
         <div id="math" class="card">
             <img src="../images/index_images/mathematics.png" alt="">
-            <h3 id="math-header">Mathematics</h3>
+            <h2 id="math-header">Mathematics</h2>
             <ul id="hidden-math">
                 <li>Algebra</li>
                 <li>Statistics</li>
@@ -157,9 +156,10 @@
                 <li>Calculus</li>
             </ul>
         </div>
+        <!-- Science -->
         <div id="science" class="card">
             <img src="../images/index_images/science.png" alt="">
-            <h3 id="science-header">Science</h3>
+            <h2 id="science-header">Science</h2>
             <ul id="hidden-science">
                 <li>Chemistry</li>
                 <li>Physics</li>
@@ -169,9 +169,10 @@
                 <li>Nutrition</li>               
             </ul>
         </div>
+        <!-- Social Studies -->
         <div id="social-studies" class="card">
             <img src="../images/index_images/social-studies.png" alt="">
-            <h3 id="social-studies-header">Social Studies</h3>
+            <h2 id="social-studies-header">Social Studies</h2>
             <ul id="hidden-social-studies">
                 <li>History</li>
                 <li>Economics</li>
@@ -179,9 +180,10 @@
                 <li>Geography</li>
             </ul>
         </div>
+        <!-- Business -->
         <div id="business" class="card">
             <img src="../images/index_images/business.png" alt="">
-            <h3 id="business-header">Business</h3>
+            <h2 id="business-header">Business</h2>
             <ul id="hidden-business">
                 <li>Accounting</li>
                 <li>Banking & Finance</li>
@@ -190,9 +192,10 @@
                 <li>Real Estate</li>
             </ul>
         </div>
+        <!-- Life Skills -->
         <div id="life-skills" class="card">
             <img src="../images/index_images/life-skills.png" alt="">
-            <h3 id="life-skills-header">Life Skills</h3>
+            <h2 id="life-skills-header">Life Skills</h2>
             <ul id="hidden-life-skills">
                 <li>Cars</li>
                 <li>College Admissions</li>
@@ -203,9 +206,10 @@
                 <li>Music</li>
             </ul>
         </div>
+        <!-- Languages -->
         <div id="languages" class="card">
             <img src="../images/index_images/languages.png" alt="">
-            <h3 id="lang-header">Language Arts</h3>
+            <h2 id="lang-header">Language Arts</h2>
             <ul id="hidden-lang">
                 <li>English</li>
                 <li>Spanish</li>
