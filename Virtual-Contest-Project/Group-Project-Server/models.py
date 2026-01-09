@@ -23,6 +23,7 @@ class UsersSkills(Base):
     __tablename__ = 'users_skills'
     user_id = Column(Integer, ForeignKey('users.id'), primary_key = True)
     skill_id = Column(Integer, ForeignKey('skills.id'), primary_key = True)
+    is_learning = Column(Boolean)
 
 class Skills(Base):
     __tablename__ = 'skills'
@@ -39,16 +40,12 @@ class Messages(Base):
     time_sent = Column(DateTime, default = datetime.now)
     was_read = Column(Boolean, default = False)
 
-
-class UsersSession(Base):
-    __tablename__ = 'users_sessions'
-    user_id = Column(Integer, ForeignKey('users.id'), primary_key = True)
-    session_id = Column(Integer, ForeignKey('sessions.id'), primary_key = True)
-
 class Sessions(Base):
     __tablename__ = 'sessions'
     id = Column(Integer, primary_key = True, index = True)
     session_date = Column(DateTime)
+    recipient_username = Column(String, ForeignKey('users.username'))
+    sender_username = Column(String, ForeignKey('users.username'))
 
 class Ratings(Base):
     __tablename__ = 'ratings'

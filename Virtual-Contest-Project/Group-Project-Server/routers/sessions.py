@@ -6,7 +6,7 @@ from pydantic import BaseModel, Field
 from sqlalchemy.orm import Session
 from starlette import status
 from database import SessionLocal
-from models import Sessions, UsersSession
+from models import Sessions
 from routers.auth import get_current_user
 
 router = APIRouter(
@@ -41,12 +41,4 @@ async def create_session(db: db_dependency, session_request: SessionsRequest):
     if session_model is None:
         raise HTTPException(status_code = 404, detail = 'Message not found')
     db.add(session_model)
-    db.commit()
-
-@router.post('/create_usersession', status_code = status.HTTP_201_CREATED)
-async def create_skill(user: user_dependency, db: db_dependency, usersession_request: UserSessionRequest):
-    user_skill_model = UsersSession(**usersession_request.model_dump(), sender_id = user.get('id'))
-    if user_skill_model is None:
-        raise HTTPException(status_code = 404, detail = 'Skill not found')
-    db.add(user_skill_model)
     db.commit()
