@@ -149,14 +149,27 @@
 .Skills
 {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: var(--gray-200);
+    justify-content: space-between;
     border-radius: 10px;
     padding: 5px;
     width: 100%;
     max-width: 510px;
+    gap: 20px;
 }
+
+.skills-you-have, .skills-to-learn
+{
+    background-color: var(--gray-200);
+    padding: 5px;
+    border-radius: 10px;
+    width: 100%;
+}
+
+.skills-you-have, .skills-to-learn > h2
+{
+    text-align: center;
+}
+
 /* end: skills-section */
 
 /* end: Profile Section */
