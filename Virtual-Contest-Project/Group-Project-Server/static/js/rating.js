@@ -17,3 +17,5 @@ stars.forEach((star, index1) => {
 });
 
 // end: Stars
+
+//Rating functionality

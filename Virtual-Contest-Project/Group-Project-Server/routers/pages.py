@@ -125,15 +125,10 @@ async def render_profile_creation_page(request: Request):
         return redirect_to_login()
 
 '''Renders the rating page'''
-@router.get('/rating')
-async def render_rating_page(request: Request):
-    try:
-        user = await get_current_user(request.cookies.get('access_token'))
-        if user is None:
-            return redirect_to_login()
-        return templates.TemplateResponse('rating.html', {'request': request, 'user': user})
-    except:
-        return redirect_to_login()
+@router.get('/rating/{username}')
+async def render_rating_page(db: db_dependency, request: Request, username: str):
+    user = db.query(Users).filter(username == Users.username).first()
+    return templates.TemplateResponse('rating.html', {'request': request, 'user': user})
 
 '''Renders the messages page'''
 @router.get('/messages')
