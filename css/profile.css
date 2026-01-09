@@ -28,17 +28,22 @@
     background-color: var(--gray-200);
     border-radius: 10px;
     padding: 10px;
+    max-width: 500px;
+}
+
+.profile-personal-content > image {
+    display: flex;
+    justify-content: center;
+    align-content: center;
 }
 /* start: profile picture section */
 .profile-picture-section
 {
     position: relative;
     display: flex;
-    justify-content: row;
     margin-bottom: 10px;
     align-items: center;
     justify-content: center;
-    justify-content: space-between;
 }
 
 .pfp
@@ -47,7 +52,6 @@
     max-width: 200px;
     max-height: 200px;
     border-radius: 50%;
-    margin-left: 60px;
 }
 
 .settings-icon
@@ -92,14 +96,6 @@
     cursor: default;
 }
 
-.edit-profile, .sessions, .rating
-{
-    margin-left: 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
 .profile-bio
 {
     width: 300px;
@@ -126,7 +122,6 @@
     width: 100%;
     justify-content: space-between;
     margin-top: 5px;
-    margin-bottom: 5px;
 }
 
 #sessions-button, #ratings-button
@@ -160,9 +155,47 @@
     border-radius: 10px;
     padding: 5px;
     width: 100%;
-    max-width: 500px;
-    margin-left: 10px;
+    max-width: 510px;
 }
 /* end: skills-section */
 
 /* end: Profile Section */
+
+/* Start: responsiveness */
+
+@media screen and (max-width: 1470px) {
+    #complete-profile {
+        width: 90vw;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    
+    #complete-profile
+    {
+        background-color: yellow;
+        width: 60vw;
+        position: relative;
+        display: flex;
+        padding: 30px;
+        box-shadow: 0 8px 24px -4px rgba(0, 0, 0, .1);
+        background-color: var(--white);
+        overflow: auto;
+        height: auto;
+        flex-direction: column;
+    }
+
+    .Skills {
+        margin-top: 10px;
+        height: 600px;
+        width: auto;
+    }
+
+    .profile-bio
+    {
+        width: 200px;
+    }
+
+}
+
+/* End: responsiveness */
