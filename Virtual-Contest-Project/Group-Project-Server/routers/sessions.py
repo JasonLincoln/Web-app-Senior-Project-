@@ -28,7 +28,7 @@ bcrypt_context = CryptContext(schemes = ['bcrypt'], deprecated = 'auto')
 class SessionsRequest(BaseModel):
     session_date: datetime = Field()
 
-class UserSessionRequest:
+class UserSessionRequest(BaseModel):
     user_id: int = Field(gt=0)
     session_id: int = Field(gt=0)
 

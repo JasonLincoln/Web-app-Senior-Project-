@@ -85,6 +85,8 @@ async function submitSession(){
             const formData = new FormData(form);
             const data = Object.fromEntries(formData.entries());
 
+
+
             const sessionDate = new Date(`${data.date} ${data.time}`)
 
             const payload = {
@@ -117,13 +119,13 @@ async function submitSession(){
     }
 }
 
-async function makeUserSession(sessionWithUsername){
-    const getOtherUserByUsername = `/user/by_username/${sessionWithUsername}`
-
-    const response = await fetch(getOtherUserByUsername);
-    if (response.ok) {
-        const data = await response.json();
-
-
-    }
-}
+//async function makeUserSession(sessionWithUsername){
+//    const getOtherUserByUsername = `/user/by_username/${sessionWithUsername}`
+//
+//    const response = await fetch(getOtherUserByUsername);
+//    if (response.ok) {
+//        const data = await response.json();
+//
+//
+//    }
+//}

@@ -61,7 +61,7 @@ class Ratings(Base):
 class Audits(Base):
     __tablename__ = 'audits'
     id = Column(Integer, primary_key = True, index = True)
-    user_id = Column(Integer, ForeignKey('users.id'), primary_key = True)
+    user_id = Column(Integer, ForeignKey('users.id'), nullable = False)
     entity_id = Column(Integer, nullable=False)
     entity_affected = Column(String, nullable=False)
     timestamp = Column(DateTime)
