@@ -1,3 +1,21 @@
+// Page Load
+const currentPath = window.location.pathname;
+const ratingUser = currentPath.substring(14);
+const currentUserEndpoint = '/users/';
+
+async function getCurrentUser(){
+    const response = await fetch(currentUserEndpoint);
+    if (response.ok) {
+        const data = await response.json();
+        const currentUserID = data.id;
+        return currentUserID;
+    }
+    else {
+        const errorData = await response.json();
+        alert(`Error: ${errorData.detail}`);
+    }
+}
+
 // start: Stars
 
 // Selects all elements with the "i" tag and stores them in a NodeList called "stars"
@@ -18,4 +36,42 @@ stars.forEach((star, index1) => {
 
 // end: Stars
 
-//Rating functionality
+// Rating functionality
+
+const submitRating = document.getElementById('send_review');
+    if (submitRating) {
+        submitRating.addEventListener('submit', async function (event) {
+            event.preventDefault();
+
+            const form = event.target;
+            const formData = new FormData(form);
+            const data = Object.fromEntries(formData.entries());
+
+            const payload = {
+                feedback_text: data.review_text,
+                feedback_rating: data.review_rating,
+                recipient_username: ratingUser
+            };
+
+            try {
+                const response = await fetch('/ratings/create_rating', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(payload)
+                });
+
+                if (response.ok) {
+                    console.log("jabhsfhawhfoiasiuoefioashofbhsdebfawebnhfkjhabfikj");
+                } else {
+                    // Handle error
+                    const errorData = await response.json();
+                    alert(`Error: ${errorData.message}`);
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('An error occurred. Please try again.');
+            }
+        });
+    }

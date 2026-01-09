@@ -5,7 +5,7 @@ from pydantic import BaseModel, Field
 from sqlalchemy.orm import Session
 from starlette import status
 from database import SessionLocal
-from models import Users, Skills, UsersSkills, Messages, Sessions, Audits
+from models import Users, Skills, UsersSkills, Messages, Sessions, Audits, Ratings
 from routers.auth import get_current_user
 from fastapi.templating import Jinja2Templates
 from routers.sessions import SessionsRequest
@@ -134,6 +134,23 @@ async def get_audit_by_id(db: db_dependency, audit_id: int = Path(gt = 0)):
     audit_result = (db.query(Audits).filter(audit_id == Audits.id).first())
     if audit_result is not None:
         return audit_result
+    raise HTTPException(status_code = 404, detail = 'Audit not found')
+
+'''gets all ratings'''
+@router.get("/ratings", status_code = status.HTTP_200_OK)
+async def get_all_ratings(db: db_dependency):
+    # if user is None or user.get('user_role') != 'admin':
+    #     raise HTTPException(status_code = 401, detail = "Authentication Failed")
+    return db.query(Ratings).all()
+
+'''gets a rating by it's id'''
+@router.get('/by_rating_id/{rating_id}', status_code = status.HTTP_200_OK)
+async def get_rating_by_id(db: db_dependency, rating_id: int = Path(gt = 0)):
+    # if user is None or user.get('user_role') != 'admin':
+    #     raise HTTPException(status_code = 401, detail = "Authentication Failed")
+    ratings_result = (db.query(Ratings).filter(rating_id == Ratings.id).first())
+    if ratings_result is not None:
+        return ratings_result
     raise HTTPException(status_code = 404, detail = 'Audit not found')
 
 '''creates a new skill'''
