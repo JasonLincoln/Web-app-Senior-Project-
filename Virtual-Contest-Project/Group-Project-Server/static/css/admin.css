@@ -51,10 +51,10 @@
     padding: 5px 20px;
     cursor: pointer;
 }
-.post-button { background-color: var(--green-200); }
-.get-button { background-color: var(--blue-200); } 
-.put-button { background-color: var(--yellow-200); }
-.delete-button { background-color: var(--red-200); }
+.post-button { background-color: chartreuse; }
+.get-button { background-color: cyan; }
+.put-button { background-color: gold; }
+.delete-button { background-color: orangered; }
 
 /* Text CSS */
 /* Text CSS */

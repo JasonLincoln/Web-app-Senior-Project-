@@ -90,6 +90,7 @@ async function submitSession(){
             const sessionDate = new Date(`${data.date} ${data.time}`)
 
             const payload = {
+                recipient_username: data.withUser,
                 session_date: sessionDate.toISOString()
             };
 
@@ -105,7 +106,7 @@ async function submitSession(){
                 if (response.ok) {
                     console.log("Session requested.");
                     requestForm.reset();
-                    makeUserSession(data.withUser);
+
                 } else {
                     // Handle error
                     const errorData = await response.json();
@@ -118,14 +119,3 @@ async function submitSession(){
         });
     }
 }
-
-//async function makeUserSession(sessionWithUsername){
-//    const getOtherUserByUsername = `/user/by_username/${sessionWithUsername}`
-//
-//    const response = await fetch(getOtherUserByUsername);
-//    if (response.ok) {
-//        const data = await response.json();
-//
-//
-//    }
-//}

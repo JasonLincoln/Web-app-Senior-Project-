@@ -47,7 +47,7 @@
                         <!-- With What Tutor -->
                         <div class="with-wrapper">
                             <label for="withUser">Session with tutor: </label>
-                            <input type="text" id="withUser" name="with" placeholder="Enter the tutor name here." required>
+                            <input type="text" id="withUser" name="withUser" placeholder="Enter the tutor name here." required>
                         </div>
                         <!-- When The Session Will Happen -->
                         <div class="when-wrapper">
@@ -126,9 +126,6 @@
                 </div>
             </div>
         </div>
-        <script src="https://kit.fontawesome.com/16ce6dc272.js" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-        <script src="{{ url_for('static', path = '/js/sessions.js') }}"></script>
     </div>
 
 <template id="requested_session">
@@ -149,4 +146,10 @@
         <button class="start-session-button"><a href="/pages/messages">Start&nbsp;Now</a></button>
     </div>
 </template>
+{% endblock %}
+
+{% block extra_js %}
+    <script src="https://kit.fontawesome.com/16ce6dc272.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="{{ url_for('static', path = '/js/sessions.js') }}"></script>
 {% endblock %}

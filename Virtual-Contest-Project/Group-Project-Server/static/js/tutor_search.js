@@ -90,32 +90,29 @@ async function showAllUsers(currentUsername){
         console.log("Using user data for the showAllUsers function.");
         allTutors.innerHTML = "";
         users = data.map(item => {
+            console.log("Displaying users on page.");
+            let card = tutorTemplate.content.cloneNode(true).children[0];
+            const username = card.querySelector("[data-username]");
+            const biography = card.querySelector("[data-biography]");
+            const skills = card.querySelector("[data-skills]");
+            let rating = card.querySelector("[data-rating]");
+            username.textContent = item.username;
+            biography.textContent = item.biography;
+            console.log(item.rating);
+            for(let i = 0; i < item.rating; i++)
+            {
+                const star = Object.assign(document.createElement('i'), { className : "fa-solid fa-star"});
+                rating.append(star);
+            }
+            allTutors.append(card);
+            card.addEventListener('click', function(e) {
+                window.location.href = `/pages/profile/${item.id}`;
+            })
             if(currentUsername == item.username)
             {
-                return 0;
+                card.classList.toggle("hide");
             }
-            else
-            {
-                console.log("Displaying users on page.");
-                const card = tutorTemplate.content.cloneNode(true).children[0];
-                const username = card.querySelector("[data-username]");
-                const biography = card.querySelector("[data-biography]");
-                const skills = card.querySelector("[data-skills]");
-                let rating = card.querySelector("[data-rating]");
-                username.textContent = item.username;
-                biography.textContent = item.biography;
-                console.log(item.rating);
-                for(let i = 0; i < item.rating; i++)
-                {
-                    const star = Object.assign(document.createElement('i'), { className : "fa-solid fa-star"});
-                    rating.append(star);
-                }
-                allTutors.append(card);
-                card.addEventListener('click', function(e) {
-                    window.location.href = `/pages/profile/${item.id}`;
-                })
-                return { username: item.username, biography: item.biography, rating: item.rating, element: card};
-            }
+            return { username: item.username, biography: item.biography, rating: item.rating, element: card};
         });
     }
     else {
@@ -130,6 +127,14 @@ searchBar.addEventListener("input", (e) => {
     const value = e.target.value.toLowerCase();
     users.forEach(item => {
         const isVisible = item.username.toLowerCase().includes(value);
-        item.element.classList.toggle("hide", !isVisible);
+
+            getCurrentUser().then(username => {
+                if(username) {
+                    if(username != item.username)
+                    {
+                        item.element.classList.toggle("hide", !isVisible);
+                    }
+                }
+            });
     })
 })

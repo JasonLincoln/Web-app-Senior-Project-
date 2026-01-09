@@ -1,6 +1,6 @@
 from datetime import datetime
 from typing import Annotated
-from fastapi import APIRouter, Depends, HTTPException
+from fastapi import APIRouter, Depends, HTTPException, Request
 from passlib.context import CryptContext
 from pydantic import BaseModel, Field
 from sqlalchemy.orm import Session
@@ -27,17 +27,15 @@ bcrypt_context = CryptContext(schemes = ['bcrypt'], deprecated = 'auto')
 
 class SessionsRequest(BaseModel):
     session_date: datetime = Field()
-
-class UserSessionRequest(BaseModel):
-    user_id: int = Field(gt=0)
-    session_id: int = Field(gt=0)
+    recipient_username: str = Field(min_length=1, max_length=100)
 
 '''creates a new session between two or more users'''
 @router.post('/create_session', status_code = status.HTTP_201_CREATED)
-async def create_session(db: db_dependency, session_request: SessionsRequest):
-    # if user is None:
-    #     raise HTTPException(status_code = 401, detail = "Authentication Failed")
-    session_model = Sessions(**session_request.model_dump())
+async def create_session(request: Request, db: db_dependency, session_request: SessionsRequest):
+    user = await get_current_user(request.cookies.get('access_token'))
+    if user is None:
+        raise HTTPException(status_code=401, detail="Authentication Failed")
+    session_model = Sessions(**session_request.model_dump(), sender_username = user.get('username'))
     if session_model is None:
         raise HTTPException(status_code = 404, detail = 'Message not found')
     db.add(session_model)

@@ -44,6 +44,7 @@ class Sessions(Base):
     __tablename__ = 'sessions'
     id = Column(Integer, primary_key = True, index = True)
     session_date = Column(DateTime)
+    accepted = Column(Boolean, default = False)
     recipient_username = Column(String, ForeignKey('users.username'))
     sender_username = Column(String, ForeignKey('users.username'))
 
