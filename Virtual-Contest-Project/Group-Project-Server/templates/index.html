@@ -10,49 +10,58 @@
 {% endblock %}
 
 {% block content %}
-    <!-- Carousel -->
+    <!-- Introduction -->
+    <div class="preview-to-website">
+        <div class="preview-title">Welcome to SkillSwap!</div>
+        <div class="preview-description">
+            SkillSwap is a website where students can learn from tutors about specific subjects 
+            and for tutors to teach their expertise to others. Learn more about SkillSwap by continuing to read about us below!
+        </div>
+    </div>
+    <!-- Featured -->
     <h1 class="skillswap-title">Featured</h1>
+    <div class="featured-description">
+        SkillSwap contains many features available to you to the start for free! Our slideshow below shows some of the features 
+        you can use as a student and/or tutor!
+    </div>
+    <!-- Featured: Carousel -->
     <div class="page-wrapper">
         <div class="post-slider">
+            <!-- Arrows -->
             <i class="fa-solid fa-chevron-left prev"></i>
             <i class="fa-solid fa-chevron-right next"></i>
-
+            <!-- Wrapper for the carousel -->
             <div class="post-wrapper">
                 <div class="post">
-                    <img src="{{ url_for('static', path = 'images/index_images/Placeholder.png') }}" alt="" class="slider-image">
+                    <img src="{{ url_for('static', path = 'images/index_images/carousel1.png') }}" alt="" class="slider-image">
                     <div class="post-info">
-                        <h2><a href="#">Placeholder One</a></h2>
-                        <p>Placeholder Description</p>
+                        <h2><a href="/pages/sessions">Create tutoring sessions, or receive them!</a></h2>
+                        <p>Creating a tutoring session is easy regardless of if you're the student or the tutor.</p>
                     </div>
                 </div> <!-- end post -->
                 <div class="post">
-                    <img src="{{ url_for('static', path = 'images/index_images/Placeholder.png') }}" alt="" class="slider-image">
+                    <img src="{{ url_for('static', path = 'images/index_images/carousel2.png') }}" alt="" class="slider-image">
                     <div class="post-info">
-                        <h2><a href="#">Placeholder One</a></h2>
-                        <p>Placeholder Description</p>
+                        <h2><a href="/pages/explore">Search for tutors!</a></h2>
+                        <p>
+                            Our explore page makes it easy to find tutors. 
+                            Tutors themselves give background information, and the skills they're proficient at, as well as their ratings!
+                        </p>
                     </div>
                 </div> <!-- end post -->
                 <div class="post">
-                    <img src="{{ url_for('static', path = 'images/index_images/Placeholder.png') }}" alt="" class="slider-image">
+                    <img src="{{ url_for('static', path = 'images/index_images/carousel3.png') }}" alt="" class="slider-image">
                     <div class="post-info">
-                        <h2><a href="#">Placeholder Two</a></h2>
-                        <p>Placeholder Description</p>
-                    </div>
-                </div> <!-- end post -->
-                <div class="post">
-                    <img src="{{ url_for('static', path = 'images/index_images/Placeholder.png') }}" alt="" class="slider-image">
-                    <div class="post-info">
-                        <h2><a href="#">Placeholder Three</a></h2>
-                        <p>Placeholder Description</p>
+                        <h2><a href="/pages/messages">Message others!</a></h2>
+                        <p>Message others, especially tutors, about sessions or questions about your subjects!</p>
                     </div>
                 </div> <!-- end post -->
             </div> <!-- end post wrapper -->
         </div> <!-- end post slider -->
-    </div>
+    </div> 
 
     <!-- About SkillSwap Section -->
     <h1 class="skillswap-title">How does SkillSwap Work?</h1>
-
     <div class="about-skillswap">
         <div class="about-section-A">
             <div class="section-description">
@@ -104,6 +113,7 @@
     <!-- Skill Category Cards & Grid -->
     <h1 class="skillswap-title"> Category of skills that are taught! </h1>
     <div class="skill-categories">
+        <!-- Programming Languages -->
         <div id="programming-languages" class="card">
             <img src="{{ url_for('static', path = 'images/index_images/comp_prog_lang.png') }}" alt="">
             <h2 id="prog-lang-header">Programming Languages</h2>
@@ -118,6 +128,7 @@
                 <li>JavaScript</li>
             </ul>
         </div>
+        <!-- Computers -->
         <div id="computers" class="card">
             <img src="{{ url_for('static', path = 'images/index_images/computers.png') }}" alt="">
             <h2 id="computers-header">Computers</h2>
@@ -129,6 +140,7 @@
                 <li>Cybersecurity</li>
             </ul>
         </div>
+        <!-- Math -->
         <div id="math" class="card">
             <img src="{{ url_for('static', path = 'images/index_images/mathematics.png') }}" alt="">
             <h2 id="math-header">Mathematics</h2>
@@ -140,6 +152,7 @@
                 <li>Calculus</li>
             </ul>
         </div>
+        <!-- Science -->
         <div id="science" class="card">
             <img src="{{ url_for('static', path = 'images/index_images/science.png') }}" alt="">
             <h2 id="science-header">Science</h2>
@@ -152,6 +165,7 @@
                 <li>Nutrition</li>
             </ul>
         </div>
+        <!-- Social Studies -->
         <div id="social-studies" class="card">
             <img src="{{ url_for('static', path = 'images/index_images/social-studies.png') }}" alt="">
             <h2 id="social-studies-header">Social Studies</h2>
@@ -162,6 +176,7 @@
                 <li>Geography</li>
             </ul>
         </div>
+        <!-- Business -->
         <div id="business" class="card">
             <img src="{{ url_for('static', path = 'images/index_images/business.png') }}" alt="">
             <h2 id="business-header">Business</h2>
@@ -173,6 +188,7 @@
                 <li>Real Estate</li>
             </ul>
         </div>
+        <!-- Life Skills -->
         <div id="life-skills" class="card">
             <img src="{{ url_for('static', path = 'images/index_images/life-skills.png') }}" alt="">
             <h2 id="life-skills-header">Life Skills</h2>
@@ -186,6 +202,7 @@
                 <li>Music</li>
             </ul>
         </div>
+        <!-- Languages -->
         <div id="languages" class="card">
             <img src="{{ url_for('static', path = 'images/index_images/languages.png') }}" alt="">
             <h2 id="lang-header">Language Arts</h2>
@@ -231,7 +248,7 @@
         <button type="button" class="faq-accordion">4. How do I look at sessions I have? </button>
         <div class="faq-panel">
             <div class="faq-sub-grid">
-                To find the list of sessions you request or schedule, click on the sessions button in the navigation bar or <a href="sessions.html"><strong>here</strong></a>.
+                To find the list of sessions you request or schedule, click on the sessions button in the navigation bar or <a href="/pages/sessions"><strong>here</strong></a>.
                 In the page, you will find upcoming sessions, requested sessions, and previous sessions you've used.
                 This page can also be used to request a session to a tutor.
             </div>
