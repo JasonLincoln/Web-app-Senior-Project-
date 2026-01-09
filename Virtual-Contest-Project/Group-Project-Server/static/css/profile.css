@@ -117,6 +117,7 @@
 {
     display: flex;
     justify-content: center;
+    align-items: center;
     gap: 20px;
     position: relative;
     width: 100%;
@@ -143,20 +144,36 @@
 {
     background-color: var(--gray-800);
 }
+#sessions-button {
+    position: relative;
+    bottom: 0;
+}
 /* end: sessions-and-ratings buttons */
 
 /* start: skills-section */
 .Skills
 {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: var(--gray-200);
+    justify-content: space-between;
     border-radius: 10px;
     padding: 5px;
     width: 100%;
     max-width: 510px;
+    gap: 20px;
 }
+.skills-you-have, .skills-to-learn
+{
+    background-color: var(--gray-200);
+    padding: 5px;
+    border-radius: 10px;
+    width: 100%;
+}
+
+.skills-you-have, .skills-to-learn > h2
+{
+    text-align: center;
+}
+
 /* end: skills-section */
 
 /* end: Profile Section */

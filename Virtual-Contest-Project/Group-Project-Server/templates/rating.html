@@ -14,7 +14,7 @@
             <!-- start: Progress Bar -->
             <div class="progress-bar-wrapper">
                 <button class="close-button"><i class="fa-solid fa-xmark fa-2x"></i></button>
-                <h2 class="progress-bar-wrapper-header">Reviews</h2>
+                <h2 class="progress-bar-wrapper-header">{{user.username}}'s Reviews</h2>
                 <div class="progress-bar-skills-wrapper">
 
                     <div class="bar">
@@ -68,60 +68,25 @@
 
             <!-- start: Reviews -->
              <!-- add a create review here -->
-            <div class="create-review">
-                <div class="review-top">
-                    <div class="review-user">
-                        <img class="review-profile-image" src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8cGVvcGxlfGVufDB8fDB8fHww" alt="Profile Photo">
-                        <div class="review-user-name">Jack</div>
+            <form id="send_review">
+                <div class="create-review">
+                    <div class="review-top">
+                        <div class="review-user">
+                            <img class="review-profile-image" src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8cGVvcGxlfGVufDB8fDB8fHww" alt="Profile Photo">
+                            <div class="review-user-name"></div>
+                        </div>
+                        <select class="stars" name="review_rating">
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                        </select>
                     </div>
-                    <div class="stars">
-                        <i class="ri-star-fill"></i>
-                        <i class="ri-star-fill"></i>
-                        <i class="ri-star-fill"></i>
-                        <i class="ri-star-fill"></i>
-                        <i class="ri-star-fill"></i>
-                    </div>  
+                    <input class="create-review-input" id="review_text" name="review_text" placeholder="Write a review...">
+                    <button type="submit">Send</button>
                 </div>
-                <textarea class="create-review-input" rows="1" placeholder="Write a review..."></textarea>
-            </div>
-            
-            <div class="review" id="review-1">
-                <div class="review-top">
-                    <div class="review-user">
-                        <img class="review-profile-image" src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8cGVvcGxlfGVufDB8fDB8fHww" alt="Profile Photo">
-                        <div class="review-user-name">Jack</div>
-                    </div>
-                    <div class="stars">
-                        <i class="ri-star-fill"></i>
-                        <i class="ri-star-fill"></i>
-                        <i class="ri-star-fill"></i>
-                        <i class="ri-star-fill"></i>
-                        <i class="ri-star-fill"></i>
-                    </div>  
-                </div>
-                <div class="review-comment">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat sunt, adipisci, quasi tenetur itaque iste libero sequi a ipsam ab suscipit dolore labore! Ullam minus consequatur a cum eum expedita ad ratione itaque perferendis repudiandae esse, error facere. Dicta, repellendus!
-                </div>
-            </div>
-
-            <div class="review" id="review-2">
-                <div class="review-top">
-                    <div class="review-user">
-                        <img class="review-profile-image" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8cGVvcGxlfGVufDB8fDB8fHww" alt="Profile Photo">
-                        <div class="review-user-name">Jill</div>
-                    </div>
-                    <div class="stars">
-                        <i class="ri-star-fill"></i>
-                        <i class="ri-star-fill"></i>
-                        <i class="ri-star-fill"></i>
-                        <i class="ri-star-fill"></i>
-                        <i class="ri-star-fill"></i>
-                    </div>  
-                </div>
-                <div class="review-comment">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat sunt, adipisci, quasi tenetur itaque iste libero sequi a ipsam ab suscipit dolore labore! Ullam minus consequatur a cum eum expedita ad ratione itaque perferendis repudiandae esse, error facere. Dicta, repellendus!
-                </div>
-            </div>
+            </form>
             <!-- last thing to work on -->
             <div class="read-more-reviews">
                 <p class="read-more-reviews-text">Read more reviews 
@@ -141,7 +106,7 @@
                 <div class="review-top">
                     <div class="review-user">
                         <img class="review-profile-image" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8cGVvcGxlfGVufDB8fDB8fHww" alt="Profile Photo">
-                        <div class="review-user-name">Jill</div>
+                        <div class="review-user-name"></div>
                     </div>
                     <div class="stars">
                         <i class="ri-star-fill"></i>
