@@ -28,8 +28,9 @@ class RatingRequest(BaseModel):
     recipient_username: str = Field(min_length=1)
 
 '''Gets all ratings for a user'''
-@router.get('/ratings/{recipient_username}', status_code = status.HTTP_200_OK)
-async def get_ratings(user: user_dependency, db: db_dependency, recipient_username: str):
+@router.get('/{recipient_username}', status_code = status.HTTP_200_OK)
+async def get_ratings(request: Request, db: db_dependency, recipient_username: str):
+    user = await get_current_user(request.cookies.get('access_token'))
     if user is None:
         raise HTTPException(status_code=401, detail="Authentication Failed")
     ratings_result = (db.query(Ratings).filter(recipient_username == Ratings.recipient_username).all())
