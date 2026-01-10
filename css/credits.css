@@ -1,9 +1,8 @@
-/* Start: Overall */
-/* Start: Overall */
-/* Start: Overall */
+/* Start: Overall & Works Cited */
+/* Start: Overall & Works Cited */
+/* Start: Overall & Works Cited */
 
 body {
-    font-family: 'Times New Roman', Times, serif;
     font-size: 12px;
 }
 
@@ -12,19 +11,29 @@ p {
     font-size: 18px;
 }
 
+ul {
+    list-style-type: none;
+}
+
 .normal-credits, .works-cited-container {
     padding: 5vh 5vw;
+}
+
+.works-cited-title, .works-cited-content > p {
+    font-family: 'Times New Roman', Times, serif;
+    margin: 5px 0;
 }
 
 h2 {
     text-align: center;
     padding: 5px;
+    margin-bottom: 10px;
     font-size: 24px;
 }
 
-/* End: Overall */
-/* End: Overall */
-/* End: Overall */
+/* End: Overall & Works Cited */
+/* End: Overall & Works Cited */
+/* End: Overall & Works Cited */
 
 /* Start: Preview */
 /* Start: Preview */
@@ -39,7 +48,7 @@ h2 {
     height: 350px;
     background-image: 
         linear-gradient(rgba(150, 221, 150, 0.742), rgba(150, 221, 150, 0.742)),
-        url(../images/about_us.png);
+        url(../images/credits.png);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -66,3 +75,31 @@ h2 {
 /* End: Preview */
 /* End: Preview */
 /* End: Preview */
+
+/* Start: Developer Cards */
+/* Start: Developer Cards */
+/* Start: Developer Cards */
+
+.developers {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    justify-content: center;
+}
+
+.person {
+    padding: 10px 20px;
+    text-align: center;
+    background-color: rgb(240, 240, 240);
+}
+
+.person h3 {
+    text-decoration: underline;
+    text-underline-offset: 5px;
+    margin: 10px 0;
+    font-size: large;
+}
+
+/* End: Developer Cards */
+/* End: Developer Cards */
+/* End: Developer Cards */
