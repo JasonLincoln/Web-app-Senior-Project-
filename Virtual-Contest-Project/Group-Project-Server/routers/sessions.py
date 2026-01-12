@@ -28,6 +28,30 @@ bcrypt_context = CryptContext(schemes = ['bcrypt'], deprecated = 'auto')
 class SessionsRequest(BaseModel):
     session_date: datetime = Field()
 
+'''Gets all session a user has accepted'''
+@router.get('/sessions', status_code = status.HTTP_200_OK)
+async def get_ratings(user: user_dependency, db: db_dependency, username: str):
+    if user is None:
+        raise HTTPException(status_code=401, detail="Authentication Failed")
+    ratings_result = (db.query(Sessions).filter(username == Sessions.recipient_username).all())
+    if ratings_result is not None:
+        return ratings_result
+    raise HTTPException(status_code=404, detail="Ratings not found")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 '''creates a new session between two or more users'''
 @router.post('/create_session', status_code = status.HTTP_201_CREATED)
 async def create_session(user: user_dependency, db: db_dependency, session_request: SessionsRequest):

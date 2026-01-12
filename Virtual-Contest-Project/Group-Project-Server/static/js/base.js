@@ -40,7 +40,48 @@
             }
         });
     }
- // Register JS
+ async function getToken(form){
+    tokenForm = document.getElementById('signup_form');
+    if (tokenForm) {
+        console.log('into second');
+
+            const formData = new FormData(form);
+
+            const payload = new URLSearchParams();
+            for (const [key, value] of formData.entries()) {
+                payload.append(key, value);
+            }
+
+            try {
+                const response = await fetch('/auth/token', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded'
+                    },
+                    body: payload.toString()
+                });
+
+                if (response.ok) {
+                    // Handle success (e.g., redirect to dashboard)
+                    const data = await response.json();
+                    console.log('second worked');
+                    // Delete any cookies available
+                    logout();
+                    // Save token to cookie
+                    document.cookie = `access_token=${data.access_token}; path=/`;
+                    window.location.href = '/pages/profile-creation'; // Change this to your desired redirect page
+                } else {
+                    // Handle error
+                    const errorData = await response.json();
+                    alert(`Error: ${errorData.detail}`);
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('An error occurred. Please try again.');
+            }
+    };
+}
+// Register JS
     const registerForm = document.getElementById('signup_form');
     if (registerForm) {
         registerForm.addEventListener('submit', async function (event) {
@@ -66,7 +107,8 @@
                 });
 
                 if (response.ok) {
-                    window.location.href = '/pages/login';
+                    console.log('first worked');
+                    setTimeout(getToken, 500, form);
                 } else {
                     // Handle error
                     const errorData = await response.json();

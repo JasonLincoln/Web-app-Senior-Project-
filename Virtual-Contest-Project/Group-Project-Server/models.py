@@ -54,8 +54,8 @@ class Ratings(Base):
     id = Column(Integer, primary_key = True, index = True)
     feedback_text = Column(String)
     feedback_rating = Column(Integer)
-    recipient_id = Column(Integer, ForeignKey('users.id'))
-    sender_id = Column(Integer, ForeignKey('users.id'))
+    recipient_username = Column(String, ForeignKey('users.username'))
+    sender_username = Column(String, ForeignKey('users.username'))
 
 class Audits(Base):
     __tablename__ = 'audits'

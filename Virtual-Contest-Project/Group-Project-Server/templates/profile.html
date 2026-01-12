@@ -16,7 +16,7 @@
     <div id="complete-profile">
         <div class="main-profile">
             <div class="profile-image">
-                <img class="pfp" src="{{ url_for('static', path='/images/Profile-Image-Placeholder.png') }}" alt="profile image">
+                <img class="pfp" src={{ user.profile_url }} alt="profile image">
             </div>
 
             <div class="name-pronouns">

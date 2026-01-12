@@ -40,6 +40,7 @@ class UserRequest(BaseModel):
     display_name: str = Field(min_length = 1, max_length = 100)
     pronouns: str = Field(min_length = 1, max_length = 100)
     biography: str = Field(min_length = 1, max_length = 100)
+    profile_url: str = Field(min_length = 1, max_length = 300)
 
 '''Authorization endpoints'''
 
@@ -78,6 +79,7 @@ async def update_user(user: user_dependency,db: db_dependency,user_request: User
     user_model.display_name = user_request.display_name
     user_model.pronouns = user_request.pronouns
     user_model.biography = user_request.biography
+    user_model.profile_url = user_request.profile_url
 
     db.add(user_model)
     db.commit()
@@ -116,10 +118,7 @@ async def get_users_by_skill(user: user_dependency, db: db_dependency, skill_id:
 async def get_skills_by_user(user: user_dependency, db: db_dependency, user_id: int = Path(gt = 0)):
     if user is None:
         raise HTTPException(status_code = 401, detail = "Authentication Failed")
-    users_result = (db.query(UsersSkills)
-                    .filter(user_id == UsersSkills.user_id)
-                    .join(Skills, Skills.id == UsersSkills.skill_id)
-                    .all())
+    users_result = (db.query(UsersSkills).filter(user_id == UsersSkills.user_id).join(Skills, Skills.id == UsersSkills.skill_id).all())
     if users_result is not None:
         return users_result
     raise HTTPException(status_code = 404, detail = 'User not found')
@@ -129,9 +128,7 @@ async def get_skills_by_user(user: user_dependency, db: db_dependency, user_id: 
 async def get_users_by_rating(user: user_dependency, db: db_dependency, rating: int = Path(gt = 0)):
     if user is None:
         raise HTTPException(status_code = 401, detail = "Authentication Failed")
-    rating_result = (db.query(Users)
-                      .filter(rating == Users.rating)
-                      .all())
+    rating_result = (db.query(Users).filter(rating == Users.rating).all())
     if rating_result is not None:
         return rating_result
     raise HTTPException(status_code = 404, detail = 'User not found')

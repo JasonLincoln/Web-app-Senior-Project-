@@ -245,7 +245,8 @@ const profileCreationForm = document.getElementById('user_update');
             const payload = {
                 display_name: data.display_name,
                 pronouns: data.pronouns,
-                biography: data.biography
+                biography: data.biography,
+                profile_url: selectedImage.src
             };
 
             try {
@@ -276,7 +277,7 @@ const profileCreationForm = document.getElementById('user_update');
                 alert('An error occurred. Please try again.');
             }
         });
-    }
+    };
 
     // Helper function to get a cookie by name
     function getCookie(name) {
