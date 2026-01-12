@@ -48,7 +48,7 @@ async function showAllRatings(profilePic){
             for(let i = 0; i < item.feedback_rating; i++)
             {
                 const star = Object.assign(document.createElement('i'), { className : "fa-solid fa-star"});
-                rating.append(star);
+                stars.append(star);
             }
             reviewsList.append(rating);
             return { recipient_username: ratingUser, sender_username: item.sender_username, feedback_text: item.feedback_text, rating: item.rating, element: rating};
