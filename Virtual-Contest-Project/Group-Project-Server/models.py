@@ -62,7 +62,7 @@ class Audits(Base):
     user_id = Column(Integer, ForeignKey('users.id'), nullable = False)
     entity_id = Column(Integer, nullable=False)
     entity_affected = Column(String, nullable=False)
-    timestamp = Column(DateTime)
+    timestamp = Column(DateTime, default = datetime.now)
     details = Column(String)
     successful_event = Column(Boolean)
     error_details = Column(String)

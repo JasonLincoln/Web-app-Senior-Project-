@@ -1,5 +1,20 @@
 // Initialization
+const currentUserEndpoint = '/users/';
 let registeredUsername = "";
+let currentUser = "";
+
+async function getCurrentUser(){
+    const response = await fetch(currentUserEndpoint);
+    if (response.ok) {
+        const data = await response.json();
+        const currentUserID = data.id;
+        return currentUserID;
+    }
+    else {
+        const errorData = await response.json();
+        alert(`Error: ${errorData.detail}`);
+    }
+}
 
 // Login JS
     const loginForm = document.getElementById('login-form');
@@ -31,13 +46,35 @@ let registeredUsername = "";
                     logout();
                     // Save token to cookie
                     document.cookie = `access_token=${data.access_token}; path=/`;
+                    getCurrentUser().then(currentUserID => {
+                        if(currentUserID) {
+                            logAudit(currentUserID, currentUserID, "User",
+                                "The user was given an access token that was placed in cookies.",
+                                true, "No errors, Successful Audit.");
+                        }
+                    });
                     window.location.href = '/pages/index'; // Change this to your desired redirect page
                 } else {
+                    getCurrentUser().then(currentUserID => {
+                        if(currentUserID) {
+                            logAudit(currentUserID, currentUserID, "User",
+                                "The user was supposed to be given an access token that was placed in cookies.",
+                                true, "Token could not be granted.");
+                        }
+                    });
+
                     // Handle error
                     const errorData = await response.json();
                     alert(`Error: ${errorData.detail}`);
                 }
             } catch (error) {
+                getCurrentUser().then(currentUserID => {
+                    if(currentUserID) {
+                        logAudit(currentUserID, currentUserID, "User",
+                            "The user was supposed to be given an access token that was placed in cookies.",
+                            true, "Token could not be granted.");
+                    }
+                });
                 console.error('Error:', error);
                 alert('An error occurred. Please try again.');
             }
@@ -133,6 +170,38 @@ let registeredUsername = "";
 
         if (response.ok) {
             window.location.href = '/pages/login';
+        } else {
+            // Handle error
+            const errorData = await response.json();
+            alert(`Error: Message cannot be sent.`);
+        }
+    } catch (error) {
+        console.error('Error:', error);
+        alert('An error occurred. Please try again.');
+    }
+ }
+
+ async function logAudit(currentUser, entityID, entityAffected, detailsText, successful, errorDetails){
+    const payload = {
+        user_id: currentUser,
+        entity_id: entityID,
+        entity_affected: entityAffected,
+        details: detailsText,
+        successful_event: successful,
+        error_details: errorDetails
+    };
+
+    try {
+        const response = await fetch('/audits/create_audit', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(payload)
+        });
+
+        if (response.ok) {
+            console.log("Audit created.");
         } else {
             // Handle error
             const errorData = await response.json();
