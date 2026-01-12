@@ -59,7 +59,7 @@ async function getCurrentUser(){
                         if(currentUserID) {
                             logAudit(currentUserID, currentUserID, "User",
                                 "The user was supposed to be given an access token that was placed in cookies.",
-                                true, "Token could not be granted.");
+                                false, "Token could not be granted.");
                         }
                     });
 
@@ -70,9 +70,10 @@ async function getCurrentUser(){
             } catch (error) {
                 getCurrentUser().then(currentUserID => {
                     if(currentUserID) {
+                        console.log()
                         logAudit(currentUserID, currentUserID, "User",
                             "The user was supposed to be given an access token that was placed in cookies.",
-                            true, "Token could not be granted.");
+                            false, "Token could not be granted.");
                     }
                 });
                 console.error('Error:', error);
