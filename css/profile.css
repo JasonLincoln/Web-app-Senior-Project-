@@ -198,9 +198,9 @@
 }
 
 @media screen and (max-width: 850px) {
-    #complete-profile {
-        display: flex;
-        flex-direction: column;
+    #complete-profile
+    {
+        width: 90vw;
     }
 }
 
