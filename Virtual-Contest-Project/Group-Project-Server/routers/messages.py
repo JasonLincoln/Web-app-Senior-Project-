@@ -30,7 +30,7 @@ templates = Jinja2Templates(directory = "templates")
 
 class MessagesRequest(BaseModel):
     recipient_username: str = Field(min_length = 1, max_length = 100)
-    text: str = Field(min_length = 1, max_length = 100)
+    text: str = Field(min_length = 1, max_length = 1000)
 
 '''gets all messages a user has to or from another user'''
 @router.get("/{other_user_username}", status_code = status.HTTP_200_OK)
@@ -55,6 +55,15 @@ async def create_message(request: Request, db: db_dependency, message_request: M
     message_model = Messages(**message_request.model_dump(), sender_username = user.get('username'))
     if message_request.recipient_username == user.get('username'):
         raise HTTPException(status_code = 406, detail = 'Cannot send a message to oneself')
+    if message_model is None:
+        raise HTTPException(status_code = 404, detail = 'Message not found')
+    db.add(message_model)
+    db.commit()
+
+'''creates a new message between two users'''
+@router.post('/automated_message', status_code = status.HTTP_201_CREATED)
+async def automated_message(db: db_dependency, message_request: MessagesRequest):
+    message_model = Messages(**message_request.model_dump(), sender_username = "DaeTheMyth78")
     if message_model is None:
         raise HTTPException(status_code = 404, detail = 'Message not found')
     db.add(message_model)

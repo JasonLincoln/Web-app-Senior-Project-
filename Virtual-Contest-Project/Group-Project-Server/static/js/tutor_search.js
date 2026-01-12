@@ -56,13 +56,31 @@ document.addEventListener('DOMContentLoaded', function() {
 // Search Functionality
 let users = [];
 
-// Display Tutors
+// Display Tutors other than you
 const allTutors = document.getElementById('cards-grid');
 const tutorTemplate = document.getElementById('tutorTemplate');
 const getAllUsersEndpoint = '/admin/user';
-showAllUsers();
+const currentUserEndpoint = '/users/';
+getCurrentUser().then(username => {
+    if(username) {
+        showAllUsers(username);
+    }
+});
 
-async function showAllUsers(){
+async function getCurrentUser(){
+    const response = await fetch(currentUserEndpoint);
+    if (response.ok) {
+        const data = await response.json();
+        const currentUsername = data.username;
+        return currentUsername;
+    }
+    else {
+        const errorData = await response.json();
+        alert(`Error: ${errorData.detail}`);
+    }
+}
+
+async function showAllUsers(currentUsername){
     console.log("Getting all users.");
 
     const response = await fetch(getAllUsersEndpoint);
@@ -73,7 +91,7 @@ async function showAllUsers(){
         allTutors.innerHTML = "";
         users = data.map(item => {
             console.log("Displaying users on page.");
-            const card = tutorTemplate.content.cloneNode(true).children[0];
+            let card = tutorTemplate.content.cloneNode(true).children[0];
             const username = card.querySelector("[data-username]");
             const biography = card.querySelector("[data-biography]");
             const skills = card.querySelector("[data-skills]");
@@ -87,6 +105,13 @@ async function showAllUsers(){
                 rating.append(star);
             }
             allTutors.append(card);
+            card.addEventListener('click', function(e) {
+                window.location.href = `/pages/profile/${item.id}`;
+            })
+            if(currentUsername == item.username)
+            {
+                card.classList.toggle("hide");
+            }
             return { username: item.username, biography: item.biography, rating: item.rating, element: card};
         });
     }
@@ -102,6 +127,14 @@ searchBar.addEventListener("input", (e) => {
     const value = e.target.value.toLowerCase();
     users.forEach(item => {
         const isVisible = item.username.toLowerCase().includes(value);
-        item.element.classList.toggle("hide", !isVisible);
+
+            getCurrentUser().then(username => {
+                if(username) {
+                    if(username != item.username)
+                    {
+                        item.element.classList.toggle("hide", !isVisible);
+                    }
+                }
+            });
     })
 })

@@ -22,54 +22,14 @@
                     <div id="upcoming-sessions-tab" class="creation-tabs">
                         <h2>Upcoming Sessions</h2> <!-- Header -->
                         <div class="upcoming-sessions-container"> <!-- Container for the sessions -->
-                            <div class="upcoming-session-template">
-                                <!-- To be changed with JavaScript! -->
-                                <div class="upcoming-session-content"> GrizzLeeBear - 5/15/2026 - 3:30 PM </div>
-                                <button class="start-session-button"> Start&nbsp;Now </button>
-                            </div>
-                            <div class="upcoming-session-template">
-                                <!-- To be changed with JavaScript! -->
-                                <div class="upcoming-session-content"> GrizzLeeBear - 5/15/2026 - 3:30 PM </div>
-                                <button class="start-session-button"> Start&nbsp;Now </button>
-                            </div>
-                            <div class="upcoming-session-template">
-                                <!-- To be changed with JavaScript! -->
-                                <div class="upcoming-session-content"> GrizzLeeBear - 5/15/2026 - 3:30 PM </div>
-                                <button class="start-session-button"> Start&nbsp;Now </button>
-                            </div>
+
                         </div>
                     </div>
                     <!-- Requested Sessions Tab -->
                     <div id="requested-sessions-tab" class="creation-tabs" style="display: none">
                         <h2>Requested Sessions</h2> <!-- Header -->
                         <div class="requested-sessions-container">
-                            <div class="requested-session-template">
-                                <!-- To be changed with JavaScript! -->
-                                <div class="requested-session-content"> GrizzLeeBear - 5/15/2026 - 3:30 PM </div>
-                                <!-- Button Container -->
-                                <div class="requested-session-button-container">
-                                    <button class="accept-session-button"> Accept </button>
-                                    <button class="deny-session-button"> Deny </button>
-                                </div>
-                            </div>
-                            <div class="requested-session-template">
-                                <!-- To be changed with JavaScript! -->
-                                <div class="requested-session-content"> GrizzLeeBear - 5/15/2026 - 3:30 PM </div>
-                                <!-- Button Container -->
-                                <div class="requested-session-button-container">
-                                    <button class="accept-session-button"> Accept </button>
-                                    <button class="deny-session-button"> Deny </button>
-                                </div>
-                            </div>
-                            <div class="requested-session-template">
-                                <!-- To be changed with JavaScript! -->
-                                <div class="requested-session-content"> GrizzLeeBear - 5/15/2026 - 3:30 PM </div>
-                                <!-- Button Container -->
-                                <div class="requested-session-button-container">
-                                    <button class="accept-session-button"> Accept </button>
-                                    <button class="deny-session-button"> Deny </button>
-                                </div>
-                            </div>
+
                         </div>
                     </div>
                 </div>
@@ -83,18 +43,18 @@
                     <div class="request-title">
                         <h2>Request a Session</h2>
                     </div>
-                    <form method="get" class="form-wrapper">
+                    <form method="get" class="form-wrapper" id="session_request">
                         <!-- With What Tutor -->
                         <div class="with-wrapper">
-                            <label for="with">Session with tutor: </label>
-                            <input type="text" id="with" name="with" placeholder="Enter the tutor name here." required>
+                            <label for="withUser">Session with tutor: </label>
+                            <input type="text" id="withUser" name="withUser" placeholder="Enter the tutor name here." required>
                         </div>
                         <!-- When The Session Will Happen -->
                         <div class="when-wrapper">
                             <label for="date">Date for the session: </label>
-                            <input type="date" id="date" name="date" placeholder="Enter a date here." class="getDate" required>
+                            <input type="date" id="date" name="date" required>
                             <label for="time">Time for the session: </label>
-                            <input type="time" id="time" name="time" placeholder="Enter a time here." class="getTime" required>
+                            <input type="time" id="time" name="time" required>
                         </div>
                         <div class="over-skill-wrapper">
                             <label for="over">Skill being discussed: </label>
@@ -166,8 +126,30 @@
                 </div>
             </div>
         </div>
-        <script src="https://kit.fontawesome.com/16ce6dc272.js" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-        <script src="{{ url_for('static', path = '/js/sessions.js') }}"></script>
     </div>
+
+<template id="requested_session">
+    <div class="requested-session-template">
+        <!-- To be changed with JavaScript! -->
+        <div class="requested-session-content"></div>
+        <!-- Button Container -->
+        <div class="requested-session-button-container">
+            <button class="accept-session-button"> Accept </button>
+            <button class="deny-session-button"> Deny </button>
+        </div>
+    </div>
+</template>
+<template id="upcoming_session">
+    <div class="upcoming-session-template">
+        <!-- To be changed with JavaScript! -->
+        <div class="upcoming-session-content"> </div>
+        <button class="start-session-button"><a href="/pages/messages">Start&nbsp;Now</a></button>
+    </div>
+</template>
+{% endblock %}
+
+{% block extra_js %}
+    <script src="https://kit.fontawesome.com/16ce6dc272.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="{{ url_for('static', path = '/js/sessions.js') }}"></script>
 {% endblock %}

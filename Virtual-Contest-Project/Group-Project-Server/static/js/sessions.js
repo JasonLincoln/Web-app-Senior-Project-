@@ -68,5 +68,54 @@ const validateInput = () => {
 		if (isValid == false) {
 			evt.preventDefault();
 		}
+		else
+		{
+            submitSession();
+		}
 	})
+}
+
+async function submitSession(){
+    const requestForm = document.getElementById('session_request');
+    if (requestForm) {
+        requestForm.addEventListener('submit', async function (event) {
+            event.preventDefault();
+
+            const form = event.target;
+            const formData = new FormData(form);
+            const data = Object.fromEntries(formData.entries());
+
+
+
+            const sessionDate = new Date(`${data.date} ${data.time}`)
+
+            const payload = {
+                recipient_username: data.withUser,
+                session_date: sessionDate.toISOString()
+            };
+
+            try {
+                const response = await fetch('/sessions/create_session', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(payload)
+                });
+
+                if (response.ok) {
+                    console.log("Session requested.");
+                    requestForm.reset();
+
+                } else {
+                    // Handle error
+                    const errorData = await response.json();
+                    alert(`Error: ${errorData.message}`);
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('An error occurred. Please try again.');
+            }
+        });
+    }
 }

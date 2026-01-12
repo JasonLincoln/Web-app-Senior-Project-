@@ -16,8 +16,9 @@
             <!-- start: personal content -->
             <div class="profile-personal-content">
                 <div class="profile-picture-section">
-                     <div class="profile-image">
+                    <div class="profile-image">
                         <img class="pfp" src="../images/Profile-Image-Placeholder.png" alt="profile image">
+                        <button class="settings-icon-button"><a href="../html/profile_creation.html"><i class="fa-solid fa-gear settings-icon"></i></a></button>
                     </div>
                 </div>
                 <div class="name-pronouns">
@@ -26,27 +27,29 @@
                     <p class="pronouns">[Pronouns]</p>
                     <textarea class="profile-bio" placeholder="This person has been too lazy to write about themself." readonly></textarea>
                 </div>
-                <div class="edit-profile">
-                    <button type="button" class="open-popup">Edit Profile Card</button>
-                </div>
-                <div class="sessions">
-                    Sessions button
-                </div>
-                <div class="rating">
-                    Ratings button
-                </div>
 
+                <div id="sessions-and-ratings">
+                    <div class="sessions">
+                        <button id="sessions-button"><a href="../html/sessions.html">Sessions</a></button>
+                    </div>
+                    <div class="rating">
+                        <button id="ratings-button"><a href="../html/rating.html">Ratings</a></button>
+                    </div>
+                </div>
             </div> <!-- end: personal content -->
 
             <div class="Skills">
-                <h2 class="Skills-Title">Skills</h2>
-            </div>
-            
+                <div class="skills-you-have">
+                    <h2>Skills You Have</h2>
+                </div>
+                <div class="skills-to-learn">
+                    <h2> Skills To Learn</h2>
+                </div>
+            </div>  
         </div> <!-- end of profile container -->
     </div>
 
     <script src="https://kit.fontawesome.com/16ce6dc272.js" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-    <script src="../js/edit_card.js"></script>
 </body>
 </html>

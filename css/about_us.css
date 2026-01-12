@@ -1,25 +1,94 @@
-/* About Us Page */
-body {
-    font-family: Arial, sans-serif;
-    margin: 20px;
-    background-color: #f9f9f9;
-    color: #333;
-}
+/* Start: Overall */
+/* Start: Overall */
+/* Start: Overall */
+
 ul {
-    list-style-type: disc;
+    list-style-type: none;
 }
+
+#about-us-skills-wrapper {
+    margin: 5vh 5vw;
+    display: flex;
+    flex-direction: column;
+}
+
 #about-us-skills-wrapper-title {
     font-size: 24px;
-    margin-bottom: 10px;
+    margin: 20px 0;
     text-align: center;
+    text-decoration: underline;
 }
-#about-us-skills-wrapper {
-    display: grid;
-    grid-template-areas:
-        "mathematics-list science-list  social-studies-list language-arts-list  business-list life-skills-list  computers-and-it-list programming-languages-list";
+
+#about-us-intro {
+    display: flex;
+    flex-direction: column;
     gap: 20px;
 }
-#mathematics-list {
+
+.about-us-section {
+    padding: 5px;
+}
+
+/* End: Overall */
+/* End: Overall */
+/* End: Overall */
+
+/* Start: Preview */
+/* Start: Preview */
+/* Start: Preview */
+
+.preview-to-website {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    height: 350px;
+    background-image: 
+        linear-gradient(rgba(150, 221, 150, 0.742), rgba(150, 221, 150, 0.742)),
+        url(../images/about_us.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.preview-title {
+    background-color: rgb(147, 230, 147);
+    width: fit-content;
+    max-width: 80vw;
+    padding: 30px 50px;
+    font-size: 40px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.preview-description {
+    width: fit-content;
+    max-width: 60vw;
+    text-align: center;
+    font-weight: 500;
+    font-size: 20px;
+}
+
+/* End: Preview */
+/* End: Preview */
+/* End: Preview */
+
+/* Start: Grid Areas */
+/* Start: Grid Areas */
+/* Start: Grid Areas */
+.list-grid {
+    display: grid;
+    grid-template-areas: 
+        "mathematics-list science-list social-studies-list language-arts-list"
+        "business-list life-skills-list computers-and-it-list programming-languages-list";
+    gap: 20px;
+}
+.subject-list {
+    margin: 10px 0;
+}
+
+#mathematics-list { 
     grid-area: mathematics-list;
 }
 #science-list {
@@ -43,45 +112,38 @@ ul {
 #programming-languages-list {
     grid-area: programming-languages-list;
 }
-/* End: About Us Page */
+/* End: Grid Areas */
+/* End: Grid Areas */
+/* End: Grid Areas */
 
-@media (max-width: 1500px) {
-    #about-us-skills-wrapper {
-        grid-template-areas:
-            "mathematics-list science-list social-studies-list language-arts-list"
-            "business-list life-skills-list computers-and-it-list programming-languages-list";
-    }
-}
-
-@media (max-width: 1024px) {
-    #about-us-skills-wrapper {
-        grid-template-areas:
-            "mathematics-list science-list social-studies-list"
-            "language-arts-list business-list life-skills-list"
-            "computers-and-it-list programming-languages-list .";
-    }
-}
-
-@media (max-width: 768px) {
-    #about-us-skills-wrapper {
-        grid-template-areas:
-            "mathematics-list science-list"
+/* Start: Responsiveness - About Us */
+/* Start: Responsiveness - About Us */
+/* Start: Responsiveness - About Us */
+@media (max-width: 1000px) {
+    .list-grid {
+        display: grid;
+        grid-template-areas: 
+            "mathematics-list science-list" 
             "social-studies-list language-arts-list"
-            "business-list life-skills-list"
+            "business-list life-skills-list" 
             "computers-and-it-list programming-languages-list";
     }
 }
 
-@media (max-width: 480px) {
-    #about-us-skills-wrapper {
-        grid-template-areas:
-            "mathematics-list"
-            "science-list"
-            "social-studies-list"
+@media (max-width: 500px) {
+    .list-grid {
+        display: grid;
+        grid-template-areas: 
+            "mathematics-list" 
+            "science-list" 
+            "social-studies-list" 
             "language-arts-list"
-            "business-list"
-            "life-skills-list"
-            "computers-and-it-list"
+            "business-list" 
+            "life-skills-list" 
+            "computers-and-it-list" 
             "programming-languages-list";
     }
 }
+/* End: Responsiveness - About Us */
+/* End: Responsiveness - About Us */
+/* End: Responsiveness - About Us */

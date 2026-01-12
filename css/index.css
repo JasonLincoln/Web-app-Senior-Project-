@@ -19,10 +19,56 @@ a {
     border-bottom: 3px solid rgba(0, 0, 0, 0.3);
 
 }
+/* Start: Preview */
+/* Start: Preview */
+/* Start: Preview */
+
+.preview-to-website {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    height: 350px;
+    background-image: 
+        linear-gradient(rgba(150, 221, 150, 0.742), rgba(150, 221, 150, 0.742)),
+        url(../images/index_images/previewImage.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.preview-title {
+    background-color: rgb(147, 230, 147);
+    width: fit-content;
+    max-width: 80vw;
+    padding: 30px 50px;
+    font-size: 40px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.preview-description {
+    width: fit-content;
+    max-width: 60vw;
+    text-align: center;
+    font-weight: 500;
+    font-size: 20px;
+}
+
+/* End: Preview */
+/* End: Preview */
+/* End: Preview */
 
 /* Start: Carousel CSS */
 /* Start: Carousel CSS */
 /* Start: Carousel CSS */
+.featured-description {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    padding: 0 5vw;
+}
 
 .page-wrapper a:hover {
     color: rgb(160, 218, 160);

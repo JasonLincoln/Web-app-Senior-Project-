@@ -1,6 +1,6 @@
 from datetime import datetime
 from typing import Annotated
-from fastapi import APIRouter, Depends, HTTPException
+from fastapi import APIRouter, Depends, HTTPException, Path
 from pydantic import BaseModel, Field
 from sqlalchemy.orm import Session
 from starlette import status
@@ -34,6 +34,14 @@ class AuditsRequest(BaseModel):
     details: str = Field(min_length=1, max_length=200)
     successful_event: bool = Field()
     error_details: str = Field(min_length=1, max_length=200)
+
+'''gets an audit by it's id'''
+@router.get('/by_audit_id/{audit_id}', status_code = status.HTTP_200_OK)
+async def get_audit_by_id(db: db_dependency, audit_id: int = Path(gt = 0)):
+    audit_result = (db.query(Audits).filter(audit_id == Audits.id).first())
+    if audit_result is not None:
+        return audit_result
+    raise HTTPException(status_code = 404, detail = 'Audit not found')
 
 @router.post('/create_audit', status_code = status.HTTP_201_CREATED)
 async def create_audit(audit_request: AuditsRequest, db: db_dependency):

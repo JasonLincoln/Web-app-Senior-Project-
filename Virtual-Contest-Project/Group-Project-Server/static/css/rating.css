@@ -15,7 +15,9 @@
 #rating-page .rating-content {
     max-width: 1360px;
     width: 100%;
-    height: 720px;
+    max-height: 720px;
+    overflow-y: auto;
+    overflow-x: hidden;
     box-shadow: 0 8px 24px -4px rgba(0, 0, 0, .1);
     background-color: var(--white);
     position: relative;
@@ -178,30 +180,6 @@
 /* end: stars */
 .review-comment {
     padding: 0 10px 10px 10px;
-}
-.read-more-reviews{
-    margin:10px;
-}
-.read-more-reviews-text{
-    color: blue;
-    text-decoration: underline;
-    font-weight: bold;
-    font-size: 17px;
-    cursor: default;
-}
-.read-more-reviews-button{
-    display: inline;
-    color: blue;
-    border:none;
-    background-color: white;
-    cursor: pointer;
-    font-size: 17px;
-}
-.read-more-reviews-button:hover {
-    color: var(--blue-900);
-}
-.read-more-reviews-button:active {
-    background-color: var(--slate-200);
 }
 /* end: Reviews */
 

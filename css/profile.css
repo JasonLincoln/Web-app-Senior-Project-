@@ -1,4 +1,4 @@
-/* Profile Section */
+/* start: Profile Section */
 #complete-profile-parent
 {
     display: flex;
@@ -28,16 +28,57 @@
     background-color: var(--gray-200);
     border-radius: 10px;
     padding: 10px;
+    max-width: 500px;
+}
+
+.profile-personal-content > image {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+/* start: profile picture section */
+.profile-picture-section
+{
+    position: relative;
+    display: flex;
+    margin-bottom: 10px;
+    align-items: center;
+    justify-content: center;
 }
 
 .pfp
 {
     object-fit: cover;
-    width: auto;
-    height: auto;
+    max-width: 200px;
+    max-height: 200px;
     border-radius: 50%;
 }
 
+.settings-icon
+{
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 24px;
+    color: var(--gray-600);
+}
+
+.settings-icon-button
+{
+    background: none;
+    border: none;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+}
+.settings-icon-button:hover .settings-icon
+{
+    color: var(--gray-900);
+}
+/* end: profile picture section */
+
+/* start: profile information section */
 .name-pronouns
 {
     display: flex;
@@ -46,13 +87,15 @@
     cursor: default;
 }
 
-.edit-profile, .sessions, .rating
+
+.display-name, .pronouns, .username
 {
-    margin-left: 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    margin: 5px;
+    font-weight: bold;
+    font-size: 15px;
+    cursor: default;
 }
+
 .profile-bio
 {
     width: 300px;
@@ -63,19 +106,109 @@
     overflow: auto;
     margin-bottom: 10px;
     resize: none;
+    margin: 5px;
 }
 
-/* All Sections */
 
+/* end: profile information section */
+
+/* start: sessions-and-ratings buttons */
+#sessions-and-ratings
+{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    position: relative;
+    width: 100%;
+    justify-content: space-between;
+    margin-top: 5px;
+}
+
+#sessions-button, #ratings-button
+{
+    background-color: var(--gray-400);
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    color: var(--white);
+    cursor: pointer;
+    font-size: 16px;
+    margin: 0;
+}
+#sessions-button:hover, #ratings-button:hover
+{
+    background-color: var(--gray-600);
+}
+#sessions-button:active, #ratings-button:active
+{
+    background-color: var(--gray-800);
+}
+/* end: sessions-and-ratings buttons */
+
+/* start: skills-section */
 .Skills
 {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: var(--gray-200);
+    justify-content: space-between;
     border-radius: 10px;
     padding: 5px;
     width: 100%;
-    max-width: 500px;
-    margin-left: 10px;
+    max-width: 510px;
+    gap: 20px;
 }
+
+.skills-you-have, .skills-to-learn
+{
+    background-color: var(--gray-200);
+    padding: 5px;
+    border-radius: 10px;
+    width: 100%;
+}
+
+.skills-you-have, .skills-to-learn > h2
+{
+    text-align: center;
+}
+
+/* end: skills-section */
+
+/* end: Profile Section */
+
+/* Start: responsiveness */
+
+@media screen and (max-width: 1470px) {
+    #complete-profile {
+        width: 90vw;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    
+    #complete-profile
+    {
+        background-color: yellow;
+        width: 60vw;
+        position: relative;
+        display: flex;
+        padding: 30px;
+        box-shadow: 0 8px 24px -4px rgba(0, 0, 0, .1);
+        background-color: var(--white);
+        overflow: auto;
+        height: auto;
+        flex-direction: column;
+    }
+
+    .Skills {
+        margin-top: 10px;
+        height: 600px;
+        width: auto;
+    }
+
+    .profile-bio
+    {
+        width: 200px;
+    }
+
+}
+
+/* End: responsiveness */

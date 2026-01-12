@@ -1,31 +1,15 @@
 "use strict";
-
-// Slick JS
+// Slick JS - Carousel Settings
 $('.post-wrapper').slick({
-    slidesToShow: 3,
-    slidesToScroll: 2,
-    autoplay: true,
+    slidesToShow: 2,
+    slidesToScroll: 1,
     autoplaySpeed: 2000,
     nextArrow: $('.next'),
     prevArrow: $('.prev'),
-
+    // Responsiveness for carousel
     responsive: [
     {
-        breakpoint: 1200,
-        settings: {
-            slidesToShow: 3,
-            slidesToScroll: 1,
-        }
-    },
-    {
         breakpoint: 1080,
-        settings: {
-        slidesToShow: 2,
-        slidesToScroll: 1
-        }
-    },
-    {
-        breakpoint: 840,
         settings: {
             slidesToShow: 1,
             slidesToScroll: 1
@@ -35,19 +19,20 @@ $('.post-wrapper').slick({
 });
 
 // Hover & Animation JS
-
 function hoverEffects(cardID, elementID, elementSubtopicsID)
 {
-    let card = $(cardID);
+    let card = $(cardID); // card id
     let element = $(elementID); // card header
     let elementSubtopics = $(elementSubtopicsID); // hidden text context
 
-    card.mouseover(function() {
+    // hover state: remove header and bring the subtopics
+    card.mouseover( () => {
         elementSubtopics.css("transform", "translate(0%, -100%)");
         element.css("visibility", "hidden");
     });
 
-    card.mouseout(function() {
+    // out of hover state: bring the header and remove the subtopics
+    card.mouseout( () => {
         elementSubtopics.css("transform", "translate(0%, 100%)");
         element.css("visibility", "visible");
     });
@@ -63,18 +48,23 @@ hoverEffects("#life-skills", "#life-skills-header", "#hidden-life-skills"); // l
 hoverEffects("#languages", "#lang-header", "#hidden-lang"); // foreign languages
 
 // Accordion JS by w3schools
-
-let acc = document.getElementsByClassName("faq-accordion");
+let acc = document.getElementsByClassName("faq-accordion"); // group of accordion tabs
 
 for (let i = 0; i < acc.length; i++) {
-    acc[i].addEventListener("click", function() {
-        this.classList.toggle("active-faq");
+    // Detect if an accordion has been clicked
+    acc[i].addEventListener("click", () => {
+        acc[i].classList.toggle("active-faq");
 
-        let panel = this.nextElementSibling;
-        if (panel.style.maxHeight) {
+        let panel = acc[i].nextElementSibling; // panel content
+        if (panel.style.maxHeight) { // run if there's content
             panel.style.maxHeight = null;
-        } else {
+        } else { // run if there isn't any content
             panel.style.maxHeight = panel.scrollHeight + "px";
         }
     });
 }
+
+// On click, it will take you to the explore page
+$(".card").on("click", () => {
+    window.location.href="tutor_search.html"; // takes you the explore page
+})
