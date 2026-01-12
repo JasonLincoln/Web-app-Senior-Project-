@@ -97,6 +97,8 @@ async function showAllUsers(currentUsername){
             const skills = card.querySelector("[data-skills]");
             let rating = card.querySelector("[data-rating]");
             const profilePic = card.querySelector("[data-profile-url]");
+            const profileButton = card.querySelector(".profile_button");
+            const sessionRequestButton = card.querySelector(".request_session_button");
             profilePic.src = item.profile_url;
             username.textContent = item.username;
             biography.textContent = item.biography;
@@ -107,9 +109,13 @@ async function showAllUsers(currentUsername){
                 rating.append(star);
             }
             allTutors.append(card);
-            card.addEventListener('click', function(e) {
+            profileButton.addEventListener('click', function(e) {
                 window.location.href = `/pages/profile/${item.id}`;
-            })
+            });
+            sessionRequestButton.addEventListener('click', function(e) {
+                sessionStorage.setItem('tutorName', item.username);
+                window.location.href = `/pages/sessions`;
+            });
             if(currentUsername == item.username)
             {
                 card.classList.toggle("hide");
