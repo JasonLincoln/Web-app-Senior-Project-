@@ -96,6 +96,8 @@ async function showAllUsers(currentUsername){
             const biography = card.querySelector("[data-biography]");
             const skills = card.querySelector("[data-skills]");
             let rating = card.querySelector("[data-rating]");
+            const profilePic = card.querySelector("[data-profile-url]");
+            profilePic.src = item.profile_url;
             username.textContent = item.username;
             biography.textContent = item.biography;
             console.log(item.rating);

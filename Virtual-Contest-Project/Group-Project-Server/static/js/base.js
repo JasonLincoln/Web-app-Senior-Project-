@@ -1,14 +1,14 @@
 // Initialization
-const currentUserEndpoint = '/users/';
+const baseCurrentUserEndpoint = '/users/';
 let registeredUsername = "";
-let currentUser = "";
+let baseCurrentUser = "";
 
 async function getCurrentUser(){
-    const response = await fetch(currentUserEndpoint);
+    const response = await fetch(baseCurrentUserEndpoint);
     if (response.ok) {
         const data = await response.json();
-        const currentUserID = data.id;
-        return currentUserID;
+        const baseCurrentUserID = data.id;
+        return baseCurrentUserID;
     }
     else {
         const errorData = await response.json();
@@ -46,18 +46,18 @@ async function getCurrentUser(){
                     logout();
                     // Save token to cookie
                     document.cookie = `access_token=${data.access_token}; path=/`;
-                    getCurrentUser().then(currentUserID => {
-                        if(currentUserID) {
-                            logAudit(currentUserID, currentUserID, "User",
+                    getCurrentUser().then(baseCurrentUserID => {
+                        if(baseCurrentUserID) {
+                            logAudit(baseCurrentUserID, baseCurrentUserID, "User",
                                 "The user was given an access token that was placed in cookies.",
                                 true, "No errors, Successful Audit.");
                         }
                     });
                     window.location.href = '/pages/index'; // Change this to your desired redirect page
                 } else {
-                    getCurrentUser().then(currentUserID => {
-                        if(currentUserID) {
-                            logAudit(currentUserID, currentUserID, "User",
+                    getCurrentUser().then(baseCurrentUserID => {
+                        if(baseCurrentUserID) {
+                            logAudit(baseCurrentUserID, baseCurrentUserID, "User",
                                 "The user was supposed to be given an access token that was placed in cookies.",
                                 false, "Token could not be granted.");
                         }
@@ -68,10 +68,10 @@ async function getCurrentUser(){
                     alert(`Error: ${errorData.detail}`);
                 }
             } catch (error) {
-                getCurrentUser().then(currentUserID => {
-                    if(currentUserID) {
+                getCurrentUser().then(baseCurrentUserID => {
+                    if(baseCurrentUserID) {
                         console.log()
-                        logAudit(currentUserID, currentUserID, "User",
+                        logAudit(baseCurrentUserID, baseCurrentUserID, "User",
                             "The user was supposed to be given an access token that was placed in cookies.",
                             false, "Token could not be granted.");
                     }
@@ -182,9 +182,9 @@ async function getCurrentUser(){
     }
  }
 
- async function logAudit(currentUser, entityID, entityAffected, detailsText, successful, errorDetails){
+ async function logAudit(baseCurrentUser, entityID, entityAffected, detailsText, successful, errorDetails){
     const payload = {
-        user_id: currentUser,
+        user_id: baseCurrentUser,
         entity_id: entityID,
         entity_affected: entityAffected,
         details: detailsText,
