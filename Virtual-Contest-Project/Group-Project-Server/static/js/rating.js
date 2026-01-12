@@ -1,5 +1,7 @@
 // Page Load
 let currentUser = [];
+const currentPath = window.location.pathname;
+const ratingUser = currentPath.substring(14);
 const reviewsList = document.getElementById('reviews_list');
 const ratingTemplate = document.getElementById('rating-template');
 const currentUserEndpoint = '/users/';
