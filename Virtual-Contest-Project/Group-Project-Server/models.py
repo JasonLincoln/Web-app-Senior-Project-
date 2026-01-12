@@ -22,14 +22,14 @@ class Users(Base):
 class UsersSkills(Base):
     __tablename__ = 'users_skills'
     user_id = Column(Integer, ForeignKey('users.id'), primary_key = True)
-    skill_id = Column(Integer, ForeignKey('skills.id'), primary_key = True)
+    skill_sub_category = Column(String, ForeignKey('skills.sub_category'), primary_key = True)
     is_learning = Column(Boolean)
 
 class Skills(Base):
     __tablename__ = 'skills'
     id = Column(Integer, primary_key = True, index = True)
     super_category = Column(String)
-    sub_category = Column(String)
+    sub_category = Column(String, unique = True)
 
 class Messages(Base):
     __tablename__ = 'messages'
