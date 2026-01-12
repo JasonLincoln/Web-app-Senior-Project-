@@ -1,23 +1,19 @@
 // Page Load
 let currentUser = [];
-const currentPath = window.location.pathname;
-const ratingUser = currentPath.substring(14);
 const reviewsList = document.getElementById('reviews_list');
 const ratingTemplate = document.getElementById('rating-template');
 const currentUserEndpoint = '/users/';
 
-getCurrentUser().then(profile_url => {
-    if(profile_url) {
-        showAllRatings(profile_url);
-    }
+getCurrentUserProfilePic().then(profile_url => {
+    showAllRatings(profile_url);
 });
 
-async function getCurrentUser(){
+async function getCurrentUserProfilePic(){
     const response = await fetch(currentUserEndpoint);
     if (response.ok) {
         const data = await response.json();
         const profilePic = data.profile_url;
-        return {profile_url: profilePic};
+        return profilePic;
     }
     else {
         const errorData = await response.json();
@@ -29,6 +25,9 @@ async function getCurrentUser(){
 async function showAllRatings(profilePic){
     console.log("Getting all users.");
 
+    const currentPath = window.location.pathname;
+    const ratingUser = currentPath.substring(14);
+
     const getOtherUserRating = `/ratings/${ratingUser}`;
 
     const response = await fetch(getOtherUserRating);
@@ -38,7 +37,7 @@ async function showAllRatings(profilePic){
         ratingArray = data.map(item => {
             console.log("Displaying ratings on page.");
             let rating = ratingTemplate.content.cloneNode(true).children[0];
-            const profile_url = rating.querySelector(".review-profile-image")
+            const profile_url = rating.querySelector(".review-profile-image");
             const username = rating.querySelector(".review-user-name");
             const comment = rating.querySelector(".review-comment");
             let stars = rating.querySelector(".stars");
