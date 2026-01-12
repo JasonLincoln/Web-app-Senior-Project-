@@ -206,6 +206,8 @@
         margin-top: 10px;
         height: 600px;
         width: auto;
+        flex-direction: column;
+        justify-content: none;
     }
 
     .profile-bio
