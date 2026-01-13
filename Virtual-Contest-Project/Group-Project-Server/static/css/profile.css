@@ -117,7 +117,6 @@
 {
     display: flex;
     justify-content: center;
-    align-items: center;
     gap: 20px;
     position: relative;
     width: 100%;
@@ -144,10 +143,6 @@
 {
     background-color: var(--gray-800);
 }
-#sessions-button {
-    position: relative;
-    bottom: 0;
-}
 /* end: sessions-and-ratings buttons */
 
 /* start: skills-section */
@@ -156,11 +151,11 @@
     display: flex;
     justify-content: space-between;
     border-radius: 10px;
-    padding: 5px;
     width: 100%;
     max-width: 510px;
     gap: 20px;
 }
+
 .skills-you-have, .skills-to-learn
 {
     background-color: var(--gray-200);
@@ -182,23 +177,50 @@
 
 @media screen and (max-width: 1470px) {
     #complete-profile {
+        gap: 20px;
+    }
+
+    .Skills {
+        display: flex;
+        flex-direction: column;
+        border-radius: 10px;
+        width: 100%;
+        gap: 20px;
+    }
+
+    .skills-you-have, .skills-to-learn {
+        background-color: var(--gray-200);
+        padding: 5px;
+        border-radius: 10px;
+        width: 100%;
+        height: 50%;
+    }
+}
+
+@media screen and (max-width: 850px) {
+    #complete-profile
+    {
         width: 90vw;
     }
 }
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 600px) {
+
+    #complete-profile-parent {
+        height: 100%;
+        overflow: auto;
+    }
     
     #complete-profile
     {
         background-color: yellow;
-        width: 60vw;
+        width: 100vw;
         position: relative;
         display: flex;
         padding: 30px;
         box-shadow: 0 8px 24px -4px rgba(0, 0, 0, .1);
         background-color: var(--white);
-        overflow: auto;
-        height: auto;
+        height: 100%;
         flex-direction: column;
     }
 
@@ -206,15 +228,23 @@
         margin-top: 10px;
         height: 600px;
         width: auto;
+        display: flex;
         flex-direction: column;
-        justify-content: none;
     }
 
     .profile-bio
     {
-        width: 200px;
+        width: 90%;
     }
 
+    .skills-you-have, .skills-to-learn
+    {
+        background-color: var(--gray-200);
+        padding: 5px;
+        border-radius: 10px;
+        width: 100%;
+        height: 200px;
+    }
 }
 
 /* End: responsiveness */

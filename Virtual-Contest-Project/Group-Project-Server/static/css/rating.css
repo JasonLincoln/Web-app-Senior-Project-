@@ -16,8 +16,6 @@
     max-width: 1360px;
     width: 100%;
     max-height: 720px;
-    overflow-y: auto;
-    overflow-x: hidden;
     box-shadow: 0 8px 24px -4px rgba(0, 0, 0, .1);
     background-color: var(--white);
     position: relative;
@@ -110,6 +108,12 @@
 
 /* start: Reviews */
 /* start: Create Review */
+#reviews_list {
+    max-height: 350px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
 .create-review {
     margin: 5px 10px 5px 10px;
     background-color: var(--gray-200);
