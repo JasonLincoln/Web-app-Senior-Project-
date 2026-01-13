@@ -34,14 +34,10 @@
 
                 <div id="sessions-and-ratings">
                     <div class="sessions">
-                        <a href="/pages/sessions">
-                            <button id="sessions-button">Sessions</button>
-                        </a>
+                        <button id="sessions-button">Sessions</button>
                     </div>
                     <div class="rating">
-                        <a href="/pages/rating/{{user.username}}">
-                            <button id="ratings-button">Ratings</button>
-                        </a>
+                        <button id="ratings-button">Ratings</button>
                     </div>
                 </div>
             </div> <!-- end: personal content -->
@@ -60,4 +56,5 @@
 
 {% block extra_js %}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="{{ url_for('static', path='/js/profile.js') }}"></script>
 {% endblock %}
