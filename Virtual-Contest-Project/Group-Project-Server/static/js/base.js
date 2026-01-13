@@ -1,8 +1,9 @@
-// Initialization
+// Initializes an endpoint for future use and two empty variables
 const baseCurrentUserEndpoint = '/users/';
 let registeredUsername = "";
 let baseCurrentUser = "";
 
+//Returns the current user's id
 async function getCurrentUser(){
     const response = await fetch(baseCurrentUserEndpoint);
     if (response.ok) {
@@ -25,11 +26,13 @@ async function getCurrentUser(){
             const form = event.target;
             const formData = new FormData(form);
 
+            //Grabs all entered form items and places it inside the payload
             const payload = new URLSearchParams();
             for (const [key, value] of formData.entries()) {
                 payload.append(key, value);
             }
 
+            //Attempts to give the user a token to log into other pages
             try {
                 const response = await fetch('/auth/token', {
                     method: 'POST',
@@ -53,7 +56,7 @@ async function getCurrentUser(){
                                 true, "No errors, Successful Audit.");
                         }
                     });
-                    window.location.href = '/pages/index'; // Change this to your desired redirect page
+                    window.location.href = '/pages/index'; // Sends the user to the home page
                 } else {
                     getCurrentUser().then(baseCurrentUserID => {
                         if(baseCurrentUserID) {
@@ -97,6 +100,7 @@ async function getCurrentUser(){
                 password: data.password
             };
 
+            //Creates a new user based off the payload and if a user with the same email and username doesn't already exist
             try {
                 const response = await fetch('/auth', {
                     method: 'POST',
@@ -107,6 +111,7 @@ async function getCurrentUser(){
                 });
 
                 if (response.ok) {
+                    //Makes an automated message for the user to grant access to messaging on the messages page
                     registeredUsername = data.username;
                     automatedMessage(registeredUsername);
                 } else {
@@ -154,6 +159,7 @@ async function getCurrentUser(){
         window.location.href = '/pages/login';
     };
 
+//If a user just registered, they are sent a message from the admin user DaeTheMyth78 to allow messaging properly
  async function automatedMessage(newUser){
     const payload = {
         recipient_username: newUser,
@@ -182,6 +188,7 @@ async function getCurrentUser(){
     }
  }
 
+//Logs an audit for any change made to a database entity
  async function logAudit(baseCurrentUser, entityID, entityAffected, detailsText, successful, errorDetails){
     const payload = {
         user_id: baseCurrentUser,
