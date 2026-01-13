@@ -12,6 +12,20 @@ from database import SessionLocal
 from models import Users
 from jose import jwt, JWTError
 from fastapi.templating import Jinja2Templates
+from pydantic_settings import BaseSettings
+
+# Settings for environment variables
+class Settings(BaseSettings):
+    DATABASE_URL: str
+
+settings = Settings()
+app  = FastAPI()
+
+@app.get("/info")
+async def info():
+    return {
+        "database_url": settings.database_url
+    }
 
 '''Connects the endpoints to FastAPI under the Auth category'''
 router = APIRouter(
