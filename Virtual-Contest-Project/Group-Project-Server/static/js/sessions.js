@@ -27,6 +27,11 @@ async function getCurrentUser(){
 }
 
 $(document).ready( () => {
+    const tutorName = sessionStorage.getItem('tutorName');
+    if(tutorName) {
+        document.getElementById('withUser').value = tutorName;
+        sessionStorage.removeItem('tutorName');
+    }
 	validateInput();
 });
 
