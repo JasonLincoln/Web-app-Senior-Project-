@@ -1,12 +1,13 @@
-{% extends 'layout.html' %}
-
-{% block extra_head %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/css/main.css">
+    <link rel="stylesheet" href="../static/css/terms.css">
     <title>Terms and Conditions</title>
-    <link rel="stylesheet" type = 'text/css' href="{{ url_for('static', path = 'css/main.css') }}">
-    <link rel="stylesheet" type = 'text/css' href="{{ url_for('static', path = 'css/terms.css') }}">
-{% endblock %}
-
-{% block content %}
+</head>
+<body>
     <!-- The Terms Page -->
     <!-- Introduction -->
     <div class="preview-to-website">
@@ -93,6 +94,10 @@
                 Eius, illo adipisci? Consectetur, quasi vitae nemo adipisci consequatur obcaecati laborum corrupti voluptate cupiditate, unde rem tenetur totam quas harum, nesciunt natus aliquam nobis? Provident consequuntur dolorem laborum iure temporibus!
                 Harum nobis qui vero veniam illum libero totam eos ratione eaque ut commodi impedit consequatur tenetur officia atque facilis nostrum, quibusdam deleniti natus porro esse magnam ducimus nemo. Nobis, quis.
             </div>
+            <div class="terms-section">
+                Return to the register page <a href="/pages/register">here</a>, or if you are logged in, return to the home page <a href="/pages/index">here</a>.
+            </div>
         </div>
     </div>
-{% endblock %}
+</body>
+</html>

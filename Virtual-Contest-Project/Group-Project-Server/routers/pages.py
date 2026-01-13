@@ -80,6 +80,11 @@ def render_login_page(request: Request):
 def render_register_page(request: Request):
     return templates.TemplateResponse('signup.html', {'request': request})
 
+'''Renders the forgot password page'''
+@router.get('/forgot-password')
+def render_forgot_password_page(request: Request):
+    return templates.TemplateResponse('update_password.html', {'request': request})
+
 '''Renders the about_us page'''
 @router.get('/about-us')
 async def render_about_us_page(request: Request):
@@ -105,13 +110,7 @@ async def render_credits_page(request: Request):
 '''Renders the terms page'''
 @router.get('/terms')
 async def render_terms_page(request: Request):
-    try:
-        user = await get_current_user(request.cookies.get('access_token'))
-        if user is None:
-            return redirect_to_login()
-        return templates.TemplateResponse('terms.html', {'request': request, 'user': user})
-    except:
-        return redirect_to_login()
+    return templates.TemplateResponse('terms.html', {'request': request})
 
 '''Renders the profile_creation page'''
 @router.get('/profile-creation')
