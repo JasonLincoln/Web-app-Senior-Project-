@@ -12,17 +12,7 @@ from database import SessionLocal
 from models import Users
 from jose import jwt, JWTError
 from fastapi.templating import Jinja2Templates
-from .config import settings
-from fastapi import FastAPI
 
-app = FastAPI()
-
-#settings for env variables
-@app.get("/info")
-async def info():
-    return {
-        "database_url": settings.database_url
-    }
 
 '''Connects the endpoints to FastAPI under the Auth category'''
 router = APIRouter(

@@ -1,9 +1,19 @@
-from fastapi import FastAPI
 from fastapi.templating import Jinja2Templates
 from fastapi.staticfiles import StaticFiles
 import models
 from database import engine
 from routers import users, auth, admin, skills, messages, sessions, pages, audits, ratings
+from routers.config import settings
+from fastapi import FastAPI
+
+app = FastAPI()
+
+#settings for env variables
+@app.get("/info")
+async def info():
+    return {
+        "database_url": settings.database_url
+    }
 
 '''Connects the endpoints from each router to FastAPI'''
 app = FastAPI()
