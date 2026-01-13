@@ -12,15 +12,12 @@ from database import SessionLocal
 from models import Users
 from jose import jwt, JWTError
 from fastapi.templating import Jinja2Templates
-from pydantic_settings import BaseSettings
+from .config import settings
+from fastapi import FastAPI
 
-# Settings for environment variables
-class Settings(BaseSettings):
-    DATABASE_URL: str
+app = FastAPI()
 
-settings = Settings()
-app  = FastAPI()
-
+#settings for env variables
 @app.get("/info")
 async def info():
     return {
