@@ -32,7 +32,7 @@ a {
     height: 350px;
     background-image: 
         linear-gradient(rgba(150, 221, 150, 0.742), rgba(150, 221, 150, 0.742)),
-        url(../static/images/index_images/previewImage.png);
+        url(../images/index_images/previewImage.png);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
