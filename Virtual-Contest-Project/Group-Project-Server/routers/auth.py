@@ -12,10 +12,6 @@ from database import SessionLocal
 from models import Users
 from jose import jwt, JWTError
 from fastapi.templating import Jinja2Templates
-<<<<<<< HEAD
-=======
-
->>>>>>> jay
 
 '''Connects the endpoints to FastAPI under the Auth category'''
 router = APIRouter(
