@@ -15,7 +15,7 @@ templates = Jinja2Templates(directory = "templates")
 # Redirection to Login Page
 @app.get("/")
 def redirect_login(request: Request): # must accept a request
-        redirect_response = RedirectResponse(url="/pages/login/", status_code=status.HTTP_302_FOUND)
+        redirect_response = RedirectResponse(url="/pages/login", status_code=status.HTTP_302_FOUND)
         return redirect_response
 
 #settings for env variables
@@ -26,7 +26,6 @@ async def info():
     }
 
 '''Connects the endpoints from each router to FastAPI'''
-app = FastAPI()
 app.include_router(users.router)
 app.include_router(auth.router)
 app.include_router(admin.router)
