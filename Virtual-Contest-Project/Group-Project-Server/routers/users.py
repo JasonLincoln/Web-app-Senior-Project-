@@ -1,17 +1,13 @@
-import sys
-import traceback
 from typing import Annotated
 from fastapi import APIRouter, Depends, HTTPException, Path, Request
 from passlib.context import CryptContext
 from pydantic import BaseModel, Field
 from sqlalchemy.orm import Session
 from starlette import status
-from starlette.responses import RedirectResponse
 from database import SessionLocal
 from models import Users, UsersSkills, Skills, Sessions
 from routers.auth import get_current_user
 from routers.sessions import SessionsRequest
-from fastapi.templating import Jinja2Templates
 
 '''Connects the endpoints to FastAPI under the Users category'''
 router = APIRouter(
@@ -27,14 +23,19 @@ def get_db():
     finally:
         db.close()
 
+'''Connects to the database'''
 db_dependency = Annotated[Session, Depends(get_db)]
-user_dependency = Annotated[dict, Depends(get_current_user)]
-bcrypt_context = CryptContext(schemes = ['bcrypt'], deprecated = 'auto')
-templates = Jinja2Templates(directory = "templates")
 
+'''Grabs the logged in user'''
+user_dependency = Annotated[dict, Depends(get_current_user)]
+
+'''Encrypts the user's password with hashing'''
+bcrypt_context = CryptContext(schemes = ['bcrypt'], deprecated = 'auto')
+
+'''The model for verifying the user's password'''
 class UserVerification(BaseModel):
     password: str
-    new_password: str = Field(min_length = 6)
+    new_password: str = Field(min_length = 8)
 
 '''Authorization endpoints'''
 
@@ -48,8 +49,10 @@ async def get_user(request: Request, db: db_dependency):
 
 '''Changes the password of the current user'''
 @router.put('/password', status_code = status.HTTP_204_NO_CONTENT)
-async def change_password(user: user_dependency, db: db_dependency,
+async def change_password(request: Request, db: db_dependency,
                           user_verification: UserVerification):
+
+    user = await get_current_user(request.cookies.get('access_token'))
     if user is None:
         raise HTTPException(status_code = 401, detail = 'Authentication Failed')
     user_model = db.query(Users).filter(user.get('id') == Users.id).first()
@@ -63,6 +66,7 @@ async def change_password(user: user_dependency, db: db_dependency,
 
 '''Standard endpoints'''
 
+'''The model to update a user'''
 class UserRequest(BaseModel):
     email: str = Field(min_length = 1, max_length = 100)
     display_name: str = Field(min_length = 1, max_length = 100)

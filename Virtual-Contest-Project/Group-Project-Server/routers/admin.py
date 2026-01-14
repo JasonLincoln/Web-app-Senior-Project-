@@ -5,17 +5,18 @@ from pydantic import BaseModel, Field
 from sqlalchemy.orm import Session
 from starlette import status
 from database import SessionLocal
-from models import Users, Skills, UsersSkills, Messages, Sessions, Audits, Ratings
+from models import Users, Skills, Messages, Sessions, Audits, Ratings
 from routers.auth import get_current_user
-from fastapi.templating import Jinja2Templates
 from routers.sessions import SessionsRequest
-from routers.skills import SkillRequest, UserSkillRequest
+from routers.skills import SkillRequest
 
+'''Defines the router for the admin functions'''
 router = APIRouter(
     prefix = "/admin",
     tags = ["admin"]
 )
 
+'''Grabs the database'''
 def get_db():
     db = SessionLocal()
     try:
@@ -23,11 +24,16 @@ def get_db():
     finally:
         db.close()
 
+'''Grabs the database'''
 db_dependency = Annotated[Session, Depends(get_db)]
-user_dependency = Annotated[dict, Depends(get_current_user)]
-bcrypt_context = CryptContext(schemes=['bcrypt'], deprecated='auto')
-templates = Jinja2Templates(directory = "templates")
 
+'''Grabs the logged in user'''
+user_dependency = Annotated[dict, Depends(get_current_user)]
+
+'''Hashes passwords'''
+bcrypt_context = CryptContext(schemes=['bcrypt'], deprecated='auto')
+
+'''The request model for if a user is being updated'''
 class AdminUserRequest(BaseModel):
     email: str = Field(min_length = 1, max_length = 100)
     display_name: str = Field(min_length = 1, max_length = 100)
@@ -40,18 +46,20 @@ class AdminUserRequest(BaseModel):
     role: str = Field(min_length = 1, max_length = 100)
     is_active: bool = Field(default = True)
 
-'''gets all users'''
+'''gets all users if the user logged in is an admin'''
 @router.get("/user", status_code=status.HTTP_200_OK)
-async def get_all_users(db: db_dependency):
-    # if user is None or user.get('user_role') != 'admin':
-    #     raise HTTPException(status_code = 401, detail = "Authentication Failed")
+async def get_all_users(request: Request, db: db_dependency):
+    user = await get_current_user(request.cookies.get('access_token'))
+    if user is None or user.get('user_role') != 'admin':
+        raise HTTPException(status_code = 401, detail = "Authentication Failed")
     return db.query(Users).all()
 
-'''gets a user by their id'''
+'''gets a user by their id if the user logged in is an admin'''
 @router.get('/by_user_id/{user_id}', status_code = status.HTTP_200_OK)
-async def get_user_by_id(db: db_dependency, user_id: int = Path(gt = 0)):
-    # if user is None or user.get('user_role') != 'admin':
-    #     raise HTTPException(status_code = 401, detail = "Authentication Failed")
+async def get_user_by_id(request: Request, db: db_dependency, user_id: int = Path(gt = 0)):
+    user = await get_current_user(request.cookies.get('access_token'))
+    if user is None or user.get('user_role') != 'admin':
+        raise HTTPException(status_code = 401, detail = "Authentication Failed")
     users_result = (db.query(Users).filter(user_id == Users.id).first())
     if users_result is not None:
         return users_result
@@ -68,115 +76,119 @@ async def get_user_by_id(db: db_dependency, user_id: int = Path(gt = 0)):
 #         return users_result
 #     raise HTTPException(status_code = 404, detail = 'User not found')
 
-'''gets all skills'''
+'''gets all skills if the user logged in is an admin'''
 @router.get("/skill", status_code = status.HTTP_200_OK)
-async def get_all_skills(db: db_dependency):
-    # if user is None or user.get('user_role') != 'admin':
-    #     raise HTTPException(status_code = 401, detail = "Authentication Failed")
+async def get_all_skills(request: Request, db: db_dependency):
+    user = await get_current_user(request.cookies.get('access_token'))
+    if user is None or user.get('user_role') != 'admin':
+        raise HTTPException(status_code = 401, detail = "Authentication Failed")
     return db.query(Skills).all()
 
-'''gets a skill by it's id'''
+'''gets a skill by it's id if the user logged in is an admin'''
 @router.get('/by_skill_id/{skill_id}', status_code = status.HTTP_200_OK)
-async def get_skill_by_id(db: db_dependency, skill_id: int = Path(gt = 0)):
-    # if user is None or user.get('user_role') != 'admin':
-    #     raise HTTPException(status_code = 401, detail = "Authentication Failed")
+async def get_skill_by_id(request: Request, db: db_dependency, skill_id: int = Path(gt = 0)):
+    user = await get_current_user(request.cookies.get('access_token'))
+    if user is None or user.get('user_role') != 'admin':
+        raise HTTPException(status_code = 401, detail = "Authentication Failed")
     skills_result = (db.query(Skills).filter(skill_id == Skills.id).first())
     if skills_result is not None:
         return skills_result
     raise HTTPException(status_code = 404, detail = 'Skill not found')
 
-'''gets all messages'''
+'''gets all messages if the user logged in is an admin'''
 @router.get("/Messages", status_code = status.HTTP_200_OK)
-async def get_all_messages(db: db_dependency):
-    # if user is None or user.get('user_role') != 'admin':
-    #     raise HTTPException(status_code = 401, detail = "Authentication Failed")
+async def get_all_messages(request: Request, db: db_dependency):
+    user = await get_current_user(request.cookies.get('access_token'))
+    if user is None or user.get('user_role') != 'admin':
+        raise HTTPException(status_code = 401, detail = "Authentication Failed")
     return db.query(Messages).all()
 
-'''gets a message by it's id'''
+'''gets a message by it's id if the user logged in is an admin'''
 @router.get('/by_message_id/{message_id}', status_code = status.HTTP_200_OK)
-async def get_message_by_id(db: db_dependency, message_id: int = Path(gt = 0)):
-    # if user is None or user.get('user_role') != 'admin':
-    #     raise HTTPException(status_code = 401, detail = "Authentication Failed")
+async def get_message_by_id(request: Request, db: db_dependency, message_id: int = Path(gt = 0)):
+    user = await get_current_user(request.cookies.get('access_token'))
+    if user is None or user.get('user_role') != 'admin':
+        raise HTTPException(status_code = 401, detail = "Authentication Failed")
     messages_result = (db.query(Messages).filter(message_id == Messages.id).first())
     if messages_result is not None:
         return messages_result
     raise HTTPException(status_code = 404, detail = 'Message not found')
 
-'''gets all sessions'''
+'''gets all sessions if the user logged in is an admin'''
 @router.get("/Sessions", status_code = status.HTTP_200_OK)
-async def get_all_sessions(db: db_dependency):
-    # if user is None or user.get('user_role') != 'admin':
-    #     raise HTTPException(status_code = 401, detail = "Authentication Failed")
+async def get_all_sessions(request: Request, db: db_dependency):
+    user = await get_current_user(request.cookies.get('access_token'))
+    if user is None or user.get('user_role') != 'admin':
+        raise HTTPException(status_code = 401, detail = "Authentication Failed")
     return db.query(Sessions).all()
 
-'''gets a session by it's id'''
+'''gets a session by it's id if the user logged in is an admin'''
 @router.get('/by_session_id/{session_id}', status_code = status.HTTP_200_OK)
-async def get_session_by_id(db: db_dependency, session_id: int = Path(gt = 0)):
-    # if user is None or user.get('user_role') != 'admin':
-    #     raise HTTPException(status_code = 401, detail = "Authentication Failed")
+async def get_session_by_id(request: Request, db: db_dependency, session_id: int = Path(gt = 0)):
+    user = await get_current_user(request.cookies.get('access_token'))
+    if user is None or user.get('user_role') != 'admin':
+        raise HTTPException(status_code = 401, detail = "Authentication Failed")
     sessions_result = (db.query(Sessions).filter(session_id == Sessions.id).first())
     if sessions_result is not None:
         return sessions_result
     raise HTTPException(status_code = 404, detail = 'Session not found')
 
-'''gets all audits'''
+'''gets all audits if the user logged in is an admin'''
 @router.get("/audits", status_code = status.HTTP_200_OK)
-async def get_all_audits(db: db_dependency):
-    # if user is None or user.get('user_role') != 'admin':
-    #     raise HTTPException(status_code = 401, detail = "Authentication Failed")
+async def get_all_audits(request: Request, db: db_dependency):
+    user = await get_current_user(request.cookies.get('access_token'))
+    if user is None or user.get('user_role') != 'admin':
+        raise HTTPException(status_code = 401, detail = "Authentication Failed")
     return db.query(Audits).all()
 
-'''gets an audit by it's id'''
+'''gets an audit by it's id if the user logged in is an admin'''
 @router.get('/by_audit_id/{audit_id}', status_code = status.HTTP_200_OK)
-async def get_audit_by_id(db: db_dependency, audit_id: int = Path(gt = 0)):
-    # if user is None or user.get('user_role') != 'admin':
-    #     raise HTTPException(status_code = 401, detail = "Authentication Failed")
+async def get_audit_by_id(request: Request, db: db_dependency, audit_id: int = Path(gt = 0)):
+    user = await get_current_user(request.cookies.get('access_token'))
+    if user is None or user.get('user_role') != 'admin':
+        raise HTTPException(status_code = 401, detail = "Authentication Failed")
     audit_result = (db.query(Audits).filter(audit_id == Audits.id).first())
     if audit_result is not None:
         return audit_result
     raise HTTPException(status_code = 404, detail = 'Audit not found')
 
-'''gets all ratings'''
+'''gets all ratings if the user logged in is an admin'''
 @router.get("/ratings", status_code = status.HTTP_200_OK)
-async def get_all_ratings(db: db_dependency):
-    # if user is None or user.get('user_role') != 'admin':
-    #     raise HTTPException(status_code = 401, detail = "Authentication Failed")
+async def get_all_ratings(request: Request, db: db_dependency):
+    user = await get_current_user(request.cookies.get('access_token'))
+    if user is None or user.get('user_role') != 'admin':
+        raise HTTPException(status_code = 401, detail = "Authentication Failed")
     return db.query(Ratings).all()
 
-'''gets a rating by it's id'''
+'''gets a rating by it's id if the user logged in is an admin'''
 @router.get('/by_rating_id/{rating_id}', status_code = status.HTTP_200_OK)
-async def get_rating_by_id(db: db_dependency, rating_id: int = Path(gt = 0)):
-    # if user is None or user.get('user_role') != 'admin':
-    #     raise HTTPException(status_code = 401, detail = "Authentication Failed")
+async def get_rating_by_id(request: Request, db: db_dependency, rating_id: int = Path(gt = 0)):
+    user = await get_current_user(request.cookies.get('access_token'))
+    if user is None or user.get('user_role') != 'admin':
+        raise HTTPException(status_code = 401, detail = "Authentication Failed")
     ratings_result = (db.query(Ratings).filter(rating_id == Ratings.id).first())
     if ratings_result is not None:
         return ratings_result
     raise HTTPException(status_code = 404, detail = 'Audit not found')
 
-'''creates a new skill'''
+'''creates a new skill if the user logged in is an admin'''
 @router.post('/create_skill', status_code = status.HTTP_201_CREATED)
-async def create_skill(db: db_dependency, skill_request: SkillRequest):
-    # if user is None or user.get('user_role') != 'admin':
-    #     raise HTTPException(status_code = 401, detail = "Authentication Failed")
+async def create_skill(request: Request, db: db_dependency, skill_request: SkillRequest):
+    user = await get_current_user(request.cookies.get('access_token'))
+    if user is None or user.get('user_role') != 'admin':
+        raise HTTPException(status_code = 401, detail = "Authentication Failed")
     skill_model = Skills(**skill_request.model_dump())
     if skill_model is None:
         raise HTTPException(status_code = 404, detail = 'Skill not found')
     db.add(skill_model)
     db.commit()
 
-'''Temp endpoint DELETE WHEN DONE'''
-@router.post('/create_userskill', status_code = status.HTTP_201_CREATED)
-async def create_skill(user: user_dependency, db: db_dependency, userskill_request: UserSkillRequest):
+'''updates a user based on their id if the current user is an admin'''
+@router.put('/update_user/{user_id}', status_code = status.HTTP_204_NO_CONTENT)
+async def update_user(request: Request, db: db_dependency, user_request: AdminUserRequest, user_id: int = Path(gt = 0)):
+    user = await get_current_user(request.cookies.get('access_token'))
     if user is None or user.get('user_role') != 'admin':
         raise HTTPException(status_code = 401, detail = "Authentication Failed")
-    user_skill_model = UsersSkills(**userskill_request.model_dump(), sender_id = user.get('id'))
-    if user_skill_model is None:
-        raise HTTPException(status_code = 404, detail = 'Skill not found')
-    db.add(user_skill_model)
-    db.commit()
-
-@router.put('/update_user/{user_id}', status_code = status.HTTP_204_NO_CONTENT)
-async def update_user(db: db_dependency, user_request: AdminUserRequest, user_id: int = Path(gt = 0)):
     user_model = (db.query(Users)
                    .filter(user_id == Users.id)
                    .first())
@@ -197,9 +209,12 @@ async def update_user(db: db_dependency, user_request: AdminUserRequest, user_id
     db.add(user_model)
     db.commit()
 
-'''TO DO fix update endpoints bellow. Wants the field from user for some reason. Should be the problem'''
+'''updates a skill based on their id if the current user is an admin'''
 @router.put('/update_skill/{skill_id}', status_code = status.HTTP_204_NO_CONTENT)
-async def update_skill(db: db_dependency, skill_request: SkillRequest, skill_id: int = Path(gt = 0)):
+async def update_skill(request: Request, db: db_dependency, skill_request: SkillRequest, skill_id: int = Path(gt = 0)):
+    user = await get_current_user(request.cookies.get('access_token'))
+    if user is None or user.get('user_role') != 'admin':
+        raise HTTPException(status_code = 401, detail = "Authentication Failed")
     skill_model = (db.query(Skills)
                    .filter(skill_id == Skills.id)
                    .first())
@@ -212,8 +227,12 @@ async def update_skill(db: db_dependency, skill_request: SkillRequest, skill_id:
     db.add(skill_model)
     db.commit()
 
+'''updates a session based on their id if the current user is an admin'''
 @router.put('/update_session/{session_id}', status_code = status.HTTP_204_NO_CONTENT)
-async def update_session(db: db_dependency, session_request: SessionsRequest, session_id: int = Path(gt = 0)):
+async def update_session(request: Request, db: db_dependency, session_request: SessionsRequest, session_id: int = Path(gt = 0)):
+    user = await get_current_user(request.cookies.get('access_token'))
+    if user is None or user.get('user_role') != 'admin':
+        raise HTTPException(status_code = 401, detail = "Authentication Failed")
     session_model = (db.query(Sessions)
                    .filter(session_id == Sessions.id)
                    .first())
@@ -225,44 +244,48 @@ async def update_session(db: db_dependency, session_request: SessionsRequest, se
     db.add(session_model)
     db.commit()
 
-'''deletes a user by their id'''
+'''deletes a user by their id if the user logged in is an admin'''
 @router.delete('/user/{user_id}', status_code = status.HTTP_204_NO_CONTENT)
-async def delete_user_by_id(db: db_dependency, user_id: int = Path(gt = 0)):
-    # if user is None or user.get('user_role' != 'admin'):
-    #     raise HTTPException(status_code = 401, detail = "Authentication Failed")
+async def delete_user_by_id(request: Request, db: db_dependency, user_id: int = Path(gt = 0)):
+    user = await get_current_user(request.cookies.get('access_token'))
+    if user is None or user.get('user_role') != 'admin':
+        raise HTTPException(status_code = 401, detail = "Authentication Failed")
     user_model = db.query(Users).filter(user_id == Users.id).first()
     if user_model is None:
         raise HTTPException(status_code = 404, detail = "User not found")
     db.delete(user_model)
     db.commit()
 
-'''deletes a skill by it's id'''
+'''deletes a skill by it's id if the user logged in is an admin'''
 @router.delete('/skill/{skill_id}', status_code = status.HTTP_204_NO_CONTENT)
-async def delete_skill_by_id(db: db_dependency, skill_id: int = Path(gt = 0)):
-    # if user is None or user.get('user_role' != 'admin'):
-    #     raise HTTPException(status_code = 401, detail = "Authentication Failed")
+async def delete_skill_by_id(request: Request, db: db_dependency, skill_id: int = Path(gt = 0)):
+    user = await get_current_user(request.cookies.get('access_token'))
+    if user is None or user.get('user_role') != 'admin':
+        raise HTTPException(status_code = 401, detail = "Authentication Failed")
     skill_model = db.query(Skills).filter(skill_id == Skills.id).first()
     if skill_model is None:
         raise HTTPException(status_code = 404, detail = "Skill not found")
     db.query(Skills).filter(skill_id == Skills.id).delete()
     db.commit()
 
-'''deletes a message by it's id'''
+'''deletes a message by it's id if the user logged in is an admin'''
 @router.delete('/message/{message_id}', status_code = status.HTTP_204_NO_CONTENT)
-async def delete_message_by_id(db: db_dependency, message_id: int = Path(gt = 0)):
-    # if user is None or user.get('user_role' != 'admin'):
-    #     raise HTTPException(status_code = 401, detail = "Authentication Failed")
+async def delete_message_by_id(request: Request, db: db_dependency, message_id: int = Path(gt = 0)):
+    user = await get_current_user(request.cookies.get('access_token'))
+    if user is None or user.get('user_role') != 'admin':
+        raise HTTPException(status_code = 401, detail = "Authentication Failed")
     message_model = db.query(Messages).filter(message_id == Messages.id).first()
     if message_model is None:
         raise HTTPException(status_code = 404, detail = "Message not found")
     db.query(Messages).filter(message_id == Messages.id).delete()
     db.commit()
 
-'''deletes a session by it's id'''
+'''deletes a session by it's id if the user logged in is an admin'''
 @router.delete('/session/{session_id}', status_code = status.HTTP_204_NO_CONTENT)
-async def delete_session_by_id(db: db_dependency, session_id: int = Path(gt = 0)):
-    # if user is None or user.get('user_role' != 'admin'):
-    #     raise HTTPException(status_code = 401, detail = "Authentication Failed")
+async def delete_session_by_id(request: Request, db: db_dependency, session_id: int = Path(gt = 0)):
+    user = await get_current_user(request.cookies.get('access_token'))
+    if user is None or user.get('user_role') != 'admin':
+        raise HTTPException(status_code = 401, detail = "Authentication Failed")
     session_model = db.query(Sessions).filter(session_id == Sessions.id).first()
     if session_model is None:
         raise HTTPException(status_code = 404, detail = "Session not found")

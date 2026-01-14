@@ -7,11 +7,13 @@ from models import Ratings
 from routers.auth import get_current_user
 from pydantic import BaseModel, Field
 
+'''Defines the router for the ratings functions'''
 router = APIRouter(
     prefix = "/ratings",
     tags = ["ratings"]
 )
 
+'''Grabs the database'''
 def get_db():
     db = SessionLocal()
     try:
@@ -19,9 +21,13 @@ def get_db():
     finally:
         db.close()
 
+'''Grabs the database'''
 db_dependency = Annotated[Session, Depends(get_db)]
+
+'''Grabs the logged in user'''
 user_dependency = Annotated[dict, Depends(get_current_user)]
 
+'''The model for giving another user a rating'''
 class RatingRequest(BaseModel):
     feedback_text: str = Field(min_length=1, max_length=1000)
     feedback_rating: int = Field(gt=0)

@@ -1,19 +1,14 @@
-import sys
-import traceback
 from typing import Annotated
-from fastapi import APIRouter, Depends, HTTPException, Path, Request
-from passlib.context import CryptContext
-from pydantic import BaseModel, Field
+from fastapi import APIRouter, Depends, Request
 from sqlalchemy.orm import Session
 from starlette import status
 from starlette.responses import RedirectResponse
 from database import SessionLocal
-from models import Users, UsersSkills, Skills, Sessions
+from models import Users
 from routers.auth import get_current_user
-from routers.sessions import SessionsRequest
 from fastapi.templating import Jinja2Templates
 
-'''Connects the endpoints to FastAPI under the Users category'''
+'''Connects the endpoints to FastAPI under the Pages category'''
 router = APIRouter(
     prefix = "/pages",
     tags = ['pages']
@@ -27,9 +22,13 @@ def get_db():
     finally:
         db.close()
 
+'''Connects to the database'''
 db_dependency = Annotated[Session, Depends(get_db)]
+
+'''Grabs the current user'''
 user_dependency = Annotated[dict, Depends(get_current_user)]
-bcrypt_context = CryptContext(schemes = ['bcrypt'], deprecated = 'auto')
+
+'''Allows for page templating using Jinja2'''
 templates = Jinja2Templates(directory = "templates")
 
 '''Redirects the user to the login page if not logged in'''
@@ -38,11 +37,12 @@ def redirect_to_login():
     redirect_response.delete_cookie(key = 'access_token')
     return redirect_response
 
+'''Renders and allows admins to access the admin page'''
 @router.get('/admin-page')
 async def render_admin_page(request: Request):
     try:
         user = await get_current_user(request.cookies.get('access_token'))
-        if user is None:
+        if user is None or user.get('user_role') != 'admin':
             return redirect_to_login()
         return templates.TemplateResponse('admin.html', {'request': request, 'user': user})
     except:
@@ -146,6 +146,7 @@ def render_profile_page(request: Request, db: db_dependency, user_id: int):
     user = db.query(Users).filter(user_id == Users.id).first()
     return templates.TemplateResponse('profile.html', {'request': request, 'user': user})
 
+'''Renders the sessions page'''
 @router.get('/sessions')
 async def render_sessions_page(request: Request, db: db_dependency):
     try:

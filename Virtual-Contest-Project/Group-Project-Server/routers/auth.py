@@ -1,7 +1,5 @@
-import sys
-import traceback
 from typing import Annotated
-from fastapi import APIRouter, HTTPException, Depends, Request
+from fastapi import APIRouter, HTTPException, Depends
 from fastapi.security import OAuth2PasswordRequestForm, OAuth2PasswordBearer
 from passlib.context import CryptContext
 from pydantic import BaseModel
@@ -11,11 +9,6 @@ from datetime import datetime, timezone, timedelta
 from database import SessionLocal
 from models import Users
 from jose import jwt, JWTError
-from fastapi.templating import Jinja2Templates
-<<<<<<< HEAD
-=======
-
->>>>>>> jay
 
 '''Connects the endpoints to FastAPI under the Auth category'''
 router = APIRouter(
@@ -23,12 +16,16 @@ router = APIRouter(
     tags = ['auth']
     )
 
+'''Gets the user's token'''
 oauth2_bearer = OAuth2PasswordBearer(tokenUrl = 'auth/token')
+
+'''Hashes passwords'''
 bcrypt_context = CryptContext(schemes=['bcrypt'], deprecated='auto')
-templates = Jinja2Templates(directory = "templates")
+
 SECRET_KEY = 'd92d3ae349c8b2eee2459e5c72d7ecc83c0aed852cdb7ed161aa9c09b8963a42'
 ALGORITHM = 'HS256'
 
+'''Authenticates the user'''
 @router.get('/')
 async def get_user():
     return {'user': 'authenticated'}
@@ -41,13 +38,16 @@ def get_db():
     finally:
         db.close()
 
+'''Connects to the database'''
 db_dependency = Annotated[Session, Depends(get_db)]
 
+'''The model for when a new user is made'''
 class CreateUserRequest(BaseModel):
     email: str
     username: str
     password: str
 
+'''The model for making a token'''
 class Token(BaseModel):
     access_token: str
     token_type: str

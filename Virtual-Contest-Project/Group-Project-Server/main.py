@@ -6,6 +6,7 @@ from routers import users, auth, admin, skills, messages, sessions, pages, audit
 from routers.config import settings
 from fastapi import FastAPI
 
+'''Defines the FastAPI app'''
 app = FastAPI()
 
 #settings for env variables
