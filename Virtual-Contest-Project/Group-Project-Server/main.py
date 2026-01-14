@@ -1,5 +1,8 @@
 from fastapi.templating import Jinja2Templates
 from fastapi.staticfiles import StaticFiles
+from fastapi.responses import RedirectResponse
+from starlette import status
+from starlette.requests import Request
 import models
 from database import engine
 from routers import users, auth, admin, skills, messages, sessions, pages, audits, ratings
@@ -7,6 +10,11 @@ from routers.config import settings
 from fastapi import FastAPI
 
 app = FastAPI()
+
+# Redirection to Login Page
+@app.get("/")
+def test(request: Request):
+    return RedirectResponse(url="/pages/login", status_code=status.HTTP_302_FOUND)
 
 #settings for env variables
 @app.get("/info")
