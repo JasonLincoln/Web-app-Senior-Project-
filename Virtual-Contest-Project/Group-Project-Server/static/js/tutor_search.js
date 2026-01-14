@@ -63,7 +63,7 @@ const allTutors = document.getElementById('cards-grid');
 const tutorTemplate = document.getElementById('tutorTemplate');
 
 //Makes constants based on database endpoints
-const getAllUsersEndpoint = '/admin/user';
+const getAllUsersEndpoint = '/users/all_users';
 const currentUserEndpoint = '/users/';
 
 //If the user has a username, then all tutors are shown

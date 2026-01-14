@@ -47,6 +47,14 @@ async def get_user(request: Request, db: db_dependency):
         raise HTTPException(status_code = 401, detail = 'Authentication Failed')
     return db.query(Users).filter(user.get('id') == Users.id).first()
 
+'''gets all users'''
+@router.get("/all_users", status_code=status.HTTP_200_OK)
+async def get_all_users(request: Request, db: db_dependency):
+    user = await get_current_user(request.cookies.get('access_token'))
+    if user is None:
+        raise HTTPException(status_code = 401, detail = "Authentication Failed")
+    return db.query(Users).all()
+
 '''Changes the password of the current user'''
 @router.put('/password', status_code = status.HTTP_204_NO_CONTENT)
 async def change_password(request: Request, db: db_dependency,
