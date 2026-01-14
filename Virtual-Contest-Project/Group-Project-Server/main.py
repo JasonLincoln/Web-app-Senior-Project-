@@ -15,7 +15,7 @@ templates = Jinja2Templates(directory = "templates")
 # Redirection to Login Page
 @app.get("/")
 def redirect_login(request: Request): # must accept a request
-        redirect_response = RedirectResponse(url="/pages/login", status_code=status.HTTP_302_FOUND)
+        redirect_response = RedirectResponse(url="/pages/login/", status_code=status.HTTP_302_FOUND)
         return redirect_response
 
 #settings for env variables
