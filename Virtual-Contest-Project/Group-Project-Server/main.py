@@ -14,7 +14,7 @@ app = FastAPI()
 # Redirection to Login Page
 @app.get("/")
 def redirect_to_login(request: Request):
-    return templates.TemplateResponse("https://skillswap-student-talent-exchange-rz7i.onrender.com/pages/login",{"request":request})
+    return RedirectResponse(url="../pages/login", status_code=status.HTTP_302_FOUND)
 
 #settings for env variables
 @app.get("/info")
