@@ -13,8 +13,10 @@ app = FastAPI()
 
 # Redirection to Login Page
 @app.get("/")
-def redirect_to_login(request: Request):
-    return RedirectResponse(url="../pages/login", status_code=status.HTTP_302_FOUND)
+def redirect_login(request: Request):
+    redirect_response = RedirectResponse(url="../pages/login", status_code=status.HTTP_302_FOUND)
+    redirect_response.delete_cookie(key='access_token')
+    return redirect_response
 
 #settings for env variables
 @app.get("/info")
