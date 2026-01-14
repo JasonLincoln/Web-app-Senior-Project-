@@ -13,8 +13,8 @@ app = FastAPI()
 
 # Redirection to Login Page
 @app.get("/")
-def redirect_to_main(request: Request):
-    return RedirectResponse(url="/templates/login", status_code=status.HTTP_302_FOUND)
+def redirect_to_login(request: Request):
+    return templates.TemplateResponse("/pages/login.html",{"request":request})
 
 #settings for env variables
 @app.get("/info")
