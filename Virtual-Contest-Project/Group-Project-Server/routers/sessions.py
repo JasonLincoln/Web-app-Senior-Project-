@@ -1,7 +1,6 @@
 from datetime import datetime
 from typing import Annotated
 from fastapi import APIRouter, Depends, HTTPException, Request, Path
-from passlib.context import CryptContext
 from pydantic import BaseModel, Field
 from sqlalchemy import and_, or_
 from sqlalchemy.orm import Session
@@ -10,11 +9,13 @@ from database import SessionLocal
 from models import Sessions
 from routers.auth import get_current_user
 
+'''Defines the router for the session functions'''
 router = APIRouter(
     prefix = "/sessions",
     tags = ['sessions']
 )
 
+'''Grabs the database'''
 def get_db():
     db = SessionLocal()
     try:
@@ -22,10 +23,13 @@ def get_db():
     finally:
         db.close()
 
+'''Grabs the database'''
 db_dependency = Annotated[Session, Depends(get_db)]
-user_dependency = Annotated[dict, Depends(get_current_user)]
-bcrypt_context = CryptContext(schemes = ['bcrypt'], deprecated = 'auto')
 
+'''Grabs the logged in user'''
+user_dependency = Annotated[dict, Depends(get_current_user)]
+
+'''The model for creating a session'''
 class SessionsRequest(BaseModel):
     session_date: datetime = Field()
     recipient_username: str = Field(min_length=1, max_length=100)
@@ -53,6 +57,7 @@ async def get_requested_sessions(request: Request, db: db_dependency, username: 
         return sessions_result
     raise HTTPException(status_code=404, detail="Sessions not found")
 
+'''Updates a session based on its id'''
 @router.put('/update_session/{session_id}', status_code = status.HTTP_204_NO_CONTENT)
 async def update_session(db: db_dependency, session_request: SessionsRequest, session_id: int = Path(gt = 0)):
     session_model = (db.query(Sessions)

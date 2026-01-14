@@ -9,6 +9,7 @@ from routers import users, auth, admin, skills, messages, sessions, pages, audit
 from routers.config import settings
 from fastapi import FastAPI
 
+'''Defines the FastAPI app'''
 app = FastAPI()
 templates = Jinja2Templates(directory = "templates")
 
@@ -22,7 +23,8 @@ def redirect_login(request: Request): # must accept a request
 @app.get("/info")
 async def info():
     return {
-        "database_url": settings.database_url
+        "database_url": settings.database_url,
+        "secret_key": settings.secret_key
     }
 
 '''Connects the endpoints from each router to FastAPI'''

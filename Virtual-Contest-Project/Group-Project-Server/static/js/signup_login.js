@@ -1,5 +1,6 @@
 "use strict"
 
+//When the page loads, the username area is focused on and the password is already being validated and given the option to be shown
 $(document).ready( () => {
 
     $("#username").focus();
@@ -7,6 +8,7 @@ $(document).ready( () => {
     showPassword();
 })
 
+//Validates the email and password based on returnPassStatus()
 function validateForm()
 {
     let isValid = true;
@@ -50,6 +52,7 @@ function validateForm()
     })
 }
 
+//Checks if the password is the proper length, contains an uppercase letter, and contains a number or special character
 function returnPassStatus()
 {
     // Boolean for each requirement
@@ -98,6 +101,7 @@ function returnPassStatus()
     })
 }
 
+//If the lock item is clicked on, the password is shown by changing the input type from password to text and changing to an open lock, and vice versa
 function showPassword()
     {
         const lock = $("#passwordToggle");
