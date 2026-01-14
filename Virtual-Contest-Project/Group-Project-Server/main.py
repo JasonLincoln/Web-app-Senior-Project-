@@ -10,13 +10,12 @@ from routers.config import settings
 from fastapi import FastAPI
 
 app = FastAPI()
+templates = Jinja2Templates(directory = "templates")
 
 # Redirection to Login Page
 @app.get("/")
-def redirect_login(request: Request):
-    redirect_response = RedirectResponse(url="../pages/login", status_code=status.HTTP_302_FOUND)
-    redirect_response.delete_cookie(key='access_token')
-    return redirect_response
+def redirect_login(request: Request): # must accept a request
+        return templates.TemplateResponse("login.html", {"request": request})  # must return the request as dictionary
 
 #settings for env variables
 @app.get("/info")
