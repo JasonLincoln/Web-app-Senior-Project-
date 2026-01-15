@@ -42,7 +42,7 @@ def redirect_to_login():
 async def render_admin_page(request: Request):
     try:
         user = await get_current_user(request.cookies.get('access_token'))
-        if user is None:
+        if user is None or user.get('user_role') != 'admin':
             return redirect_to_login()
         return templates.TemplateResponse('admin.html', {'request': request, 'user': user})
     except:

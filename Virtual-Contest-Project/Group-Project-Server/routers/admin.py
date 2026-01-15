@@ -177,7 +177,7 @@ async def create_skill(request: Request, db: db_dependency, skill_request: Skill
 @router.put('/update_user/{user_id}', status_code = status.HTTP_204_NO_CONTENT)
 async def update_user(request: Request, db: db_dependency, user_request: AdminUserRequest, user_id: int = Path(gt = 0)):
     user = await get_current_user(request.cookies.get('access_token'))
-    if user is None:
+    if user is None or user.get('user_role') != 'admin':
         raise HTTPException(status_code = 401, detail = "Authentication Failed")
     user_model = (db.query(Users)
                    .filter(user_id == Users.id)
