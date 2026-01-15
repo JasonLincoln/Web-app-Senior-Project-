@@ -100,7 +100,8 @@ async def update_user(user: user_dependency,db: db_dependency,user_request: User
 
 '''Queries for a user with a certain username'''
 @router.get('/by_username/{username}', status_code = status.HTTP_200_OK)
-async def get_user_by_username(user: user_dependency, db: db_dependency, username: str = Path(min_length = 1)):
+async def get_user_by_username(db: db_dependency, username: str = Path(min_length = 1)):
+    user = await get_current_user(request.cookies.get('access_token'))
     if user is None:
         raise HTTPException(status_code = 401, detail = "Authentication Failed")
     username_result = (db.query(Users)
