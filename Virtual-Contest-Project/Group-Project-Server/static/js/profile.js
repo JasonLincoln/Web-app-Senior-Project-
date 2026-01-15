@@ -1,7 +1,7 @@
 "use strict";
 
 const currentPath = window.location.pathname;
-const profileUser = currentPath.substring(15);
+const profileUser = Number(currentPath.substring(15));
 
 addEventListener("DOMContentLoaded", (event) => {
     showHaveSkills(profileUser);
