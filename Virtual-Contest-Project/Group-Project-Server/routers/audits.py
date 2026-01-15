@@ -4,7 +4,6 @@ from fastapi import APIRouter, Depends, HTTPException, Path
 from pydantic import BaseModel, Field
 from sqlalchemy.orm import Session
 from starlette import status
-
 from database import SessionLocal
 from models import Audits
 from routers.auth import get_current_user
@@ -23,7 +22,10 @@ def get_db():
     finally:
         db.close()
 
+'''Connects to the database'''
 db_dependency = Annotated[Session, Depends(get_db)]
+
+'''Grabs the logged in user'''
 user_dependency = Annotated[dict, Depends(get_current_user)]
 
 class AuditsRequest(BaseModel):
@@ -43,6 +45,7 @@ async def get_audit_by_id(db: db_dependency, audit_id: int = Path(gt = 0)):
         return audit_result
     raise HTTPException(status_code = 404, detail = 'Audit not found')
 
+'''creates a new audit'''
 @router.post('/create_audit', status_code = status.HTTP_201_CREATED)
 async def create_audit(audit_request: AuditsRequest, db: db_dependency):
     audit_model = Audits(**audit_request.model_dump())

@@ -7,15 +7,15 @@ from starlette import status
 from database import SessionLocal
 from models import Messages
 from routers.auth import get_current_user
-from routers.pages import redirect_to_login
 from sqlalchemy import and_, or_
-from fastapi.templating import Jinja2Templates
 
+'''Defines the router for the messages functions'''
 router = APIRouter(
     prefix = "/messages",
     tags = ['messages']
 )
 
+'''Grabs the database'''
 def get_db():
     db = SessionLocal()
     try:
@@ -23,11 +23,13 @@ def get_db():
     finally:
         db.close()
 
+'''Grabs the database'''
 db_dependency = Annotated[Session, Depends(get_db)]
-user_dependency = Annotated[dict, Depends(get_current_user)]
-bcrypt_context = CryptContext(schemes = ['bcrypt'], deprecated='auto')
-templates = Jinja2Templates(directory = "templates")
 
+'''Grabs the logged in user'''
+user_dependency = Annotated[dict, Depends(get_current_user)]
+
+'''The request model for creating a message'''
 class MessagesRequest(BaseModel):
     recipient_username: str = Field(min_length = 1, max_length = 100)
     text: str = Field(min_length = 1, max_length = 1000)
@@ -60,7 +62,7 @@ async def create_message(request: Request, db: db_dependency, message_request: M
     db.add(message_model)
     db.commit()
 
-'''creates a new message between two users'''
+'''creates a message for newly registered users'''
 @router.post('/automated_message', status_code = status.HTTP_201_CREATED)
 async def automated_message(db: db_dependency, message_request: MessagesRequest):
     message_model = Messages(**message_request.model_dump(), sender_username = "DaeTheMyth78")

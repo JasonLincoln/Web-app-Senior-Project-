@@ -12,6 +12,7 @@ from database import SessionLocal
 from models import Users
 from jose import jwt, JWTError
 from fastapi.templating import Jinja2Templates
+from routers.config import settings
 
 '''Connects the endpoints to FastAPI under the Auth category'''
 router = APIRouter(
@@ -22,7 +23,7 @@ router = APIRouter(
 oauth2_bearer = OAuth2PasswordBearer(tokenUrl = 'auth/token')
 bcrypt_context = CryptContext(schemes=['bcrypt'], deprecated='auto')
 templates = Jinja2Templates(directory = "templates")
-SECRET_KEY = 'd92d3ae349c8b2eee2459e5c72d7ecc83c0aed852cdb7ed161aa9c09b8963a42'
+SECRET_KEY = settings.SECRET_KEY
 ALGORITHM = 'HS256'
 
 @router.get('/')

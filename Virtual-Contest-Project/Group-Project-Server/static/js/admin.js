@@ -18,10 +18,13 @@ const tabFunctions = (tabName, event) => {
 }
 
 // Get All Users JS
+
+//Initializes constants for future use
 const allUsers = document.getElementById('allUsers');
 const getAllUsersEndpoint = '/admin/user';
 const allUsersButton = document.getElementById('allUsersButton');
 
+//After clicking the allUsersButton, a function displays every user in the database
 allUsersButton.addEventListener('click', async function (event) {
     event.preventDefault();
 
@@ -30,8 +33,6 @@ allUsersButton.addEventListener('click', async function (event) {
     const response = await fetch(getAllUsersEndpoint);
     if (response.ok) {
         const data = await response.json();
-        console.log('hi');
-        console.log(data.data);
         console.log("Using user data for the showAllUsers function.");
         showAllUsers(data);
     }
@@ -41,6 +42,7 @@ allUsersButton.addEventListener('click', async function (event) {
     }
 })
 
+//Makes a new list item with the following values
 function showAllUsers(data){
     allUsers.innerHTML = "";
     data.forEach(item => {
@@ -62,9 +64,12 @@ function showAllUsers(data){
 }
 
 // Get User By ID JS
+
+//Initializes constants for future use
 const userByID = document.getElementById('userByID');
 const userByIDButton = document.getElementById('userByIDButton');
 
+//Grabs a user by their ID
 userByIDButton.addEventListener('click', async function (event) {
     event.preventDefault();
 
@@ -83,6 +88,7 @@ userByIDButton.addEventListener('click', async function (event) {
     }
 })
 
+//Makes a list item for the user being displayed
 function showUserByID(data){
     userByID.innerHTML = "";
     console.log("Displaying user on page.");
@@ -102,10 +108,13 @@ function showUserByID(data){
 }
 
 // Get All Skills JS
+
+//Initializes constants for future use
 const allSkills = document.getElementById('allSkills');
 const getAllSkillsEndpoint = '/admin/skill';
 const allSkillsButton = document.getElementById('allSkillsButton');
 
+//If allSkillsButton is clicked, all skills in the database are displayed
 allSkillsButton.addEventListener('click', async function (event) {
     event.preventDefault();
 
@@ -114,8 +123,6 @@ allSkillsButton.addEventListener('click', async function (event) {
     const response = await fetch(getAllSkillsEndpoint);
     if (response.ok) {
         const data = await response.json();
-        console.log('hi');
-        console.log(data.data);
         console.log("Using user data for the showAllSkills function.");
         showAllSkills(data);
     }
@@ -125,6 +132,7 @@ allSkillsButton.addEventListener('click', async function (event) {
     }
 })
 
+//Makes a list item for each skill
 function showAllSkills(data){
     allSkills.innerHTML = "";
     data.forEach(item => {
@@ -139,9 +147,12 @@ function showAllSkills(data){
 
 
 // Get Skill By ID JS
+
+//Initializes constants for future use
 const skillByID = document.getElementById('skillByID');
 const skillByIDButton = document.getElementById('skillByIDButton');
 
+//After clicking the button, the skill id entered is shown
 skillByIDButton.addEventListener('click', async function (event) {
     event.preventDefault();
 
@@ -160,6 +171,7 @@ skillByIDButton.addEventListener('click', async function (event) {
     }
 })
 
+//Makes a list item for the searched skill
 function showSkillByID(data){
     skillByID.innerHTML = "";
     console.log("Displaying user on page.");
@@ -171,10 +183,13 @@ function showSkillByID(data){
 }
 
 // Get All Messages JS
+
+//Initializes constants for future use
 const allMessages = document.getElementById('allMessages');
 const getAllMessagesEndpoint = '/admin/Messages';
 const allMessagesButton = document.getElementById('allMessagesButton');
 
+//After clicking the button, all messages are displayed in a list
 allMessagesButton.addEventListener('click', async function (event) {
     event.preventDefault();
 
@@ -183,8 +198,6 @@ allMessagesButton.addEventListener('click', async function (event) {
     const response = await fetch(getAllMessagesEndpoint);
     if (response.ok) {
         const data = await response.json();
-        console.log('hi');
-        console.log(data.data);
         console.log("Using message data for the showAllMessages function.");
         showAllMessages(data);
     }
@@ -194,6 +207,7 @@ allMessagesButton.addEventListener('click', async function (event) {
     }
 })
 
+//Creates a list item for every message
 function showAllMessages(data){
     allMessages.innerHTML = "";
     data.forEach(item => {
@@ -209,9 +223,12 @@ function showAllMessages(data){
 }
 
 // Get Message By ID JS
+
+//Initializes constants for future use
 const messageByID = document.getElementById('messageByID');
 const messageByIDButton = document.getElementById('messageByIDButton');
 
+//After clicking the button, the message with a certain id is displayed
 messageByIDButton.addEventListener('click', async function (event) {
     event.preventDefault();
 
@@ -230,6 +247,7 @@ messageByIDButton.addEventListener('click', async function (event) {
     }
 })
 
+//Makes a list item for the searched message
 function showMessageByID(data){
     messageByID.innerHTML = "";
     console.log("Displaying user on page.");
@@ -244,10 +262,13 @@ function showMessageByID(data){
 }
 
 // Get All Sessions JS
+
+//Initializes constants for future use
 const allSessions = document.getElementById('allSessions');
 const getAllSessionsEndpoint = '/admin/Sessions';
 const allSessionsButton = document.getElementById('allSessionsButton');
 
+//Grabs all sessions and displays them in a list after button click
 allSessionsButton.addEventListener('click', async function (event) {
     event.preventDefault();
 
@@ -256,8 +277,6 @@ allSessionsButton.addEventListener('click', async function (event) {
     const response = await fetch(getAllSessionsEndpoint);
     if (response.ok) {
         const data = await response.json();
-        console.log('hi');
-        console.log(data.data);
         console.log("Using session data for the showAllSessions function.");
         showAllSessions(data);
     }
@@ -267,17 +286,23 @@ allSessionsButton.addEventListener('click', async function (event) {
     }
 })
 
+//Makes a list item for each session
 function showAllSessions(data){
     allSessions.innerHTML = "";
     data.forEach(item => {
         const li = document.createElement('li');
         li.innerHTML = `ID: ${item.id}, <br>
-         Session Date: ${item.session_date} <br> <br>`;
+         Session Date: ${item.session_date} <br>
+         Accepted: ${item.accepted} <br>
+         Recipient Username: ${item.recipient_username} <br>
+         Sender Username: ${item.sender_username} <br> <br>`;
         allSessions.appendChild(li);
     });
 }
 
 // Get Session By ID JS
+
+//Initializes constants for future use
 const sessionByID = document.getElementById('sessionByID');
 const sessionByIDButton = document.getElementById('sessionByIDButton');
 
@@ -303,14 +328,18 @@ function showSessionByID(data){
     sessionByID.innerHTML = "";
     console.log("Displaying user on page.");
     const li = document.createElement('li');
-    li.innerHTML = `ID: ${data.id}, <br>
-         Session Date: ${data.session_date} <br> <br>`;
-        sessionByID.appendChild(li);
+     li.innerHTML = `ID: ${item.id}, <br>
+         Session Date: ${item.session_date} <br>
+         Accepted: ${item.accepted} <br>
+         Recipient Username: ${item.recipient_username} <br>
+         Sender Username: ${item.sender_username} <br> <br>`;
+    sessionByID.appendChild(li);
 }
 
 // Create Skill JS
 const createSkill = document.getElementById('createSkill');
     if (createSkill) {
+        //After submitting the form, the supercategory and subcategory are entered into the database for a new skill
         createSkill.addEventListener('submit', async function (event) {
             event.preventDefault();
 
@@ -349,6 +378,7 @@ const createSkill = document.getElementById('createSkill');
 // Update User By ID JS
 const updateUser = document.getElementById('updateUserByID');
     if (updateUser) {
+        //After submitting the form, the form data is entered into the database to update a user
         updateUser.addEventListener('submit', async function (event) {
             event.preventDefault();
 
@@ -397,6 +427,7 @@ const updateUser = document.getElementById('updateUserByID');
 // Update Skill By ID JS
 const updateSkill = document.getElementById('updateSkillByID');
     if (updateSkill) {
+        //After submitting the form, the form data is entered into the database to update a skill
         updateSkill.addEventListener('submit', async function (event) {
             event.preventDefault();
 
@@ -436,6 +467,7 @@ const updateSkill = document.getElementById('updateSkillByID');
 // Update Session By ID
 const updateSession = document.getElementById('updateSessionByID');
     if (updateSession) {
+        //After submitting the form, the form data is entered into the database to update a session
         updateSession.addEventListener('submit', async function (event) {
             event.preventDefault();
 
@@ -474,6 +506,7 @@ const updateSession = document.getElementById('updateSessionByID');
 // Delete User By ID
 const deleteUser = document.getElementById('deleteUserByID');
     if (deleteUser) {
+        //After submitting the form, the user's id is used to delete a user
         deleteUser.addEventListener('submit', async function (event) {
             event.preventDefault();
 
@@ -504,6 +537,7 @@ const deleteUser = document.getElementById('deleteUserByID');
 // Delete Skill By ID
 const deleteSkill = document.getElementById('deleteSkillByID');
     if (deleteSkill) {
+        //After submitting the form, the skill's id is used to delete a skill
         deleteSkill.addEventListener('submit', async function (event) {
             event.preventDefault();
 
@@ -534,6 +568,7 @@ const deleteSkill = document.getElementById('deleteSkillByID');
 // Delete Session By ID
 const deleteSession = document.getElementById('deleteSessionByID');
     if (deleteSession) {
+        //After submitting the form, the session's id is used to delete a session
         deleteSession.addEventListener('submit', async function (event) {
             event.preventDefault();
 
@@ -564,6 +599,7 @@ const deleteSession = document.getElementById('deleteSessionByID');
 // Delete Message By ID
 const deleteMessage = document.getElementById('deleteMessageByID');
     if (deleteMessage) {
+        //After submitting the form, the message's id is used to delete a message
         deleteMessage.addEventListener('submit', async function (event) {
             event.preventDefault();
 

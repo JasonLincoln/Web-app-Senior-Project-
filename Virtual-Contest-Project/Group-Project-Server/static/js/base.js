@@ -1,14 +1,15 @@
-// Initialization
-const currentUserEndpoint = '/users/';
+// Initializes an endpoint for future use and two empty variables
+const baseCurrentUserEndpoint = '/users/';
 let registeredUsername = "";
-let currentUser = "";
+let baseCurrentUser = "";
 
+//Returns the current user's id
 async function getCurrentUser(){
-    const response = await fetch(currentUserEndpoint);
+    const response = await fetch(baseCurrentUserEndpoint);
     if (response.ok) {
         const data = await response.json();
-        const currentUserID = data.id;
-        return currentUserID;
+        const baseCurrentUserID = data.id;
+        return baseCurrentUserID;
     }
     else {
         const errorData = await response.json();
@@ -25,11 +26,13 @@ async function getCurrentUser(){
             const form = event.target;
             const formData = new FormData(form);
 
+            //Grabs all entered form items and places it inside the payload
             const payload = new URLSearchParams();
             for (const [key, value] of formData.entries()) {
                 payload.append(key, value);
             }
 
+            //Attempts to give the user a token to log into other pages
             try {
                 const response = await fetch('/auth/token', {
                     method: 'POST',
@@ -46,20 +49,20 @@ async function getCurrentUser(){
                     logout();
                     // Save token to cookie
                     document.cookie = `access_token=${data.access_token}; path=/`;
-                    getCurrentUser().then(currentUserID => {
-                        if(currentUserID) {
-                            logAudit(currentUserID, currentUserID, "User",
+                    getCurrentUser().then(baseCurrentUserID => {
+                        if(baseCurrentUserID) {
+                            logAudit(baseCurrentUserID, baseCurrentUserID, "User",
                                 "The user was given an access token that was placed in cookies.",
                                 true, "No errors, Successful Audit.");
                         }
                     });
-                    window.location.href = '/pages/index'; // Change this to your desired redirect page
+                    window.location.href = '/pages/index'; // Sends the user to the home page
                 } else {
-                    getCurrentUser().then(currentUserID => {
-                        if(currentUserID) {
-                            logAudit(currentUserID, currentUserID, "User",
+                    getCurrentUser().then(baseCurrentUserID => {
+                        if(baseCurrentUserID) {
+                            logAudit(baseCurrentUserID, baseCurrentUserID, "User",
                                 "The user was supposed to be given an access token that was placed in cookies.",
-                                true, "Token could not be granted.");
+                                false, "Token could not be granted.");
                         }
                     });
 
@@ -68,11 +71,12 @@ async function getCurrentUser(){
                     alert(`Error: ${errorData.detail}`);
                 }
             } catch (error) {
-                getCurrentUser().then(currentUserID => {
-                    if(currentUserID) {
-                        logAudit(currentUserID, currentUserID, "User",
+                getCurrentUser().then(baseCurrentUserID => {
+                    if(baseCurrentUserID) {
+                        console.log()
+                        logAudit(baseCurrentUserID, baseCurrentUserID, "User",
                             "The user was supposed to be given an access token that was placed in cookies.",
-                            true, "Token could not be granted.");
+                            false, "Token could not be granted.");
                     }
                 });
                 console.error('Error:', error);
@@ -138,6 +142,7 @@ async function getCurrentUser(){
                 password: data.password
             };
 
+            //Creates a new user based off the payload and if a user with the same email and username doesn't already exist
             try {
                 const response = await fetch('/auth', {
                     method: 'POST',
@@ -148,6 +153,7 @@ async function getCurrentUser(){
                 });
 
                 if (response.ok) {
+                    //Makes an automated message for the user to grant access to messaging on the messages page
                     registeredUsername = data.username;
                     automatedMessage(registeredUsername);
                     setTimeout(getToken, 500, form);
@@ -196,6 +202,7 @@ async function getCurrentUser(){
         window.location.href = '/pages/login';
     };
 
+//If a user just registered, they are sent a message from the admin user DaeTheMyth78 to allow messaging properly
  async function automatedMessage(newUser){
     const payload = {
         recipient_username: newUser,
@@ -224,9 +231,10 @@ async function getCurrentUser(){
     }
  }
 
- async function logAudit(currentUser, entityID, entityAffected, detailsText, successful, errorDetails){
+//Logs an audit for any change made to a database entity
+ async function logAudit(baseCurrentUser, entityID, entityAffected, detailsText, successful, errorDetails){
     const payload = {
-        user_id: currentUser,
+        user_id: baseCurrentUser,
         entity_id: entityID,
         entity_affected: entityAffected,
         details: detailsText,

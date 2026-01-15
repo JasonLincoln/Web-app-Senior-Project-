@@ -10,7 +10,7 @@ from routers.auth import get_current_user
 from routers.sessions import SessionsRequest
 from routers.skills import SkillRequest
 
-'''Defines the router for the admin page'''
+'''Defines the router for the admin functions'''
 router = APIRouter(
     prefix = "/admin",
     tags = ["admin"]
@@ -33,7 +33,7 @@ user_dependency = Annotated[dict, Depends(get_current_user)]
 '''Hashes passwords'''
 bcrypt_context = CryptContext(schemes=['bcrypt'], deprecated='auto')
 
-'''The request model for is a user is being updated'''
+'''The request model for if a user is being updated'''
 class AdminUserRequest(BaseModel):
     email: str = Field(min_length = 1, max_length = 100)
     display_name: str = Field(min_length = 1, max_length = 100)
@@ -183,6 +183,7 @@ async def create_skill(request: Request, db: db_dependency, skill_request: Skill
     db.add(skill_model)
     db.commit()
 
+'''updates a user based on their id if the current user is an admin'''
 @router.put('/update_user/{user_id}', status_code = status.HTTP_204_NO_CONTENT)
 async def update_user(request: Request, db: db_dependency, user_request: AdminUserRequest, user_id: int = Path(gt = 0)):
     user = await get_current_user(request.cookies.get('access_token'))
@@ -208,7 +209,7 @@ async def update_user(request: Request, db: db_dependency, user_request: AdminUs
     db.add(user_model)
     db.commit()
 
-'''TO DO fix update endpoints bellow. Wants the field from user for some reason. Should be the problem'''
+'''updates a skill based on their id if the current user is an admin'''
 @router.put('/update_skill/{skill_id}', status_code = status.HTTP_204_NO_CONTENT)
 async def update_skill(request: Request, db: db_dependency, skill_request: SkillRequest, skill_id: int = Path(gt = 0)):
     user = await get_current_user(request.cookies.get('access_token'))
@@ -226,6 +227,7 @@ async def update_skill(request: Request, db: db_dependency, skill_request: Skill
     db.add(skill_model)
     db.commit()
 
+'''updates a session based on their id if the current user is an admin'''
 @router.put('/update_session/{session_id}', status_code = status.HTTP_204_NO_CONTENT)
 async def update_session(request: Request, db: db_dependency, session_request: SessionsRequest, session_id: int = Path(gt = 0)):
     user = await get_current_user(request.cookies.get('access_token'))

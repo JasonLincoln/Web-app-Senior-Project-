@@ -38,6 +38,7 @@ function hoverEffects(cardID, elementID, elementSubtopicsID)
     });
 }
 
+//When a user hovers over an area, the hidden element is shown
 hoverEffects("#programming-languages", "#prog-lang-header", "#hidden-prog-lang"); // programming languages
 hoverEffects("#computers", "#computers-header", "#hidden-computers"); // computers and info tech
 hoverEffects("#math", "#math-header", "#hidden-math"); // math
