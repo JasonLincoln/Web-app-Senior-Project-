@@ -13,10 +13,8 @@ async function getProfileUsernameAndID() {
     {
         const data = await response.json();
 
-        const profileUserID = data.id;
-
-        showHaveSkills(profileUserID);
-        showToLearnSkills(profileUserID);
+        showHaveSkills(data.id);
+        showToLearnSkills(data.id);
     }
 }
 
