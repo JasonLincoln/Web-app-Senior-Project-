@@ -54,7 +54,6 @@ function showAllUsers(data){
         Hashed Password: ${item.hashed_password},<br>
         Display Name: ${item.display_name},<br>
         Pronouns: ${item.pronouns}, <br>
-        Gender: ${item.gender},<br>
         Biography: ${item.biography},<br>
         Profile Picture: ${item.profile_url}, <br>
         Role: ${item.role},<br>
@@ -99,7 +98,6 @@ function showUserByID(data){
         Hashed Password: ${data.hashed_password},<br>
         Display Name: ${data.display_name},<br>
         Pronouns: ${data.pronouns}, <br>
-        Gender: ${data.gender},<br>
         Biography: ${data.biography},<br>
         Profile Picture: ${data.profile_url}, <br>
         Role: ${data.role},<br>
@@ -391,7 +389,6 @@ const updateUser = document.getElementById('updateUserByID');
                 username: data.updateUserUsername,
                 display_name: data.updateUserDisplayName,
                 pronouns: data.updateUserPronouns,
-                gender: data.updateUserGender,
                 profile_url: data.updateUserProfileURL,
                 biography: data.updateUserBiography,
                 rating: data.updateUserRating,
