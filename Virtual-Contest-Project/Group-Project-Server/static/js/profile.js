@@ -7,7 +7,7 @@ addEventListener("DOMContentLoaded", (event) => {
 async function getProfileUsernameAndID() {
     const profileUsername = document.querySelector(".username").textContent;
 
-    const response = await fetch(`users/by_username/${profileUsername}`);
+    const response = await fetch(`/users/by_username/${profileUsername}`);
 
     if (response.ok)
     {
