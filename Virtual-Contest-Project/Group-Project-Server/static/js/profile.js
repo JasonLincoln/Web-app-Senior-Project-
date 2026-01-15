@@ -1,13 +1,24 @@
 "use strict";
 
-const currentPath = window.location.pathname;
-const profileUser = currentPath.substring(15);
-const profileUserID = +profileUser;
-
 addEventListener("DOMContentLoaded", (event) => {
-    showHaveSkills(profileUserID);
-    showToLearnSkills(profileUserID);
+    getProfileUsernameAndID();
 })
+
+async function getProfileUsernameAndID() {
+    const profileUsername = document.querySelector(".username").textContent;
+
+    const response = await fetch(`users/by_username/${profileUsername}`);
+
+    if (response.ok)
+    {
+        const data = await response.json();
+
+        const profileUserID = data.id;
+
+        showHaveSkills(profileUserID);
+        showToLearnSkills(profileUserID);
+    }
+}
 
 async function showHaveSkills(userID)
 {
