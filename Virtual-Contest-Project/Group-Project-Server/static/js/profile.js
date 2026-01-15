@@ -2,7 +2,7 @@
 
 const currentPath = window.location.pathname;
 const profileUser = currentPath.substring(15);
-const profileUserID = parseInt(profileUser);
+const profileUserID = parseInt(profileUser, 10);
 
 addEventListener("DOMContentLoaded", (event) => {
     showHaveSkills(profileUserID);
