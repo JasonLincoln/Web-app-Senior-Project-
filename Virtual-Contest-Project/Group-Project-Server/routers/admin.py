@@ -65,17 +65,6 @@ async def get_user_by_id(request: Request, db: db_dependency, user_id: int = Pat
         return users_result
     raise HTTPException(status_code = 404, detail = 'User not found')
 
-'''Need to check if this is needed or if we are fine with just id'''
-
-# @router.get('/by_username/{user_username}', status_code = status.HTTP_200_OK)
-# async def get_user_by_username(user: user_dependency, db: db_dependency, user_username: str = Path(min_length = 1)):
-#     if user is None or user.get('user_role') != 'admin':
-#         raise HTTPException(status_code=401, detail = "Authentication Failed")
-#     users_result = (db.query(Users).filter(Users.username == user_username).first())
-#     if users_result is not None:
-#         return users_result
-#     raise HTTPException(status_code = 404, detail = 'User not found')
-
 '''gets all skills if the user logged in is an admin'''
 @router.get("/skill", status_code = status.HTTP_200_OK)
 async def get_all_skills(request: Request, db: db_dependency):
@@ -291,14 +280,3 @@ async def delete_session_by_id(request: Request, db: db_dependency, session_id: 
         raise HTTPException(status_code = 404, detail = "Session not found")
     db.query(Sessions).filter(session_id == Sessions.id).delete()
     db.commit()
-
-'''Need to check if this is needed or if we are fine with just id'''
-# @router.delete('/by_username/{user_username}', status_code = status.HTTP_204_NO_CONTENT)
-# async def delete_user(user: user_dependency, db: db_dependency, user_username: str = Path(min_length = 1)):
-#     if user is None or user.get('user_role' != 'admin'):
-#         raise HTTPException(status_code = 401, detail = "Authentication Failed")
-#     user_model = db.query(Users).filter(Users.username == user_username).first()
-#     if user_model is None:
-#         raise HTTPException(status_code = 404, detail = "User not found")
-#     db.query(Users).filter(Users.username == user_username).delete()
-#     db.commit()
