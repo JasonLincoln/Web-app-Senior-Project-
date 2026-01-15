@@ -387,7 +387,7 @@ const profileCreationForm = document.getElementById('user_update');
                     console.log('finished first')
                     getCurrentUser().then(id => {
                         if(id) {
-                            setTimeout(getSkill, 500, form, id);
+                            setTimeout(getSkill, 50, form, id);
                         }
                     });
 
