@@ -1,64 +1,55 @@
 {% extends 'layout.html' %}
 
 {% block extra_head %}
-    <!-- Profile CSS -->
-    <link rel="stylesheet" href="{{ url_for('static', path='/css/tailwindcss-colors.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', path='/css/profile.css') }}">
-    <!-- Edit Card CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.css">
-    <link rel="stylesheet" href="{{ url_for('static', path='/css/edit_card.css') }}">
     <title>Profile Page</title>
 {% endblock %}
 
 {% block content %}
-<!-- start: profile -->
+<div>
+    <!-- start: profile -->
     <div id="complete-profile-parent">
         <div id="complete-profile">
             <!-- start: personal content -->
             <div class="profile-personal-content">
                 <div class="profile-picture-section">
                     <div class="profile-image">
-                        {% if user %}
                         <img class="pfp" src="{{user.profile_url}}" alt="profile image">
-                        {% endif %}
                         <button class="settings-icon-button"><a href="/pages/profile-creation"><i class="fa-solid fa-gear settings-icon"></i></a></button>
                     </div>
                 </div>
                 <div class="name-pronouns">
-                    {% if user %}
                     <p class="display-name">{{ user.display_name }}</p>
                     <p class="username">{{ user.username }}</p>
                     <p class="pronouns">{{ user.pronouns }}</p>
                     <textarea class="profile-bio" placeholder="This person has been too lazy to write about themself." readonly>{{ user.biography }}</textarea>
-                    {% endif %}
                 </div>
 
                 <div id="sessions-and-ratings">
                     <div class="sessions">
-                        <a href="/pages/sessions">
-                            <button id="sessions-button">Sessions</button>
-                        </a>
+                        <button id="sessions-button"><a href="/pages/sessions">Sessions</a></button>
                     </div>
                     <div class="rating">
-                        <a href="/pages/rating/{{user.username}}">
-                            <button id="ratings-button">Ratings</button>
-                        </a>
+                        <button id="ratings-button"><a href="/pages/rating/{{user.username}}">Ratings</a></button>
                     </div>
                 </div>
             </div> <!-- end: personal content -->
 
             <div class="Skills">
                 <div class="skills-you-have">
-                    <h2>Skills You Have</h2>
+
                 </div>
                 <div class="skills-to-learn">
-                    <h2> Skills To Learn</h2>
+
                 </div>
             </div>  
         </div> <!-- end of profile container -->
     </div>
+</div>
 {% endblock %}
 
 {% block extra_js %}
+    <script src="https://kit.fontawesome.com/16ce6dc272.js" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="{{ url_for('static', path='/js/profile.js') }}"></script>
 {% endblock %}

@@ -3,6 +3,7 @@ from typing import Annotated
 from fastapi import APIRouter, Depends, HTTPException, Request
 from passlib.context import CryptContext
 from pydantic import BaseModel, Field
+from sqlalchemy import and_, or_
 from sqlalchemy.orm import Session
 from starlette import status
 from database import SessionLocal
@@ -30,16 +31,24 @@ class SessionsRequest(BaseModel):
     recipient_username: str = Field(min_length=1, max_length=100)
 
 '''Gets all session a user has accepted'''
-@router.get('/sessions', status_code = status.HTTP_200_OK)
-async def get_ratings(user: user_dependency, db: db_dependency, username: str):
+@router.get('/sessions/accepted', status_code = status.HTTP_200_OK)
+async def get_sessions(user: user_dependency, db: db_dependency, username: str):
     if user is None:
         raise HTTPException(status_code=401, detail="Authentication Failed")
-    ratings_result = (db.query(Sessions).filter(username == Sessions.recipient_username).all())
-    if ratings_result is not None:
-        return ratings_result
-    raise HTTPException(status_code=404, detail="Ratings not found")
+    sessions_result = (db.query(Sessions).filter(and_(or_(username == Sessions.sender_username, username == Sessions.recipient_username)), Sessions.accepted == True).all())
+    if sessions_result is not None:
+        return sessions_result
+    raise HTTPException(status_code=404, detail="Sessions not found")
 
-
+'''Gets all session a user has requested'''
+@router.get('/sessions/requested', status_code = status.HTTP_200_OK)
+async def get_sessions(user: user_dependency, db: db_dependency, username: str):
+    if user is None:
+        raise HTTPException(status_code=401, detail="Authentication Failed")
+    sessions_result = (db.query(Sessions).filter(and_(username == Sessions.recipient_username, Sessions.accepted == False)).all())
+    if sessions_result is not None:
+        return sessions_result
+    raise HTTPException(status_code=404, detail="Sessions not found")
 
 
 

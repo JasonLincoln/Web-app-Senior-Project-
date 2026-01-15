@@ -2,6 +2,7 @@
 let loadCarousel = false;
 let intervalID = null;
 let selectedImage = null;
+const currentUserEndpoint = '/users/';
 
 $(document).ready( () => {
     checkRadio(); // for the user to pick the image
@@ -233,6 +234,123 @@ const tabFunctions = (tabName, event) => {
 	event.currentTarget.className += " active-tab"; // display targeted tab
 }
 
+async function getCurrentUser(){
+    const response = await fetch(currentUserEndpoint);
+    if (response.ok) {
+        const data = await response.json();
+        const currentId = data.id;
+        return currentId;
+    }
+    else {
+        const errorData = await response.json();
+        alert(`Error: ${errorData.detail}`);
+    }
+}
+
+async function getSkill(form, id){
+    const skillForm = document.getElementById('user_update');
+    if (skillForm) {
+
+        console.log('into second');
+
+        const formData = new FormData(form);
+        const data = Object.fromEntries(formData.entries());
+        let payload = '';
+        let deleteSkillSubCategory = '';
+        let needSkill = '';
+
+        const skills = ['Python', 'Java', 'C++', 'CSharp', 'HTML', 'CSS', 'Javascript', 'SQL', 'Microsoft Word', 'Microsoft Excel', 'Microsoft Powerpoint', 'Networking',
+        'Cybersecurity', 'Algebra', 'Statistics', 'Geometry', 'Pre-Calculus', 'Calculus', 'Biology', 'Chemistry', 'Anatomy & Physiology', 'Physics', 'Astrology',
+        'Nutrition', 'History', 'Economics', 'Government', 'Geography', 'Accounting', 'Banking & Finance', 'Entrepreneurship', 'Marketing', 'Real Estate', 'Cars',
+        'College Admissions', 'Job Applications', 'Social Media', 'Physical Arts', 'Visual Arts', 'Music', 'English', 'Spanish', 'French',
+        'PythonNeed', 'JavaNeed', 'C++Need', 'CSharpNeed', 'HTMLNeed', 'CSSNeed', 'JavascriptNeed', 'SQLNeed', 'MicrosoftWordNeed', 'MicrosoftExcelNeed', 'MicrosoftPowerpointNeed',
+        'NetworkingNeed', 'CybersecurityNeed', 'AlgebraNeed', 'StatisticsNeed', 'GeometryNeed', 'Pre-CalculusNeed', 'CalculusNeed', 'BiologyNeed', 'ChemistryNeed',
+        'Anatomy&PhysiologyNeed', 'PhysicsNeed', 'AstrologyNeed', 'NutritionNeed', 'HistoryNeed', 'EconomicsNeed', 'GovernmentNeed', 'GeographyNeed', 'AccountingNeed',
+        'Banking&FinanceNeed', 'EntrepreneurshipNeed', 'MarketingNeed', 'RealEstateNeed', 'CarsNeed', 'CollegeAdmissionsNeed', 'JobApplicationsNeed', 'SocialMediaNeed',
+        'PhysicalArtsNeed', 'VisualArtsNeed', 'MusicNeed', 'EnglishNeed', 'SpanishNeed', 'FrenchNeed'];
+
+        console.log('Made array')
+
+        console.log(skills.length)
+
+        try {
+            const token = getCookie('access_token');
+            console.log(token);
+            if (!token) {
+                throw new Error('Authentication token not found');
+            }
+
+            for (let i = 0; i < skills.length; i++)
+            {
+                deleteSkillSubCategory = skills[i]
+
+                console.log(payload)
+
+                const response = await fetch(`/skills/skill/${deleteSkillSubCategory}`, {
+                method: 'DELETE'
+                });
+            }
+
+            for (let i = 0; i < skills.length; i++)
+            {
+                const checkbox = document.getElementById(skills[i]);
+
+                if (checkbox.checked)
+                {
+                    if (skills[i].includes('Need'))
+                    {
+                        console.log('include working')
+
+                        needSkill = skills[i].slice(0, -4);
+
+                        payload = {
+                            skill_sub_category: needSkill,
+                            is_learning: true
+                        };
+
+                        console.log(payload)
+
+                        const response = await fetch('/skills/create_userskill', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Authorization': `Bearer ${token}`
+                        },
+                        body: JSON.stringify(payload)
+                        });
+                    }
+                    else
+                    {
+                        console.log(skills[i])
+
+                        payload = {
+                            skill_sub_category: skills[i],
+                            is_learning: false
+                        };
+
+                        console.log(payload)
+
+                        const response = await fetch('/skills/create_userskill', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Authorization': `Bearer ${token}`
+                        },
+                        body: JSON.stringify(payload)
+                        });
+                    }
+                }
+            }
+
+            window.location.href = '/pages/index';
+
+        } catch (error) {
+            console.error('Error:', error);
+            alert('An error occurred. Please try again.');
+        }
+    };
+};
+
 const profileCreationForm = document.getElementById('user_update');
     if (profileCreationForm) {
         profileCreationForm.addEventListener('submit', async function (event) {
@@ -266,7 +384,13 @@ const profileCreationForm = document.getElementById('user_update');
                 });
 
                 if (response.ok) {
-                    window.location.href = '/pages/index';
+                    console.log('finished first')
+                    getCurrentUser().then(id => {
+                        if(id) {
+                            setTimeout(getSkill, 500, form, id);
+                        }
+                    });
+
                 } else {
                     // Handle error
                     const errorData = await response.json();

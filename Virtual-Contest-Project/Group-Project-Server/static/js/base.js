@@ -83,6 +83,7 @@ async function getCurrentUser(){
  async function getToken(form){
     tokenForm = document.getElementById('signup_form');
     if (tokenForm) {
+
         console.log('into second');
 
             const formData = new FormData(form);
