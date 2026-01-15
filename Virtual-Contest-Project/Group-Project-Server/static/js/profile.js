@@ -1,25 +1,11 @@
 "use strict";
 
-async function getCurrentUser(){
-    const response = await fetch(currentUserEndpoint);
-    if (response.ok) {
-        const data = await response.json();
-        const userID = data.id;
-        return userID;
-    }
-    else {
-        const errorData = await response.json();
-        alert(`Error: ${errorData.detail}`);
-    }
-}
+const currentPath = window.location.pathname;
+const profileUser = currentPath.substring(15);
 
 addEventListener("DOMContentLoaded", (event) => {
-    getCurrentUser().then(userID => {
-        if(userID) {
-            showHaveSkills(userID);
-            showToLearnSkills(userID);
-        }
-    });
+    showHaveSkills(profileUser);
+    showToLearnSkills(profileUser);
 })
 
 async function showHaveSkills(userID)
