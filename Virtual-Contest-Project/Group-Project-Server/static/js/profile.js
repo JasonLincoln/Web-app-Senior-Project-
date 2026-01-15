@@ -1,11 +1,12 @@
 "use strict";
 
 const currentPath = window.location.pathname;
-const profileUser = Number(currentPath.substring(15));
+const profileUser = currentPath.substring(15);
+const profileUserID = parseInt(profileUser);
 
 addEventListener("DOMContentLoaded", (event) => {
-    showHaveSkills(profileUser);
-    showToLearnSkills(profileUser);
+    showHaveSkills(profileUserID);
+    showToLearnSkills(profileUserID);
 })
 
 async function showHaveSkills(userID)
