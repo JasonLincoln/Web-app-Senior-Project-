@@ -156,7 +156,7 @@ async function getCurrentUser(){
                     //Makes an automated message for the user to grant access to messaging on the messages page
                     registeredUsername = data.username;
                     automatedMessage(registeredUsername);
-                    setTimeout(getToken, 500, form);
+                    setTimeout(getToken, 50, form);
                 } else {
                     // Handle error
                     const errorData = await response.json();
@@ -219,7 +219,7 @@ async function getCurrentUser(){
         });
 
         if (response.ok) {
-            window.location.href = '/pages/login';
+            console.log ('sent auto message');
         } else {
             // Handle error
             const errorData = await response.json();

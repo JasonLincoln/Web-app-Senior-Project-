@@ -91,18 +91,6 @@ async def get_sessions(user: user_dependency, db: db_dependency, username: str):
         return sessions_result
     raise HTTPException(status_code=404, detail="Sessions not found")
 
-
-
-
-
-
-
-
-
-
-
-
-
 '''creates a new session between two or more users'''
 @router.post('/create_session', status_code = status.HTTP_201_CREATED)
 async def create_session(request: Request, db: db_dependency, session_request: SessionsRequest):

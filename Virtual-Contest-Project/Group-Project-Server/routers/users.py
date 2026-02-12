@@ -104,9 +104,7 @@ async def get_user_by_username(request: Request, db: db_dependency, username: st
     user = await get_current_user(request.cookies.get('access_token'))
     if user is None:
         raise HTTPException(status_code = 401, detail = "Authentication Failed")
-    username_result = (db.query(Users)
-                      .filter(username == Users.username)
-                      .first())
+    username_result = (db.query(Users).filter(username == Users.username).first())
     if username_result is not None:
         return username_result
     raise HTTPException(status_code = 404, detail = 'User not found')

@@ -5,7 +5,7 @@ from sqlalchemy import and_
 from sqlalchemy.orm import Session
 from starlette import status
 from database import SessionLocal
-from models import Skills, UsersSkills
+from models import UsersSkills
 from routers.auth import get_current_user
 
 '''Defines the router for the skill functions'''
@@ -38,14 +38,15 @@ class UserSkillRequest(BaseModel):
     skill_sub_category: str = Field(min_length = 1, max_length = 100)
     is_learning: bool = Field()
 
-'''Gets a skill by its id'''
-@router.get('/by_id/{skill_id}', status_code = status.HTTP_200_OK)
-async def get_skill_by_id(user: user_dependency, db: db_dependency, skill_id: int = Path(gt = 0)):
+'''Gets all skills a user has and is learning'''
+@router.get('/skills/{user_id}', status_code = status.HTTP_200_OK)
+async def get_skills(request: Request, db: db_dependency, user_id: int = Path(gt = 0)):
+    user = await get_current_user(request.cookies.get('access_token'))
     if user is None:
         raise HTTPException(status_code=401, detail = "Authentication Failed")
-    skills_result = (db.query(Skills).filter(skill_id == Skills.id).first())
-    if skills_result is not None:
-        return skills_result
+    user_skills_result = (db.query(UsersSkills).filter(user_id == UsersSkills.user_id).all())
+    if user_skills_result is not None:
+        return user_skills_result
     raise HTTPException(status_code = 404, detail = 'Skill not found')
 
 '''Gets all skills a user has'''
@@ -70,7 +71,7 @@ async def get_skills_user_is_learning(request: Request, db: db_dependency, user_
         return user_skills_result
     raise HTTPException(status_code = 404, detail = 'Skill not found')
 
-'''Temp endpoint DELETE WHEN DONE'''
+'''creates a userskill'''
 @router.post('/create_userskill', status_code = status.HTTP_201_CREATED)
 async def create_userskill(user: user_dependency, db: db_dependency, userskill_request: UserSkillRequest):
     if user is None:
@@ -91,4 +92,17 @@ async def delete_userskill_by_name(request: Request, db: db_dependency, skill_su
     if user_skill_model is None:
         raise HTTPException(status_code = 404, detail = "UserSkill not found")
     db.delete(user_skill_model)
+    db.commit()
+
+'''Deletes a userskill by its user id'''
+@router.delete('/delete_skills/{user_id}', status_code = status.HTTP_204_NO_CONTENT)
+async def delete_userskill_by_user(request: Request, db: db_dependency, user_id: int = Path(gt = 0)):
+    user = await get_current_user(request.cookies.get('access_token'))
+    if user is None:
+        raise HTTPException(status_code = 401, detail = "Authentication Failed")
+    user_skill_model = (db.query(UsersSkills).filter(user_id == UsersSkills.user_id).all())
+    if user_skill_model is None:
+        raise HTTPException(status_code = 404, detail = "UserSkill not found")
+    for user_skill in user_skill_model:
+        db.delete(user_skill)
     db.commit()
