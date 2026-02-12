@@ -19,7 +19,7 @@ let chatForm = 0;
 addEventListener("DOMContentLoaded", (event) => {
     getCurrentUser().then(username => {
         if(username) {
-            displayRecents(username);
+            getFullChats(username);
         }
     });
 })
